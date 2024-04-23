@@ -1,14 +1,14 @@
-import 'jsvectormap'
-import 'jsvectormap/dist/maps/canada.js'
+import "jsvectormap";
+import "jsvectormap/dist/maps/canada.js";
 
 //components
-import BaseVectorMap from './BaseVectorMap'
+import BaseVectorMap from "./BaseVectorMap";
 
 type CanadaVectorMapProps = {
-  width?: string
-  height?: string
-  options?: any
-}
+  width?: string;
+  height?: string;
+  options?: any;
+};
 
 const CanadaVectorMap = ({ width, height, options }: CanadaVectorMapProps) => {
   return (
@@ -20,7 +20,7 @@ const CanadaVectorMap = ({ width, height, options }: CanadaVectorMapProps) => {
         type="canada"
       />
     </>
-  )
-}
+  );
+};
 
-export default CanadaVectorMap
+export default CanadaVectorMap;

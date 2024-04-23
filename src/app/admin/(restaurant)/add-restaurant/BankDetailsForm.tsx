@@ -1,28 +1,46 @@
-
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { LuEraser, LuSave } from 'react-icons/lu'
-import { TextFormInput } from '@/components'
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LuEraser, LuSave } from "react-icons/lu";
+import { TextFormInput } from "@/components";
 
 const BankDetailsForm = () => {
   const bankDetailsFormSchema = yup.object({
-    bankName: yup.string().required('Please enter your bank name'),
-    branchName: yup.string().required('Please enter your branch name'),
-    holderName: yup.string().required('Please enter your account holder name'),
-    accountNo: yup.number().required('Please enter your account no.'),
-    ifscNo: yup.string().required('Please enter IFSC code'),
-  })
+    bankName: yup.string().required("Please enter your bank name"),
+    branchName: yup.string().required("Please enter your branch name"),
+    holderName: yup.string().required("Please enter your account holder name"),
+    accountNo: yup.number().required("Please enter your account no."),
+    ifscNo: yup.string().required("Please enter IFSC code"),
+  });
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(bankDetailsFormSchema),
-  })
+  });
   return (
-    <form onSubmit={handleSubmit(() => {})} id="tabBankDetail" className="hidden" role="tabpanel">
+    <form
+      onSubmit={handleSubmit(() => {})}
+      id="tabBankDetail"
+      className="hidden"
+      role="tabpanel"
+    >
       <h4 className="mb-6 text-lg font-medium text-default-900">Step 3:</h4>
       <div className="mb-6 grid gap-6 lg:grid-cols-2">
-        <TextFormInput name="bankName" type="text" label="Bank Name" placeholder="Enter Your Bank Name" control={control} fullWidth />
-        <TextFormInput name="branchName" type="text" label="Branch" placeholder="Enter Your Branch Name" control={control} fullWidth />
+        <TextFormInput
+          name="bankName"
+          type="text"
+          label="Bank Name"
+          placeholder="Enter Your Bank Name"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="branchName"
+          type="text"
+          label="Branch"
+          placeholder="Enter Your Branch Name"
+          control={control}
+          fullWidth
+        />
         <TextFormInput
           name="holderName"
           type="text"
@@ -32,8 +50,22 @@ const BankDetailsForm = () => {
           control={control}
           fullWidth
         />
-        <TextFormInput name="accountNo" type="text" label="Account Number" placeholder="Enter Your Account Number" control={control} fullWidth />
-        <TextFormInput name="ifscNo" type="text" label="IFSC Code" placeholder="Enter IFSC Code" control={control} fullWidth />
+        <TextFormInput
+          name="accountNo"
+          type="text"
+          label="Account Number"
+          placeholder="Enter Your Account Number"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="ifscNo"
+          type="text"
+          label="IFSC Code"
+          placeholder="Enter IFSC Code"
+          control={control}
+          fullWidth
+        />
       </div>
       <div className="flex flex-wrap justify-end gap-4">
         <button
@@ -53,7 +85,7 @@ const BankDetailsForm = () => {
         </button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default BankDetailsForm
+export default BankDetailsForm;

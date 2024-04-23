@@ -1,8 +1,7 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FilterResetButton = () => {
-
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   return (
@@ -13,7 +12,7 @@ const FilterResetButton = () => {
     >
       Reset
     </button>
-  )
-}
+  );
+};
 
-export default FilterResetButton
+export default FilterResetButton;

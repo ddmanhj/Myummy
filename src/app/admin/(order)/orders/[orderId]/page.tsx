@@ -1,58 +1,66 @@
-
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import { LuDot } from 'react-icons/lu'
-import { BreadcrumbAdmin, OrderDetailsCard, OrderDetailsDataTable } from '@/components'
-import { getOrderHistoryById } from '@/helpers'
-import TotalPayment from './TotalPayment'
-import DeliveryDetail from './DeliveryDetail'
-import OrderProgress from './OrderProgress'
-import LogisticsDetails from './LogisticsDetails'
-import { dishesData } from '@/assets/data'
-import { useEffect, useState } from 'react'
-import type { ColumnType } from '@/types/util'
-import type { DishType } from '@/types/food'
-import type { OrderType } from '@/types/other'
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { LuDot } from "react-icons/lu";
+import {
+  BreadcrumbAdmin,
+  OrderDetailsCard,
+  OrderDetailsDataTable,
+} from "@/components";
+import { getOrderHistoryById } from "@/helpers";
+import TotalPayment from "./TotalPayment";
+import DeliveryDetail from "./DeliveryDetail";
+import OrderProgress from "./OrderProgress";
+import LogisticsDetails from "./LogisticsDetails";
+import { dishesData } from "@/assets/data";
+import { useEffect, useState } from "react";
+import type { ColumnType } from "@/types/util";
+import type { DishType } from "@/types/food";
+import type { OrderType } from "@/types/other";
 
 const columns: Array<ColumnType<DishType>> = [
   {
-    key: 'name',
-    name: 'Dish',
+    key: "name",
+    name: "Dish",
   },
   {
-    key: 'price',
-    name: 'Price',
+    key: "price",
+    name: "Price",
   },
   {
-    key: 'quantity',
-    name: 'Quantity',
+    key: "quantity",
+    name: "Quantity",
   },
-]
+];
 
 const OrderDetails = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { orderId } = useParams();
 
-  const [order, setOrder] = useState<OrderType>()
+  const [order, setOrder] = useState<OrderType>();
 
   useEffect(() => {
     (async () => {
-      const foundOrder = await getOrderHistoryById('#' + orderId)
+      const foundOrder = await getOrderHistoryById("#" + orderId);
       if (!foundOrder) {
-        navigate('/not-found')
+        navigate("/not-found");
       } else {
-        setOrder(foundOrder)
+        setOrder(foundOrder);
       }
-    })()
-  }, [orderId])
+    })();
+  }, [orderId]);
 
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
-        <BreadcrumbAdmin title="Order Details" subtitle="Order" link="/admin/orders" />
+        <BreadcrumbAdmin
+          title="Order Details"
+          subtitle="Order"
+          link="/admin/orders"
+        />
         <div className="rounded-lg border border-default-200">
           <div className="flex flex-wrap items-center gap-3 border-b border-default-200 p-6">
-            <h4 className="text-xl font-medium text-default-900">Order {(order && order.id.toUpperCase())}</h4>
+            <h4 className="text-xl font-medium text-default-900">
+              Order {order && order.id.toUpperCase()}
+            </h4>
             <div className="flex flex-wrap items-center gap-3">
               <LuDot />
               <h4 className="text-sm text-default-600">September 23, 2023</h4>
@@ -61,7 +69,10 @@ const OrderDetails = () => {
               <LuDot />
               <h4 className="text-sm text-default-600">3 Products</h4>
             </div>
-            <Link to="/admin/orders" className="ms-auto text-base font-medium text-primary">
+            <Link
+              to="/admin/orders"
+              className="ms-auto text-base font-medium text-primary"
+            >
               Back to List
             </Link>
           </div>
@@ -96,7 +107,7 @@ const OrderDetails = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderDetails
+export default OrderDetails;

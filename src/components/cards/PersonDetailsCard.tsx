@@ -1,8 +1,7 @@
-
-import type { SellerType } from '@/types/food'
+import type { SellerType } from "@/types/food";
 
 const PersonDetailsCard = ({ seller }: { seller: SellerType }) => {
-  const { contact_no, email, location, name, photo } = seller
+  const { contact_no, email, location, name, photo } = seller;
 
   return (
     <div className="rounded-lg border border-default-200 p-6">
@@ -17,7 +16,8 @@ const PersonDetailsCard = ({ seller }: { seller: SellerType }) => {
       <div className="mt-6 text-start">
         <h4 className="mb-2.5 text-sm uppercase">About Me :</h4>
         <p className="mb-6 text-gray-400">
-          Hi I&apos;m Kaiya Botosh,has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of
+          Hi I&apos;m Kaiya Botosh,has been the industry&apos;s standard dummy
+          text ever since the 1500s, when an unknown printer took a galley of
           type.
         </p>
         <p className="mb-3 text-zinc-400">
@@ -35,7 +35,7 @@ const PersonDetailsCard = ({ seller }: { seller: SellerType }) => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PersonDetailsCard
+export default PersonDetailsCard;

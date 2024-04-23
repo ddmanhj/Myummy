@@ -1,71 +1,89 @@
-import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { FaStar } from 'react-icons/fa6'
-import { getRestaurantById, getSellerById } from '@/helpers'
-import { BreadcrumbAdmin } from '@/components'
-import { RestaurantMenuDataTable } from '@/components/data-tables'
-import CostAndUsageChart from './CostAndUsageChart'
-import { avatar1Img, avatar2Img, restaurant1Img, restaurantBgImg } from '@/assets/data/images'
-import { dishesData } from '@/assets/data'
-import type { DishType, RestaurantType } from '@/types/food'
-import type { ColumnType } from '@/types/util'
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { FaStar } from "react-icons/fa6";
+import { getRestaurantById, getSellerById } from "@/helpers";
+import { BreadcrumbAdmin } from "@/components";
+import { RestaurantMenuDataTable } from "@/components/data-tables";
+import CostAndUsageChart from "./CostAndUsageChart";
+import {
+  avatar1Img,
+  avatar2Img,
+  restaurant1Img,
+  restaurantBgImg,
+} from "@/assets/data/images";
+import { dishesData } from "@/assets/data";
+import type { DishType, RestaurantType } from "@/types/food";
+import type { ColumnType } from "@/types/util";
 
 const columns: Array<ColumnType<DishType>> = [
   {
-    key: 'name',
-    name: 'Dish',
+    key: "name",
+    name: "Dish",
   },
   {
-    key: 'category',
-    name: 'Category',
+    key: "category",
+    name: "Category",
   },
   {
-    key: 'price',
-    name: 'Price',
+    key: "price",
+    name: "Price",
   },
   {
-    key: 'id',
-    name: 'Order ID',
+    key: "id",
+    name: "Order ID",
   },
   {
-    key: 'review',
-    name: 'Rating',
+    key: "review",
+    name: "Rating",
   },
-]
+];
 
 const RestaurantDetails = () => {
-
   const { restaurantId } = useParams();
 
-  const [restaurant, setRestaurant] = useState<RestaurantType | undefined>()
+  const [restaurant, setRestaurant] = useState<RestaurantType | undefined>();
 
   useEffect(() => {
     (async () => {
-      const foundRestaurant = await getRestaurantById(Number(restaurantId))
-      let foundSeller
-      if (foundRestaurant) foundSeller = await getSellerById(foundRestaurant.seller_id)
+      const foundRestaurant = await getRestaurantById(Number(restaurantId));
+      let foundSeller;
+      if (foundRestaurant)
+        foundSeller = await getSellerById(foundRestaurant.seller_id);
 
       if (!foundRestaurant || !foundSeller) {
-        navigate('/not-found')
+        navigate("/not-found");
       } else {
-        setRestaurant({ ...foundRestaurant, seller: foundSeller })
+        setRestaurant({ ...foundRestaurant, seller: foundSeller });
       }
-    }
-    )()
-  }, [restaurantId])
+    })();
+  }, [restaurantId]);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
-        <BreadcrumbAdmin title={restaurant?.name ?? 'Restaurant Detail'} subtitle="Restaurants" link="/admin/restaurants" />
+        <BreadcrumbAdmin
+          title={restaurant?.name ?? "Restaurant Detail"}
+          subtitle="Restaurants"
+          link="/admin/restaurants"
+        />
         <div className="mb-6 rounded-lg border border-default-200 p-6">
-          <img src={restaurantBgImg} className="hidden w-full md:flex" alt="background" />
+          <img
+            src={restaurantBgImg}
+            className="hidden w-full md:flex"
+            alt="background"
+          />
           <div className="flex items-center gap-3 md:-mt-14 md:items-end">
-            <img src={restaurant1Img} className="h-28 w-28 rounded-full bg-default-50" alt="restaurant" />
+            <img
+              src={restaurant1Img}
+              className="h-28 w-28 rounded-full bg-default-50"
+              alt="restaurant"
+            />
             <div>
-              <h4 className="mb-1 text-base font-medium text-default-800">{restaurant?.name ?? 'Restaurant Detail'}</h4>
+              <h4 className="mb-1 text-base font-medium text-default-800">
+                {restaurant?.name ?? "Restaurant Detail"}
+              </h4>
               <p className="text-sm text-default-600">Since 2013</p>
             </div>
           </div>
@@ -74,39 +92,69 @@ const RestaurantDetails = () => {
           <div className="xl:col-span-2">
             <CostAndUsageChart />
 
-            <RestaurantMenuDataTable columns={columns} rows={dishesData} buttonLink="/admin/add-dish" buttonText="Add Dish" title="Menu" />
+            <RestaurantMenuDataTable
+              columns={columns}
+              rows={dishesData}
+              buttonLink="/admin/add-dish"
+              buttonText="Add Dish"
+              title="Menu"
+            />
           </div>
           <div className="xl:col-span-1">
             <div className="mb-6 rounded-lg border border-default-200">
               <div className="border-b border-b-default-300 p-6">
-                <h4 className="text-xl font-medium text-default-900">Seller Personal Detail</h4>
+                <h4 className="text-xl font-medium text-default-900">
+                  Seller Personal Detail
+                </h4>
               </div>
               <div className="px-6 py-5">
                 <table cellPadding={10}>
                   <tbody>
                     <tr>
-                      <td className="text-start text-base font-medium">Owner Name:</td>
+                      <td className="text-start text-base font-medium">
+                        Owner Name:
+                      </td>
                       <td className="text-start">{restaurant?.seller?.name}</td>
                     </tr>
                     <tr>
-                      <td className="text-start text-base font-medium">Status:</td>
-                      <td className="text-start">{restaurant?.seller?.status}</td>
+                      <td className="text-start text-base font-medium">
+                        Status:
+                      </td>
+                      <td className="text-start">
+                        {restaurant?.seller?.status}
+                      </td>
                     </tr>
                     <tr>
-                      <td className="text-start text-base font-medium">Email:</td>
-                      <td className="text-start">{restaurant?.seller?.email}</td>
+                      <td className="text-start text-base font-medium">
+                        Email:
+                      </td>
+                      <td className="text-start">
+                        {restaurant?.seller?.email}
+                      </td>
                     </tr>
                     <tr>
-                      <td className="text-start text-base font-medium">Contact No:</td>
-                      <td className="text-start">{restaurant?.seller?.contact_no}</td>
+                      <td className="text-start text-base font-medium">
+                        Contact No:
+                      </td>
+                      <td className="text-start">
+                        {restaurant?.seller?.contact_no}
+                      </td>
                     </tr>
                     <tr>
-                      <td className="text-start text-base font-medium">Orders:</td>
-                      <td className="text-start">{restaurant?.seller?.orders}</td>
+                      <td className="text-start text-base font-medium">
+                        Orders:
+                      </td>
+                      <td className="text-start">
+                        {restaurant?.seller?.orders}
+                      </td>
                     </tr>
                     <tr>
-                      <td className="text-start text-base font-medium">Location:</td>
-                      <td className="text-start">{restaurant?.seller?.location}</td>
+                      <td className="text-start text-base font-medium">
+                        Location:
+                      </td>
+                      <td className="text-start">
+                        {restaurant?.seller?.location}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -114,7 +162,9 @@ const RestaurantDetails = () => {
             </div>
             <div className="mb-6 rounded-lg border border-default-200">
               <div className="border-b border-b-default-300 p-6">
-                <h4 className="text-xl font-medium text-default-900">Customer Reviews</h4>
+                <h4 className="text-xl font-medium text-default-900">
+                  Customer Reviews
+                </h4>
               </div>
               <div className="p-6">
                 <div className="mb-6">
@@ -152,59 +202,115 @@ const RestaurantDetails = () => {
                 <div className="mb-6 flex justify-around">
                   <div className="text-center">
                     <h2 className="mb-1 text-2xl font-medium text-default-900">
-                      4.5 <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
+                      4.5{" "}
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
                     </h2>
-                    <p className="block text-xs text-default-600">452 Reviews</p>
+                    <p className="block text-xs text-default-600">
+                      452 Reviews
+                    </p>
                   </div>
                   <div className="text-center">
-                    <h2 className="mb-1 text-2xl font-medium text-default-900">91%</h2>
-                    <p className="block text-xs text-default-600">Recommended</p>
+                    <h2 className="mb-1 text-2xl font-medium text-default-900">
+                      91%
+                    </h2>
+                    <p className="block text-xs text-default-600">
+                      Recommended
+                    </p>
                   </div>
                 </div>
                 <div className="mb-4">
                   <div className="mb-4 flex items-center gap-3">
-                    <img src={avatar1Img} className="h-11 w-11 rounded-full" alt="avatar" />
+                    <img
+                      src={avatar1Img}
+                      className="h-11 w-11 rounded-full"
+                      alt="avatar"
+                    />
                     <div className="flex-grow">
                       <h4 className="mb-1 text-xs text-default-700">
-                        Kianna Stanton <span className="text-default-600">🇺🇸US</span>
+                        Kianna Stanton{" "}
+                        <span className="text-default-600">🇺🇸US</span>
                       </h4>
                       <h4 className="text-xs text-green-400">Verified Buyer</h4>
                     </div>
                     <div>
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
                     </div>
                   </div>
-                  <h5 className="mb-2 text-sm text-default-600">SO DELICIOUS 🍯💯</h5>
+                  <h5 className="mb-2 text-sm text-default-600">
+                    SO DELICIOUS 🍯💯
+                  </h5>
                   <p className="text-sm text-default-600">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud exercitation.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                   </p>
                 </div>
                 <div className="mb-4">
                   <div className="mb-4 flex items-center gap-3">
-                    <img src={avatar2Img} className="h-11 w-11 rounded-full" alt="avatar" />
+                    <img
+                      src={avatar2Img}
+                      className="h-11 w-11 rounded-full"
+                      alt="avatar"
+                    />
                     <div className="flex-grow">
                       <h4 className="mb-1 text-xs text-default-700">
-                        Ryan Rhiel Madsen <span className="text-default-600">🇺🇸US</span>
+                        Ryan Rhiel Madsen{" "}
+                        <span className="text-default-600">🇺🇸US</span>
                       </h4>
                       <h4 className="text-xs text-green-400">Verified Buyer</h4>
                     </div>
                     <div>
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
-                      <FaStar size={20} className="inline-flex fill-yellow-400 align-middle text-yellow-400" />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
+                      <FaStar
+                        size={20}
+                        className="inline-flex fill-yellow-400 align-middle text-yellow-400"
+                      />
                     </div>
                   </div>
-                  <h5 className="mb-2 text-sm text-default-600">SO DELICIOUS 🍯💯</h5>
+                  <h5 className="mb-2 text-sm text-default-600">
+                    SO DELICIOUS 🍯💯
+                  </h5>
                   <p className="text-sm text-default-600">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud exercitation.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                   </p>
                 </div>
               </div>
@@ -213,7 +319,7 @@ const RestaurantDetails = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RestaurantDetails
+export default RestaurantDetails;

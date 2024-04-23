@@ -1,11 +1,18 @@
-
-import { ProductListCard } from '@/components'
-import { useFilterContext } from '@/context'
-import { getFilteredProducts } from '@/helpers'
+import { ProductListCard } from "@/components";
+import { useFilterContext } from "@/context";
+import { getFilteredProducts } from "@/helpers";
 
 const DishesList = () => {
-  const { categories, maxPrice, minPrice, rating, restaurants, search } = useFilterContext()
-  const dishesData = getFilteredProducts({ categories, maxPrice, minPrice, rating, restaurants, search })
+  const { categories, maxPrice, minPrice, rating, restaurants, search } =
+    useFilterContext();
+  const dishesData = getFilteredProducts({
+    categories,
+    maxPrice,
+    minPrice,
+    rating,
+    restaurants,
+    search,
+  });
 
   return (
     <>
@@ -13,7 +20,7 @@ const DishesList = () => {
         <ProductListCard key={dish.id} dish={dish} />
       ))}
     </>
-  )
-}
+  );
+};
 
-export default DishesList
+export default DishesList;

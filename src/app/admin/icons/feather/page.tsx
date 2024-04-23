@@ -1,8 +1,10 @@
-import { BreadcrumbAdmin } from "@/components"
-import * as  AllFeatherIcons from "react-icons/fi"
+import { BreadcrumbAdmin } from "@/components";
+import * as AllFeatherIcons from "react-icons/fi";
 
 const Feather = () => {
-  const featherIcons = Object.keys(AllFeatherIcons) as (keyof typeof AllFeatherIcons)[]
+  const featherIcons = Object.keys(
+    AllFeatherIcons,
+  ) as (keyof typeof AllFeatherIcons)[];
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
@@ -14,20 +16,20 @@ const Feather = () => {
               id="icons"
             >
               {featherIcons.map((icon, idx) => {
-                  const Icon = AllFeatherIcons[icon];
+                const Icon = AllFeatherIcons[icon];
                 return (
                   <div className="flex items-center gap-3" key={idx}>
                     <Icon name={icon} size={24} />
                     <span className="text-sm">{icon.slice(2)}</span>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Feather
+export default Feather;

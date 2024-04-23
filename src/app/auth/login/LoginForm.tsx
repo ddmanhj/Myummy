@@ -1,16 +1,24 @@
-
-import { Link } from 'react-router-dom'
-import { LuCopy, LuLock, LuMail, LuShield, LuUser } from 'react-icons/lu'
-import useLogin from './useLogin'
-import { PasswordFormInput, TextFormInput } from '@/components'
+import { Link } from "react-router-dom";
+import { LuCopy, LuLock, LuMail, LuShield, LuUser } from "react-icons/lu";
+import useLogin from "./useLogin";
+import { PasswordFormInput, TextFormInput } from "@/components";
 
 const LoginForm = () => {
-  const { loading, login, control, changeUserRole } = useLogin()
+  const { loading, login, control, changeUserRole } = useLogin();
 
   return (
     <>
       <form onSubmit={login}>
-        <TextFormInput name="email" control={control} type="email" className='bg-white' placeholder="Enter your email" label="Email" containerClassName="mb-6" fullWidth />
+        <TextFormInput
+          name="email"
+          control={control}
+          type="email"
+          className="bg-white"
+          placeholder="Enter your email"
+          label="Email"
+          containerClassName="mb-6"
+          fullWidth
+        />
 
         <PasswordFormInput
           name="password"
@@ -21,7 +29,10 @@ const LoginForm = () => {
           fullWidth
         />
 
-        <Link to="/auth/forgot-password" className="float-right text-end text-sm text-default-600 underline">
+        <Link
+          to="/auth/forgot-password"
+          className="float-right text-end text-sm text-default-600 underline"
+        >
           Forgot Password?
         </Link>
 
@@ -43,7 +54,7 @@ const LoginForm = () => {
             </div>
             <button
               className="flex items-center gap-1.5 rounded-md bg-primary px-2 py-1 text-sm text-white transition-all hover:bg-primary-600"
-              onClick={() => changeUserRole('user')}
+              onClick={() => changeUserRole("user")}
             >
               <LuCopy />
               Use
@@ -67,7 +78,7 @@ const LoginForm = () => {
             </div>
             <button
               className="flex items-center gap-1.5 rounded-md bg-primary px-2 py-1 text-sm text-white transition-all hover:bg-primary-600"
-              onClick={() => changeUserRole('admin')}
+              onClick={() => changeUserRole("admin")}
             >
               <LuCopy />
               Use
@@ -84,7 +95,7 @@ const LoginForm = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

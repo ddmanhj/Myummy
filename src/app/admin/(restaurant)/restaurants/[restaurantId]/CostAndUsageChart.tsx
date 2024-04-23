@@ -1,31 +1,33 @@
-
-import { DemoFilterDropdown } from '@/components'
-import ReactApexChart from 'react-apexcharts'
-import { type ApexOptions } from 'apexcharts'
+import { DemoFilterDropdown } from "@/components";
+import ReactApexChart from "react-apexcharts";
+import { type ApexOptions } from "apexcharts";
 
 const CostAndUsageChart = () => {
   const ChartOpts: ApexOptions = {
     series: [
       {
-        name: 'Orders',
-        type: 'area',
+        name: "Orders",
+        type: "area",
         data: [34, 65, 46, 68, 49, 61, 42, 44, 78, 52, 63, 67],
       },
       {
-        name: 'Earnings',
-        type: 'bar',
-        data: [89.25, 98.58, 68.74, 108.87, 77.54, 84.03, 51.24, 28.57, 92.57, 42.36, 88.51, 36.57],
+        name: "Earnings",
+        type: "bar",
+        data: [
+          89.25, 98.58, 68.74, 108.87, 77.54, 84.03, 51.24, 28.57, 92.57, 42.36,
+          88.51, 36.57,
+        ],
       },
     ],
     chart: {
       height: 370,
-      type: 'line',
+      type: "line",
       toolbar: {
         show: false,
       },
     },
     stroke: {
-      curve: 'smooth',
+      curve: "smooth",
       dashArray: [0, 0, 8],
       width: [2, 0, 2.2],
     },
@@ -41,7 +43,7 @@ const CostAndUsageChart = () => {
     },
     grid: {
       show: true,
-      borderColor: '#90A4AE25',
+      borderColor: "#90A4AE25",
       strokeDashArray: 5,
       xaxis: {
         lines: {
@@ -63,12 +65,12 @@ const CostAndUsageChart = () => {
     xaxis: {
       labels: {
         style: {
-          colors: '#90A4AE80',
+          colors: "#90A4AE80",
         },
       },
       axisBorder: {
         show: true,
-        color: '#90A4AE50',
+        color: "#90A4AE50",
       },
       axisTicks: {
         show: false,
@@ -77,13 +79,13 @@ const CostAndUsageChart = () => {
     yaxis: {
       labels: {
         style: {
-          colors: '#90A4AE80',
+          colors: "#90A4AE80",
         },
       },
     },
     legend: {
       show: true,
-      horizontalAlign: 'center',
+      horizontalAlign: "center",
       offsetX: 0,
       offsetY: -5,
       markers: {
@@ -98,54 +100,64 @@ const CostAndUsageChart = () => {
     },
     plotOptions: {
       bar: {
-        columnWidth: '30%',
-        barHeight: '70%',
+        columnWidth: "30%",
+        barHeight: "70%",
         borderRadius: 4,
       },
     },
-    colors: ['#38bdf8', '#34d399', '#c084fc'],
+    colors: ["#38bdf8", "#34d399", "#c084fc"],
     tooltip: {
-      theme: 'dark',
+      theme: "dark",
       shared: true,
       y: [
         {
           formatter: function (y) {
-            if (typeof y !== 'undefined') {
-              return y.toFixed(0)
+            if (typeof y !== "undefined") {
+              return y.toFixed(0);
             }
-            return y
+            return y;
           },
         },
         {
           formatter: function (y) {
-            if (typeof y !== 'undefined') {
-              return '$' + y.toFixed(2) + 'k'
+            if (typeof y !== "undefined") {
+              return "$" + y.toFixed(2) + "k";
             }
-            return y
+            return y;
           },
         },
         {
           formatter: function (y) {
-            if (typeof y !== 'undefined') {
-              return y.toFixed(0) + ' Sales'
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " Sales";
             }
-            return y
+            return y;
           },
         },
       ],
     },
-  }
+  };
   return (
     <div className="mb-6 rounded-lg border border-default-200 p-6">
       <div className="flex justify-between">
-        <h4 className="text-xl font-medium text-default-900">Cost &amp; Usage by instance type</h4>
-        <DemoFilterDropdown filterOptions={['Last Day', 'Last 6 Month', 'Last Year']} />
+        <h4 className="text-xl font-medium text-default-900">
+          Cost &amp; Usage by instance type
+        </h4>
+        <DemoFilterDropdown
+          filterOptions={["Last Day", "Last 6 Month", "Last Year"]}
+        />
       </div>
       <div className="w-100">
-        <ReactApexChart options={ChartOpts} type="line" height={370} series={ChartOpts.series} className="apex-charts" />
+        <ReactApexChart
+          options={ChartOpts}
+          type="line"
+          height={370}
+          series={ChartOpts.series}
+          className="apex-charts"
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CostAndUsageChart
+export default CostAndUsageChart;

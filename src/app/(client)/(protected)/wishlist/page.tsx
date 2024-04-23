@@ -1,6 +1,5 @@
-
-import { Breadcrumb } from '@/components'
-import AllWishList from './AllWishList'
+import { Breadcrumb } from "@/components";
+import AllWishList from "./AllWishList";
 
 const Wishlist = () => {
   return (
@@ -14,7 +13,7 @@ const Wishlist = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Wishlist
+export default Wishlist;

@@ -1,12 +1,11 @@
-
-import { LuChevronDown, LuX } from 'react-icons/lu'
-import { FilterResetButton, SimplebarReactClient } from '../index'
-import CategoriesFilter from './CategoriesFilter'
-import PriceFilter from './PriceFilter'
-import RestaurantFilter from './RestaurantFilter'
-import RatingFilter from './RatingFilter'
-import { dishTags } from '@/assets/data'
-import PopularDishOfferCard from './PopularDishOfferCard'
+import { LuChevronDown, LuX } from "react-icons/lu";
+import { FilterResetButton, SimplebarReactClient } from "../index";
+import CategoriesFilter from "./CategoriesFilter";
+import PriceFilter from "./PriceFilter";
+import RestaurantFilter from "./RestaurantFilter";
+import RatingFilter from "./RatingFilter";
+import { dishTags } from "@/assets/data";
+import PopularDishOfferCard from "./PopularDishOfferCard";
 
 const MegaProductFilter = () => {
   return (
@@ -38,7 +37,10 @@ const MegaProductFilter = () => {
               Category
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
-            <div className="hs-collapse open w-full overflow-hidden transition-[height] duration-300" id="all_categories">
+            <div
+              className="hs-collapse open w-full overflow-hidden transition-[height] duration-300"
+              id="all_categories"
+            >
               <CategoriesFilter />
             </div>
           </div>
@@ -55,7 +57,10 @@ const MegaProductFilter = () => {
               Popular Café / Restaurant
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
-            <div className="hs-collapse open w-full overflow-hidden transition-[height] duration-300" id="cafe_restaurant">
+            <div
+              className="hs-collapse open w-full overflow-hidden transition-[height] duration-300"
+              id="cafe_restaurant"
+            >
               <RestaurantFilter />
             </div>
           </div>
@@ -70,7 +75,10 @@ const MegaProductFilter = () => {
               Popular Café / Restaurant
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
-            <div className="hs-collapse open mb-4 w-full space-y-4 overflow-hidden transition-[height] duration-300" id="dish_ratings">
+            <div
+              className="hs-collapse open mb-4 w-full space-y-4 overflow-hidden transition-[height] duration-300"
+              id="dish_ratings"
+            >
               <RatingFilter />
             </div>
           </div>
@@ -84,12 +92,21 @@ const MegaProductFilter = () => {
               Popular tags
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
-            <div className="hs-collapse open w-full overflow-hidden transition-[height] duration-300" id="popular_tags">
+            <div
+              className="hs-collapse open w-full overflow-hidden transition-[height] duration-300"
+              id="popular_tags"
+            >
               <div className="my-3 flex flex-wrap gap-2 gap-y-4">
                 {dishTags.map((tag, idx) => {
                   return (
                     <div key={tag + idx}>
-                      <input type="checkbox" name={tag + idx} id={tag + idx} className={`peer hidden`} defaultChecked={idx == 2 || idx == 7} />
+                      <input
+                        type="checkbox"
+                        name={tag + idx}
+                        id={tag + idx}
+                        className={`peer hidden`}
+                        defaultChecked={idx == 2 || idx == 7}
+                      />
                       <label
                         htmlFor={tag + idx}
                         className={`cursor-pointer rounded-full border border-default-200 px-3 py-1 transition-all hover:border-primary-500/60 hover:bg-primary/10 hover:text-primary peer-checked:border-primary-500/60 peer-checked:bg-primary/10 peer-checked:text-primary`}
@@ -97,7 +114,7 @@ const MegaProductFilter = () => {
                         {tag}
                       </label>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -110,7 +127,7 @@ const MegaProductFilter = () => {
         <FilterResetButton />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MegaProductFilter
+export default MegaProductFilter;

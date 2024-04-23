@@ -1,9 +1,14 @@
-
-import { lazy } from 'react'
-import type { DishType } from '@/types/food'
-const ProductQuantityToggler = lazy(() => import('../shopping-interactivity/ProductQuantityToggler'))
-const AddToCartButton = lazy(() => import('../shopping-interactivity/AddToCartButton'))
-const ProductWishlistToggler = lazy(() => import('../shopping-interactivity/ProductWishlistToggler'))
+import { lazy } from "react";
+import type { DishType } from "@/types/food";
+const ProductQuantityToggler = lazy(
+  () => import("../shopping-interactivity/ProductQuantityToggler"),
+);
+const AddToCartButton = lazy(
+  () => import("../shopping-interactivity/AddToCartButton"),
+);
+const ProductWishlistToggler = lazy(
+  () => import("../shopping-interactivity/ProductWishlistToggler"),
+);
 
 const QuantityInteraction = ({ dish }: { dish: DishType }) => {
   return (
@@ -12,7 +17,7 @@ const QuantityInteraction = ({ dish }: { dish: DishType }) => {
       <ProductQuantityToggler dish={dish} size="medium" />
       <ProductWishlistToggler dish={dish} size={30} />
     </div>
-  )
-}
+  );
+};
 
-export default QuantityInteraction
+export default QuantityInteraction;

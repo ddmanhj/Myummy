@@ -1,2 +1,2 @@
-declare module 'preline'
-declare module 'google-maps-react'
+declare module "preline";
+declare module "google-maps-react";

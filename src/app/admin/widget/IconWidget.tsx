@@ -1,13 +1,13 @@
-import { IconType } from 'react-icons'
+import { IconType } from "react-icons";
 
 type IconWidgetsProps = {
-  text: string
-  amount?: number
-  price?: number
-  icon: IconType
-  variant1: string
-  variant2: string
-}
+  text: string;
+  amount?: number;
+  price?: number;
+  icon: IconType;
+  variant1: string;
+  variant2: string;
+};
 
 const IconWidgets = ({
   text,
@@ -17,7 +17,7 @@ const IconWidgets = ({
   variant1,
   variant2,
 }: IconWidgetsProps) => {
-  const Icon = icon
+  const Icon = icon;
   return (
     <div className="rounded-lg border border-default-200">
       <div className="p-5">
@@ -36,7 +36,7 @@ const IconWidgets = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default IconWidgets
+export default IconWidgets;

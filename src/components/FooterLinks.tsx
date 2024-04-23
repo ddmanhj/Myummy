@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
-import { LuFacebook, LuInstagram, LuPhone } from 'react-icons/lu'
-import { type IconType } from 'react-icons'
-import { FaXTwitter } from 'react-icons/fa6'
-import SubscribeToMail from './SubscribeToMail'
-import { FOOTER_LINKS } from '@/assets/data'
+import { Link } from "react-router-dom";
+import { LuFacebook, LuInstagram, LuPhone } from "react-icons/lu";
+import { type IconType } from "react-icons";
+import { FaXTwitter } from "react-icons/fa6";
+import SubscribeToMail from "./SubscribeToMail";
+import { FOOTER_LINKS } from "@/assets/data";
 
 const FooterLinks = () => {
   return (
@@ -15,18 +15,22 @@ const FooterLinks = () => {
               {Object.keys(FOOTER_LINKS).map((title, idx) => {
                 return (
                   <div className="flex flex-col gap-3" key={title + idx}>
-                    <h5 className="mb-3 font-semibold text-default-950">{title}</h5>
+                    <h5 className="mb-3 font-semibold text-default-950">
+                      {title}
+                    </h5>
                     {FOOTER_LINKS[title].map((item, idx) => (
                       <div className="text-default-600" key={item.name + idx}>
-                        <Link to={item.link ?? ''}>{item.name}</Link>
+                        <Link to={item.link ?? ""}>{item.name}</Link>
                       </div>
                     ))}
                   </div>
-                )
+                );
               })}
 
               <div className="flex flex-col gap-3">
-                <h5 className="mb-3 font-semibold text-default-950">Get in touch</h5>
+                <h5 className="mb-3 font-semibold text-default-950">
+                  Get in touch
+                </h5>
                 <div className="text-default-600">
                   <Link to="tel:+1234567891012">(+123) 456 789 123</Link>
                 </div>
@@ -34,14 +38,19 @@ const FooterLinks = () => {
                   <Link to="mailto:example@mail.com">example@mail.com</Link>
                 </div>
                 <div className="flex items-center gap-4">
-                  {[LuPhone, LuFacebook, LuInstagram, FaXTwitter].map((icon, idx) => {
-                    const Icon: IconType = icon
-                    return (
-                      <Link key={idx} to="" className="cursor-pointer">
-                        <Icon size={24} className="text-default-600 transition-all hover:text-primary" />
-                      </Link>
-                    )
-                  })}
+                  {[LuPhone, LuFacebook, LuInstagram, FaXTwitter].map(
+                    (icon, idx) => {
+                      const Icon: IconType = icon;
+                      return (
+                        <Link key={idx} to="" className="cursor-pointer">
+                          <Icon
+                            size={24}
+                            className="text-default-600 transition-all hover:text-primary"
+                          />
+                        </Link>
+                      );
+                    },
+                  )}
                 </div>
               </div>
             </div>
@@ -51,7 +60,7 @@ const FooterLinks = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FooterLinks
+export default FooterLinks;

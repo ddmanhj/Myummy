@@ -1,7 +1,7 @@
-import { ApexOptions } from 'apexcharts'
-import moment from 'moment'
+import { ApexOptions } from "apexcharts";
+import moment from "moment";
 
-const colors = ['#3e60d5', '#47ad77', '#fa5c7c', '#6c757d', '#39afd1']
+const colors = ["#3e60d5", "#47ad77", "#fa5c7c", "#6c757d", "#39afd1"];
 
 // Basic Timeline
 export const basicTimelineChart: ApexOptions = {
@@ -9,31 +9,31 @@ export const basicTimelineChart: ApexOptions = {
     {
       data: [
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-02').getTime(),
-            new Date('2019-03-04').getTime(),
+            new Date("2019-03-02").getTime(),
+            new Date("2019-03-04").getTime(),
           ],
         },
         {
-          x: 'Test',
+          x: "Test",
           y: [
-            new Date('2019-03-04').getTime(),
-            new Date('2019-03-08').getTime(),
+            new Date("2019-03-04").getTime(),
+            new Date("2019-03-08").getTime(),
           ],
         },
         {
-          x: 'Validation',
+          x: "Validation",
           y: [
-            new Date('2019-03-08').getTime(),
-            new Date('2019-03-12').getTime(),
+            new Date("2019-03-08").getTime(),
+            new Date("2019-03-12").getTime(),
           ],
         },
         {
-          x: 'Deployment',
+          x: "Deployment",
           y: [
-            new Date('2019-03-12').getTime(),
-            new Date('2019-03-18').getTime(),
+            new Date("2019-03-12").getTime(),
+            new Date("2019-03-18").getTime(),
           ],
         },
       ],
@@ -41,21 +41,21 @@ export const basicTimelineChart: ApexOptions = {
   ],
   chart: {
     height: 350,
-    type: 'rangeBar',
+    type: "rangeBar",
     toolbar: {
       show: false,
     },
   },
-  colors: ['#fa6767'],
+  colors: ["#fa6767"],
   plotOptions: {
     bar: {
       horizontal: true,
     },
   },
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
   },
-}
+};
 
 // Distributed Timeline
 export const distributedTimelineChart: ApexOptions = {
@@ -63,42 +63,42 @@ export const distributedTimelineChart: ApexOptions = {
     {
       data: [
         {
-          x: 'Analysis',
+          x: "Analysis",
           y: [
-            new Date('2019-02-27').getTime(),
-            new Date('2019-03-04').getTime(),
+            new Date("2019-02-27").getTime(),
+            new Date("2019-03-04").getTime(),
           ],
           fillColor: colors[0],
         },
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-04').getTime(),
-            new Date('2019-03-08').getTime(),
+            new Date("2019-03-04").getTime(),
+            new Date("2019-03-08").getTime(),
           ],
           fillColor: colors[1],
         },
         {
-          x: 'Coding',
+          x: "Coding",
           y: [
-            new Date('2019-03-07').getTime(),
-            new Date('2019-03-10').getTime(),
+            new Date("2019-03-07").getTime(),
+            new Date("2019-03-10").getTime(),
           ],
           fillColor: colors[2],
         },
         {
-          x: 'Testing',
+          x: "Testing",
           y: [
-            new Date('2019-03-08').getTime(),
-            new Date('2019-03-12').getTime(),
+            new Date("2019-03-08").getTime(),
+            new Date("2019-03-12").getTime(),
           ],
           fillColor: colors[3],
         },
         {
-          x: 'Deployment',
+          x: "Deployment",
           y: [
-            new Date('2019-03-12').getTime(),
-            new Date('2019-03-17').getTime(),
+            new Date("2019-03-12").getTime(),
+            new Date("2019-03-17").getTime(),
           ],
           fillColor: colors[4],
         },
@@ -107,7 +107,7 @@ export const distributedTimelineChart: ApexOptions = {
   ],
   chart: {
     height: 350,
-    type: 'rangeBar',
+    type: "rangeBar",
     toolbar: {
       show: false,
     },
@@ -124,25 +124,25 @@ export const distributedTimelineChart: ApexOptions = {
   dataLabels: {
     enabled: true,
     formatter: function (val: any[], opts) {
-      const label = opts.w.globals.labels[opts.dataPointIndex]
-      const a = moment(val[0])
-      const b = moment(val[1])
-      const diff = b.diff(a, 'days')
-      return label + ': ' + diff + (diff > 1 ? ' days' : ' day')
+      const label = opts.w.globals.labels[opts.dataPointIndex];
+      const a = moment(val[0]);
+      const b = moment(val[1]);
+      const diff = b.diff(a, "days");
+      return label + ": " + diff + (diff > 1 ? " days" : " day");
     },
     style: {
-      colors: ['#f3f4f5', '#fff'],
+      colors: ["#f3f4f5", "#fff"],
     },
   },
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
   },
   yaxis: {
     show: false,
   },
   grid: {
     row: {
-      colors: ['#f3f4f5', '#fff'],
+      colors: ["#f3f4f5", "#fff"],
       opacity: 1,
     },
     padding: {
@@ -152,59 +152,59 @@ export const distributedTimelineChart: ApexOptions = {
       left: -10,
     },
   },
-}
+};
 
 // Multi Series Timeline
 export const multiSeriesTimelineChart: ApexOptions = {
   series: [
     {
-      name: 'Bob',
+      name: "Bob",
       data: [
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-05').getTime(),
-            new Date('2019-03-08').getTime(),
+            new Date("2019-03-05").getTime(),
+            new Date("2019-03-08").getTime(),
           ],
         },
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-08').getTime(),
-            new Date('2019-03-11').getTime(),
+            new Date("2019-03-08").getTime(),
+            new Date("2019-03-11").getTime(),
           ],
         },
         {
-          x: 'Test',
+          x: "Test",
           y: [
-            new Date('2019-03-11').getTime(),
-            new Date('2019-03-16').getTime(),
+            new Date("2019-03-11").getTime(),
+            new Date("2019-03-16").getTime(),
           ],
         },
       ],
     },
     {
-      name: 'Joe',
+      name: "Joe",
       data: [
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-02').getTime(),
-            new Date('2019-03-05').getTime(),
+            new Date("2019-03-02").getTime(),
+            new Date("2019-03-05").getTime(),
           ],
         },
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-06').getTime(),
-            new Date('2019-03-09').getTime(),
+            new Date("2019-03-06").getTime(),
+            new Date("2019-03-09").getTime(),
           ],
         },
         {
-          x: 'Test',
+          x: "Test",
           y: [
-            new Date('2019-03-10').getTime(),
-            new Date('2019-03-19').getTime(),
+            new Date("2019-03-10").getTime(),
+            new Date("2019-03-19").getTime(),
           ],
         },
       ],
@@ -212,7 +212,7 @@ export const multiSeriesTimelineChart: ApexOptions = {
   ],
   chart: {
     height: 350,
-    type: 'rangeBar',
+    type: "rangeBar",
     toolbar: {
       show: false,
     },
@@ -225,17 +225,17 @@ export const multiSeriesTimelineChart: ApexOptions = {
   dataLabels: {
     enabled: true,
     formatter: function (val: any[]) {
-      const a = moment(val[0])
-      const b = moment(val[1])
-      const diff = b.diff(a, 'days')
-      return diff + (diff > 1 ? ' days' : ' day')
+      const a = moment(val[0]);
+      const b = moment(val[1]);
+      const diff = b.diff(a, "days");
+      return diff + (diff > 1 ? " days" : " day");
     },
   },
   fill: {
-    type: 'gradient',
+    type: "gradient",
     gradient: {
-      shade: 'light',
-      type: 'vertical',
+      shade: "light",
+      type: "vertical",
       shadeIntensity: 0.25,
       gradientToColors: undefined,
       inverseColors: true,
@@ -244,140 +244,140 @@ export const multiSeriesTimelineChart: ApexOptions = {
       stops: [50, 0, 100, 100],
     },
   },
-  colors: ['#6c757d', '#39afd1'],
+  colors: ["#6c757d", "#39afd1"],
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
   },
   legend: {
-    position: 'top',
+    position: "top",
   },
-}
+};
 
 // Advanced Timeline
 export const advancedTimelineChart: ApexOptions = {
   series: [
     {
-      name: 'Bob',
+      name: "Bob",
       data: [
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-05').getTime(),
-            new Date('2019-03-08').getTime(),
+            new Date("2019-03-05").getTime(),
+            new Date("2019-03-08").getTime(),
           ],
         },
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-02').getTime(),
-            new Date('2019-03-05').getTime(),
+            new Date("2019-03-02").getTime(),
+            new Date("2019-03-05").getTime(),
           ],
         },
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-05').getTime(),
-            new Date('2019-03-07').getTime(),
+            new Date("2019-03-05").getTime(),
+            new Date("2019-03-07").getTime(),
           ],
         },
         {
-          x: 'Test',
+          x: "Test",
           y: [
-            new Date('2019-03-03').getTime(),
-            new Date('2019-03-09').getTime(),
+            new Date("2019-03-03").getTime(),
+            new Date("2019-03-09").getTime(),
           ],
         },
         {
-          x: 'Test',
+          x: "Test",
           y: [
-            new Date('2019-03-08').getTime(),
-            new Date('2019-03-11').getTime(),
+            new Date("2019-03-08").getTime(),
+            new Date("2019-03-11").getTime(),
           ],
         },
         {
-          x: 'Validation',
+          x: "Validation",
           y: [
-            new Date('2019-03-11').getTime(),
-            new Date('2019-03-16').getTime(),
+            new Date("2019-03-11").getTime(),
+            new Date("2019-03-16").getTime(),
           ],
         },
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-01').getTime(),
-            new Date('2019-03-03').getTime(),
+            new Date("2019-03-01").getTime(),
+            new Date("2019-03-03").getTime(),
           ],
         },
       ],
     },
     {
-      name: 'Joe',
+      name: "Joe",
       data: [
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-02').getTime(),
-            new Date('2019-03-05').getTime(),
+            new Date("2019-03-02").getTime(),
+            new Date("2019-03-05").getTime(),
           ],
         },
         {
-          x: 'Test',
+          x: "Test",
           y: [
-            new Date('2019-03-06').getTime(),
-            new Date('2019-03-16').getTime(),
+            new Date("2019-03-06").getTime(),
+            new Date("2019-03-16").getTime(),
           ],
           goals: [
             {
-              name: 'Break',
-              value: new Date('2019-03-10').getTime(),
-              strokeColor: '#CD2F2A',
+              name: "Break",
+              value: new Date("2019-03-10").getTime(),
+              strokeColor: "#CD2F2A",
             },
           ],
         },
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-03').getTime(),
-            new Date('2019-03-07').getTime(),
+            new Date("2019-03-03").getTime(),
+            new Date("2019-03-07").getTime(),
           ],
         },
         {
-          x: 'Deployment',
+          x: "Deployment",
           y: [
-            new Date('2019-03-20').getTime(),
-            new Date('2019-03-22').getTime(),
+            new Date("2019-03-20").getTime(),
+            new Date("2019-03-22").getTime(),
           ],
         },
         {
-          x: 'Design',
+          x: "Design",
           y: [
-            new Date('2019-03-10').getTime(),
-            new Date('2019-03-16').getTime(),
+            new Date("2019-03-10").getTime(),
+            new Date("2019-03-16").getTime(),
           ],
         },
       ],
     },
     {
-      name: 'Dan',
+      name: "Dan",
       data: [
         {
-          x: 'Code',
+          x: "Code",
           y: [
-            new Date('2019-03-10').getTime(),
-            new Date('2019-03-17').getTime(),
+            new Date("2019-03-10").getTime(),
+            new Date("2019-03-17").getTime(),
           ],
         },
         {
-          x: 'Validation',
+          x: "Validation",
           y: [
-            new Date('2019-03-05').getTime(),
-            new Date('2019-03-09').getTime(),
+            new Date("2019-03-05").getTime(),
+            new Date("2019-03-09").getTime(),
           ],
           goals: [
             {
-              name: 'Break',
-              value: new Date('2019-03-07').getTime(),
-              strokeColor: '#CD2F2A',
+              name: "Break",
+              value: new Date("2019-03-07").getTime(),
+              strokeColor: "#CD2F2A",
             },
           ],
         },
@@ -386,7 +386,7 @@ export const advancedTimelineChart: ApexOptions = {
   ],
   chart: {
     height: 350,
-    type: 'rangeBar',
+    type: "rangeBar",
     toolbar: {
       show: false,
     },
@@ -394,67 +394,67 @@ export const advancedTimelineChart: ApexOptions = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: '80%',
+      barHeight: "80%",
     },
   },
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
   },
   stroke: {
     width: 1,
   },
   colors: colors,
   fill: {
-    type: 'solid',
+    type: "solid",
     opacity: 0.6,
   },
   legend: {
-    position: 'top',
-    horizontalAlign: 'left',
+    position: "top",
+    horizontalAlign: "left",
   },
-}
+};
 
 // Multiple Series - Group Rows
 export const multipleSeriesTimelineChart: ApexOptions = {
   series: [
     // George Washington
     {
-      name: 'George Washington',
+      name: "George Washington",
       data: [
         {
-          x: 'President',
+          x: "President",
           y: [new Date(1789, 3, 30).getTime(), new Date(1797, 2, 4).getTime()],
         },
       ],
     },
     // John Adams
     {
-      name: 'John Adams',
+      name: "John Adams",
       data: [
         {
-          x: 'President',
+          x: "President",
           y: [new Date(1797, 2, 4).getTime(), new Date(1801, 2, 4).getTime()],
         },
         {
-          x: 'Vice President',
+          x: "Vice President",
           y: [new Date(1789, 3, 21).getTime(), new Date(1797, 2, 4).getTime()],
         },
       ],
     },
     // Thomas Jefferson
     {
-      name: 'Thomas Jefferson',
+      name: "Thomas Jefferson",
       data: [
         {
-          x: 'President',
+          x: "President",
           y: [new Date(1801, 2, 4).getTime(), new Date(1809, 2, 4).getTime()],
         },
         {
-          x: 'Vice President',
+          x: "Vice President",
           y: [new Date(1797, 2, 4).getTime(), new Date(1801, 2, 4).getTime()],
         },
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [
             new Date(1790, 2, 22).getTime(),
             new Date(1793, 11, 31).getTime(),
@@ -464,90 +464,90 @@ export const multipleSeriesTimelineChart: ApexOptions = {
     },
     // Aaron Burr
     {
-      name: 'Aaron Burr',
+      name: "Aaron Burr",
       data: [
         {
-          x: 'Vice President',
+          x: "Vice President",
           y: [new Date(1801, 2, 4).getTime(), new Date(1805, 2, 4).getTime()],
         },
       ],
     },
     // George Clinton
     {
-      name: 'George Clinton',
+      name: "George Clinton",
       data: [
         {
-          x: 'Vice President',
+          x: "Vice President",
           y: [new Date(1805, 2, 4).getTime(), new Date(1812, 3, 20).getTime()],
         },
       ],
     },
     // John Jay
     {
-      name: 'John Jay',
+      name: "John Jay",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1789, 8, 25).getTime(), new Date(1790, 2, 22).getTime()],
         },
       ],
     },
     // Edmund Randolph
     {
-      name: 'Edmund Randolph',
+      name: "Edmund Randolph",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1794, 0, 2).getTime(), new Date(1795, 7, 20).getTime()],
         },
       ],
     },
     // Timothy Pickering
     {
-      name: 'Timothy Pickering',
+      name: "Timothy Pickering",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1795, 7, 20).getTime(), new Date(1800, 4, 12).getTime()],
         },
       ],
     },
     // Charles Lee
     {
-      name: 'Charles Lee',
+      name: "Charles Lee",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1800, 4, 13).getTime(), new Date(1800, 5, 5).getTime()],
         },
       ],
     },
     // John Marshall
     {
-      name: 'John Marshall',
+      name: "John Marshall",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1800, 5, 13).getTime(), new Date(1801, 2, 4).getTime()],
         },
       ],
     },
     // Levi Lincoln
     {
-      name: 'Levi Lincoln',
+      name: "Levi Lincoln",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1801, 2, 5).getTime(), new Date(1801, 4, 1).getTime()],
         },
       ],
     },
     // James Madison
     {
-      name: 'James Madison',
+      name: "James Madison",
       data: [
         {
-          x: 'Secretary of State',
+          x: "Secretary of State",
           y: [new Date(1801, 4, 2).getTime(), new Date(1809, 2, 3).getTime()],
         },
       ],
@@ -555,7 +555,7 @@ export const multipleSeriesTimelineChart: ApexOptions = {
   ],
   chart: {
     height: 350,
-    type: 'rangeBar',
+    type: "rangeBar",
     toolbar: {
       show: false,
     },
@@ -563,32 +563,32 @@ export const multipleSeriesTimelineChart: ApexOptions = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: '50%',
+      barHeight: "50%",
       rangeBarGroupRows: true,
     },
   },
   colors: [
-    '#3e60d5',
-    '#47ad77',
-    '#fa5c7c',
-    '#6c757d',
-    '#39afd1',
-    '#ffc35a',
-    '#eef2f7',
-    '#313a46',
-    '#3577f1',
-    '#0ab39c',
-    '#f0a548',
-    '#68eaff',
+    "#3e60d5",
+    "#47ad77",
+    "#fa5c7c",
+    "#6c757d",
+    "#39afd1",
+    "#ffc35a",
+    "#eef2f7",
+    "#313a46",
+    "#3577f1",
+    "#0ab39c",
+    "#f0a548",
+    "#68eaff",
   ],
   fill: {
-    type: 'solid',
+    type: "solid",
   },
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
   },
   legend: {
-    position: 'right',
+    position: "right",
   },
   //   tooltip: {
   //     custom: function(opts) {
@@ -601,4 +601,4 @@ export const multipleSeriesTimelineChart: ApexOptions = {
   //       )
   //     }
   //   }
-}
+};

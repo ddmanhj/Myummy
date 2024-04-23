@@ -1,5 +1,9 @@
-import { BreadcrumbAdmin, ProductPagination, RestaurantListCard } from '@/components'
-import { restaurantsData } from '@/assets/data'
+import {
+  BreadcrumbAdmin,
+  ProductPagination,
+  RestaurantListCard,
+} from "@/components";
+import { restaurantsData } from "@/assets/data";
 
 const RestaurantList = () => {
   return (
@@ -14,7 +18,7 @@ const RestaurantList = () => {
         <ProductPagination />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RestaurantList
+export default RestaurantList;

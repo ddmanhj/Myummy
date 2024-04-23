@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Popovers = () => {
   return (
     <div className="grid lg:grid-cols-2 gap-6">
       <div className="rounded-lg border border-default-200">
         <div className="p-6">
-          <h4 className="font-medium text-base text-default-600 mb-4">Popovers</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Popovers
+          </h4>
           <p className="text-gray-500 mb-4 dark:text-gray-400">
             Add small overlays of content, like those on the iPad, to any
             element for housing secondary information.
@@ -86,7 +88,9 @@ const Popovers = () => {
       </div>
       <div className="rounded-lg border border-default-200">
         <div className="p-6">
-          <h4 className="font-medium text-base text-default-600 mb-4">Popovers</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Popovers
+          </h4>
           <p className="text-gray-500 mb-4 dark:text-gray-400">
             Add small overlays of content, like those on the iPad, to any
             element for housing secondary information.
@@ -152,7 +156,7 @@ const Popovers = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Popovers
+export default Popovers;

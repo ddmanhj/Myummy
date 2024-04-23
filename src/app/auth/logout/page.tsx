@@ -1,7 +1,6 @@
-
-import { Link } from 'react-router-dom'
-import { AuthFormLayout, PageTitle } from '@/components'
-import { useAuthContext } from '@/context'
+import { Link } from "react-router-dom";
+import { AuthFormLayout, PageTitle } from "@/components";
+import { useAuthContext } from "@/context";
 
 const BottomLink = () => (
   <p className="mt-auto text-center text-default-950">
@@ -10,12 +9,12 @@ const BottomLink = () => (
       <span className="font-medium">Login</span>
     </Link>
   </p>
-)
+);
 
 const Logout = () => {
-  const { removeSession } = useAuthContext()
+  const { removeSession } = useAuthContext();
 
-  removeSession()
+  removeSession();
 
   return (
     <AuthFormLayout
@@ -23,10 +22,10 @@ const Logout = () => {
       helpText="We are Sorry to see you go, please come back soon. 😢"
       bottomLink={<BottomLink />}
     >
-      <PageTitle title='Logout' />
+      <PageTitle title="Logout" />
       <div></div>
     </AuthFormLayout>
-  )
-}
+  );
+};
 
-export default Logout
+export default Logout;

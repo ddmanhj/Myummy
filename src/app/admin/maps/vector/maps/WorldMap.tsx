@@ -1,15 +1,15 @@
-import 'jsvectormap'
-import 'jsvectormap/dist/maps/world.js'
-import 'jsvectormap/dist/css/jsvectormap.css'
+import "jsvectormap";
+import "jsvectormap/dist/maps/world.js";
+import "jsvectormap/dist/css/jsvectormap.css";
 
 //components
-import BaseVectorMap from './BaseVectorMap'
+import BaseVectorMap from "./BaseVectorMap";
 
 type WorldVectorMapProps = {
-  width?: string
-  height?: string
-  options?: any
-}
+  width?: string;
+  height?: string;
+  options?: any;
+};
 
 const WorldMap = ({ width, height, options }: WorldVectorMapProps) => {
   return (
@@ -21,7 +21,7 @@ const WorldMap = ({ width, height, options }: WorldVectorMapProps) => {
         type="world"
       />
     </>
-  )
-}
+  );
+};
 
-export default WorldMap
+export default WorldMap;

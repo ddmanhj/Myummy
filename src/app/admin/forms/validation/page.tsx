@@ -1,9 +1,13 @@
-import { BreadcrumbAdmin } from "@/components"
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
+import { BreadcrumbAdmin } from "@/components";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 //components
-import { TextFormInput, PasswordFormInput, TextAreaFormInput } from '@/components'
+import {
+  TextFormInput,
+  PasswordFormInput,
+  TextAreaFormInput,
+} from "@/components";
 
 const DefaultValidation = () => {
   return (
@@ -143,33 +147,38 @@ const DefaultValidation = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const TypeValidation = () => {
   const loginFormSchema = yup.object({
-    textvalue: yup.string().required('Please Type Something'),
-    password: yup.string().required('Please Enter Password'),
-    re_password: yup.string().oneOf([yup.ref('password')]).required('Please Enter Re-type Password'),
+    textvalue: yup.string().required("Please Type Something"),
+    password: yup.string().required("Please Enter Password"),
+    re_password: yup
+      .string()
+      .oneOf([yup.ref("password")])
+      .required("Please Enter Re-type Password"),
     email: yup
       .string()
-      .email('Please enter valid email')
-      .required('Please Enter email'),
-    url: yup.string().required('Please Enter URL'),
-    digits: yup.number().required('Please Enter digits'),
-    numbers: yup.number().required('Please Enter numbers'),
-    alphanumeric: yup.string().required('Please Enter Alphanumeric'),
-    textarea: yup.string().required('Please Enter Text'),
-  })
+      .email("Please enter valid email")
+      .required("Please Enter email"),
+    url: yup.string().required("Please Enter URL"),
+    digits: yup.number().required("Please Enter digits"),
+    numbers: yup.number().required("Please Enter numbers"),
+    alphanumeric: yup.string().required("Please Enter Alphanumeric"),
+    textarea: yup.string().required("Please Enter Text"),
+  });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(loginFormSchema),
-  })
+  });
 
   return (
     <div className="border border-default-200 rounded-lg">
       <div className="p-6">
-        <h4 className="font-medium text-base text-default-600">Validation type</h4>
+        <h4 className="font-medium text-base text-default-600">
+          Validation type
+        </h4>
         <p className="text-default-600">
           Provide valuable, actionable feedback to your users with HTML5 form
           validation–available in all our supported browsers.
@@ -297,47 +306,49 @@ const TypeValidation = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const RangeValidation = () => {
   const loginFormSchema = yup.object({
     minlength: yup
       .string()
-      .min(6, 'Please Enter Minimum 6 characters')
-      .required('Please Enter characters'),
+      .min(6, "Please Enter Minimum 6 characters")
+      .required("Please Enter characters"),
     maxlength: yup
       .string()
-      .max(6, 'Please Enter Maximum 6 characters')
-      .required('Please Enter characters'),
+      .max(6, "Please Enter Maximum 6 characters")
+      .required("Please Enter characters"),
     rangelength: yup
       .string()
-      .min(5, 'Please Enter Minimum 5 characters')
-      .max(10, 'Please Enter Maximum 10 characters')
-      .required('Please Enter characters'),
+      .min(5, "Please Enter Minimum 5 characters")
+      .max(10, "Please Enter Maximum 10 characters")
+      .required("Please Enter characters"),
     minvalue: yup
       .number()
-      .min(6, 'Please Enter Minimum 6 numbers')
-      .required('Please Enter numbers'),
+      .min(6, "Please Enter Minimum 6 numbers")
+      .required("Please Enter numbers"),
     rangevalue: yup
       .number()
-      .min(6, 'Please Enter Maximun 6 numbers value')
-      .max(100, 'Please Enter Maximum 100 numbers value')
-      .required('Please Enter numbers'),
+      .min(6, "Please Enter Maximun 6 numbers value")
+      .max(100, "Please Enter Maximum 100 numbers value")
+      .required("Please Enter numbers"),
     regularvalue: yup
       .string()
-      .length(6, 'Please Enter 6 length value')
-      .required('Please Enter color value'),
-  })
+      .length(6, "Please Enter 6 length value")
+      .required("Please Enter color value"),
+  });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(loginFormSchema),
-  })
+  });
 
   return (
     <div className="border border-default-200 rounded-lg">
       <div className="p-6">
-        <h4 className="font-medium text-base text-default-600">Range validation</h4>
+        <h4 className="font-medium text-base text-default-600">
+          Range validation
+        </h4>
         <p className="text-default-600">
           Provide valuable, actionable feedback to your users with HTML5 form
           validation–available in all our supported browsers.
@@ -434,8 +445,8 @@ const RangeValidation = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 const Validation = () => {
   return (
     <div className="w-full lg:ps-64">
@@ -448,7 +459,7 @@ const Validation = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Validation
+export default Validation;

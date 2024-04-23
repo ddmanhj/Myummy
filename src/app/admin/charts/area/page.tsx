@@ -1,4 +1,4 @@
-import ReactApexChart from 'react-apexcharts'
+import ReactApexChart from "react-apexcharts";
 
 // components
 
@@ -11,8 +11,8 @@ import {
   negativeareachart,
   splineareachart,
   stackedareachart,
-} from './data'
-import { BreadcrumbAdmin } from '@/components'
+} from "./data";
+import { BreadcrumbAdmin } from "@/components";
 
 const AreaApex = () => {
   return (
@@ -52,19 +52,34 @@ const AreaApex = () => {
             <div className="p-6">
               <h4 className="card-title mb-4">Area Chart - Datetime X-axis</h4>
               <div className="toolbar apex-toolbar">
-                <button id="one_month" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light">
+                <button
+                  id="one_month"
+                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light"
+                >
                   1M
                 </button>
-                <button id="six_months" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light">
+                <button
+                  id="six_months"
+                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light"
+                >
                   6M
                 </button>
-                <button id="one_year" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light active">
+                <button
+                  id="one_year"
+                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light active"
+                >
                   1Y
                 </button>
-                <button id="ytd" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light">
+                <button
+                  id="ytd"
+                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light"
+                >
                   YTD
                 </button>
-                <button id="all" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light">
+                <button
+                  id="all"
+                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center btn-sm btn-light"
+                >
                   ALL
                 </button>
               </div>
@@ -139,8 +154,7 @@ const AreaApex = () => {
         </div>
       </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default AreaApex
+export default AreaApex;

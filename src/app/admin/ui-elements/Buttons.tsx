@@ -1,8 +1,14 @@
-import { Link } from 'react-router-dom'
-import { LuAppWindow, LuChevronDown, LuFile, LuHeart, LuKeyboard, LuStar } from 'react-icons/lu'
-import { colorVariants } from '@/common'
-import { toSentenceCase } from '@/utils'
-
+import { Link } from "react-router-dom";
+import {
+  LuAppWindow,
+  LuChevronDown,
+  LuFile,
+  LuHeart,
+  LuKeyboard,
+  LuStar,
+} from "react-icons/lu";
+import { colorVariants } from "@/common";
+import { toSentenceCase } from "@/utils";
 
 const ButtonEXample = () => {
   return (
@@ -24,7 +30,7 @@ const ButtonEXample = () => {
             >
               {toSentenceCase(color)}
             </button>
-          )
+          );
         })}
         <button
           type="button"
@@ -40,8 +46,8 @@ const ButtonEXample = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const OutlinesButton = () => {
   return (
@@ -59,14 +65,15 @@ const OutlinesButton = () => {
             <button
               key={idx}
               type="button"
-              className={`py-2 px-5 inline-flex border rounded-lg font-semibold tracking-wide align-middle duration-500 text-sm text-center border-${color} text-${color} hover:bg-${color} ${color == 'warning' || color == 'info'
-                  ? 'hover:text-gray-800'
-                  : 'hover:text-white'
-                } py-2 px-3 rounded`}
+              className={`py-2 px-5 inline-flex border rounded-lg font-semibold tracking-wide align-middle duration-500 text-sm text-center border-${color} text-${color} hover:bg-${color} ${
+                color == "warning" || color == "info"
+                  ? "hover:text-gray-800"
+                  : "hover:text-white"
+              } py-2 px-3 rounded`}
             >
               {toSentenceCase(color)}
             </button>
-          )
+          );
         })}
         <button
           type="button"
@@ -76,8 +83,8 @@ const OutlinesButton = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const SoftButtons = () => {
   return (
@@ -95,12 +102,13 @@ const SoftButtons = () => {
             <button
               key={idx}
               type="button"
-              className={`py-2 px-5 rounded-lg inline-flex font-semibold tracking-wide align-middle duration-500 text-sm text-center bg-${color}/20 text-${color} hover:bg-${color} ${color === 'warning' ? 'hover:text-gray-800' : 'hover:text-white'
-                } py-2 px-3 rounded`}
+              className={`py-2 px-5 rounded-lg inline-flex font-semibold tracking-wide align-middle duration-500 text-sm text-center bg-${color}/20 text-${color} hover:bg-${color} ${
+                color === "warning" ? "hover:text-gray-800" : "hover:text-white"
+              } py-2 px-3 rounded`}
             >
               {toSentenceCase(color)}
             </button>
-          )
+          );
         })}
         <button
           type="button"
@@ -110,8 +118,8 @@ const SoftButtons = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const RoundedButtons = () => {
   return (
@@ -133,7 +141,7 @@ const RoundedButtons = () => {
             >
               {toSentenceCase(color)}
             </button>
-          )
+          );
         })}
         <button
           type="button"
@@ -143,36 +151,38 @@ const RoundedButtons = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const IconsButtons = () => {
   const buttonIcon = [
     {
-      variant: 'success',
+      variant: "success",
       icon: LuHeart,
     },
     {
-      variant: 'danger',
+      variant: "danger",
       icon: LuAppWindow,
     },
     {
-      variant: 'info',
+      variant: "info",
       icon: LuFile,
     },
     {
-      variant: 'warning',
+      variant: "warning",
       icon: LuStar,
     },
     {
-      variant: 'primary',
+      variant: "primary",
       icon: LuKeyboard,
     },
-  ]
+  ];
 
   return (
     <div className="p-6 pb-0">
-      <h4 className="font-medium text-base text-default-600 mb-4">Icons Buttons</h4>
+      <h4 className="font-medium text-base text-default-600 mb-4">
+        Icons Buttons
+      </h4>
       <p className="mb-6 text-default-600">
         Use the button classes on an&nbsp;
         <Link to="#" className="text-danger">
@@ -189,12 +199,12 @@ const IconsButtons = () => {
             >
               <item.icon size={18} />
             </button>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const BLockBUttons = () => {
   return (
@@ -213,7 +223,10 @@ const BLockBUttons = () => {
         >
           Block Button
         </button>
-        <button type="button" className="py-2 px-5 inline-flex font-semibold tracking-wide align-middle duration-500 rounded-lg text-center bg-info text-white text-sm w-full">
+        <button
+          type="button"
+          className="py-2 px-5 inline-flex font-semibold tracking-wide align-middle duration-500 rounded-lg text-center bg-info text-white text-sm w-full"
+        >
           Block Button
         </button>
         <button
@@ -224,8 +237,8 @@ const BLockBUttons = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const GroupBUttons = () => {
   return (
@@ -420,8 +433,8 @@ const GroupBUttons = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Buttons = () => {
   return (
@@ -438,7 +451,7 @@ const Buttons = () => {
         <GroupBUttons />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Buttons
+export default Buttons;

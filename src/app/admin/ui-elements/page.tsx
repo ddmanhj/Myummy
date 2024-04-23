@@ -1,4 +1,4 @@
-import { BreadcrumbAdmin } from "@/components"
+import { BreadcrumbAdmin } from "@/components";
 import Alerts from "./Alerts";
 import Badges from "./Badges";
 import Buttons from "./Buttons";
@@ -31,7 +31,7 @@ const UiElements = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UiElements
+export default UiElements;

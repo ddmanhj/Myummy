@@ -1,17 +1,23 @@
-
-import PersonalDetailsForm from './PersonalDetailsForm'
-import BusinessDetailForm from './BusinessDetailForm'
-import BankDetailsForm from './BankDetailsForm'
-import { BreadcrumbAdmin } from '@/components'
-
+import PersonalDetailsForm from "./PersonalDetailsForm";
+import BusinessDetailForm from "./BusinessDetailForm";
+import BankDetailsForm from "./BankDetailsForm";
+import { BreadcrumbAdmin } from "@/components";
 
 const AddRestaurant = () => {
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
-        <BreadcrumbAdmin title="Add Restaurant" subtitle="Restaurants" link="/admin/restaurants" />
+        <BreadcrumbAdmin
+          title="Add Restaurant"
+          subtitle="Restaurants"
+          link="/admin/restaurants"
+        />
         <div>
-          <nav className="mb-6 flex flex-wrap justify-center gap-4" aria-label="Tabs" role="tablist">
+          <nav
+            className="mb-6 flex flex-wrap justify-center gap-4"
+            aria-label="Tabs"
+            role="tablist"
+          >
             <button
               type="button"
               className="active flex w-full justify-center rounded-lg bg-primary/10 px-20 py-3 text-center text-sm font-medium text-primary hs-tab-active:bg-primary hs-tab-active:text-white sm:w-auto"
@@ -48,7 +54,7 @@ const AddRestaurant = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddRestaurant
+export default AddRestaurant;

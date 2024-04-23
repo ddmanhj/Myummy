@@ -1,17 +1,17 @@
-import ReactApexCharts from 'react-apexcharts'
-import { ApexOptions } from 'apexcharts'
+import ReactApexCharts from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 
 // icons
-import { LuArrowDown, LuArrowUp } from 'react-icons/lu'
+import { LuArrowDown, LuArrowUp } from "react-icons/lu";
 
 type CardWidgetProps = {
-  text: string
-  amount?: number
-  price?: number
-  color: string
-  chartColor: string
-  percentage: number
-}
+  text: string;
+  amount?: number;
+  price?: number;
+  color: string;
+  chartColor: string;
+  percentage: number;
+};
 
 const CardWidget = ({
   text,
@@ -23,7 +23,7 @@ const CardWidget = ({
 }: CardWidgetProps) => {
   const viewsApexOpts: ApexOptions = {
     chart: {
-      type: 'area',
+      type: "area",
       height: 45,
       width: 90,
       sparkline: {
@@ -37,7 +37,7 @@ const CardWidget = ({
     ],
     stroke: {
       width: 2,
-      curve: 'smooth',
+      curve: "smooth",
     },
     markers: {
       size: 0,
@@ -56,9 +56,9 @@ const CardWidget = ({
       },
     },
     fill: {
-      type: 'gradient',
+      type: "gradient",
       gradient: {
-        type: 'vertical',
+        type: "vertical",
         shadeIntensity: 1,
         inverseColors: false,
         opacityFrom: 0.45,
@@ -66,7 +66,7 @@ const CardWidget = ({
         stops: [45, 100],
       },
     },
-  }
+  };
 
   return (
     <div className="rounded-lg border border-default-200">
@@ -90,7 +90,7 @@ const CardWidget = ({
               width={90}
             />
             <span className={`text-${color} fw-bold fs-13 flex`}>
-              {color === 'success' ? (
+              {color === "success" ? (
                 <LuArrowUp size={14} className="mt-1 me-1" />
               ) : (
                 <LuArrowDown size={14} className="mt-1 me-1" />
@@ -101,7 +101,7 @@ const CardWidget = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CardWidget
+export default CardWidget;

@@ -1,7 +1,7 @@
-import { IUser } from './user'
+import { IUser } from "./user";
 
-declare module 'next-auth' {
+declare module "next-auth" {
   type Session = {
-    user?: IUser
-  }
+    user?: IUser;
+  };
 }

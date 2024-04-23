@@ -1,9 +1,8 @@
-
-import { useFilterContext } from '@/context'
-import { categoriesData } from '@/assets/data'
+import { useFilterContext } from "@/context";
+import { categoriesData } from "@/assets/data";
 
 const CategoriesFilter = () => {
-  const { categories, updateCategory } = useFilterContext()
+  const { categories, updateCategory } = useFilterContext();
 
   return (
     <div className="relative mb-6 flex flex-col space-y-4">
@@ -16,13 +15,16 @@ const CategoriesFilter = () => {
             type="checkbox"
             className="form-checkbox h-5 w-5 cursor-pointer rounded border-default-400 bg-transparent text-primary focus:ring-transparent"
           />
-          <label htmlFor={category.name + category.id} className="inline-flex select-none items-center ps-3 text-sm text-default-600">
+          <label
+            htmlFor={category.name + category.id}
+            className="inline-flex select-none items-center ps-3 text-sm text-default-600"
+          >
             {category.name}
           </label>
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default CategoriesFilter
+export default CategoriesFilter;

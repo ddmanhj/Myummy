@@ -1,13 +1,14 @@
-
-import { Link } from 'react-router-dom'
-import { useShoppingContext } from '@/context'
-import { currentCurrency } from '@/common'
+import { Link } from "react-router-dom";
+import { useShoppingContext } from "@/context";
+import { currentCurrency } from "@/common";
 
 const CartTotal = () => {
-  const { getCalculatedOrder } = useShoppingContext()
+  const { getCalculatedOrder } = useShoppingContext();
   return (
     <div className="mb-5 rounded-lg border border-default-200 p-5">
-      <h4 className="mb-5 text-lg font-semibold text-default-800">Cart Total</h4>
+      <h4 className="mb-5 text-lg font-semibold text-default-800">
+        Cart Total
+      </h4>
       <div className="mb-6">
         <div className="mb-3 flex justify-between">
           <p className="text-sm text-default-500">Sub-total</p>
@@ -50,7 +51,7 @@ const CartTotal = () => {
         Proceed to Checkout
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default CartTotal
+export default CartTotal;

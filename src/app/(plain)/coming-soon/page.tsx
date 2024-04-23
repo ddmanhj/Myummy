@@ -1,8 +1,5 @@
-
 const ComingSoon = () => {
-  return (
-    <div>ComingSoon </div>
-  )
-}
+  return <div>ComingSoon </div>;
+};
 
-export default ComingSoon 
+export default ComingSoon;

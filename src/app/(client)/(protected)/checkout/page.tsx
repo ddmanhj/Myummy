@@ -1,6 +1,5 @@
-
-import BillingInformationForm from './BillingInformationForm'
-import { Breadcrumb } from '@/components'
+import BillingInformationForm from "./BillingInformationForm";
+import { Breadcrumb } from "@/components";
 
 const Checkout = () => {
   return (
@@ -12,7 +11,7 @@ const Checkout = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

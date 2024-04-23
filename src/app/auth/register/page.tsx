@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-import { AuthFormLayout, PageTitle } from '@/components'
-import RegisterForm from './RegisterForm'
+import { AuthFormLayout, PageTitle } from "@/components";
+import RegisterForm from "./RegisterForm";
 
 const BottomLink = () => (
   <p className="mt-auto text-center text-default-950">
-    Already have an account ?{' '}
+    Already have an account ?{" "}
     <Link to="/auth/login" className="ms-1 text-primary">
       <span className="font-medium">Login</span>
     </Link>
   </p>
-)
+);
 
 const Register = () => {
   return (
@@ -20,10 +20,10 @@ const Register = () => {
       bottomLink={<BottomLink />}
       hasThirdPartyAuth
     >
-      <PageTitle title='Register' />
+      <PageTitle title="Register" />
       <RegisterForm />
     </AuthFormLayout>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

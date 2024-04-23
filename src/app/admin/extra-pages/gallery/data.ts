@@ -1,23 +1,22 @@
-
 // images
-import img1 from '@/assets/images/small/small-1.jpg'
-import img2 from '@/assets/images/small/small-2.jpg'
-import img3 from '@/assets/images/small/small-3.jpg'
-import img4 from '@/assets/images/small/small-4.jpg'
-import img5 from '@/assets/images/small/small-5.jpg'
-import img6 from '@/assets/images/small/small-6.jpg'
-import img7 from '@/assets/images/small/small-7.jpg'
-import img8 from '@/assets/images/small/small-8.jpg'
+import img1 from "@/assets/images/small/small-1.jpg";
+import img2 from "@/assets/images/small/small-2.jpg";
+import img3 from "@/assets/images/small/small-3.jpg";
+import img4 from "@/assets/images/small/small-4.jpg";
+import img5 from "@/assets/images/small/small-5.jpg";
+import img6 from "@/assets/images/small/small-6.jpg";
+import img7 from "@/assets/images/small/small-7.jpg";
+import img8 from "@/assets/images/small/small-8.jpg";
 
-import plant3Img from '@/assets/images/small/plant3.jpeg'
-import girlImg from '@/assets/images/small/girl.jpg'
-import plant2Img from '@/assets/images/small/plant2.jpeg'
-import statue1Img from '@/assets/images/small/statue1.jpg'
-import vaseImg from '@/assets/images/small/vase.jpg'
-import flower2Img from '@/assets/images/small/flower2.jpg'
-import plantImg from '@/assets/images/small/plant.jpg'
-import statue2Img from '@/assets/images/small/statue2.jpg'
-import boysImg from '@/assets/images/small/boys.jpg'
+import plant3Img from "@/assets/images/small/plant3.jpeg";
+import girlImg from "@/assets/images/small/girl.jpg";
+import plant2Img from "@/assets/images/small/plant2.jpeg";
+import statue1Img from "@/assets/images/small/statue1.jpg";
+import vaseImg from "@/assets/images/small/vase.jpg";
+import flower2Img from "@/assets/images/small/flower2.jpg";
+import plantImg from "@/assets/images/small/plant.jpg";
+import statue2Img from "@/assets/images/small/statue2.jpg";
+import boysImg from "@/assets/images/small/boys.jpg";
 
 export interface ImageType {
   src: string;
@@ -26,8 +25,8 @@ export interface ImageType {
 }
 
 export interface FilterImageType {
-  src: string,
-  filter: string,
+  src: string;
+  filter: string;
 }
 export interface MixImageType {
   src: string;
@@ -36,8 +35,8 @@ export interface MixImageType {
 export interface GalleryItem {
   id?: number;
   image: ImageType;
-  tags: string,
-  title: string,
+  tags: string;
+  title: string;
   category?: string[];
 }
 
@@ -122,7 +121,7 @@ export const gallery: GalleryItem[] = [
     title: "Locked Steel Gate",
     category: ["design", "digital"],
   },
-]
+];
 
 export const images: ImageType[] = [
   {
@@ -155,7 +154,7 @@ export const images: ImageType[] = [
   {
     src: plantImg,
   },
-]
+];
 
 export const mixImages: MixImageType[] = [
   {
@@ -178,7 +177,7 @@ export const mixImages: MixImageType[] = [
   {
     src: plant3Img,
   },
-]
+];
 
 export const captionsImages: MixImageType[] = [
   {
@@ -191,7 +190,7 @@ export const captionsImages: MixImageType[] = [
   {
     src: statue1Img,
   },
-]
+];
 
 export const hoverEffectImages: ImageType[] = [
   {
@@ -218,7 +217,7 @@ export const hoverEffectImages: ImageType[] = [
     src: plant2Img,
     title: "alper kamu",
   },
-]
+];
 
 export const filterImages: FilterImageType[] = [
   {
@@ -261,4 +260,4 @@ export const filterImages: FilterImageType[] = [
     src: plantImg,
     filter: "hue-rotate-180",
   },
-]
+];

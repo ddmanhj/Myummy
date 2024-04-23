@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 // icons
-import { LuLogOut, LuMoreVertical, LuPencil, LuTrash } from 'react-icons/lu'
+import { LuLogOut, LuMoreVertical, LuPencil, LuTrash } from "react-icons/lu";
 
 const Dropdown = () => {
   return (
@@ -42,7 +42,7 @@ const Dropdown = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;

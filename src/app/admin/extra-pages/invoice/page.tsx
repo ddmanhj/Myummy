@@ -1,7 +1,7 @@
-import { BreadcrumbAdmin } from "@/components"
-import { LuPrinter } from "react-icons/lu"
-import logoDark from '@/assets/images/logo-dark.png'
-import barCode from '@/assets/images/barcode.png'
+import { BreadcrumbAdmin } from "@/components";
+import { LuPrinter } from "react-icons/lu";
+import logoDark from "@/assets/images/logo-dark.png";
+import barCode from "@/assets/images/barcode.png";
 
 const Invoice = () => {
   return (
@@ -28,8 +28,9 @@ const Invoice = () => {
                     <b>Hello, Kaiya Botosh</b>
                   </p>
                   <p className="text-xs">
-                    Please find below a cost-breakdown for the recent work completed. Please make payment at your earliest
-                    convenience, and do not hesitate to contact me with any questions.
+                    Please find below a cost-breakdown for the recent work
+                    completed. Please make payment at your earliest convenience,
+                    and do not hesitate to contact me with any questions.
                   </p>
                 </div>
 
@@ -37,12 +38,18 @@ const Invoice = () => {
                   <div className="flex sm:justify-end space-y-2">
                     <div className="grid gap-3">
                       <div className="grid grid-cols-4 gap-x-3">
-                        <h6 className="col-span-2 font-semibold text-default-600">Order Date:</h6>
-                        <p className="col-span-2 sm:text-end text-gray-400">Jan 17, 2023</p>
+                        <h6 className="col-span-2 font-semibold text-default-600">
+                          Order Date:
+                        </h6>
+                        <p className="col-span-2 sm:text-end text-gray-400">
+                          Jan 17, 2023
+                        </p>
                       </div>
 
                       <div className="grid grid-cols-4 gap-x-3">
-                        <h6 className="col-span-2 font-semibold text-default-600">Order Status:</h6>
+                        <h6 className="col-span-2 font-semibold text-default-600">
+                          Order Status:
+                        </h6>
                         <p className="col-span-2 sm:text-end text-gray-400">
                           <span className="inline-flex items-center px-1 rounded-full text-xs font-medium bg-green-500 text-white">
                             Paid
@@ -51,8 +58,12 @@ const Invoice = () => {
                       </div>
 
                       <div className="grid grid-cols-4 gap-x-3">
-                        <h6 className="col-span-2 font-semibold text-default-600">Order ID:</h6>
-                        <p className="col-span-2 sm:text-end text-gray-400">#123456</p>
+                        <h6 className="col-span-2 font-semibold text-default-600">
+                          Order ID:
+                        </h6>
+                        <p className="col-span-2 sm:text-end text-gray-400">
+                          #123456
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -65,15 +76,16 @@ const Invoice = () => {
                 <div className="col-span-1">
                   <h6 className="text-xs mb-3">Billing Address</h6>
                   <address className="not-italic">
-                    Lynne K. Higby <br /> 795 Folsom Ave, Suite 600 <br /> San Francisco, CA 94107 <br /> P: (123)
-                    456-7890{' '}
+                    Lynne K. Higby <br /> 795 Folsom Ave, Suite 600 <br /> San
+                    Francisco, CA 94107 <br /> P: (123) 456-7890{" "}
                   </address>
                 </div>
 
                 <div className="col-span-1">
                   <h6 className="text-xs mb-3">Shipping Address</h6>
                   <address className="not-italic">
-                    Kaiya Botosh <br /> 795 Folsom Ave, Suite 600 <br /> San Francisco, CA 94107 <br /> P: (123) 456-7890{' '}
+                    Kaiya Botosh <br /> 795 Folsom Ave, Suite 600 <br /> San
+                    Francisco, CA 94107 <br /> P: (123) 456-7890{" "}
                   </address>
                 </div>
 
@@ -91,16 +103,28 @@ const Invoice = () => {
                       <table className="min-w-full">
                         <thead className="border-y border-default-200 py-3 bg-default-100">
                           <tr>
-                            <th scope="col" className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500">
+                            <th
+                              scope="col"
+                              className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500"
+                            >
                               #
                             </th>
-                            <th scope="col" className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500">
+                            <th
+                              scope="col"
+                              className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500"
+                            >
                               Item
                             </th>
-                            <th scope="col" className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500">
+                            <th
+                              scope="col"
+                              className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500"
+                            >
                               Quantity
                             </th>
-                            <th scope="col" className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500">
+                            <th
+                              scope="col"
+                              className="px-6 py-2 whitespace-nowrap text-left font-semibold text-gray-500"
+                            >
                               Unit Cost
                             </th>
                             <th
@@ -114,33 +138,54 @@ const Invoice = () => {
 
                         <tbody>
                           <tr className="text-default-600 transition-all duration-300 hover:bg-default-100">
-                            <td className="px-6 py-2 whitespace-nowrap font-medium">1</td>
+                            <td className="px-6 py-2 whitespace-nowrap font-medium">
+                              1
+                            </td>
                             <td className="px-6 py-2 whitespace-nowrap">
-                              <b>Laptop</b> <br /> Brand Model VGN-TXN27N/B 11.1" Notebook PC{' '}
+                              <b>Laptop</b> <br /> Brand Model VGN-TXN27N/B
+                              11.1" Notebook PC{" "}
                             </td>
                             <td className="px-6 py-2 whitespace-nowrap"></td>
-                            <td className="px-6 py-2 whitespace-nowrap">$1799.00</td>
-                            <td className="px-6 py-2 whitespace-nowrap text-right">$1799.00</td>
+                            <td className="px-6 py-2 whitespace-nowrap">
+                              $1799.00
+                            </td>
+                            <td className="px-6 py-2 whitespace-nowrap text-right">
+                              $1799.00
+                            </td>
                           </tr>
 
                           <tr className="text-default-600 transition-all duration-300 hover:bg-default-100">
-                            <td className="px-6 py-2 whitespace-nowrap font-medium">2</td>
+                            <td className="px-6 py-2 whitespace-nowrap font-medium">
+                              2
+                            </td>
                             <td className="px-6 py-2 whitespace-nowrap">
-                              <b>Warranty</b> <br /> Two Year Extended Warranty - Parts and Labor{' '}
+                              <b>Warranty</b> <br /> Two Year Extended Warranty
+                              - Parts and Labor{" "}
                             </td>
                             <td className="px-6 py-2 whitespace-nowrap">3</td>
-                            <td className="px-6 py-2 whitespace-nowrap">$499.00</td>
-                            <td className="px-6 py-2 whitespace-nowrap text-right">$1497.00</td>
+                            <td className="px-6 py-2 whitespace-nowrap">
+                              $499.00
+                            </td>
+                            <td className="px-6 py-2 whitespace-nowrap text-right">
+                              $1497.00
+                            </td>
                           </tr>
 
                           <tr className="text-default-600 transition-all duration-300 hover:bg-default-100">
-                            <td className="px-6 py-2 whitespace-nowrap font-medium">1</td>
+                            <td className="px-6 py-2 whitespace-nowrap font-medium">
+                              1
+                            </td>
                             <td className="px-6 py-2 whitespace-nowrap">
                               <b>LED</b> <br /> 80cm (32) HD Ready LED TV
                             </td>
                             <td className="px-6 py-2 whitespace-nowrap">2</td>
-                            <td className="px-6 py-2 whitespace-nowrap"> $412.00</td>
-                            <td className="px-6 py-2 whitespace-nowrap text-right">$824.00</td>
+                            <td className="px-6 py-2 whitespace-nowrap">
+                              {" "}
+                              $412.00
+                            </td>
+                            <td className="px-6 py-2 whitespace-nowrap text-right">
+                              $824.00
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -154,22 +199,32 @@ const Invoice = () => {
               <div className="col-span-1">
                 <p className="font-medium text-xs mb-2">Notes:</p>
                 <p className="text-xs">
-                  All accounts are to be paid within 7 days from receipt of invoice. To be paid by cheque or credit card
-                  or direct payment online. If account is not paid within 7 days the credits details supplied as
-                  confirmation of work undertaken will be charged the agreed quoted fee noted above.
+                  All accounts are to be paid within 7 days from receipt of
+                  invoice. To be paid by cheque or credit card or direct payment
+                  online. If account is not paid within 7 days the credits
+                  details supplied as confirmation of work undertaken will be
+                  charged the agreed quoted fee noted above.
                 </p>
               </div>
               <div className="col-span-1">
                 <div className="flex sm:justify-end space-y-2">
                   <div className="grid gap-3">
                     <div className="grid grid-cols-4 gap-x-3">
-                      <h6 className="col-span-2 font-semibold text-default-600">Sub-total:</h6>
-                      <p className="col-span-2 sm:text-end text-gray-400">$4120.00</p>
+                      <h6 className="col-span-2 font-semibold text-default-600">
+                        Sub-total:
+                      </h6>
+                      <p className="col-span-2 sm:text-end text-gray-400">
+                        $4120.00
+                      </p>
                     </div>
 
                     <div className="grid grid-cols-4 gap-x-3">
-                      <h6 className="col-span-2 font-semibold text-default-600">VAT (12.5):</h6>
-                      <p className="col-span-2 sm:text-end text-gray-400">$515.00</p>
+                      <h6 className="col-span-2 font-semibold text-default-600">
+                        VAT (12.5):
+                      </h6>
+                      <p className="col-span-2 sm:text-end text-gray-400">
+                        $515.00
+                      </p>
                     </div>
 
                     <div className="grid grid-cols-4 gap-x-3">
@@ -205,7 +260,7 @@ const Invoice = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Invoice
+export default Invoice;

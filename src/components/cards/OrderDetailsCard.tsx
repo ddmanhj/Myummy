@@ -1,12 +1,18 @@
 type OrderCardDetailsProps = {
-  title: string
-  name: string
-  address: string
-  email: string
-  phoneNo: string
-}
+  title: string;
+  name: string;
+  address: string;
+  email: string;
+  phoneNo: string;
+};
 
-const OrderDetailsCard = ({ address, email, name, phoneNo, title }: OrderCardDetailsProps) => {
+const OrderDetailsCard = ({
+  address,
+  email,
+  name,
+  phoneNo,
+  title,
+}: OrderCardDetailsProps) => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="border-b border-default-200 p-4">
@@ -21,7 +27,7 @@ const OrderDetailsCard = ({ address, email, name, phoneNo, title }: OrderCardDet
         <p className="mb-4 text-sm text-default-600">{phoneNo}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderDetailsCard
+export default OrderDetailsCard;

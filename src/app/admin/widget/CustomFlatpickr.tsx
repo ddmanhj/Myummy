@@ -1,11 +1,11 @@
-import Flatpickr from 'react-flatpickr'
+import Flatpickr from "react-flatpickr";
 
 type FlatpickrProps = {
-  className?: string
-  value?: Date | [Date, Date]
-  options?: any
-  placeholder?: string
-}
+  className?: string;
+  value?: Date | [Date, Date];
+  options?: any;
+  placeholder?: string;
+};
 
 const CustomFlatpickr = ({
   className,
@@ -21,7 +21,7 @@ const CustomFlatpickr = ({
       options={options}
       placeholder={placeholder}
     />
-  )
-}
+  );
+};
 
-export default CustomFlatpickr
+export default CustomFlatpickr;

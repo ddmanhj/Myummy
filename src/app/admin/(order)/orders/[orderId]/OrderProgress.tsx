@@ -1,4 +1,4 @@
-import { LuCheck } from 'react-icons/lu'
+import { LuCheck } from "react-icons/lu";
 
 const OrderProgress = () => {
   return (
@@ -18,29 +18,37 @@ const OrderProgress = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
             <LuCheck />
           </div>
-          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">Order received</h4>
+          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">
+            Order received
+          </h4>
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
             <span className="text-sm font-medium text-white">02</span>
           </div>
-          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">Processing</h4>
+          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">
+            Processing
+          </h4>
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-dashed border-primary backdrop-blur-sm">
             <span className="text-sm font-medium text-primary">03</span>
           </div>
-          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">On the way</h4>
+          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">
+            On the way
+          </h4>
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-dashed border-primary backdrop-blur-sm">
             <span className="text-sm font-medium text-primary">04</span>
           </div>
-          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">Delivered</h4>
+          <h4 className="mt-3 rounded-lg bg-default-100 p-2 text-sm text-default-800 shadow md:bg-transparent md:shadow-none">
+            Delivered
+          </h4>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderProgress
+export default OrderProgress;

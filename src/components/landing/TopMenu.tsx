@@ -1,24 +1,23 @@
-
-import { useState } from 'react'
-import { cn } from '@/utils'
+import { useState } from "react";
+import { cn } from "@/utils";
 
 const menuItems = [
   {
-    name: 'Home',
-    link: '#home',
+    name: "Home",
+    link: "#home",
   },
   {
-    name: 'Demos',
-    link: '#demo',
+    name: "Demos",
+    link: "#demo",
   },
   {
-    name: 'Features',
-    link: '#features',
+    name: "Features",
+    link: "#features",
   },
-]
+];
 
 const TopMenu = () => {
-  const [activeLink, setActiveLink] = useState(location.hash)
+  const [activeLink, setActiveLink] = useState(location.hash);
 
   return (
     <div className="relative mx-auto hidden flex-grow lg:block hide-in-print">
@@ -29,8 +28,11 @@ const TopMenu = () => {
               <a
                 href={item.link}
                 className={cn(
-                  'inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-primary-400 hover:text-primary-600 dark:text-primary-600 dark:hover:text-primary lg:text-base',
-                  { 'font-semibold text-primary-600 dark:text-primary': activeLink == item.link }
+                  "inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-primary-400 hover:text-primary-600 dark:text-primary-600 dark:hover:text-primary lg:text-base",
+                  {
+                    "font-semibold text-primary-600 dark:text-primary":
+                      activeLink == item.link,
+                  },
                 )}
                 onClick={() => setActiveLink(item.link)}
               >
@@ -41,7 +43,7 @@ const TopMenu = () => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default TopMenu
+export default TopMenu;

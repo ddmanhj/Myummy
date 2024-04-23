@@ -1,21 +1,23 @@
-import { lazy } from 'react'
+import { lazy } from "react";
 
-import { Link } from 'react-router-dom'
-import { LuXCircle } from 'react-icons/lu'
-import { currentCurrency } from '@/common'
-import { calculatedPrice } from '@/helpers'
-import type { DishType } from '@/types/food'
-import { useShoppingContext } from '@/context'
-const ProductQuantityToggler = lazy(() => import('../shopping-interactivity/ProductQuantityToggler'))
+import { Link } from "react-router-dom";
+import { LuXCircle } from "react-icons/lu";
+import { currentCurrency } from "@/common";
+import { calculatedPrice } from "@/helpers";
+import type { DishType } from "@/types/food";
+import { useShoppingContext } from "@/context";
+const ProductQuantityToggler = lazy(
+  () => import("../shopping-interactivity/ProductQuantityToggler"),
+);
 
 const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
-  const { name, id, images, price, sale } = dish
+  const { name, id, images, price, sale } = dish;
 
-  const { cartItems } = useShoppingContext()
+  const { cartItems } = useShoppingContext();
 
-  const quantity = cartItems.find((item) => item.dish_id == id)?.quantity ?? 1
+  const quantity = cartItems.find((item) => item.dish_id == id)?.quantity ?? 1;
 
-  const discountedPrice = calculatedPrice(dish)
+  const discountedPrice = calculatedPrice(dish);
 
   return (
     <tr>
@@ -24,8 +26,17 @@ const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
           <button>
             <LuXCircle size={20} className="text-default-400" />
           </button>
-          <img src={images[0]} width={72} height={72} className="h-18 w-18" alt="onion" />
-          <Link to={`/dishes/${id}`} className="text-sm font-medium text-default-800">
+          <img
+            src={images[0]}
+            width={72}
+            height={72}
+            className="h-18 w-18"
+            alt="onion"
+          />
+          <Link
+            to={`/dishes/${id}`}
+            className="text-sm font-medium text-default-800"
+          >
             {name}
           </Link>
         </div>
@@ -51,7 +62,7 @@ const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
         {discountedPrice * quantity}
       </td>
     </tr>
-  )
-}
+  );
+};
 
-export default ShoppingCartCard
+export default ShoppingCartCard;

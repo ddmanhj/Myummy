@@ -1,11 +1,13 @@
-import { LuAlertCircle, LuChevronUp } from 'react-icons/lu'
+import { LuAlertCircle, LuChevronUp } from "react-icons/lu";
 
 const NavTabs = () => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="p-6">
         <div className="flex justify-between items-center">
-          <h4 className="font-medium text-base text-default-600 mb-4">Nav Tabs</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Nav Tabs
+          </h4>
         </div>
         <div className="pt-5">
           <div>
@@ -117,15 +119,17 @@ const NavTabs = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const NavPillsTab = () => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="p-6">
         <div className="flex justify-between items-center">
-          <h4 className="font-medium text-base text-default-600 mb-4">Nav Pills</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Nav Pills
+          </h4>
         </div>
         <div className="pt-5">
           <div>
@@ -237,8 +241,8 @@ const NavPillsTab = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const ExampleAccordions = () => {
   return (
@@ -369,14 +373,16 @@ const ExampleAccordions = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const CustomAccordions = () => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="flex justify-between items-center p-5">
-        <h4 className="font-medium text-base text-default-600 mb-4">Custom Accordion</h4>
+        <h4 className="font-medium text-base text-default-600 mb-4">
+          Custom Accordion
+        </h4>
       </div>
       <div className="p-5 ps-8 pt-0">
         <div className="hs-accordion-group ps-8 border-dashed border-s-2 dark:border-gray-600">
@@ -497,8 +503,8 @@ const CustomAccordions = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const TabAndAccordions = () => {
   return (
@@ -512,7 +518,7 @@ const TabAndAccordions = () => {
         <CustomAccordions />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default TabAndAccordions
+export default TabAndAccordions;

@@ -1,14 +1,14 @@
-type LayoutTheme = 'light' | 'dark'
+type LayoutTheme = "light" | "dark";
 
 type LayoutState = {
-  theme: LayoutTheme
-}
+  theme: LayoutTheme;
+};
 
 type LayoutType = {
-  settings: LayoutState
-  themeMode: LayoutTheme
-  updateTheme: (newTheme: LayoutTheme) => void
-  resetSettings: () => void
-}
+  settings: LayoutState;
+  themeMode: LayoutTheme;
+  updateTheme: (newTheme: LayoutTheme) => void;
+  resetSettings: () => void;
+};
 
-export type { LayoutTheme, LayoutState, LayoutType }
+export type { LayoutTheme, LayoutState, LayoutType };

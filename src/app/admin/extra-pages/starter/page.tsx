@@ -1,4 +1,4 @@
-import { BreadcrumbAdmin } from "@/components"
+import { BreadcrumbAdmin } from "@/components";
 
 const starter = () => {
   return (
@@ -7,7 +7,7 @@ const starter = () => {
         <BreadcrumbAdmin title="Starter" subtitle="Extra Pages" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default starter
+export default starter;

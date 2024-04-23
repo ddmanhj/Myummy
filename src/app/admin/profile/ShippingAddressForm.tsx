@@ -1,32 +1,57 @@
-
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { SelectFormInput, TextAreaFormInput, TextFormInput } from '@/components'
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  SelectFormInput,
+  TextAreaFormInput,
+  TextFormInput,
+} from "@/components";
 
 const ShippingAddressForm = () => {
   const shippingAddressFormSchema = yup.object({
-    sfName: yup.string().required('Please enter your first name'),
-    slName: yup.string().required('Please enter your last Name'),
+    sfName: yup.string().required("Please enter your first name"),
+    slName: yup.string().required("Please enter your last Name"),
     scompanyName: yup.string().optional(),
-    saddress: yup.string().required('Please enter your Address'),
-    scountry: yup.string().required('Please select your Country'),
-    sstate: yup.string().required('Please select your State/Province'),
-    scity: yup.string().required('Please select your City'),
-    szipCode: yup.string().required('Please select your ZIP/Postal code'),
-    semail: yup.string().email('Please enter a valid email').required('Please enter your email'),
-    sphoneNo: yup.number().required('Please enter your Phone NO.'),
-  })
+    saddress: yup.string().required("Please enter your Address"),
+    scountry: yup.string().required("Please select your Country"),
+    sstate: yup.string().required("Please select your State/Province"),
+    scity: yup.string().required("Please select your City"),
+    szipCode: yup.string().required("Please select your ZIP/Postal code"),
+    semail: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Please enter your email"),
+    sphoneNo: yup.number().required("Please enter your Phone NO."),
+  });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(shippingAddressFormSchema),
-  })
+  });
   return (
-    <form onSubmit={handleSubmit(() => {})} className="rounded-lg border border-default-200 p-6">
-      <h4 className="mb-6 text-xl font-medium text-default-900">Shipping Address</h4>
+    <form
+      onSubmit={handleSubmit(() => {})}
+      className="rounded-lg border border-default-200 p-6"
+    >
+      <h4 className="mb-6 text-xl font-medium text-default-900">
+        Shipping Address
+      </h4>
       <div className="grid gap-6 lg:grid-cols-2">
-        <TextFormInput name="sfName" label="First Name" type="text" placeholder="Enter Your First Name" control={control} fullWidth />
-        <TextFormInput name="slName" label="Last Name" type="text" placeholder="Enter Your Last Name" control={control} fullWidth />
+        <TextFormInput
+          name="sfName"
+          label="First Name"
+          type="text"
+          placeholder="Enter Your First Name"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="slName"
+          label="Last Name"
+          type="text"
+          placeholder="Enter Your Last Name"
+          control={control}
+          fullWidth
+        />
         <TextFormInput
           name="scompanyName"
           label="Company Name (Optional)"
@@ -52,20 +77,20 @@ const ShippingAddressForm = () => {
           instanceId="billing-country"
           containerClassName="lg:col-span-2"
           options={[
-            { value: 'United States', label: 'United States' },
-            { value: 'Canada', label: 'Canada' },
-            { value: 'Australia', label: 'Australia' },
-            { value: 'Germany', label: 'Germany' },
-            { value: 'Bangladesh', label: 'Bangladesh' },
-            { value: 'China', label: 'China' },
-            { value: 'Argentina', label: 'Argentina' },
-            { value: 'Bharat', label: 'Bharat' },
-            { value: 'Afghanistan', label: 'Afghanistan' },
-            { value: 'France', label: 'France' },
-            { value: 'Brazil', label: 'Brazil' },
-            { value: 'Belgium', label: 'Belgium' },
-            { value: 'Colombia', label: 'Colombia' },
-            { value: 'Albania', label: 'Albania' },
+            { value: "United States", label: "United States" },
+            { value: "Canada", label: "Canada" },
+            { value: "Australia", label: "Australia" },
+            { value: "Germany", label: "Germany" },
+            { value: "Bangladesh", label: "Bangladesh" },
+            { value: "China", label: "China" },
+            { value: "Argentina", label: "Argentina" },
+            { value: "Bharat", label: "Bharat" },
+            { value: "Afghanistan", label: "Afghanistan" },
+            { value: "France", label: "France" },
+            { value: "Brazil", label: "Brazil" },
+            { value: "Belgium", label: "Belgium" },
+            { value: "Colombia", label: "Colombia" },
+            { value: "Albania", label: "Albania" },
           ]}
         />
         <SelectFormInput
@@ -76,19 +101,19 @@ const ShippingAddressForm = () => {
           containerClassName="lg:col-span-2"
           instanceId="billing-state-province"
           options={[
-            { value: 'Alabama', label: 'Alabama' },
-            { value: 'Alaska', label: 'Alaska' },
-            { value: 'Arizona', label: 'Arizona' },
-            { value: 'Arkansas', label: 'Arkansas' },
-            { value: 'California', label: 'California' },
-            { value: 'Colorado', label: 'Colorado' },
-            { value: 'Connecticut', label: 'Connecticut' },
-            { value: 'Delaware', label: 'Delaware' },
-            { value: 'Florida', label: 'Florida' },
-            { value: 'Gujarat', label: 'Gujarat' },
-            { value: 'Iowa', label: 'Iowa' },
-            { value: 'Kansas', label: 'Kansas' },
-            { value: 'Kentucky', label: 'Kentucky' },
+            { value: "Alabama", label: "Alabama" },
+            { value: "Alaska", label: "Alaska" },
+            { value: "Arizona", label: "Arizona" },
+            { value: "Arkansas", label: "Arkansas" },
+            { value: "California", label: "California" },
+            { value: "Colorado", label: "Colorado" },
+            { value: "Connecticut", label: "Connecticut" },
+            { value: "Delaware", label: "Delaware" },
+            { value: "Florida", label: "Florida" },
+            { value: "Gujarat", label: "Gujarat" },
+            { value: "Iowa", label: "Iowa" },
+            { value: "Kansas", label: "Kansas" },
+            { value: "Kentucky", label: "Kentucky" },
           ]}
         />
         <SelectFormInput
@@ -98,19 +123,19 @@ const ShippingAddressForm = () => {
           id="billing-city3"
           instanceId="billing-city"
           options={[
-            { value: 'Alexander', label: 'Alexander' },
-            { value: 'Andalusia', label: 'Andalusia' },
-            { value: 'Anniston', label: 'Anniston' },
-            { value: 'Athens', label: 'Athens' },
-            { value: 'Atmore', label: 'Atmore' },
-            { value: 'Auburn', label: 'Auburn' },
-            { value: 'Chickasaw', label: 'Chickasaw' },
-            { value: 'Clanton', label: 'Clanton' },
-            { value: 'Demopolis', label: 'Demopolis' },
-            { value: 'Guntersville', label: 'Guntersville' },
-            { value: 'Huntsville', label: 'Huntsville' },
-            { value: 'Jasper', label: 'Jasper' },
-            { value: 'Marion', label: 'Marion' },
+            { value: "Alexander", label: "Alexander" },
+            { value: "Andalusia", label: "Andalusia" },
+            { value: "Anniston", label: "Anniston" },
+            { value: "Athens", label: "Athens" },
+            { value: "Atmore", label: "Atmore" },
+            { value: "Auburn", label: "Auburn" },
+            { value: "Chickasaw", label: "Chickasaw" },
+            { value: "Clanton", label: "Clanton" },
+            { value: "Demopolis", label: "Demopolis" },
+            { value: "Guntersville", label: "Guntersville" },
+            { value: "Huntsville", label: "Huntsville" },
+            { value: "Jasper", label: "Jasper" },
+            { value: "Marion", label: "Marion" },
           ]}
         />
         <SelectFormInput
@@ -120,11 +145,11 @@ const ShippingAddressForm = () => {
           id="billing-zip-code3"
           instanceId="billing-zip-code"
           options={[
-            { value: 356123, label: '356123' },
-            { value: 350115, label: '350115' },
-            { value: 350125, label: '350125' },
-            { value: 350135, label: '350135' },
-            { value: 350145, label: '350145' },
+            { value: 356123, label: "356123" },
+            { value: 350115, label: "350115" },
+            { value: 350125, label: "350125" },
+            { value: 350135, label: "350135" },
+            { value: 350145, label: "350145" },
           ]}
         />
         <TextFormInput
@@ -155,7 +180,7 @@ const ShippingAddressForm = () => {
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default ShippingAddressForm
+export default ShippingAddressForm;

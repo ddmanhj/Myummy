@@ -1,29 +1,29 @@
-import { germanyImg, italyImg, russiaImg, spainImg } from '@/assets/data'
-import { LuGlobe } from 'react-icons/lu'
+import { germanyImg, italyImg, russiaImg, spainImg } from "@/assets/data";
+import { LuGlobe } from "react-icons/lu";
 
 type LanguageType = {
-  image: string
-  name: string
-}
+  image: string;
+  name: string;
+};
 
 const languages: LanguageType[] = [
   {
-    name: 'German',
+    name: "German",
     image: germanyImg,
   },
   {
-    name: 'Italian',
+    name: "Italian",
     image: italyImg,
   },
   {
-    name: 'Spanish',
+    name: "Spanish",
     image: spainImg,
   },
   {
-    name: 'Russian',
+    name: "Russian",
     image: russiaImg,
   },
-]
+];
 
 const LanguageDropdown = () => {
   return (
@@ -37,14 +37,23 @@ const LanguageDropdown = () => {
       </button>
       <div className="hs-dropdown-menu duration mt-2 hidden min-w-[12rem] rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
         {languages.map((language) => (
-          <button key={language.name} className="flex w-full items-center gap-x-3.5 rounded px-3 py-2 text-sm transition-all hover:bg-default-100">
-            <img src={language.image} width={24} height={16} alt="user-image" className="h-4" />
+          <button
+            key={language.name}
+            className="flex w-full items-center gap-x-3.5 rounded px-3 py-2 text-sm transition-all hover:bg-default-100"
+          >
+            <img
+              src={language.image}
+              width={24}
+              height={16}
+              alt="user-image"
+              className="h-4"
+            />
             <span className="align-middle">{language.name}</span>
           </button>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LanguageDropdown
+export default LanguageDropdown;

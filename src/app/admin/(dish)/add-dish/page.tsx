@@ -1,8 +1,6 @@
-
-import { BreadcrumbAdmin } from '@/components'
-import AddDishForm from './AddDishForm'
-import DishUploader from './DishUploader'
-
+import { BreadcrumbAdmin } from "@/components";
+import AddDishForm from "./AddDishForm";
+import DishUploader from "./DishUploader";
 
 const AddProduct = () => {
   return (
@@ -17,7 +15,7 @@ const AddProduct = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddProduct
+export default AddProduct;

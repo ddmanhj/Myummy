@@ -1,9 +1,9 @@
 // images
-import Img1 from '@/assets/images/small/img-1.jpg'
-import Img2 from '@/assets/images/small/img-2.jpg'
-import Img3 from '@/assets/images/small/img-6.jpg'
-import Img4 from '@/assets/images/small/img-4.jpg'
-import { Link } from 'react-router-dom'
+import Img1 from "@/assets/images/small/img-1.jpg";
+import Img2 from "@/assets/images/small/img-2.jpg";
+import Img3 from "@/assets/images/small/img-6.jpg";
+import Img4 from "@/assets/images/small/img-4.jpg";
+import { Link } from "react-router-dom";
 
 const Cards = () => {
   return (
@@ -19,8 +19,8 @@ const Cards = () => {
           <div className="p-6">
             <h3 className="mb-3 dark:text-gray-300">Card title </h3>
             <p className="mt-1 text-default-600 mb-3">
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content. With supporting text below as a
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content. With supporting text below as a
               natural lead-in to additional content.
             </p>
             <Link
@@ -66,7 +66,10 @@ const Cards = () => {
         <div className="lg:col-span-2 space-y-6">
           <div className="rounded-lg border border-default-200">
             <div className="grid sm:grid-cols-3">
-              <img src={Img3} className="rounded-s h-full w-full object-cover" />
+              <img
+                src={Img3}
+                className="rounded-s h-full w-full object-cover"
+              />
               <div className="px-6 py-12 sm:col-span-2">
                 <h3 className="mb-4 dark:text-gray-300">Card title</h3>
                 <p className="mt-1 text-gray-800 dark:text-gray-400">
@@ -93,13 +96,16 @@ const Cards = () => {
                   <small>Last updated 3 mins ago</small>
                 </p>
               </div>
-              <img src={Img4} className="rounded-e h-full w-full object-cover" />
+              <img
+                src={Img4}
+                className="rounded-e h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;

@@ -1,8 +1,5 @@
-
 const Maintenance = () => {
-  return (
-    <div>Maintenance</div>
-  )
-}
+  return <div>Maintenance</div>;
+};
 
-export default Maintenance
+export default Maintenance;

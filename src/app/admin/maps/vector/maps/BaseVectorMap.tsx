@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 type BaseVectorMapProps = {
-  width?: string
-  height?: string
-  options?: any
-  type: string
-}
+  width?: string;
+  height?: string;
+  options?: any;
+  type: string;
+};
 
 const BaseVectorMap = ({
   width,
@@ -13,27 +13,27 @@ const BaseVectorMap = ({
   options,
   type,
 }: BaseVectorMapProps) => {
-  const selectorId = type + new Date().getTime()
-  const [map, setMap] = useState()
+  const selectorId = type + new Date().getTime();
+  const [map, setMap] = useState();
 
   useEffect(() => {
     if (!map) {
       // create jsvectormap
-      const map = new (window as any)['jsVectorMap']({
-        selector: '#' + selectorId,
+      const map = new (window as any)["jsVectorMap"]({
+        selector: "#" + selectorId,
         map: type,
         ...options,
-      })
+      });
 
-      setMap(map)
+      setMap(map);
     }
-  }, [selectorId, map, options, type])
+  }, [selectorId, map, options, type]);
 
   return (
     <>
       <div id={selectorId} style={{ width: width, height: height }}></div>
     </>
-  )
-}
+  );
+};
 
-export default BaseVectorMap
+export default BaseVectorMap;

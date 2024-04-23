@@ -1,11 +1,11 @@
 type NormalWidgetProps = {
-  text: string
-  amount?: number
-  price?: number
-  color: string
-  width: number
-  subText: string
-}
+  text: string;
+  amount?: number;
+  price?: number;
+  color: string;
+  width: number;
+  subText: string;
+};
 
 const NormalWidgets = ({
   text,
@@ -41,7 +41,7 @@ const NormalWidgets = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NormalWidgets
+export default NormalWidgets;
