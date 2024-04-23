@@ -1,4 +1,4 @@
-import { colorVariants } from '@/common'
+import { colorVariants } from "@/common";
 
 const Spinners = () => {
   return (
@@ -24,7 +24,7 @@ const Spinners = () => {
                   >
                     <span className="sr-only">Loading...</span>
                   </div>
-                )
+                );
               })}
               <div
                 className="animate-spin w-8 h-8 border-[3px] border-current border-t-transparent text-light rounded-full"
@@ -52,9 +52,11 @@ const Spinners = () => {
               {colorVariants.map((color, idx) => {
                 return (
                   <div key={idx} className="size-5">
-                    <span className={`animate-ping inline-flex h-full w-full rounded-full bg-${color}/75`} />
+                    <span
+                      className={`animate-ping inline-flex h-full w-full rounded-full bg-${color}/75`}
+                    />
                   </div>
-                )
+                );
               })}
               <div className="h-5 w-5">
                 <span className="animate-ping inline-flex h-full w-full rounded-full bg-light/75" />
@@ -67,7 +69,7 @@ const Spinners = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Spinners
+export default Spinners;

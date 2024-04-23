@@ -1,17 +1,16 @@
-
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import { TextFormInput } from '@/components'
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { TextFormInput } from "@/components";
 
 const CouponCodeForm = () => {
   const contactFormSchema = yup.object({
-    couponCode: yup.string().required('Please enter your coupon code'),
-  })
+    couponCode: yup.string().required("Please enter your coupon code"),
+  });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(contactFormSchema),
-  })
+  });
   return (
     <div className="rounded-lg border border-default-200">
       <div className="border-b border-default-200 px-6 py-5">
@@ -37,7 +36,7 @@ const CouponCodeForm = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CouponCodeForm
+export default CouponCodeForm;

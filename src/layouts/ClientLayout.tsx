@@ -1,5 +1,5 @@
-import { Suspense, type ReactNode } from 'react'
-import { Footer, FooterLinks, Navbar, Preloader } from '@/components'
+import { Suspense, type ReactNode } from "react";
+import { Footer, FooterLinks, Navbar, Preloader } from "@/components";
 
 const ClientLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -8,9 +8,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
         <Navbar />
       </Suspense>
 
-      <Suspense fallback={<Preloader />}>
-        {children}
-      </Suspense>
+      <Suspense fallback={<Preloader />}>{children}</Suspense>
 
       <Suspense>
         <FooterLinks />
@@ -20,7 +18,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
         <Footer />
       </Suspense>
     </Suspense>
-  )
-}
+  );
+};
 
-export default ClientLayout
+export default ClientLayout;

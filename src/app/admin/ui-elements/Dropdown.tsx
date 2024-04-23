@@ -1,32 +1,58 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { LuChevronDown } from "react-icons/lu";
-import { toSentenceCase } from '@/utils';
-import { DemoFilterDropdown } from '@/components';
+import { toSentenceCase } from "@/utils";
+import { DemoFilterDropdown } from "@/components";
 
 const Dropdown = () => {
-  const colors1 = ['primary', 'secondary', 'success']
-  const colors2 = ['info', 'warning', 'danger']
+  const colors1 = ["primary", "secondary", "success"];
+  const colors2 = ["info", "warning", "danger"];
 
   return (
     <div className="grid lg:grid-cols-2 gap-6">
       <div className="rounded-lg border border-default-200">
         <div className="p-6">
-          <h4 className="font-medium text-base text-default-600 mb-4">Dropdown Examples</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Dropdown Examples
+          </h4>
           <p className="text-gray-500 mb-8">
             The best part is you can do this with any button variant, too:
           </p>
           <div className="flex flex-wrap gap-2">
+            {colors1.map((color, idx) => (
+              <DemoFilterDropdown
+                key={idx}
+                filterType={toSentenceCase(color)}
+                filterOptions={[
+                  "Action",
+                  " Another Action",
+                  " Something else here",
+                  "Separated link",
+                ]}
+                buttonClassName={`bg-${color} text-white`}
+              />
+            ))}
 
-            {colors1.map((color, idx) => <DemoFilterDropdown key={idx} filterType={toSentenceCase(color)} filterOptions={["Action", " Another Action", " Something else here", "Separated link"]} buttonClassName={`bg-${color} text-white`} />)}
-
-            {colors2.map((color, idx) => <DemoFilterDropdown key={idx} filterType={toSentenceCase(color)} filterOptions={["Action", " Another Action", " Something else here", "Separated link"]} buttonClassName={`bg-${color} text-white`} />)}
-
+            {colors2.map((color, idx) => (
+              <DemoFilterDropdown
+                key={idx}
+                filterType={toSentenceCase(color)}
+                filterOptions={[
+                  "Action",
+                  " Another Action",
+                  " Something else here",
+                  "Separated link",
+                ]}
+                buttonClassName={`bg-${color} text-white`}
+              />
+            ))}
           </div>
         </div>
       </div>
       <div className="rounded-lg border border-default-200">
         <div className="p-6">
-          <h4 className="font-medium text-base text-default-600 mb-4">Dropdown - More Examples</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Dropdown - More Examples
+          </h4>
           <p className="text-gray-500 mb-8 dark:text-gray-400">
             The best part is you can do this with any button variant, too:
           </p>
@@ -102,7 +128,10 @@ const Dropdown = () => {
                         Remember me
                       </label>
                     </div>
-                    <button type="submit" className="py-2 px-5 inline-flex rounded-lg font-semibold tracking-wide align-middle duration-500 text-sm text-center bg-primary text-white">
+                    <button
+                      type="submit"
+                      className="py-2 px-5 inline-flex rounded-lg font-semibold tracking-wide align-middle duration-500 text-sm text-center bg-primary text-white"
+                    >
                       Sign in
                     </button>
                   </form>
@@ -219,7 +248,7 @@ const Dropdown = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;

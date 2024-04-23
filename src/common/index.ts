@@ -1,3 +1,3 @@
-export * from './constants'
+export * from "./constants";
 
-export { default as configureFakeBackend } from './fake-backend'
+export { default as configureFakeBackend } from "./fake-backend";

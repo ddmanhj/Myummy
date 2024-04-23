@@ -1,9 +1,8 @@
-
-import { useFilterContext } from '@/context'
-import { restaurantsData } from '@/assets/data'
+import { useFilterContext } from "@/context";
+import { restaurantsData } from "@/assets/data";
 
 const RestaurantFilter = () => {
-  const { restaurants, updateRestaurant } = useFilterContext()
+  const { restaurants, updateRestaurant } = useFilterContext();
 
   return (
     <div className="mb-4 flex flex-col gap-y-4">
@@ -16,13 +15,16 @@ const RestaurantFilter = () => {
             type="checkbox"
             className="form-checkbox h-5 w-5 cursor-pointer rounded border-default-400 bg-transparent text-primary focus:ring-transparent"
           />
-          <label htmlFor={restaurant.name + restaurant.id} className="inline-flex select-none items-center ps-3 text-sm text-default-600">
+          <label
+            htmlFor={restaurant.name + restaurant.id}
+            className="inline-flex select-none items-center ps-3 text-sm text-default-600"
+          >
             {restaurant.name}
           </label>
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default RestaurantFilter
+export default RestaurantFilter;

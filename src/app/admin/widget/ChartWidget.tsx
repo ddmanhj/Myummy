@@ -1,22 +1,22 @@
-import { ApexOptions } from 'apexcharts'
-import ReactApexCharts from 'react-apexcharts'
+import { ApexOptions } from "apexcharts";
+import ReactApexCharts from "react-apexcharts";
 
 type ChartWidgetProps = {
-  text: string
-  amount?: string
-  price?: string
-  chartColor: string
-}
+  text: string;
+  amount?: string;
+  price?: string;
+  chartColor: string;
+};
 
 const ChartWidget = ({ text, amount, price, chartColor }: ChartWidgetProps) => {
-  const labelsSales = []
+  const labelsSales = [];
   for (let i = 1; i <= 10; i++) {
-    labelsSales.push('2018-09-' + i)
+    labelsSales.push("2018-09-" + i);
   }
 
   const viewsApexOpts: ApexOptions = {
     chart: {
-      type: 'area',
+      type: "area",
       height: 160,
       sparkline: {
         enabled: true,
@@ -24,19 +24,19 @@ const ChartWidget = ({ text, amount, price, chartColor }: ChartWidgetProps) => {
     },
     stroke: {
       width: 3,
-      curve: 'smooth',
+      curve: "smooth",
     },
     fill: {
       opacity: 1,
     },
     series: [
       {
-        name: 'Data',
+        name: "Data",
         data: [47, 45, 54, 38, 56, 24, 65, 31, 37, 39],
       },
     ],
     xaxis: {
-      type: 'datetime',
+      type: "datetime",
     },
     yaxis: {
       min: 0,
@@ -49,7 +49,7 @@ const ChartWidget = ({ text, amount, price, chartColor }: ChartWidgetProps) => {
       offsetY: 10,
       margin: 0,
       style: {
-        fontSize: '24px',
+        fontSize: "24px",
       },
     },
     subtitle: {
@@ -58,10 +58,10 @@ const ChartWidget = ({ text, amount, price, chartColor }: ChartWidgetProps) => {
       offsetY: 45,
       margin: 0,
       style: {
-        fontSize: '16px',
+        fontSize: "16px",
       },
     },
-  }
+  };
 
   return (
     <>
@@ -78,7 +78,7 @@ const ChartWidget = ({ text, amount, price, chartColor }: ChartWidgetProps) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ChartWidget
+export default ChartWidget;

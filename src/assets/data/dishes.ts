@@ -1,4 +1,4 @@
-import type { CategoryType, DishType } from '@/types/food'
+import type { CategoryType, DishType } from "@/types/food";
 
 import {
   appetizerBanner1Img,
@@ -44,56 +44,56 @@ import {
   wrapsBanner2Img,
   wrapsBanner3Img,
   wrapsBanner4Img,
-} from './images'
+} from "./images";
 
 export const categoriesData: CategoryType[] = [
   {
     id: 1,
-    name: 'Coffee',
+    name: "Coffee",
     image: cupIconCategoryImg,
   },
   {
     id: 2,
-    name: 'Burger',
+    name: "Burger",
     image: burger1IconCategoryImg,
   },
   {
     id: 3,
-    name: 'Noodles',
+    name: "Noodles",
     image: noodlesIconCategoryImg,
   },
   {
     id: 4,
-    name: 'Pizza',
+    name: "Pizza",
     image: pizzaIconCategoryImg,
   },
   {
     id: 5,
-    name: 'Wrap',
+    name: "Wrap",
     image: tacoIconCategoryImg,
   },
   {
     id: 6,
-    name: 'Appetizers',
+    name: "Appetizers",
     image: skewerIconCategoryImg,
   },
   {
     id: 7,
-    name: 'Dessert',
+    name: "Dessert",
     image: dessertIconCategoryImg,
   },
-]
+];
 
 export const specialMenuData: DishType[] = (
   [
     {
       id: 101,
       category_id: 1,
-      name: 'Cappuccino',
+      name: "Cappuccino",
       price: 419.45,
       images: [coffeeBanner1Img],
-      type: 'veg',
-      tags: ['Beverages', 'Coffee'],
+      type: "veg",
+      tags: ["Beverages", "Coffee"],
       quantity: 23,
       review: {
         count: 1055,
@@ -103,11 +103,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 102,
       category_id: 1,
-      name: 'Espresso Coffee',
+      name: "Espresso Coffee",
       price: 40.14,
       images: [coffeeBanner2Img],
-      type: 'veg',
-      tags: ['Beverages', 'Coffee'],
+      type: "veg",
+      tags: ["Beverages", "Coffee"],
       quantity: 34,
       review: {
         count: 680,
@@ -118,11 +118,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 103,
       category_id: 1,
-      name: 'Iced Cold Coffee',
+      name: "Iced Cold Coffee",
       price: 49.75,
       images: [coffeeBanner3Img],
-      type: 'veg',
-      tags: ['Beverages', 'Coffee'],
+      type: "veg",
+      tags: ["Beverages", "Coffee"],
       quantity: 0,
       review: {
         count: 2394,
@@ -132,11 +132,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 104,
       category_id: 1,
-      name: 'Flat White',
+      name: "Flat White",
       price: 14.99,
       images: [coffeeBanner4Img],
-      type: 'veg',
-      tags: ['Beverages', 'Coffee'],
+      type: "veg",
+      tags: ["Beverages", "Coffee"],
       quantity: 230,
       review: {
         count: 588,
@@ -146,11 +146,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 105,
       category_id: 2,
-      name: 'Cheese Burger',
+      name: "Cheese Burger",
       price: 23,
       images: [burgerBanner1Img],
-      type: 'veg',
-      tags: ['Burger', 'Bread'],
+      type: "veg",
+      tags: ["Burger", "Bread"],
       quantity: 390,
       review: {
         count: 650,
@@ -160,11 +160,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 106,
       category_id: 2,
-      name: 'Fried Egg Burger',
+      name: "Fried Egg Burger",
       price: 39.75,
       images: [burgerBanner2Img],
-      type: 'eggetarian',
-      tags: ['Burger', 'Bread'],
+      type: "eggetarian",
+      tags: ["Burger", "Bread"],
       quantity: 209,
       review: {
         count: 129,
@@ -174,11 +174,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 107,
       category_id: 2,
-      name: 'Meat Burger',
+      name: "Meat Burger",
       price: 488,
       images: [burgerBanner3Img],
-      type: 'non-veg',
-      tags: ['Burger', 'Meal', 'Bread'],
+      type: "non-veg",
+      tags: ["Burger", "Meal", "Bread"],
       quantity: 20,
       review: {
         count: 523,
@@ -188,11 +188,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 108,
       category_id: 2,
-      name: 'Gourmet cheeseburger',
+      name: "Gourmet cheeseburger",
       price: 549,
       images: [burgerBanner4Img],
-      type: 'non-veg',
-      tags: ['Burger', 'Meal', 'Hot & Spicy', 'Bread'],
+      type: "non-veg",
+      tags: ["Burger", "Meal", "Hot & Spicy", "Bread"],
       quantity: 14,
       review: {
         count: 241,
@@ -203,11 +203,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 109,
       category_id: 3,
-      name: 'Asian Noodles',
+      name: "Asian Noodles",
       price: 119,
       images: [noodlesBanner1Img],
-      type: 'veg',
-      tags: ['Noodles', 'Hot & Spicy', 'Meal'],
+      type: "veg",
+      tags: ["Noodles", "Hot & Spicy", "Meal"],
       quantity: 45,
       review: {
         count: 4325,
@@ -218,11 +218,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 110,
       category_id: 3,
-      name: 'Spaghetti',
+      name: "Spaghetti",
       price: 23,
       images: [noodlesBanner2Img],
-      type: 'veg',
-      tags: ['Noodles', 'Hot & Spicy', 'Meal'],
+      type: "veg",
+      tags: ["Noodles", "Hot & Spicy", "Meal"],
       quantity: 10,
       review: {
         count: 6667,
@@ -232,11 +232,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 111,
       category_id: 3,
-      name: 'Veg Noodles',
+      name: "Veg Noodles",
       price: 108,
       images: [noodlesBanner1Img],
-      type: 'veg',
-      tags: ['Noodles', 'Meal'],
+      type: "veg",
+      tags: ["Noodles", "Meal"],
       quantity: 70,
       review: {
         count: 23,
@@ -246,11 +246,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 112,
       category_id: 3,
-      name: 'Italian Noodle Pasta',
+      name: "Italian Noodle Pasta",
       price: 223,
       images: [noodlesBanner2Img],
-      type: 'veg',
-      tags: ['Noodles', 'Hot & Spicy', 'Meal'],
+      type: "veg",
+      tags: ["Noodles", "Hot & Spicy", "Meal"],
       quantity: 67,
       review: {
         count: 223,
@@ -260,11 +260,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 113,
       category_id: 4,
-      name: 'Italian Pizza',
+      name: "Italian Pizza",
       price: 79,
       images: [pizzaBanner1Img],
-      type: 'non-veg',
-      tags: ['Pizza', 'Hot & Spicy', 'Meal', 'Bread'],
+      type: "non-veg",
+      tags: ["Pizza", "Hot & Spicy", "Meal", "Bread"],
       quantity: 16,
       review: {
         count: 231,
@@ -274,11 +274,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 114,
       category_id: 4,
-      name: 'Margarita Pizza',
+      name: "Margarita Pizza",
       price: 14,
       images: [pizzaBanner2Img],
-      type: 'veg',
-      tags: ['Pizza', 'Hot & Spicy', 'Meal', 'Bread'],
+      type: "veg",
+      tags: ["Pizza", "Hot & Spicy", "Meal", "Bread"],
       quantity: 4,
       review: {
         count: 12,
@@ -288,11 +288,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 115,
       category_id: 4,
-      name: 'Vegetarian Pizza',
+      name: "Vegetarian Pizza",
       price: 25,
       images: [pizzaBanner3Img],
-      type: 'veg',
-      tags: ['Pizza', 'Meal', 'Bread'],
+      type: "veg",
+      tags: ["Pizza", "Meal", "Bread"],
       quantity: 12,
       review: {
         count: 188,
@@ -302,11 +302,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 116,
       category_id: 4,
-      name: 'Turkish Pizza',
+      name: "Turkish Pizza",
       price: 16,
       images: [pizzaBanner4Img],
-      type: 'veg',
-      tags: ['Pizza', 'Hot & Spicy', 'Meal', 'Bread'],
+      type: "veg",
+      tags: ["Pizza", "Hot & Spicy", "Meal", "Bread"],
       quantity: 23,
       review: {
         count: 19,
@@ -317,11 +317,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 117,
       category_id: 5,
-      name: 'Asian wraps',
+      name: "Asian wraps",
       price: 229,
       images: [wrapsBanner1Img],
-      type: 'veg',
-      tags: ['Wraps', 'Hot & Spicy'],
+      type: "veg",
+      tags: ["Wraps", "Hot & Spicy"],
       quantity: 404,
       review: {
         count: 99,
@@ -331,11 +331,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 118,
       category_id: 5,
-      name: 'Meat wraps',
+      name: "Meat wraps",
       price: 59,
       images: [wrapsBanner2Img],
-      type: 'non-veg',
-      tags: ['Wraps', 'Hot & Spicy', 'Meal'],
+      type: "non-veg",
+      tags: ["Wraps", "Hot & Spicy", "Meal"],
       quantity: 230,
       review: {
         count: 322,
@@ -345,11 +345,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 119,
       category_id: 5,
-      name: 'Frankie',
+      name: "Frankie",
       price: 349,
       images: [wrapsBanner3Img],
-      type: 'veg',
-      tags: ['Wraps', 'Hot & Spicy'],
+      type: "veg",
+      tags: ["Wraps", "Hot & Spicy"],
       quantity: 120,
       review: {
         count: 228,
@@ -360,11 +360,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 120,
       category_id: 5,
-      name: 'Burrito wraps Pasta',
+      name: "Burrito wraps Pasta",
       price: 10.99,
       images: [wrapsBanner4Img],
-      type: 'veg',
-      tags: ['Wraps', 'Hot & Spicy', 'Meal'],
+      type: "veg",
+      tags: ["Wraps", "Hot & Spicy", "Meal"],
       quantity: 40,
       review: {
         count: 2134,
@@ -374,11 +374,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 121,
       category_id: 6,
-      name: 'Veg Salad',
+      name: "Veg Salad",
       price: 58.5,
       images: [appetizerBanner1Img],
-      type: 'veg',
-      tags: ['Meal'],
+      type: "veg",
+      tags: ["Meal"],
       quantity: 34,
       review: {
         count: 1221,
@@ -388,11 +388,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 122,
       category_id: 6,
-      name: 'Chicken Skewers',
+      name: "Chicken Skewers",
       price: 485.32,
       images: [appetizerBanner2Img],
-      type: 'non-veg',
-      tags: ['Meal', 'Hot & Spicy'],
+      type: "non-veg",
+      tags: ["Meal", "Hot & Spicy"],
       quantity: 23,
       review: {
         count: 523,
@@ -402,11 +402,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 123,
       category_id: 6,
-      name: 'Nachos Salsa Dip',
+      name: "Nachos Salsa Dip",
       price: 358,
       images: [appetizerBanner3Img],
-      type: 'veg',
-      tags: ['Meal', 'Hot & Spicy'],
+      type: "veg",
+      tags: ["Meal", "Hot & Spicy"],
       quantity: 34,
       review: {
         count: 241,
@@ -416,11 +416,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 124,
       category_id: 6,
-      name: 'Paneer tikka Skewers',
+      name: "Paneer tikka Skewers",
       price: 645.2,
       images: [appetizerBanner4Img],
-      type: 'non-veg',
-      tags: ['Meal', 'Hot & Spicy'],
+      type: "non-veg",
+      tags: ["Meal", "Hot & Spicy"],
       quantity: 0,
       review: {
         count: 4325,
@@ -431,11 +431,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 125,
       category_id: 7,
-      name: 'Brownie Cake',
+      name: "Brownie Cake",
       price: 350,
       images: [cakeBanner1Img],
-      type: 'veg',
-      tags: ['Sweeties', 'Finishers', 'Dessert'],
+      type: "veg",
+      tags: ["Sweeties", "Finishers", "Dessert"],
       quantity: 230,
       review: {
         count: 6667,
@@ -445,11 +445,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 126,
       category_id: 7,
-      name: 'Berry Cheesecake',
+      name: "Berry Cheesecake",
       price: 420.8,
       images: [cakeBanner2Img],
-      type: 'veg',
-      tags: ['Finishers', 'Dessert'],
+      type: "veg",
+      tags: ["Finishers", "Dessert"],
       quantity: 390,
       review: {
         count: 23,
@@ -459,11 +459,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 127,
       category_id: 7,
-      name: 'Chocolate Donuts',
+      name: "Chocolate Donuts",
       price: 665,
       images: [cakeBanner3Img],
-      type: 'veg',
-      tags: ['Sweeties', 'Finishers', 'Dessert'],
+      type: "veg",
+      tags: ["Sweeties", "Finishers", "Dessert"],
       quantity: 209,
       review: {
         count: 223,
@@ -474,11 +474,11 @@ export const specialMenuData: DishType[] = (
     {
       id: 128,
       category_id: 7,
-      name: 'Carrot Cake',
+      name: "Carrot Cake",
       price: 509,
       images: [cakeBanner4Img],
-      type: 'veg',
-      tags: ['Finishers', 'Dessert'],
+      type: "veg",
+      tags: ["Finishers", "Dessert"],
       quantity: 20,
       review: {
         count: 231,
@@ -490,8 +490,8 @@ export const specialMenuData: DishType[] = (
   return {
     ...dish,
     category: categoriesData[dish.category_id - 1],
-  }
-})
+  };
+});
 
 export const dishesData: DishType[] = (
   [
@@ -499,11 +499,11 @@ export const dishesData: DishType[] = (
       id: 1001,
       category_id: 4,
       restaurant_id: 901,
-      name: 'Italian Pizza',
+      name: "Italian Pizza",
       images: [pizzaImg],
       price: 79,
-      type: 'non-veg',
-      tags: ['Pizza', 'Hot & Spicy', 'Meal', 'Bread'],
+      type: "non-veg",
+      tags: ["Pizza", "Hot & Spicy", "Meal", "Bread"],
       quantity: 16,
       review: {
         count: 231,
@@ -511,7 +511,7 @@ export const dishesData: DishType[] = (
       },
       sale: {
         discount: 50,
-        type: 'percent',
+        type: "percent",
       },
       is_popular: true,
     },
@@ -519,11 +519,11 @@ export const dishesData: DishType[] = (
       id: 1002,
       category_id: 2,
       restaurant_id: 902,
-      name: 'Veg Burger',
+      name: "Veg Burger",
       price: 488,
       images: [burgerImg],
-      type: 'veg',
-      tags: ['Burger', 'Meal', 'Bread'],
+      type: "veg",
+      tags: ["Burger", "Meal", "Bread"],
       quantity: 20,
       review: {
         count: 523,
@@ -531,7 +531,7 @@ export const dishesData: DishType[] = (
       },
       sale: {
         discount: 5,
-        type: 'amount',
+        type: "amount",
       },
       is_popular: true,
     },
@@ -539,11 +539,11 @@ export const dishesData: DishType[] = (
       id: 1003,
       category_id: 3,
       restaurant_id: 903,
-      name: 'Spaghetti',
+      name: "Spaghetti",
       price: 23,
       images: [noodlesImg],
-      type: 'veg',
-      tags: ['Noodles', 'Hot & Spicy', 'Meal'],
+      type: "veg",
+      tags: ["Noodles", "Hot & Spicy", "Meal"],
       quantity: 10,
       review: {
         count: 6667,
@@ -555,11 +555,11 @@ export const dishesData: DishType[] = (
       id: 1004,
       category_id: 7,
       restaurant_id: 904,
-      name: 'Red Velvet Cake',
+      name: "Red Velvet Cake",
       price: 350,
       images: [redVelvetPastryImg],
-      type: 'veg',
-      tags: ['Sweeties', 'Finishers', 'Dessert'],
+      type: "veg",
+      tags: ["Sweeties", "Finishers", "Dessert"],
       quantity: 230,
       review: {
         count: 6667,
@@ -567,7 +567,7 @@ export const dishesData: DishType[] = (
       },
       sale: {
         discount: 12,
-        type: 'amount',
+        type: "amount",
       },
       is_popular: true,
     },
@@ -575,11 +575,11 @@ export const dishesData: DishType[] = (
       id: 1005,
       category_id: 6,
       restaurant_id: 905,
-      name: 'Mix Salad',
+      name: "Mix Salad",
       price: 645.2,
       images: [spaghettiImg],
-      type: 'non-veg',
-      tags: ['Meal', 'Hot & Spicy'],
+      type: "non-veg",
+      tags: ["Meal", "Hot & Spicy"],
       quantity: 0,
       review: {
         count: 4325,
@@ -590,11 +590,11 @@ export const dishesData: DishType[] = (
       id: 1006,
       category_id: 1,
       restaurant_id: 906,
-      name: 'Espresso Coffee',
+      name: "Espresso Coffee",
       price: 419.45,
       images: [hotChocolateImg],
-      type: 'veg',
-      tags: ['Beverages', 'Coffee'],
+      type: "veg",
+      tags: ["Beverages", "Coffee"],
       quantity: 23,
       review: {
         count: 1055,
@@ -605,11 +605,11 @@ export const dishesData: DishType[] = (
       id: 1007,
       category_id: 6,
       restaurant_id: 907,
-      name: 'Steamed Dumplings',
+      name: "Steamed Dumplings",
       price: 58.5,
       images: [steamedDumplingImg],
-      type: 'veg',
-      tags: ['Meal'],
+      type: "veg",
+      tags: ["Meal"],
       quantity: 34,
       review: {
         count: 1221,
@@ -620,11 +620,11 @@ export const dishesData: DishType[] = (
       id: 1008,
       category_id: 6,
       restaurant_id: 908,
-      name: 'Gujarati Thali',
+      name: "Gujarati Thali",
       price: 58.5,
       images: [vegRiceImg],
-      type: 'veg',
-      tags: ['Meal'],
+      type: "veg",
+      tags: ["Meal"],
       quantity: 34,
       review: {
         count: 1221,
@@ -632,18 +632,18 @@ export const dishesData: DishType[] = (
       },
       sale: {
         discount: 40,
-        type: 'percent',
+        type: "percent",
       },
     },
     {
       id: 1009,
       category_id: 6,
       restaurant_id: 901,
-      name: 'Chickenpea Hummus',
+      name: "Chickenpea Hummus",
       price: 58.5,
       images: [chickpeaHummusImg],
-      type: 'eggetarian',
-      tags: ['Meal'],
+      type: "eggetarian",
+      tags: ["Meal"],
       quantity: 34,
       review: {
         count: 1221,
@@ -654,11 +654,11 @@ export const dishesData: DishType[] = (
       id: 1010,
       category_id: 7,
       restaurant_id: 902,
-      name: 'Butter Cookies',
+      name: "Butter Cookies",
       price: 665,
       images: [butterCookiesImg],
-      type: 'veg',
-      tags: ['Sweeties', 'Finishers', 'Dessert'],
+      type: "veg",
+      tags: ["Sweeties", "Finishers", "Dessert"],
       quantity: 209,
       review: {
         count: 223,
@@ -670,5 +670,5 @@ export const dishesData: DishType[] = (
   return {
     ...dish,
     category: categoriesData[dish.category_id - 1],
-  }
-})
+  };
+});

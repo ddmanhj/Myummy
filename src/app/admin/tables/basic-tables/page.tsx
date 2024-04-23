@@ -1,11 +1,11 @@
-import { BreadcrumbAdmin } from "@/components"
-import { Link } from "react-router-dom"
+import { BreadcrumbAdmin } from "@/components";
+import { Link } from "react-router-dom";
 import {
   basicTable,
   contextualTable,
   nestingTable,
   responsiveTable,
-} from '../data'
+} from "../data";
 
 const BasicTables = () => {
   return (
@@ -15,7 +15,9 @@ const BasicTables = () => {
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Basic example</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Basic example
+              </h3>
               <p className="text-default-600 mb-4">
                 For basic styling—light padding and only horizontal dividers—add
                 the base class <code className="text-danger">table</code> to any
@@ -70,7 +72,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -82,7 +84,9 @@ const BasicTables = () => {
 
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Table Dark</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Table Dark
+              </h3>
               <p className="text-default-600 mb-4">
                 You can also invert the colors—with light text on dark
                 backgrounds—with <code className="text-danger">bg-dark</code>.
@@ -136,7 +140,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -206,7 +210,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -276,7 +280,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -292,8 +296,8 @@ const BasicTables = () => {
                 Bordered table
               </h3>
               <p className="text-default-600 mb-4">
-                Add <code className="text-danger">border</code> for borders on all
-                sides of the table and cells.
+                Add <code className="text-danger">border</code> for borders on
+                all sides of the table and cells.
               </p>
               <div className="relative overflow-auto">
                 <table className="border-collapse min-w-full border border-default-200 bg-white dark:bg-transparent text-sm shadow-sm">
@@ -319,10 +323,11 @@ const BasicTables = () => {
                         <tr key={idx}>
                           <th
                             scope="row"
-                            className={`flex items-center gap-2 px-4 py-4 text-default-900 whitespace-nowrap dark:text-default-400 ${value.id !== 1
-                              ? 'border-t border-default-200'
-                              : ''
-                              }`}
+                            className={`flex items-center gap-2 px-4 py-4 text-default-900 whitespace-nowrap dark:text-default-400 ${
+                              value.id !== 1
+                                ? "border-t border-default-200"
+                                : ""
+                            }`}
                           >
                             {value.id}
                           </th>
@@ -347,7 +352,7 @@ const BasicTables = () => {
                             <Link to="">{value.username}</Link>
                           </td>
                         </tr>
-                      )
+                      );
                     })}
                   </tbody>
                 </table>
@@ -357,7 +362,9 @@ const BasicTables = () => {
 
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Border Color</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Border Color
+              </h3>
               <p className="text-default-600 mb-4">
                 Add <code className="text-danger">border-primary</code> for
                 borders on all sides of the table and cells.
@@ -386,10 +393,11 @@ const BasicTables = () => {
                         <tr key={idx}>
                           <th
                             scope="row"
-                            className={`flex items-center gap-2 px-4 py-4 text-default-900 whitespace-nowrap dark:text-default-400 ${value.id !== 1
-                              ? 'border-t border-primary dark:border-primary'
-                              : ''
-                              }`}
+                            className={`flex items-center gap-2 px-4 py-4 text-default-900 whitespace-nowrap dark:text-default-400 ${
+                              value.id !== 1
+                                ? "border-t border-primary dark:border-primary"
+                                : ""
+                            }`}
                           >
                             {value.id}
                           </th>
@@ -414,7 +422,7 @@ const BasicTables = () => {
                             <Link to="">{value.username}</Link>
                           </td>
                         </tr>
-                      )
+                      );
                     })}
                   </tbody>
                 </table>
@@ -480,7 +488,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -492,7 +500,9 @@ const BasicTables = () => {
 
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Small table</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Small table
+              </h3>
               <p className="text-default-600 mb-4">
                 Add to make tables more compact by cutting cell padding in half.
               </p>
@@ -556,7 +566,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-default-600">
@@ -588,7 +598,7 @@ const BasicTables = () => {
               <p className="text-default-600 mb-4">
                 Add
                 <code className="text-danger">
-                  hover:{'{'}color{'}'}-*
+                  hover:{"{"}color{"}"}-*
                 </code>
                 to enable a hover state on table rows within a
                 <code>&lt;tbody&gt;</code>.
@@ -645,7 +655,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -657,11 +667,13 @@ const BasicTables = () => {
 
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Active Tables</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Active Tables
+              </h3>
               <p className="text-default-600 mb-4">
                 Add
                 <code className="text-danger">
-                  hover:{'{'}color{'}'}-*
+                  hover:{"{"}color{"}"}-*
                 </code>
                 to enable a hover state on table rows within a
                 <code>&lt;tbody&gt;</code>.
@@ -703,10 +715,11 @@ const BasicTables = () => {
                           return (
                             <tr
                               key={idx}
-                              className={`${value.id === 1
-                                ? 'bg-default-100 dark:bg-transparent'
-                                : 'hover:bg-default-100 dark:hover:bg-transparent'
-                                }`}
+                              className={`${
+                                value.id === 1
+                                  ? "bg-default-100 dark:bg-transparent"
+                                  : "hover:bg-default-100 dark:hover:bg-transparent"
+                              }`}
                             >
                               <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-default-600">
                                 {value.id}
@@ -732,7 +745,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -744,7 +757,9 @@ const BasicTables = () => {
 
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Striped rows</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Striped rows
+              </h3>
               <p className="text-default-600 mb-4">
                 Use .table-striped to add zebra-striping to any table row within
                 the .
@@ -786,10 +801,11 @@ const BasicTables = () => {
                           return (
                             <tr
                               key={idx}
-                              className={`${value.id !== 2
-                                ? 'bg-default-100 dark:bg-transparent'
-                                : ''
-                                }`}
+                              className={`${
+                                value.id !== 2
+                                  ? "bg-default-100 dark:bg-transparent"
+                                  : ""
+                              }`}
                             >
                               <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-default-600">
                                 {value.id}
@@ -804,7 +820,7 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -816,11 +832,13 @@ const BasicTables = () => {
 
           <div className="border border-default-200 rounded-lg">
             <div className="p-6">
-              <h3 className="font-medium text-base text-default-600 mb-4">Captions</h3>
+              <h3 className="font-medium text-base text-default-600 mb-4">
+                Captions
+              </h3>
               <p className="text-default-600 mb-4">
-                A functions like a heading for a table. It helps users with screen
-                readers to find a table and understand what it’s about and decide
-                if they want to read it.
+                A functions like a heading for a table. It helps users with
+                screen readers to find a table and understand what it’s about
+                and decide if they want to read it.
               </p>
               <div className="overflow-auto">
                 <div className="min-w-full inline-block align-middle">
@@ -871,13 +889,11 @@ const BasicTables = () => {
                                 {value.username}
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
-                    <p className="ps-2 text-default-600">
-                      List of users
-                    </p>
+                    <p className="ps-2 text-default-600">List of users</p>
                   </div>
                 </div>
               </div>
@@ -929,10 +945,11 @@ const BasicTables = () => {
                           return (
                             <tr
                               key={idx}
-                              className={`${value.id === 1
-                                ? `bg-${value.variant}-100 dark:bg-transparent`
-                                : `bg-${value.variant}/40`
-                                }`}
+                              className={`${
+                                value.id === 1
+                                  ? `bg-${value.variant}-100 dark:bg-transparent`
+                                  : `bg-${value.variant}/40`
+                              }`}
                             >
                               <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-default-600">
                                 {value.id}
@@ -947,7 +964,7 @@ const BasicTables = () => {
                                 Column content
                               </td>
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -999,10 +1016,11 @@ const BasicTables = () => {
                           return (
                             <tr
                               key={idx}
-                              className={`${value.id !== 2
-                                ? 'bg-default-50 border-y border-default-200'
-                                : ''
-                                }`}
+                              className={`${
+                                value.id !== 2
+                                  ? "bg-default-50 border-y border-default-200"
+                                  : ""
+                              }`}
                             >
                               {value.id === 2 ? (
                                 <td colSpan={4} className="p-4">
@@ -1046,7 +1064,7 @@ const BasicTables = () => {
                                               last
                                             </td>
                                           </tr>
-                                        )
+                                        );
                                       })}
                                     </tbody>
                                   </table>
@@ -1068,7 +1086,7 @@ const BasicTables = () => {
                                 </>
                               )}
                             </tr>
-                          )
+                          );
                         })}
                       </tbody>
                     </table>
@@ -1163,7 +1181,7 @@ const BasicTables = () => {
                                   Table cell
                                 </td>
                               </tr>
-                            )
+                            );
                           })}
                         </tbody>
                       </table>
@@ -1177,7 +1195,7 @@ const BasicTables = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BasicTables
+export default BasicTables;

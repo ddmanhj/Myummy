@@ -1,12 +1,11 @@
-import { BreadcrumbAdmin } from "@/components"
-import ReactQuill from 'react-quill'
+import { BreadcrumbAdmin } from "@/components";
+import ReactQuill from "react-quill";
 
 // styles
 
-
 const Editor = () => {
-  let valueBubble = ''
-  let valueSnow = ''
+  let valueBubble = "";
+  let valueSnow = "";
   valueSnow =
     valueBubble = `<h3><span class="ql-size-large">Hello World!</span></h3>
       <p><br/></p>
@@ -17,26 +16,26 @@ const Editor = () => {
         <li>Edit rich document on-the-fly, so elastic!</li>
       </ul>
   <p><br/></p>
-  <p>End of simple area</p>`
+  <p>End of simple area</p>`;
 
   const modules = {
     toolbar: [
       [{ font: [] }, { size: [] }],
-      ['bold', 'italic', 'underline', 'strike'],
+      ["bold", "italic", "underline", "strike"],
       [{ color: [] }, { background: [] }],
-      [{ script: 'super' }, { script: 'sub' }],
-      [{ header: [false, 1, 2, 3, 4, 5, 6] }, 'blockquote', 'code-block'],
+      [{ script: "super" }, { script: "sub" }],
+      [{ header: [false, 1, 2, 3, 4, 5, 6] }, "blockquote", "code-block"],
       [
-        { list: 'ordered' },
-        { list: 'bullet' },
-        { indent: '-1' },
-        { indent: '+1' },
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
       ],
-      ['direction', { align: [] }],
-      ['link', 'image', 'video'],
-      ['clean'],
+      ["direction", { align: [] }],
+      ["link", "image", "video"],
+      ["clean"],
     ],
-  }
+  };
 
   return (
     <div className="w-full lg:ps-64">
@@ -83,7 +82,7 @@ const Editor = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Editor
+export default Editor;

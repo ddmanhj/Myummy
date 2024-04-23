@@ -1,8 +1,12 @@
-
-import { Link } from 'react-router-dom'
-import { lazy } from 'react'
-import { LuEye, LuShoppingCart } from 'react-icons/lu'
-import { demo1Img, logoDarkImg, logoLightImg, offerBgOtherImg } from '@/assets/data/images'
+import { Link } from "react-router-dom";
+import { lazy } from "react";
+import { LuEye, LuShoppingCart } from "react-icons/lu";
+import {
+  demo1Img,
+  logoDarkImg,
+  logoLightImg,
+  offerBgOtherImg,
+} from "@/assets/data/images";
 import {
   adminPanelDemosData,
   authDemosData,
@@ -11,9 +15,9 @@ import {
   frameworksData,
   landingFeaturesData,
   mainDemosData,
-} from '@/assets/data/landing'
-import { FeatureCard, DemoCard, TopMenu } from '@/components/landing'
-const StickyHeader = lazy(() => import('@/components/StickyHeader'))
+} from "@/assets/data/landing";
+import { FeatureCard, DemoCard, TopMenu } from "@/components/landing";
+const StickyHeader = lazy(() => import("@/components/StickyHeader"));
 
 export default function Home() {
   return (
@@ -24,8 +28,20 @@ export default function Home() {
             <nav className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <Link to="/">
-                  <img src={logoDarkImg} width={130} height={40} alt="logo" className="flex h-10 dark:hidden" />
-                  <img src={logoLightImg} width={130} height={40} alt="logo" className="hidden h-10 dark:flex" />
+                  <img
+                    src={logoDarkImg}
+                    width={130}
+                    height={40}
+                    alt="logo"
+                    className="flex h-10 dark:hidden"
+                  />
+                  <img
+                    src={logoLightImg}
+                    width={130}
+                    height={40}
+                    alt="logo"
+                    className="hidden h-10 dark:flex"
+                  />
                 </Link>
               </div>
 
@@ -43,31 +59,57 @@ export default function Home() {
           </div>
         </div>
       </StickyHeader>
-      <section className="relative bg-gradient-to-t from-orange-600/20 via-orange-600/5 to-orange-600/0 py-6 lg:pb-36 lg:pt-24" id="home">
+      <section
+        className="relative bg-gradient-to-t from-orange-600/20 via-orange-600/5 to-orange-600/0 py-6 lg:pb-36 lg:pt-24"
+        id="home"
+      >
         <div className="absolute inset-0 " />
         <div className="container relative">
           <div className="grid gap-12 lg:grid-cols-10">
             <div className="z-10 self-center lg:col-span-4">
               <div className="text-center lg:text-start">
                 <h1 className="text-2xl font-medium capitalize text-primary-950 dark:text-primary-50  md:text-3xl/snug lg:text-4xl/normal">
-                  Multipurpose <span className="font-semibold text-primary">Food</span> Client &amp; Admin App with Tailwind
+                  Multipurpose{" "}
+                  <span className="font-semibold text-primary">Food</span>{" "}
+                  Client &amp; Admin App with Tailwind
                 </h1>
-                <p className="mt-5">Discover the ease of having your preferred dishes delivered straight to your door. 🚪</p>
-                <a href="#demo" className="mt-10 inline-flex w-auto items-center gap-2 rounded-full bg-primary px-6 py-2.5 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-primary-200/10">
+                <p className="mt-5">
+                  Discover the ease of having your preferred dishes delivered
+                  straight to your door. 🚪
+                </p>
+                <a
+                  href="#demo"
+                  className="mt-10 inline-flex w-auto items-center gap-2 rounded-full bg-primary px-6 py-2.5 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-primary-200/10"
+                >
                   View Demos <LuEye size={20} />
                 </a>
               </div>
             </div>
             <div className="relative flex items-center justify-center lg:col-start-6 lg:col-end-11">
-              <img alt="demo" src={demo1Img} width={728} height={527} className="mx-auto rounded-lg shadow-lg" />
+              <img
+                alt="demo"
+                src={demo1Img}
+                width={728}
+                height={527}
+                className="mx-auto rounded-lg shadow-lg"
+              />
             </div>
           </div>
           <div className="mt-20 text-center">
             <p className="text-2xl font-medium">Developed Using</p>
             <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4">
               {frameworksData.map((framework, idx) => (
-                <div key={framework.name + idx} className="flex h-16 w-16 items-center justify-center rounded-full bg-white dark:bg-default-200">
-                  <img src={framework.icon} height={36} width={36} alt={framework.name} className="h-9 w-9" />
+                <div
+                  key={framework.name + idx}
+                  className="flex h-16 w-16 items-center justify-center rounded-full bg-white dark:bg-default-200"
+                >
+                  <img
+                    src={framework.icon}
+                    height={36}
+                    width={36}
+                    alt={framework.name}
+                    className="h-9 w-9"
+                  />
                 </div>
               ))}
             </div>
@@ -80,9 +122,12 @@ export default function Home() {
             <span className="mb-2 inline-flex rounded-full border-x-2 border-x-primary-600 bg-primary-100 px-2 text-base font-semibold  text-primary-700">
               Apps
             </span>
-            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">Client &amp; Admin Apps</h2>
+            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">
+              Client &amp; Admin Apps
+            </h2>
             <p className="text-base font-medium text-default-900">
-              Empowering Food Business: Seamless Control for Clients, Effortless Management for Admins!
+              Empowering Food Business: Seamless Control for Clients, Effortless
+              Management for Admins!
             </p>
           </div>
 
@@ -99,9 +144,12 @@ export default function Home() {
             <span className="mb-2 inline-flex rounded-full border-x-2 border-x-primary-600 bg-primary-100 px-2 text-base font-semibold text-primary-700">
               User
             </span>
-            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">Client App</h2>
+            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">
+              Client App
+            </h2>
             <p className="text-base font-medium text-default-900">
-              Instant Flavor, Effortless Ordering: Your Culinary Journey Starts Here with Our Food Client Web App!
+              Instant Flavor, Effortless Ordering: Your Culinary Journey Starts
+              Here with Our Food Client Web App!
             </p>
           </div>
           <div className="justify-content-center grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -117,9 +165,12 @@ export default function Home() {
             <span className="mb-2 inline-flex rounded-full border-x-2 border-x-primary-600 bg-primary-100 px-2 text-base font-semibold  text-primary-700">
               Control
             </span>
-            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">Admin Panel</h2>
+            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">
+              Admin Panel
+            </h2>
             <p className="text-base font-medium text-default-900">
-              Effortless Kitchen Management: Elevate Your Culinary Business with Our Admin Web App!
+              Effortless Kitchen Management: Elevate Your Culinary Business with
+              Our Admin Web App!
             </p>
           </div>
 
@@ -136,9 +187,12 @@ export default function Home() {
             <span className="mb-2 inline-flex rounded-full border-x-2 border-x-primary-600 bg-primary-100 px-2 text-base font-semibold  text-primary-700">
               Security
             </span>
-            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">Auth Pages</h2>
+            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">
+              Auth Pages
+            </h2>
             <p className="text-base font-medium text-default-900">
-              Well, of course we would provide Authentication pages, which are just right for your App.
+              Well, of course we would provide Authentication pages, which are
+              just right for your App.
             </p>
           </div>
 
@@ -155,9 +209,12 @@ export default function Home() {
             <span className="mb-2 inline-flex rounded-full border-x-2 border-x-primary-600 bg-primary-100 px-2 text-base font-semibold  text-primary-700">
               Helper
             </span>
-            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">Extra Pages</h2>
+            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">
+              Extra Pages
+            </h2>
             <p className="text-base font-medium text-default-900">
-              Beyond Taste: Explore Food Varieties with our Extra Pages Web App – Where Culinary Diversity Meets Innovation!
+              Beyond Taste: Explore Food Varieties with our Extra Pages Web App
+              – Where Culinary Diversity Meets Innovation!
             </p>
           </div>
 
@@ -174,7 +231,9 @@ export default function Home() {
             <span className="mb-2 inline-flex rounded-full border-x-2 border-x-primary-600 bg-primary-100 px-2 text-base font-semibold  text-primary-700">
               Features
             </span>
-            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">Awesome Template Features</h2>
+            <h2 className="mb-2.5 text-3xl font-semibold text-default-950">
+              Awesome Template Features
+            </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {landingFeaturesData.map((feature, idx) => (
@@ -186,16 +245,33 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <footer style={{ backgroundImage: `url(${offerBgOtherImg})` }} className="relative">
+      <footer
+        style={{ backgroundImage: `url(${offerBgOtherImg})` }}
+        className="relative"
+      >
         <div className="pb-10 pt-20">
           <div className="container relative">
             <div className="text-center">
               <div className="mx-auto mb-12">
                 <Link className="flex items-center justify-center" to="">
-                  <img src={logoDarkImg} width={130} height={40} alt="logo" className="flex h-10 dark:hidden" />
-                  <img src={logoLightImg} width={130} height={40} alt="logo" className="hidden h-10 dark:flex" />
+                  <img
+                    src={logoDarkImg}
+                    width={130}
+                    height={40}
+                    alt="logo"
+                    className="flex h-10 dark:hidden"
+                  />
+                  <img
+                    src={logoLightImg}
+                    width={130}
+                    height={40}
+                    alt="logo"
+                    className="hidden h-10 dark:flex"
+                  />
                 </Link>
-                <h2 className="my-5 text-xl font-semibold capitalize text-default-900 md:text-3xl">Get Food for yourself</h2>
+                <h2 className="my-5 text-xl font-semibold capitalize text-default-900 md:text-3xl">
+                  Get Food for yourself
+                </h2>
                 <p className="font-semibold text-default-800">
                   Start working with <span className="text-primary">Food </span>
                   to showcase your app to millions of people.
@@ -212,13 +288,14 @@ export default function Home() {
         </div>
         <div className="container relative">
           <p className="py-6 text-center font-medium text-default-900">
-            © Yum. Crafted and Coded with <span className="text-red-500">❤️</span> by{' '}
-            <Link className="text-primary-700" to="https://coderthemes.com/" target="_blank">
-              Coderthemes
+            © Myummy - food delicious 🥰{" "}
+            <span className="text-red-500">❤️</span> by{" "}
+            <Link className="text-primary-700" to="#" target="_blank">
+              Manhj
             </Link>
           </p>
         </div>
       </footer>
     </>
-  )
+  );
 }

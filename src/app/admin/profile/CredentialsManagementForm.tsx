@@ -1,23 +1,28 @@
-
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { PasswordFormInput } from '@/components'
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { PasswordFormInput } from "@/components";
 
 const CredentialsManagementForm = () => {
   const credentialsManagementFormSchema = yup.object({
-    currentPassword: yup.string().required('Please enter your current password'),
-    newPassword: yup.string().required('Please enter your new password'),
-    confirmPassword: yup.string().oneOf([yup.ref('newPassword'), ''], 'Passwords must match'),
-  })
+    currentPassword: yup
+      .string()
+      .required("Please enter your current password"),
+    newPassword: yup.string().required("Please enter your new password"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("newPassword"), ""], "Passwords must match"),
+  });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(credentialsManagementFormSchema),
-  })
+  });
 
   return (
     <form onSubmit={handleSubmit(() => {})}>
-      <h4 className="mb-4 text-xl font-medium text-default-900">Change Password</h4>
+      <h4 className="mb-4 text-xl font-medium text-default-900">
+        Change Password
+      </h4>
       <PasswordFormInput
         name="currentPassword"
         label="Current Password"
@@ -51,7 +56,7 @@ const CredentialsManagementForm = () => {
         </button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default CredentialsManagementForm
+export default CredentialsManagementForm;

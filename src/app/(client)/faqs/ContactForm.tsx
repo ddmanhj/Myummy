@@ -1,19 +1,21 @@
-
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { TextAreaFormInput, TextFormInput } from '@/components'
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { TextAreaFormInput, TextFormInput } from "@/components";
 
 const ContactForm = () => {
   const contactFormSchema = yup.object({
-    email: yup.string().email('Please enter a valid email').required('Please enter your email'),
-    subject: yup.string().required('Please enter your subject'),
-    message: yup.string().required('Please enter your message'),
-  })
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Please enter your email"),
+    subject: yup.string().required("Please enter your subject"),
+    message: yup.string().required("Please enter your message"),
+  });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(contactFormSchema),
-  })
+  });
 
   return (
     <form onSubmit={handleSubmit(() => {})}>
@@ -59,7 +61,7 @@ const ContactForm = () => {
         </button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

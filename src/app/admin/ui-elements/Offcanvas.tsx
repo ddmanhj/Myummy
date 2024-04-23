@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom'
-import { LuChevronDown } from 'react-icons/lu'
+import { Link } from "react-router-dom";
+import { LuChevronDown } from "react-icons/lu";
 
 const Offcanvas = () => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="p-6">
         <div className="w-full">
-          <h4 className="font-medium text-base text-default-600 mb-4">Offcanvas</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Offcanvas
+          </h4>
           <p className="text-default-600 mb-6">
             Four options are available: top, bottom, left and right aligned.
           </p>
@@ -323,7 +325,7 @@ const Offcanvas = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Offcanvas
+export default Offcanvas;

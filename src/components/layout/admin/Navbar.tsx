@@ -1,10 +1,13 @@
-
-import { Link } from 'react-router-dom'
-import SimplebarReactClient from '../../SimplebarReactClient'
-import { LuLogOut, LuUserCircle2, LuZap } from 'react-icons/lu'
-import { logoDarkImg, logoLightImg, offerBgOtherImg } from '@/assets/data/images'
-import VerticalMenu from './VerticalMenu'
-import { getAdminVerticalMenuItems } from '@/helpers'
+import { Link } from "react-router-dom";
+import SimplebarReactClient from "../../SimplebarReactClient";
+import { LuLogOut, LuUserCircle2, LuZap } from "react-icons/lu";
+import {
+  logoDarkImg,
+  logoLightImg,
+  offerBgOtherImg,
+} from "@/assets/data/images";
+import VerticalMenu from "./VerticalMenu";
+import { getAdminVerticalMenuItems } from "@/helpers";
 
 const MenuAdmin = () => {
   return (
@@ -13,9 +16,21 @@ const MenuAdmin = () => {
       className="hs-overlay fixed inset-y-0 start-0 z-[60] hidden w-64 -translate-x-full transform overflow-y-auto border-e border-default-200 bg-white transition-all duration-300 hs-overlay-open:translate-x-0 dark:bg-default-50 lg:bottom-0 lg:right-auto lg:block lg:translate-x-0 hide-in-print"
     >
       <div className="sticky top-0 flex h-18 items-center justify-center border-b border-dashed border-default-200 px-6">
-        <Link to="/home">
-          <img src={logoDarkImg} height={40} width={130} alt="logo" className="flex h-10 dark:hidden" />
-          <img src={logoLightImg} height={40} width={130} alt="logo" className="hidden h-10 dark:flex" />
+        <Link to="/">
+          <img
+            src={logoDarkImg}
+            height={40}
+            width={130}
+            alt="logo"
+            className="flex h-10 dark:hidden"
+          />
+          <img
+            src={logoLightImg}
+            height={40}
+            width={130}
+            alt="logo"
+            className="hidden h-10 dark:flex"
+          />
         </Link>
       </div>
 
@@ -32,7 +47,9 @@ const MenuAdmin = () => {
             <div className="-mt-10 mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-default-100 bg-white text-primary shadow-lg dark:bg-default-50">
               <LuZap size={24} />
             </div>
-            <p className="mb-4 text-sm text-default-700">🔥 Upgrade Your Plan. Find Out here</p>
+            <p className="mb-4 text-sm text-default-700">
+              🔥 Upgrade Your Plan. Find Out here
+            </p>
             <button className="rounded bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-white">
               Contact Support
             </button>
@@ -40,7 +57,10 @@ const MenuAdmin = () => {
         </li>
 
         <li className="menu-item">
-          <Link className="flex items-center gap-x-3.5 rounded-md px-4 py-3 text-sm text-default-700 hover:bg-default-100" to="/admin/profile">
+          <Link
+            className="flex items-center gap-x-3.5 rounded-md px-4 py-3 text-sm text-default-700 hover:bg-default-100"
+            to="/admin/profile"
+          >
             <LuUserCircle2 size={20} />
             Profile
           </Link>
@@ -56,7 +76,7 @@ const MenuAdmin = () => {
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default MenuAdmin
+export default MenuAdmin;

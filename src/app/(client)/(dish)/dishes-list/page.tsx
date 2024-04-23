@@ -1,7 +1,12 @@
-import { LuSettings2 } from 'react-icons/lu'
-import { Breadcrumb, DemoFilterDropdown, MegaProductFilter, ProductPagination } from '@/components'
-import DishesList from './DishesList'
-import { FoundResultsCount } from '../dishes/DishesGrid'
+import { LuSettings2 } from "react-icons/lu";
+import {
+  Breadcrumb,
+  DemoFilterDropdown,
+  MegaProductFilter,
+  ProductPagination,
+} from "@/components";
+import DishesList from "./DishesList";
+import { FoundResultsCount } from "../dishes/DishesGrid";
 
 const ProductList = () => {
   return (
@@ -24,7 +29,15 @@ const ProductList = () => {
                   <FoundResultsCount />
                 </div>
                 <div className="flex items-center">
-                  <DemoFilterDropdown filterOptions={['Latest', 'Featured', 'Release Date', 'Avg. Rating']} filterType="Sort By" />
+                  <DemoFilterDropdown
+                    filterOptions={[
+                      "Latest",
+                      "Featured",
+                      "Release Date",
+                      "Avg. Rating",
+                    ]}
+                    filterType="Sort By"
+                  />
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-5">
@@ -36,7 +49,7 @@ const ProductList = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;

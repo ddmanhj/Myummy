@@ -1,29 +1,35 @@
-import { currentCurrency } from '@/common'
-import { cn, toSentenceCase } from '@/utils'
-import TableSearchBox from './TableSearchBox'
-import { DemoFilterDropdown } from '../filter'
-import DateRangeFilter from './DateRangeFilter'
-import GoToAddButton from './GoToAddButton'
-import type { ColumnType } from '@/types/util'
-import type { SellerType } from '@/types/food'
+import { currentCurrency } from "@/common";
+import { cn, toSentenceCase } from "@/utils";
+import TableSearchBox from "./TableSearchBox";
+import { DemoFilterDropdown } from "../filter";
+import DateRangeFilter from "./DateRangeFilter";
+import GoToAddButton from "./GoToAddButton";
+import type { ColumnType } from "@/types/util";
+import type { SellerType } from "@/types/food";
 
 type DataTableProps = {
-  joining_time: SellerType['joining_time']
-}
+  joining_time: SellerType["joining_time"];
+};
 
 type CustomerDataTableProps<T extends DataTableProps> = {
-  rows: T[]
-  columns: Array<ColumnType<T>>
-  title: string
-  buttonText: string
-  buttonLink: string
-}
+  rows: T[];
+  columns: Array<ColumnType<T>>;
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+};
 
-const sortFilterOptions = ['Ascending', 'Descending']
+const sortFilterOptions = ["Ascending", "Descending"];
 
-const statusFilterOptions = ['All', 'Active', 'Blocked']
+const statusFilterOptions = ["All", "Active", "Blocked"];
 
-const CustomerDataTable = <DataType extends DataTableProps>({ rows, columns, title, buttonLink, buttonText }: CustomerDataTableProps<DataType>) => {
+const CustomerDataTable = <DataType extends DataTableProps>({
+  rows,
+  columns,
+  title,
+  buttonLink,
+  buttonText,
+}: CustomerDataTableProps<DataType>) => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="border-b border-b-default-200 px-6 py-4">
@@ -41,9 +47,15 @@ const CustomerDataTable = <DataType extends DataTableProps>({ rows, columns, tit
           <div className="flex flex-wrap items-center gap-2">
             <DateRangeFilter />
 
-            <DemoFilterDropdown filterType="Sort" filterOptions={sortFilterOptions} />
+            <DemoFilterDropdown
+              filterType="Sort"
+              filterOptions={sortFilterOptions}
+            />
 
-            <DemoFilterDropdown filterType="Status" filterOptions={statusFilterOptions} />
+            <DemoFilterDropdown
+              filterType="Status"
+              filterOptions={statusFilterOptions}
+            />
           </div>
         </div>
       </div>
@@ -60,7 +72,10 @@ const CustomerDataTable = <DataType extends DataTableProps>({ rows, columns, tit
                         type="checkbox"
                         className="form-checkbox h-5 w-5 rounded border border-default-300 bg-transparent text-primary focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0"
                       />
-                      <label htmlFor="hs-table-search-checkbox-all" className="sr-only">
+                      <label
+                        htmlFor="hs-table-search-checkbox-all"
+                        className="sr-only"
+                      >
                         Checkbox
                       </label>
                     </div>
@@ -88,40 +103,64 @@ const CustomerDataTable = <DataType extends DataTableProps>({ rows, columns, tit
                             type="checkbox"
                             className="form-checkbox h-5 w-5 rounded border border-default-300 bg-transparent text-primary focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0"
                           />
-                          <label htmlFor="hs-table-search-checkbox-1" className="sr-only">
+                          <label
+                            htmlFor="hs-table-search-checkbox-1"
+                            className="sr-only"
+                          >
                             Checkbox
                           </label>
                         </div>
                       </td>
 
                       {columns.map((column, idx) => {
-                        const tableData = row[column.key] as string
+                        const tableData = row[column.key] as string;
 
-                        if (column.key == 'joining_date') {
+                        if (column.key == "joining_date") {
                           return (
-                            <td key={tableData + idx} className="whitespace-nowrap px-6 py-4 text-base text-default-800">
+                            <td
+                              key={tableData + idx}
+                              className="whitespace-nowrap px-6 py-4 text-base text-default-800"
+                            >
                               {tableData} |&nbsp;
-                              <span className="text-xs">{row['joining_time']}</span>
+                              <span className="text-xs">
+                                {row["joining_time"]}
+                              </span>
                             </td>
-                          )
-                        } else if (column.key == 'status') {
-                          const colorClassName = tableData == 'active' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'
+                          );
+                        } else if (column.key == "status") {
+                          const colorClassName =
+                            tableData == "active"
+                              ? "bg-green-500/10 text-green-500"
+                              : "bg-red-500/10 text-red-500";
                           return (
-                            <td key={tableData + idx} className="whitespace-nowrap px-6 py-4">
-                              <span className={cn('rounded-md px-3 py-1 text-xs font-medium', colorClassName)}>{toSentenceCase(tableData)}</span>
+                            <td
+                              key={tableData + idx}
+                              className="whitespace-nowrap px-6 py-4"
+                            >
+                              <span
+                                className={cn(
+                                  "rounded-md px-3 py-1 text-xs font-medium",
+                                  colorClassName,
+                                )}
+                              >
+                                {toSentenceCase(tableData)}
+                              </span>
                             </td>
-                          )
+                          );
                         } else {
                           return (
-                            <td key={tableData + idx} className="whitespace-nowrap px-6 py-4 text-base text-default-800">
-                              {column.key == 'order_total' && currentCurrency}
+                            <td
+                              key={tableData + idx}
+                              className="whitespace-nowrap px-6 py-4 text-base text-default-800"
+                            >
+                              {column.key == "order_total" && currentCurrency}
                               {tableData}
                             </td>
-                          )
+                          );
                         }
                       })}
                     </tr>
-                  )
+                  );
                 })}
               </tbody>
             </table>
@@ -129,7 +168,7 @@ const CustomerDataTable = <DataType extends DataTableProps>({ rows, columns, tit
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CustomerDataTable
+export default CustomerDataTable;

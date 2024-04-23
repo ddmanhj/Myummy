@@ -1,14 +1,17 @@
+import { FilePond, registerPlugin } from "react-filepond";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import FilePondPluginImageCrop from "filepond-plugin-image-crop";
 
-import { FilePond, registerPlugin } from 'react-filepond'
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-import FilePondPluginImageCrop from 'filepond-plugin-image-crop'
-
-import 'filepond/dist/filepond.min.css'
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 // Register the plugins
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop)
+registerPlugin(
+  FilePondPluginImageExifOrientation,
+  FilePondPluginImagePreview,
+  FilePondPluginImageCrop,
+);
 
 const DishUploader = () => {
   return (
@@ -22,7 +25,9 @@ const DishUploader = () => {
           styleButtonRemoveItemPosition="center bottom"
         />
       </div>
-      <h4 className="mb-4 text-base font-medium text-default-800">Additional Images</h4>
+      <h4 className="mb-4 text-base font-medium text-default-800">
+        Additional Images
+      </h4>
       <div className="grid grid-cols-2 gap-6">
         <div className="flex h-40 flex-col items-center justify-center rounded-lg border border-default-200 p-6">
           <FilePond
@@ -35,7 +40,7 @@ const DishUploader = () => {
         <div className="flex h-40 flex-col items-center justify-center rounded-lg border border-dashed border-default-200" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DishUploader
+export default DishUploader;

@@ -1,7 +1,18 @@
 import { Navigate, Route, RouteProps, Routes } from "react-router-dom";
-import { AuthLayout, ClientLayout, DefaultLayout, AdminLayout } from "../layouts";
+import {
+  AuthLayout,
+  ClientLayout,
+  DefaultLayout,
+  AdminLayout,
+} from "../layouts";
 import { useAuthContext } from "@/context";
-import { allAuthFlattedRoutes, clientPublicFlattedRoutes, clientProtectedFlattedRoutes, allAdminFlattedRoutes, allBlankFlattedRoutes } from "./index";
+import {
+  allAuthFlattedRoutes,
+  clientPublicFlattedRoutes,
+  clientProtectedFlattedRoutes,
+  allAdminFlattedRoutes,
+  allBlankFlattedRoutes,
+} from "./index";
 
 const AllRoutes = (props: RouteProps) => {
   const { session, isAuthenticated } = useAuthContext();
@@ -9,45 +20,46 @@ const AllRoutes = (props: RouteProps) => {
   return (
     <Routes>
       <Route>
+        {/*Route không auth. Sử dụng layout DefaultLayout */}
         {allBlankFlattedRoutes.map((route, idx) => (
-          <Route key={idx} path={route.path} element={
-            <DefaultLayout {...props}>
-              {route.element}
-            </DefaultLayout>
-          }
+          <Route
+            key={idx}
+            path={route.path}
+            element={<DefaultLayout {...props}>{route.element}</DefaultLayout>}
           />
         ))}
       </Route>
 
       <Route>
+        {/*Route auth (cần đăng nhập, đăng ký, quên mật khẩu,...). Sử dụng layout AuthLayout */}
         {allAuthFlattedRoutes.map((route, idx) => (
-          <Route key={idx} path={route.path} element={
-            <AuthLayout {...props}>
-              {route.element}
-            </AuthLayout>
-          }
+          <Route
+            key={idx}
+            path={route.path}
+            element={<AuthLayout {...props}>{route.element}</AuthLayout>}
           />
         ))}
       </Route>
 
       <Route>
+        {/*Route auth danh riêng cho user. Sử dụng layout ClientLayout */}
         {clientPublicFlattedRoutes.map((route, idx) => (
-          <Route key={idx} path={route.path} element={
-            <ClientLayout {...props}>
-              {route.element}
-            </ClientLayout>
-          }
+          <Route
+            key={idx}
+            path={route.path}
+            element={<ClientLayout {...props}>{route.element}</ClientLayout>}
           />
         ))}
       </Route>
 
       <Route>
+        {/*Route auth danh riêng cho user nhưng chưa đăng nhập thì bắt đăng nhập, đăng nhập thành công đưa đến route muốn đến */}
         {clientProtectedFlattedRoutes.map((route, idx) => (
           <Route
             key={idx}
             path={route.path}
             element={
-              (isAuthenticated && session?.role == 'user') ? (
+              isAuthenticated && session?.role == "user" ? (
                 <ClientLayout {...props}>{route.element}</ClientLayout>
               ) : (
                 <Navigate
@@ -63,12 +75,13 @@ const AllRoutes = (props: RouteProps) => {
       </Route>
 
       <Route>
+        {/*Route auth danh riêng cho admin, nếu chưa đăng nhập và không phải admin sẽ dẫn đến trang đăng nhập. Sử dụng layout AdminLayout */}
         {allAdminFlattedRoutes.map((route, idx) => (
           <Route
             key={idx}
             path={route.path}
             element={
-              (isAuthenticated && session?.role == 'admin') ? (
+              isAuthenticated && session?.role == "admin" ? (
                 <AdminLayout {...props}>{route.element}</AdminLayout>
               ) : (
                 <Navigate
@@ -82,9 +95,8 @@ const AllRoutes = (props: RouteProps) => {
           />
         ))}
       </Route>
-
     </Routes>
-  )
-}
+  );
+};
 
 export default AllRoutes;

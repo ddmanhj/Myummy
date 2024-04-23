@@ -1,51 +1,94 @@
-
-import { LuSave, LuUndo } from 'react-icons/lu'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { TextAreaFormInput, TextFormInput } from '@/components'
+import { LuSave, LuUndo } from "react-icons/lu";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { TextAreaFormInput, TextFormInput } from "@/components";
 
 const BusinessDetailForm = () => {
   const businessDetailsFormSchema = yup.object({
-    businessName: yup.string().required('Please enter your business name'),
-    businessType: yup.string().required('Please enter your business type'),
-    contactNO: yup.number().required('Please enter your contact Number'),
-    gstNo: yup.string().required('Please enter your GST NO.'),
-    website: yup.string().required('Please enter website url'),
-    email: yup.string().email('Please enter a valid email').required('Please enter your email'),
-    description: yup.string().required('Please Enter your description'),
-  })
+    businessName: yup.string().required("Please enter your business name"),
+    businessType: yup.string().required("Please enter your business type"),
+    contactNO: yup.number().required("Please enter your contact Number"),
+    gstNo: yup.string().required("Please enter your GST NO."),
+    website: yup.string().required("Please enter website url"),
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Please enter your email"),
+    description: yup.string().required("Please Enter your description"),
+  });
 
   const defaultValue = {
-    businessName: 'Healthy Feast Corner',
-    businessType: 'Partnership',
+    businessName: "Healthy Feast Corner",
+    businessType: "Partnership",
     contactNO: 7465782356,
-    gstNo: 'GYOST6472',
-    website: 'http://healthyfeastcorner.com',
-    email: 'kianna.vetrov@mail.com',
+    gstNo: "GYOST6472",
+    website: "http://healthyfeastcorner.com",
+    email: "kianna.vetrov@mail.com",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-  }
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+  };
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(businessDetailsFormSchema),
     defaultValues: defaultValue,
-  })
+  });
 
   const undoChanges = () => {
-    reset(defaultValue)
-  }
+    reset(defaultValue);
+  };
 
   return (
-    <form onSubmit={handleSubmit(() => {})} id="tabBusinessDetail" className="hidden" role="tabpanel">
+    <form
+      onSubmit={handleSubmit(() => {})}
+      id="tabBusinessDetail"
+      className="hidden"
+      role="tabpanel"
+    >
       <h4 className="mb-6 text-lg font-medium text-default-900">Step 2:</h4>
       <div className="mb-6 grid gap-6 lg:grid-cols-2">
-        <TextFormInput name="businessName" type="text" label="Business Name" control={control} fullWidth />
-        <TextFormInput name="businessType" type="text" label="Business Type" control={control} fullWidth />
-        <TextFormInput name="contactNO" type="text" label="Contact Number" control={control} fullWidth />
-        <TextFormInput name="gstNo" type="text" label="GST Number" control={control} fullWidth />
-        <TextFormInput name="website" type="text" label="Website" control={control} fullWidth />
-        <TextFormInput name="email" type="email" label="Email" control={control} fullWidth />
+        <TextFormInput
+          name="businessName"
+          type="text"
+          label="Business Name"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="businessType"
+          type="text"
+          label="Business Type"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="contactNO"
+          type="text"
+          label="Contact Number"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="gstNo"
+          type="text"
+          label="GST Number"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="website"
+          type="text"
+          label="Website"
+          control={control}
+          fullWidth
+        />
+        <TextFormInput
+          name="email"
+          type="email"
+          label="Email"
+          control={control}
+          fullWidth
+        />
         <TextAreaFormInput
           name="description"
           label="Description"
@@ -74,7 +117,7 @@ const BusinessDetailForm = () => {
         </button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default BusinessDetailForm
+export default BusinessDetailForm;

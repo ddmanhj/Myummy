@@ -1,7 +1,7 @@
-import ReactApexChart from 'react-apexcharts'
+import ReactApexChart from "react-apexcharts";
 
 // components
-import { BreadcrumbAdmin } from '@/components'
+import { BreadcrumbAdmin } from "@/components";
 
 // data
 import {
@@ -9,7 +9,7 @@ import {
   colorRangeTreemap,
   distributedTreemap,
   multipleSeriesTreemap,
-} from './data'
+} from "./data";
 
 const TreemapApex = () => {
   return (
@@ -79,7 +79,7 @@ const TreemapApex = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TreemapApex
+export default TreemapApex;

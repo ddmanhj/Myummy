@@ -1,14 +1,14 @@
-import 'jsvectormap'
-import 'jsvectormap/dist/maps/iraq.js'
+import "jsvectormap";
+import "jsvectormap/dist/maps/iraq.js";
 
 //components
-import BaseVectorMap from './BaseVectorMap'
+import BaseVectorMap from "./BaseVectorMap";
 
 type IraqVectorMapProps = {
-  width?: string
-  height?: string
-  options?: any
-}
+  width?: string;
+  height?: string;
+  options?: any;
+};
 
 const IraqVectorMap = ({ width, height, options }: IraqVectorMapProps) => {
   return (
@@ -20,7 +20,7 @@ const IraqVectorMap = ({ width, height, options }: IraqVectorMapProps) => {
         type="iraq"
       />
     </>
-  )
-}
+  );
+};
 
-export default IraqVectorMap
+export default IraqVectorMap;

@@ -1,7 +1,7 @@
-import ReactApexChart from 'react-apexcharts'
+import ReactApexChart from "react-apexcharts";
 
 // components
-import { BreadcrumbAdmin } from '@/components'
+import { BreadcrumbAdmin } from "@/components";
 
 // data
 import {
@@ -9,7 +9,7 @@ import {
   multipleSeriesHeatmap,
   roundedHeatmap,
   singleSeriesHeatmap,
-} from './data'
+} from "./data";
 
 const HeatApex = () => {
   return (
@@ -79,7 +79,7 @@ const HeatApex = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HeatApex
+export default HeatApex;

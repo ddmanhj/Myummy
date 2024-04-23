@@ -1,13 +1,13 @@
-import { ApexOptions } from 'apexcharts'
+import { ApexOptions } from "apexcharts";
 
 // image
-import Img from '@/assets/images/small/img-4.jpg'
+import Img from "@/assets/images/small/img-4.jpg";
 
 // Basic Bar chart
 export const basicBarChart: ApexOptions = {
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
     toolbar: {
       show: false,
     },
@@ -25,19 +25,19 @@ export const basicBarChart: ApexOptions = {
       data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
     },
   ],
-  colors: ['#39afd1'],
+  colors: ["#39afd1"],
   xaxis: {
     categories: [
-      'South Korea',
-      'Canada',
-      'United Kingdom',
-      'Netherlands',
-      'Italy',
-      'France',
-      'Japan',
-      'United States',
-      'China',
-      'Germany',
+      "South Korea",
+      "Canada",
+      "United Kingdom",
+      "Netherlands",
+      "Italy",
+      "France",
+      "Japan",
+      "United States",
+      "China",
+      "Germany",
     ],
   },
   states: {
@@ -46,15 +46,15 @@ export const basicBarChart: ApexOptions = {
     },
   },
   grid: {
-    borderColor: '#f1f3fa',
+    borderColor: "#f1f3fa",
   },
-}
+};
 
 // Grouped Bar Chart
 export const groupedBarChart: ApexOptions = {
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
     toolbar: {
       show: false,
     },
@@ -63,7 +63,7 @@ export const groupedBarChart: ApexOptions = {
     bar: {
       horizontal: true,
       dataLabels: {
-        position: 'top',
+        position: "top",
       },
     },
   },
@@ -71,23 +71,23 @@ export const groupedBarChart: ApexOptions = {
     enabled: true,
     offsetX: -6,
     style: {
-      fontSize: '12px',
-      colors: ['#fff'],
+      fontSize: "12px",
+      colors: ["#fff"],
     },
   },
-  colors: ['#fa5c7c', '#6c757d'],
+  colors: ["#fa5c7c", "#6c757d"],
   stroke: {
     show: true,
     width: 1,
-    colors: ['#fff'],
+    colors: ["#fff"],
   },
   series: [
     {
-      name: 'Series 1',
+      name: "Series 1",
       data: [44, 55, 41, 64, 22, 43, 21],
     },
     {
-      name: 'Series 2',
+      name: "Series 2",
       data: [53, 32, 33, 52, 13, 44, 32],
     },
   ],
@@ -103,18 +103,18 @@ export const groupedBarChart: ApexOptions = {
     },
   },
   grid: {
-    borderColor: '#f1f3fa',
+    borderColor: "#f1f3fa",
     padding: {
       bottom: 5,
     },
   },
-}
+};
 
 // Stacked Bar Chart
 export const stackedBarChart: ApexOptions = {
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
     stacked: true,
     toolbar: {
       show: false,
@@ -130,23 +130,23 @@ export const stackedBarChart: ApexOptions = {
   },
   series: [
     {
-      name: 'Marine Sprite',
+      name: "Marine Sprite",
       data: [44, 55, 41, 37, 22, 43, 21],
     },
     {
-      name: 'Striking Calf',
+      name: "Striking Calf",
       data: [53, 32, 33, 52, 13, 43, 32],
     },
     {
-      name: 'Tank Picture',
+      name: "Tank Picture",
       data: [12, 17, 11, 9, 15, 11, 20],
     },
     {
-      name: 'Bucket Slope',
+      name: "Bucket Slope",
       data: [9, 7, 5, 8, 6, 9, 4],
     },
     {
-      name: 'Reborn Kid',
+      name: "Reborn Kid",
       data: [25, 12, 19, 32, 25, 24, 10],
     },
   ],
@@ -154,7 +154,7 @@ export const stackedBarChart: ApexOptions = {
     categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
     labels: {
       formatter: function (val) {
-        return val + 'K'
+        return val + "K";
       },
     },
   },
@@ -163,11 +163,11 @@ export const stackedBarChart: ApexOptions = {
       text: undefined,
     },
   },
-  colors: ['#3e60d5', '#47ad77', '#fa5c7c', '#6c757d', '#39afd1'],
+  colors: ["#3e60d5", "#47ad77", "#fa5c7c", "#6c757d", "#39afd1"],
   tooltip: {
     y: {
       formatter: function (val) {
-        return val + 'K'
+        return val + "K";
       },
     },
   },
@@ -180,22 +180,22 @@ export const stackedBarChart: ApexOptions = {
     },
   },
   legend: {
-    position: 'top',
-    horizontalAlign: 'center',
+    position: "top",
+    horizontalAlign: "center",
     offsetY: 10,
   },
   grid: {
-    borderColor: '#f1f3fa',
+    borderColor: "#f1f3fa",
   },
-}
+};
 
 // 100% Stacked Bar Chart
 export const fullStackedBarChart: ApexOptions = {
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
     stacked: true,
-    stackType: '100%',
+    stackType: "100%",
     toolbar: {
       show: false,
     },
@@ -207,38 +207,38 @@ export const fullStackedBarChart: ApexOptions = {
   },
   stroke: {
     width: 1,
-    colors: ['#fff'],
+    colors: ["#fff"],
   },
   series: [
     {
-      name: 'Marine Sprite',
+      name: "Marine Sprite",
       data: [44, 55, 41, 37, 22, 43, 21],
     },
     {
-      name: 'Striking Calf',
+      name: "Striking Calf",
       data: [53, 32, 33, 52, 13, 43, 32],
     },
     {
-      name: 'Tank Picture',
+      name: "Tank Picture",
       data: [12, 17, 11, 9, 15, 11, 20],
     },
     {
-      name: 'Bucket Slope',
+      name: "Bucket Slope",
       data: [9, 7, 5, 8, 6, 9, 4],
     },
     {
-      name: 'Reborn Kid',
+      name: "Reborn Kid",
       data: [25, 12, 19, 32, 25, 24, 10],
     },
   ],
   xaxis: {
     categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
   },
-  colors: ['#ffbc00', '#39afd1', '#6c757d', '#e3eaef', '#3e60d5'],
+  colors: ["#ffbc00", "#39afd1", "#6c757d", "#e3eaef", "#3e60d5"],
   tooltip: {
     y: {
       formatter: function (val) {
-        return val + 'K'
+        return val + "K";
       },
     },
   },
@@ -251,33 +251,33 @@ export const fullStackedBarChart: ApexOptions = {
     },
   },
   legend: {
-    position: 'top',
-    horizontalAlign: 'center',
+    position: "top",
+    horizontalAlign: "center",
     offsetY: 10,
   },
   grid: {
-    borderColor: '#f1f3fa',
+    borderColor: "#f1f3fa",
     padding: {
       top: 0,
     },
   },
-}
+};
 
 // Bar with Negative Values
 export const barNegativeValueChart: ApexOptions = {
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
     stacked: true,
     toolbar: {
       show: false,
     },
   },
-  colors: ['#fa5c7c', '#47ad77'],
+  colors: ["#fa5c7c", "#47ad77"],
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: '80%',
+      barHeight: "80%",
     },
   },
   dataLabels: {
@@ -285,18 +285,18 @@ export const barNegativeValueChart: ApexOptions = {
   },
   stroke: {
     width: 1,
-    colors: ['#fff'],
+    colors: ["#fff"],
   },
   series: [
     {
-      name: 'Males',
+      name: "Males",
       data: [
         0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2,
         4.5, 3.9, 3.5, 3,
       ],
     },
     {
-      name: 'Females',
+      name: "Females",
       data: [
         -0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3,
         -4.4, -4.1, -4, -4.1, -3.4, -3.1, -2.8,
@@ -312,56 +312,56 @@ export const barNegativeValueChart: ApexOptions = {
     min: -5,
     max: 5,
     title: {
-      text: 'Age',
+      text: "Age",
     },
   },
   tooltip: {
     shared: false,
     x: {
       formatter: function (val: any) {
-        return val
+        return val;
       },
     },
     y: {
       formatter: function (val) {
-        return Math.abs(val) + '%'
+        return Math.abs(val) + "%";
       },
     },
   },
   xaxis: {
     categories: [
-      '85+',
-      '80-84',
-      '75-79',
-      '70-74',
-      '65-69',
-      '60-64',
-      '55-59',
-      '50-54',
-      '45-49',
-      '40-44',
-      '35-39',
-      '30-34',
-      '25-29',
-      '20-24',
-      '15-19',
-      '10-14',
-      '5-9',
-      '0-4',
+      "85+",
+      "80-84",
+      "75-79",
+      "70-74",
+      "65-69",
+      "60-64",
+      "55-59",
+      "50-54",
+      "45-49",
+      "40-44",
+      "35-39",
+      "30-34",
+      "25-29",
+      "20-24",
+      "15-19",
+      "10-14",
+      "5-9",
+      "0-4",
     ],
     title: {
-      text: 'Percent',
+      text: "Percent",
     },
     labels: {
       formatter: function (val: any) {
-        return Math.abs(Math.round(val)) + '%'
+        return Math.abs(Math.round(val)) + "%";
       },
     },
   },
   legend: {
     offsetY: 7,
   },
-}
+};
 
 // Reversed Bar Chart
 export const reversedBarChart: ApexOptions = {
@@ -371,30 +371,30 @@ export const reversedBarChart: ApexOptions = {
     },
   ],
   chart: {
-    type: 'bar',
+    type: "bar",
     height: 380,
   },
   annotations: {
     xaxis: [
       {
         x: 500,
-        borderColor: '#47ad77',
+        borderColor: "#47ad77",
         label: {
-          borderColor: '#47ad77',
+          borderColor: "#47ad77",
           style: {
-            color: '#fff',
-            background: '#47ad77',
+            color: "#fff",
+            background: "#47ad77",
           },
-          text: 'X annotation',
+          text: "X annotation",
         },
       },
     ],
     yaxis: [
       {
-        y: 'July',
-        y2: 'September',
+        y: "July",
+        y2: "September",
         label: {
-          text: 'Y annotation',
+          text: "Y annotation",
         },
       },
     ],
@@ -409,16 +409,16 @@ export const reversedBarChart: ApexOptions = {
   },
   xaxis: {
     categories: [
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ],
   },
-  colors: ['#3e60d5', '#47ad77'],
+  colors: ["#3e60d5", "#47ad77"],
   grid: {
     xaxis: {
       lines: {
@@ -432,13 +432,13 @@ export const reversedBarChart: ApexOptions = {
       show: true,
     },
   },
-}
+};
 
 // Bar with Image Fill
 export const imageFillBarChart: ApexOptions = {
   chart: {
     height: 450,
-    type: 'bar',
+    type: "bar",
     toolbar: {
       show: false,
     },
@@ -449,19 +449,19 @@ export const imageFillBarChart: ApexOptions = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: '100%',
+      barHeight: "100%",
     },
   },
   dataLabels: {
     enabled: false,
   },
   stroke: {
-    colors: ['#fff'],
+    colors: ["#fff"],
     width: 0.2,
   },
   series: [
     {
-      name: 'coins',
+      name: "coins",
       data: [
         2, 4, 3, 4, 3, 5, 5, 6.5, 6, 5, 4, 5, 8, 7, 7, 8, 8, 10, 9, 9, 12, 12,
         11, 12, 13, 14, 16, 14, 15, 17, 19, 21,
@@ -480,15 +480,15 @@ export const imageFillBarChart: ApexOptions = {
       show: false,
     },
     title: {
-      text: 'Weight',
+      text: "Weight",
     },
   },
   grid: {
-    position: 'back',
-    borderColor: '#f1f3fa',
+    position: "back",
+    borderColor: "#f1f3fa",
   },
   fill: {
-    type: 'image',
+    type: "image",
     opacity: 0.87,
     image: {
       src: [Img],
@@ -496,44 +496,44 @@ export const imageFillBarChart: ApexOptions = {
       height: 406,
     },
   },
-}
+};
 
 // Custom DataLabels Bar
 export const customDataLabelsBarChart: ApexOptions = {
   chart: {
     height: 450,
-    type: 'bar',
+    type: "bar",
   },
   plotOptions: {
     bar: {
-      barHeight: '100%',
+      barHeight: "100%",
       distributed: true,
       horizontal: true,
       dataLabels: {
-        position: 'bottom',
+        position: "bottom",
       },
     },
   },
   colors: [
-    '#3e60d5',
-    '#47ad77',
-    '#fa5c7c',
-    '#6c757d',
-    '#39afd1',
-    '#2b908f',
-    '#ffbc00',
-    '#90ee7e',
-    '#f48024',
-    '#212730',
+    "#3e60d5",
+    "#47ad77",
+    "#fa5c7c",
+    "#6c757d",
+    "#39afd1",
+    "#2b908f",
+    "#ffbc00",
+    "#90ee7e",
+    "#f48024",
+    "#212730",
   ],
   dataLabels: {
     enabled: true,
-    textAnchor: 'start',
+    textAnchor: "start",
     style: {
-      colors: ['#fff'],
+      colors: ["#fff"],
     },
     formatter: function (val, opt) {
-      return opt.w.globals.labels[opt.dataPointIndex] + ':  ' + val
+      return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val;
     },
     offsetX: 0,
     dropShadow: {
@@ -547,20 +547,20 @@ export const customDataLabelsBarChart: ApexOptions = {
   ],
   stroke: {
     width: 0,
-    colors: ['#fff'],
+    colors: ["#fff"],
   },
   xaxis: {
     categories: [
-      'South Korea',
-      'Canada',
-      'United Kingdom',
-      'Netherlands',
-      'Italy',
-      'France',
-      'Japan',
-      'United States',
-      'China',
-      'India',
+      "South Korea",
+      "Canada",
+      "United Kingdom",
+      "Netherlands",
+      "Italy",
+      "France",
+      "Japan",
+      "United States",
+      "China",
+      "India",
     ],
   },
   yaxis: {
@@ -569,29 +569,29 @@ export const customDataLabelsBarChart: ApexOptions = {
     },
   },
   grid: {
-    borderColor: '#f1f3fa',
+    borderColor: "#f1f3fa",
   },
 
   tooltip: {
-    theme: 'dark',
+    theme: "dark",
     x: {
       show: false,
     },
     y: {
       title: {
         formatter: function () {
-          return ''
+          return "";
         },
       },
     },
   },
-}
+};
 
 // Patterned Bar Chart
 export const patternedBarChart: ApexOptions = {
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
     stacked: true,
     toolbar: {
       show: false,
@@ -605,7 +605,7 @@ export const patternedBarChart: ApexOptions = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: '60%',
+      barHeight: "60%",
     },
   },
   dataLabels: {
@@ -616,19 +616,19 @@ export const patternedBarChart: ApexOptions = {
   },
   series: [
     {
-      name: 'Marine Sprite',
+      name: "Marine Sprite",
       data: [44, 55, 41, 37, 22, 43, 21],
     },
     {
-      name: 'Striking Calf',
+      name: "Striking Calf",
       data: [53, 32, 33, 52, 13, 43, 32],
     },
     {
-      name: 'Tank Picture',
+      name: "Tank Picture",
       data: [12, 17, 11, 9, 15, 11, 20],
     },
     {
-      name: 'Bucket Slope',
+      name: "Bucket Slope",
       data: [9, 7, 5, 8, 6, 9, 4],
     },
   ],
@@ -644,16 +644,16 @@ export const patternedBarChart: ApexOptions = {
     shared: false,
     y: {
       formatter: function (val) {
-        return val + 'K'
+        return val + "K";
       },
     },
   },
-  colors: ['#3e60d5', '#47ad77', '#fa5c7c', '#39afd1'],
+  colors: ["#3e60d5", "#47ad77", "#fa5c7c", "#39afd1"],
   fill: {
-    type: 'pattern',
+    type: "pattern",
     opacity: 1,
     pattern: {
-      style: ['circles', 'slantedLines', 'verticalLines', 'horizontalLines'], // string or array of strings
+      style: ["circles", "slantedLines", "verticalLines", "horizontalLines"], // string or array of strings
     },
   },
   states: {
@@ -662,10 +662,10 @@ export const patternedBarChart: ApexOptions = {
     },
   },
   legend: {
-    position: 'right',
+    position: "right",
   },
   grid: {
-    borderColor: '#f1f3fa',
+    borderColor: "#f1f3fa",
   },
   responsive: [
     {
@@ -677,92 +677,92 @@ export const patternedBarChart: ApexOptions = {
       },
     },
   ],
-}
+};
 
 // Bar with Markers
 export const markersBarChart: ApexOptions = {
   series: [
     {
-      name: 'Actual',
+      name: "Actual",
       data: [
         {
-          x: '2017',
+          x: "2017",
           y: 12,
           goals: [
             {
-              name: 'Expected',
+              name: "Expected",
               value: 14,
               strokeWidth: 2,
               strokeDashArray: 2,
-              strokeColor: '#fa5c7c',
+              strokeColor: "#fa5c7c",
             },
           ],
         },
         {
-          x: '2018',
+          x: "2018",
           y: 44,
           goals: [
             {
-              name: 'Expected',
+              name: "Expected",
               value: 54,
               strokeWidth: 5,
               strokeHeight: 10,
-              strokeColor: '#fa5c7c',
+              strokeColor: "#fa5c7c",
             },
           ],
         },
         {
-          x: '2019',
+          x: "2019",
           y: 54,
           goals: [
             {
-              name: 'Expected',
+              name: "Expected",
               value: 52,
               strokeWidth: 10,
               strokeHeight: 0,
-              strokeLineCap: 'round',
-              strokeColor: '#fa5c7c',
+              strokeLineCap: "round",
+              strokeColor: "#fa5c7c",
             },
           ],
         },
         {
-          x: '2020',
+          x: "2020",
           y: 66,
           goals: [
             {
-              name: 'Expected',
+              name: "Expected",
               value: 61,
               strokeWidth: 10,
               strokeHeight: 0,
-              strokeLineCap: 'round',
-              strokeColor: '#fa5c7c',
+              strokeLineCap: "round",
+              strokeColor: "#fa5c7c",
             },
           ],
         },
         {
-          x: '2021',
+          x: "2021",
           y: 81,
           goals: [
             {
-              name: 'Expected',
+              name: "Expected",
               value: 66,
               strokeWidth: 10,
               strokeHeight: 0,
-              strokeLineCap: 'round',
-              strokeColor: '#fa5c7c',
+              strokeLineCap: "round",
+              strokeColor: "#fa5c7c",
             },
           ],
         },
         {
-          x: '2022',
+          x: "2022",
           y: 67,
           goals: [
             {
-              name: 'Expected',
+              name: "Expected",
               value: 70,
               strokeWidth: 5,
               strokeHeight: 10,
-              strokeColor: '#fa5c7c',
+              strokeColor: "#fa5c7c",
             },
           ],
         },
@@ -771,21 +771,21 @@ export const markersBarChart: ApexOptions = {
   ],
   chart: {
     height: 380,
-    type: 'bar',
+    type: "bar",
   },
   plotOptions: {
     bar: {
       horizontal: true,
     },
   },
-  colors: ['#47ad77', '#fa5c7c'],
+  colors: ["#47ad77", "#fa5c7c"],
   dataLabels: {},
   legend: {
     show: true,
     showForSingleSeries: true,
-    customLegendItems: ['Actual', 'Expected'],
+    customLegendItems: ["Actual", "Expected"],
     markers: {
-      fillColors: ['#47ad77', '#fa5c7c'],
+      fillColors: ["#47ad77", "#fa5c7c"],
     },
   },
-}
+};

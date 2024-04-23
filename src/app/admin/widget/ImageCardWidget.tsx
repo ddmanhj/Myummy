@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
-import Dropdown from './Dropdown'
+import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 // images
-import Img1 from '@/assets/images/avatars/avatar7.jpg'
-import Img2 from '@/assets/images/covers/2.jpg'
-import Img3 from '@/assets/images/small/img-4.jpg'
-import Img4 from '@/assets/images/small/img-5.jpg'
-import Img5 from '@/assets/images/small/img-6.jpg'
-import { LuCalendar, LuEye, LuFileText, LuUsers } from 'react-icons/lu'
+import Img1 from "@/assets/images/avatars/avatar7.jpg";
+import Img2 from "@/assets/images/covers/2.jpg";
+import Img3 from "@/assets/images/small/img-4.jpg";
+import Img4 from "@/assets/images/small/img-5.jpg";
+import Img5 from "@/assets/images/small/img-6.jpg";
+import { LuCalendar, LuEye, LuFileText, LuUsers } from "react-icons/lu";
 
 const ImageCardWidget = () => {
   return (
@@ -33,8 +33,8 @@ const ImageCardWidget = () => {
             </button>
             <div className="mt-7 pt-5 border-t text-start dark:border-gray-600">
               <p className="text-gray-500 mb-2 dark:text-gray-400">
-                Hi I'm Yum. I am user experience and user type designer. I
-                have been working on UI &amp; UX since last 10 years.
+                Hi I'm Yum. I am user experience and user type designer. I have
+                been working on UI &amp; UX since last 10 years.
               </p>
               <p className="mb-2">
                 <span className="inline-flex items-center gap-1.5 py-0.5 px-1.5 rounded text-xs font-medium bg-success/10 text-success">
@@ -52,7 +52,6 @@ const ImageCardWidget = () => {
       <div className="rounded-lg border border-default-200 relative">
         <img src={Img2} alt="Yum" className="w-full" />
         <div className="h-4 absolute top-5 end-5">
-
           <Dropdown />
         </div>
         <div className="p-6 text-center pt-0 -mt-12">
@@ -157,9 +156,7 @@ const ImageCardWidget = () => {
             </div>
             <div className="md:col-span-2">
               <div className="p-6 py-0">
-                <h5 className="text-lg mt-2 mb-0 dark:text-gray-300">
-                  Yum N
-                </h5>
+                <h5 className="text-lg mt-2 mb-0 dark:text-gray-300">Yum N</h5>
                 <h6 className="text-gray-500 font-normal mt-0 mb-3 dark:text-gray-400">
                   New York, USA
                 </h6>
@@ -250,7 +247,7 @@ const ImageCardWidget = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ImageCardWidget
+export default ImageCardWidget;

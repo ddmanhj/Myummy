@@ -1,54 +1,87 @@
-
-import { lazy, useEffect, useState } from 'react'
-import { FaStar, FaStarHalfStroke } from 'react-icons/fa6'
-import type { DishType, RestaurantType } from '@/types/food'
-import { calculatedPrice, getRestaurantById } from '@/helpers'
-import { currentCurrency } from '@/common'
-const AddToCartButton = lazy(() => import('../shopping-interactivity/AddToCartButton'))
-const ProductWishlistToggler = lazy(() => import('../shopping-interactivity/ProductWishlistToggler'))
+import { lazy, useEffect, useState } from "react";
+import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
+import type { DishType, RestaurantType } from "@/types/food";
+import { calculatedPrice, getRestaurantById } from "@/helpers";
+import { currentCurrency } from "@/common";
+const AddToCartButton = lazy(
+  () => import("../shopping-interactivity/AddToCartButton"),
+);
+const ProductWishlistToggler = lazy(
+  () => import("../shopping-interactivity/ProductWishlistToggler"),
+);
 
 const ProductWishListCard = ({ dish }: { dish: DishType }) => {
-  const { images, name, price, review, restaurant_id } = dish
+  const { images, name, price, review, restaurant_id } = dish;
 
-  const [restaurant, setRestaurant] = useState<RestaurantType>()
+  const [restaurant, setRestaurant] = useState<RestaurantType>();
 
   useEffect(() => {
     (async () => {
-      const foundRestaurant = await getRestaurantById(restaurant_id, { dummyDelay: false })
-      if (foundRestaurant) setRestaurant(foundRestaurant)
-    })()
-  }, [restaurant_id])
+      const foundRestaurant = await getRestaurantById(restaurant_id, {
+        dummyDelay: false,
+      });
+      if (foundRestaurant) setRestaurant(foundRestaurant);
+    })();
+  }, [restaurant_id]);
 
-  const discountedPrice = calculatedPrice(dish)
+  const discountedPrice = calculatedPrice(dish);
 
   return (
     <div className="grid grid-cols-3 items-end px-4 py-4 sm:items-center">
       <div className="col-span-2 lg:col-span-1">
         <div className="flex flex-col sm:flex-row sm:items-center">
-          <img src={images[0]} width={112} height={112} className="me-2 h-28 w-28 place-self-end sm:place-self-start lg:me-4" alt="sushi" />
+          <img
+            src={images[0]}
+            width={112}
+            height={112}
+            className="me-2 h-28 w-28 place-self-end sm:place-self-start lg:me-4"
+            alt="sushi"
+          />
           <div className="w-2/3 md:w-auto">
-            <p className="mb-2 text-xs font-medium text-primary">{restaurant?.name ?? ""}</p>
-            <h4 className="mb-2 line-clamp-1 text-xl font-semibold text-default-800">{name}</h4>
+            <p className="mb-2 text-xs font-medium text-primary">
+              {restaurant?.name ?? ""}
+            </p>
+            <h4 className="mb-2 line-clamp-1 text-xl font-semibold text-default-800">
+              {name}
+            </h4>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5">
                 <span className="inline-flex items-center gap-2 lg:hidden">
                   <span className="rounded-full bg-primary p-1">
                     <FaStar size={12} className="fill-white text-white" />
                   </span>
-                  <span className="from-inherit text-sm text-default-950">{review.stars}</span>
+                  <span className="from-inherit text-sm text-default-950">
+                    {review.stars}
+                  </span>
                 </span>
                 <div className="hidden gap-1.5 lg:flex">
-                  {Array.from(new Array(Math.floor(review.stars))).map((_star, idx) => (
-                    <FaStar key={idx} size={20} className="fill-yellow-400 text-yellow-400" />
-                  ))}
-                  {!Number.isInteger(review.stars) && <FaStarHalfStroke size={20} className="text-yellow-400" />}
+                  {Array.from(new Array(Math.floor(review.stars))).map(
+                    (_star, idx) => (
+                      <FaStar
+                        key={idx}
+                        size={20}
+                        className="fill-yellow-400 text-yellow-400"
+                      />
+                    ),
+                  )}
+                  {!Number.isInteger(review.stars) && (
+                    <FaStarHalfStroke size={20} className="text-yellow-400" />
+                  )}
                   {review.stars < 5 &&
-                    Array.from(new Array(5 - Math.ceil(review.stars))).map((_val, idx) => (
-                      <FaStar key={idx} size={20} className="text-default-400" />
-                    ))}
+                    Array.from(new Array(5 - Math.ceil(review.stars))).map(
+                      (_val, idx) => (
+                        <FaStar
+                          key={idx}
+                          size={20}
+                          className="text-default-400"
+                        />
+                      ),
+                    )}
                 </div>
               </div>
-              <h6 className="mt-1 text-sm font-medium text-default-500">({review.count})</h6>
+              <h6 className="mt-1 text-sm font-medium text-default-500">
+                ({review.count})
+              </h6>
             </div>
           </div>
         </div>
@@ -72,7 +105,7 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductWishListCard
+export default ProductWishListCard;

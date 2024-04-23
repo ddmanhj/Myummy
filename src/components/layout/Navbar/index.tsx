@@ -1,17 +1,24 @@
-
-import { lazy } from 'react'
-import { LuHeart, LuLogOut, LuMenu, LuSearch, LuShoppingCart, LuUser, LuUserCircle } from 'react-icons/lu'
-import SimplebarReactClient from '../../SimplebarReactClient'
-import TabNavigation from './TabNavigation'
-import VerticalMenu from './VerticalMenu'
-import { OfferAdBanner } from '../../index'
-import { logoDarkImg, logoLightImg } from '@/assets/data/images'
-import { getClientVerticalMenuItems, getHorizontalMenuItems } from '@/helpers'
-import ProductSearchBar from './ProductSearchBar'
-import CartAndWishList from './CartAndWishList'
-import { Link } from 'react-router-dom'
-const HorizontalMenu = lazy(() => import('./HorizontalMenu'))
-const StickyHeader = lazy(() => import('../../StickyHeader'))
+import { lazy } from "react";
+import {
+  LuHeart,
+  LuLogOut,
+  LuMenu,
+  LuSearch,
+  LuShoppingCart,
+  LuUser,
+  LuUserCircle,
+} from "react-icons/lu";
+import SimplebarReactClient from "../../SimplebarReactClient";
+import TabNavigation from "./TabNavigation";
+import VerticalMenu from "./VerticalMenu";
+import { OfferAdBanner } from "../../index";
+import { logoDarkImg, logoLightImg } from "@/assets/data/images";
+import { getClientVerticalMenuItems, getHorizontalMenuItems } from "@/helpers";
+import ProductSearchBar from "./ProductSearchBar";
+import CartAndWishList from "./CartAndWishList";
+import { Link } from "react-router-dom";
+const HorizontalMenu = lazy(() => import("./HorizontalMenu"));
+const StickyHeader = lazy(() => import("../../StickyHeader"));
 
 const Navbar = () => {
   return (
@@ -23,13 +30,31 @@ const Navbar = () => {
           <div className="container">
             <div className="grid grid-cols-2 items-center gap-4 lg:grid-cols-3">
               <div className="flex">
-                <button className="block lg:hidden " data-hs-overlay="#mobile-menu">
-                  <LuMenu size={28} className="me-4 text-default-600 hover:text-primary" />
+                <button
+                  className="block lg:hidden "
+                  data-hs-overlay="#mobile-menu"
+                >
+                  <LuMenu
+                    size={28}
+                    className="me-4 text-default-600 hover:text-primary"
+                  />
                 </button>
 
-                <Link to="/home">
-                  <img src={logoDarkImg} height={40} width={130} alt="logo" className="flex h-10 dark:hidden" />
-                  <img src={logoLightImg} height={40} width={130} alt="logo" className="hidden h-10 dark:flex" />
+                <Link to="/">
+                  <img
+                    src={logoDarkImg}
+                    height={40}
+                    width={130}
+                    alt="logo"
+                    className="flex h-10 dark:hidden"
+                  />
+                  <img
+                    src={logoLightImg}
+                    height={40}
+                    width={130}
+                    alt="logo"
+                    className="hidden h-10 dark:flex"
+                  />
                 </Link>
               </div>
 
@@ -112,9 +137,21 @@ const Navbar = () => {
         tabIndex={-1}
       >
         <div className="flex h-16 items-center justify-center border-b border-dashed border-default-200 transition-all duration-300">
-          <Link to="/home">
-            <img src={logoDarkImg} width={130} height={40} alt="logo" className="flex h-10 dark:hidden" />
-            <img src={logoLightImg} width={130} height={40} alt="logo" className="hidden h-10 dark:flex" />
+          <Link to="/">
+            <img
+              src={logoDarkImg}
+              width={130}
+              height={40}
+              alt="logo"
+              className="flex h-10 dark:hidden"
+            />
+            <img
+              src={logoLightImg}
+              width={130}
+              height={40}
+              alt="logo"
+              className="hidden h-10 dark:flex"
+            />
           </Link>
         </div>
         <SimplebarReactClient className="h-[calc(100%-4rem)]">
@@ -124,7 +161,7 @@ const Navbar = () => {
         </SimplebarReactClient>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

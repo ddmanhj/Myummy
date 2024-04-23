@@ -1,16 +1,17 @@
-
-import { WalletCardSwiper } from '../index'
-import { useToggle } from '@/hooks'
-import { cardsData } from '@/assets/data'
-import { currentCurrency } from '@/common'
+import { WalletCardSwiper } from "../index";
+import { useToggle } from "@/hooks";
+import { cardsData } from "@/assets/data";
+import { currentCurrency } from "@/common";
 
 const WalletDetailsCard = () => {
-  const { isOpen: isActive, toggle: toggleActive } = useToggle(true)
+  const { isOpen: isActive, toggle: toggleActive } = useToggle(true);
 
   return (
     <div className="rounded-lg border border-default-200">
       <div className="p-6">
-        <h3 className="mb-6 text-lg font-semibold text-default-800">Card Details</h3>
+        <h3 className="mb-6 text-lg font-semibold text-default-800">
+          Card Details
+        </h3>
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 divide-y divide-default-200 xl:grid-cols-3 xl:divide-x xl:divide-y-0">
           <div className="col-span-1 lg:col-span-2">
             <WalletCardSwiper cards={cardsData} />
@@ -27,9 +28,14 @@ const WalletDetailsCard = () => {
                   />
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="font-medium text-default-400">Weekly payment limit</div>
+                  <div className="font-medium text-default-400">
+                    Weekly payment limit
+                  </div>
                   <div className="text-sm font-medium text-default-950">
-                    <span className="text-default-400">{currentCurrency}1200.10</span> / {currentCurrency}4000
+                    <span className="text-default-400">
+                      {currentCurrency}1200.10
+                    </span>{" "}
+                    / {currentCurrency}4000
                   </div>
                 </div>
               </div>
@@ -37,11 +43,17 @@ const WalletDetailsCard = () => {
           </div>
           <div className="xl:col-span-1">
             <div className="pt-10 text-start xl:ps-10 xl:pt-0 xl:text-end">
-              <h1 className="text-2xl font-semibold text-primary">{currentCurrency}2850.75</h1>
+              <h1 className="text-2xl font-semibold text-primary">
+                {currentCurrency}2850.75
+              </h1>
               <p className="mb-6 text-base">Current Balance</p>
-              <h2 className="text-xl font-semibold text-green-500">{currentCurrency}4595.50</h2>
+              <h2 className="text-xl font-semibold text-green-500">
+                {currentCurrency}4595.50
+              </h2>
               <p className="mb-6 text-base">Income</p>
-              <h2 className="mb-1 text-lg font-semibold text-red-500">{currentCurrency}412.40</h2>
+              <h2 className="mb-1 text-lg font-semibold text-red-500">
+                {currentCurrency}412.40
+              </h2>
               <p className="mb-6 text-base">Outgoing</p>
               <div className="mb-4">
                 <input
@@ -55,13 +67,16 @@ const WalletDetailsCard = () => {
                   switch
                 </label>
               </div>
-              <p className="text-base"> Card {isActive ? 'Activated' : 'Deactivated'} </p>
+              <p className="text-base">
+                {" "}
+                Card {isActive ? "Activated" : "Deactivated"}{" "}
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default WalletDetailsCard
+export default WalletDetailsCard;

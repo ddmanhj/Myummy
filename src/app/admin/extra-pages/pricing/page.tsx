@@ -1,5 +1,5 @@
-import { BreadcrumbAdmin } from "@/components"
-import { LuBriefcase, LuBuilding2, LuUsers2 } from "react-icons/lu"
+import { BreadcrumbAdmin } from "@/components";
+import { LuBriefcase, LuBuilding2, LuUsers2 } from "react-icons/lu";
 
 const Pricing = () => {
   return (
@@ -12,8 +12,8 @@ const Pricing = () => {
               Our <span className="font-bold">Plans</span>
             </h2>
             <p className="text-default-600">
-              We have plans and prices that fit your business perfectly. Make your client site a success with our
-              products.
+              We have plans and prices that fit your business perfectly. Make
+              your client site a success with our products.
             </p>
           </div>
 
@@ -26,7 +26,10 @@ const Pricing = () => {
                     <LuUsers2 />
                   </div>
                   <h2 className="text-3xl mb-6">
-                    $19 <span className="text-sm uppercase font-medium text-gray-400">/ Month</span>
+                    $19{" "}
+                    <span className="text-sm uppercase font-medium text-gray-400">
+                      / Month
+                    </span>
                   </h2>
 
                   <ul className="flex flex-col gap-6">
@@ -39,7 +42,10 @@ const Pricing = () => {
                   </ul>
 
                   <div className="mt-14">
-                    <button type="button" className="inline-block tracking-wide align-middle  bg-primary rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-500 w-full">
+                    <button
+                      type="button"
+                      className="inline-block tracking-wide align-middle  bg-primary rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-500 w-full"
+                    >
                       Change Plan
                     </button>
                   </div>
@@ -53,7 +59,10 @@ const Pricing = () => {
                     <LuBriefcase />
                   </div>
                   <h2 className="text-3xl mb-6">
-                    $29 <span className="text-sm uppercase font-medium text-gray-400">/ Month</span>
+                    $29{" "}
+                    <span className="text-sm uppercase font-medium text-gray-400">
+                      / Month
+                    </span>
                   </h2>
 
                   <ul className="flex flex-col gap-6">
@@ -66,7 +75,10 @@ const Pricing = () => {
                   </ul>
 
                   <div className="mt-14">
-                    <button type="button" className="inline-block tracking-wide align-middle bg-red-400 rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-500 w-full">
+                    <button
+                      type="button"
+                      className="inline-block tracking-wide align-middle bg-red-400 rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-500 w-full"
+                    >
                       Current Plan
                     </button>
                   </div>
@@ -80,7 +92,10 @@ const Pricing = () => {
                     <LuBuilding2 />
                   </div>
                   <h2 className="text-3xl mb-6">
-                    $39 <span className="text-sm uppercase font-medium text-gray-400">/ Month</span>
+                    $39{" "}
+                    <span className="text-sm uppercase font-medium text-gray-400">
+                      / Month
+                    </span>
                   </h2>
 
                   <ul className="flex flex-col gap-6">
@@ -93,7 +108,10 @@ const Pricing = () => {
                   </ul>
 
                   <div className="mt-14">
-                    <button type="button" className="inline-block tracking-wide align-middle  bg-primary rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-500 w-full">
+                    <button
+                      type="button"
+                      className="inline-block tracking-wide align-middle  bg-primary rounded-lg px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-500 w-full"
+                    >
                       Change Plan
                     </button>
                   </div>
@@ -104,7 +122,7 @@ const Pricing = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

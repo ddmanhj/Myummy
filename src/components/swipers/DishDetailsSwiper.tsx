@@ -1,18 +1,21 @@
-
-
-import { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Controller, Navigation, Thumbs } from 'swiper/modules'
-import { burritoBowl2Img, burritoBowl3Img, burritoBowlImg } from '@/assets/data'
-import type { Swiper as SwiperType } from 'swiper'
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Controller, Navigation, Thumbs } from "swiper/modules";
+import {
+  burritoBowl2Img,
+  burritoBowl3Img,
+  burritoBowlImg,
+} from "@/assets/data";
+import type { Swiper as SwiperType } from "swiper";
 
 // styles
-import 'swiper/css'
+import "swiper/css";
 
 const DishDetailsSwiper = ({ images }: { images?: string[] }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
-  const dishImages = [burritoBowlImg, burritoBowl2Img, burritoBowl3Img] ?? images
+  const dishImages =
+    [burritoBowlImg, burritoBowl2Img, burritoBowl3Img] ?? images;
 
   return (
     <div className="grid grid-cols-1">
@@ -21,14 +24,21 @@ const DishDetailsSwiper = ({ images }: { images?: string[] }) => {
           modules={[Navigation, Thumbs, Controller]}
           spaceBetween={24}
           thumbs={{
-            swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
           }}
           className="cart-swiper"
           loop
         >
           {dishImages.map((img, idx) => (
             <SwiperSlide key={idx}>
-              <img width={500} height={430} alt="food-image" src={img} className="mx-auto h-full max-w-full" />
+              <img
+                width={500}
+                height={430}
+                alt="food-image"
+                src={img}
+                className="mx-auto h-full max-w-full"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -45,13 +55,22 @@ const DishDetailsSwiper = ({ images }: { images?: string[] }) => {
         watchSlidesProgress
       >
         {dishImages.map((img, idx) => (
-          <SwiperSlide key={idx} className={'!h-24 !w-24 cursor-pointer lg:!h-32 lg:!w-32'}>
-            <img width={124} height={124} alt="food-image" src={img} className="h-full w-full rounded" />
+          <SwiperSlide
+            key={idx}
+            className={"!h-24 !w-24 cursor-pointer lg:!h-32 lg:!w-32"}
+          >
+            <img
+              width={124}
+              height={124}
+              alt="food-image"
+              src={img}
+              className="h-full w-full rounded"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default DishDetailsSwiper
+export default DishDetailsSwiper;

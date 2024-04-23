@@ -1,5 +1,5 @@
-import { BreadcrumbAdmin, DateFormInput } from "@/components"
-import { useState } from 'react'
+import { BreadcrumbAdmin, DateFormInput } from "@/components";
+import { useState } from "react";
 import {
   BlockPicker,
   ChromePicker,
@@ -9,15 +9,14 @@ import {
   SketchPicker,
   SwatchesPicker,
   TwitterPicker,
-} from 'react-color'
-import DatePicker from "react-flatpickr"
-import { useForm } from "react-hook-form"
-
+} from "react-color";
+import DatePicker from "react-flatpickr";
+import { useForm } from "react-hook-form";
 
 const DatePickers = () => {
-  const { control } = useForm()
+  const { control } = useForm();
   return (
-    <div className="border border-default-200 rounded-lg" >
+    <div className="border border-default-200 rounded-lg">
       <div className="p-6">
         <h4 className="mb-2 uppercase text-default-700">
           Flatpickr - Date picker
@@ -44,7 +43,7 @@ const DatePickers = () => {
           placeholder="Date and Time"
           options={{
             enableTime: true,
-            dateFormat: 'Y-m-d H:i',
+            dateFormat: "Y-m-d H:i",
           }}
           control={control}
         />
@@ -57,8 +56,8 @@ const DatePickers = () => {
           options={{
             altInput: true,
             enableTime: false,
-            altFormat: 'F j, Y',
-            dateFormat: 'Y-m-d',
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
           }}
           control={control}
         />
@@ -70,8 +69,8 @@ const DatePickers = () => {
           containerClassName="mb-4"
           options={{
             enableTime: false,
-            minDate: '2020-01-01',
-            maxDate: '2020-03-01',
+            minDate: "2020-01-01",
+            maxDate: "2020-03-01",
           }}
           control={control}
         />
@@ -82,9 +81,9 @@ const DatePickers = () => {
           placeholder="Disabling dates"
           containerClassName="mb-4"
           options={{
-            disable: ['2025-01-10', '2025-01-21', '2025-01-30'],
+            disable: ["2025-01-10", "2025-01-21", "2025-01-30"],
             enableTime: false,
-            defaultDate: '2025-01',
+            defaultDate: "2025-01",
           }}
           control={control}
         />
@@ -97,8 +96,8 @@ const DatePickers = () => {
           placeholder="Multiple dates"
           options={{
             enableTime: false,
-            mode: 'multiple',
-            dateFormat: 'Y-m-d',
+            mode: "multiple",
+            dateFormat: "Y-m-d",
           }}
         />
         <label className="text-sm mb-3 font-medium text-default-900">
@@ -109,9 +108,9 @@ const DatePickers = () => {
           className="mb-4 mt-2 block w-full rounded-lg border border-default-200 bg-transparent px-4 py-2 dark:bg-default-50"
           placeholder="2018-10-10 :: 2018-10-11"
           options={{
-            mode: 'multiple',
-            dateFormat: 'Y-m-d',
-            conjunction: ' :: ',
+            mode: "multiple",
+            dateFormat: "Y-m-d",
+            conjunction: " :: ",
             enableTime: false,
           }}
         />
@@ -123,7 +122,7 @@ const DatePickers = () => {
           className="mb-4 mt-2 block w-full rounded-lg border border-default-200 bg-transparent px-4 py-2 dark:bg-default-50"
           placeholder="2018-10-03 to 2018-10-10"
           options={{
-            mode: 'range',
+            mode: "range",
             enableTime: false,
           }}
         />
@@ -140,8 +139,8 @@ const DatePickers = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const TimePicker = () => {
   return (
@@ -164,9 +163,9 @@ const TimePicker = () => {
                   className="block mt-2 w-full rounded-lg border border-default-200 bg-transparent px-4 py-2 dark:bg-default-50"
                   placeholder="Basic timepicker"
                   options={{
-                    enableTime:true,
+                    enableTime: true,
                     noCalendar: true,
-                    dateFormat: 'H:i',
+                    dateFormat: "H:i",
                   }}
                 />
               </div>
@@ -180,9 +179,9 @@ const TimePicker = () => {
                   className="block mt-2 w-full rounded-lg border border-default-200 bg-transparent px-4 py-2 dark:bg-default-50"
                   placeholder="16:21"
                   options={{
-                    enableTime:true,
+                    enableTime: true,
                     noCalendar: true,
-                    dateFormat: 'H:i',
+                    dateFormat: "H:i",
                     time_24hr: true,
                   }}
                 />
@@ -197,17 +196,19 @@ const TimePicker = () => {
                   className="block mt-2 w-full rounded-lg border border-default-200 bg-transparent px-4 py-2 dark:bg-default-50"
                   placeholder="Limits"
                   options={{
-                    enableTime:true,
+                    enableTime: true,
                     noCalendar: true,
-                    dateFormat: 'H:i',
-                    minTime: '16:00',
-                    maxTime: '22:30',
+                    dateFormat: "H:i",
+                    minTime: "16:00",
+                    maxTime: "22:30",
                   }}
                 />
               </div>
             </div>
             <div className="mb-0">
-              <label className="text-sm mb-2 font-medium text-default-900">Preloading Time</label>
+              <label className="text-sm mb-2 font-medium text-default-900">
+                Preloading Time
+              </label>
               <div className="flex items-center ">
                 <DatePicker
                   className="block mt-2 w-full rounded-lg border border-default-200 bg-transparent px-4 py-2 dark:bg-default-50"
@@ -215,8 +216,8 @@ const TimePicker = () => {
                   options={{
                     noCalendar: true,
                     enableTime: true,
-                    dateFormat: 'H:i',
-                    defaultDate: '13:45',
+                    dateFormat: "H:i",
+                    defaultDate: "13:45",
                   }}
                 />
               </div>
@@ -225,23 +226,21 @@ const TimePicker = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const ColorPicker = () => {
-  const [color, setColor] = useState()
+  const [color, setColor] = useState();
 
   const handleColorChange = (e: any) => {
-    setColor(e)
-  }
+    setColor(e);
+  };
 
   return (
     <div className="border border-default-200 rounded-lg">
       <div className="p-5">
         <h4 className="mb-2 uppercase text-default-700">Colorpicker</h4>
-        <p className="mb-4 text-default-600">
-          Example of Spectrum Colorpicker
-        </p>
+        <p className="mb-4 text-default-600">Example of Spectrum Colorpicker</p>
         <div className="flex flex-col gap-4">
           <div className="bg-default-100 text-default-900 p-4 rounded-md flex flex-wrap gap-10">
             <div>
@@ -306,7 +305,7 @@ const ColorPicker = () => {
               <GithubPicker
                 color={color}
                 onChangeComplete={(e: any) => handleColorChange(e)}
-                width={'240'}
+                width={"240"}
               />
             </div>
           </div>
@@ -317,14 +316,14 @@ const ColorPicker = () => {
             <HuePicker
               color={color}
               onChangeComplete={(e: any) => handleColorChange(e)}
-              width={'250'}
+              width={"250"}
             />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 const Advanced = () => {
   return (
     <div className="w-full lg:ps-64">
@@ -340,7 +339,7 @@ const Advanced = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Advanced
+export default Advanced;

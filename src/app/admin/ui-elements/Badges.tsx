@@ -1,5 +1,5 @@
-import { colorVariants } from '@/common'
-import { toSentenceCase } from '@/utils'
+import { colorVariants } from "@/common";
+import { toSentenceCase } from "@/utils";
 
 const DefaultBadges = () => {
   return (
@@ -14,12 +14,12 @@ const DefaultBadges = () => {
             >
               {toSentenceCase(color)}
             </span>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const PillBadges = () => {
   return (
@@ -34,12 +34,12 @@ const PillBadges = () => {
             >
               {toSentenceCase(color)}
             </span>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const LightenBadges = () => {
   return (
@@ -54,23 +54,21 @@ const LightenBadges = () => {
             >
               {toSentenceCase(color)}
             </span>
-          )
+          );
         })}
         <span className="inline-flex items-center gap-1.5 py-0.5 px-1.5 rounded text-xs font-medium bg-dark/10 text-dark">
           Dark
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Badges = () => {
   return (
     <div className="rounded-lg border border-default-200">
       <div className="p-6">
-        <h2 className="font-medium text-base text-default-600 mb-4">
-          Badges
-        </h2>
+        <h2 className="font-medium text-base text-default-600 mb-4">Badges</h2>
         <div className="grid 2xl:grid-cols-3 gap-6">
           <DefaultBadges />
           <PillBadges />
@@ -78,7 +76,7 @@ const Badges = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Badges
+export default Badges;

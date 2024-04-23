@@ -1,13 +1,15 @@
-import { LuX } from 'react-icons/lu'
+import { LuX } from "react-icons/lu";
 
-import Img1 from '/favicon.ico'
+import Img1 from "/favicon.ico";
 
 const Alerts = () => {
   return (
     <div className="grid 2xl:grid-cols-2 gap-6">
       <div className="rounded-lg border border-default-200">
         <div className="p-8">
-          <h4 className="font-medium text-base text-default-600 mb-4">Alerts</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Alerts
+          </h4>
           <p className="text-default-600">
             Provide contextual feedback messages for typical user actions with
             the handful of available and flexible alert messages.
@@ -95,7 +97,9 @@ const Alerts = () => {
       </div>
       <div className="rounded-lg border border-default-200">
         <div className="p-8">
-          <h4 className="font-medium text-base text-default-600 mb-4">Toasts</h4>
+          <h4 className="font-medium text-base text-default-600 mb-4">
+            Toasts
+          </h4>
           <p className="text-default-600 mb-6">
             Push notifications to your visitors with a toast, a lightweight and
             easily customizable alert message
@@ -116,9 +120,13 @@ const Alerts = () => {
                           <LuX size={16} />
                         </button>
                       </div>
-                      <div >
+                      <div>
                         <h3 className="p-2 text-lg font-bold text-default-800 flex items-center ">
-                          <img src={Img1} alt="brand-logo" className="me-1 h-5" />
+                          <img
+                            src={Img1}
+                            alt="brand-logo"
+                            className="me-1 h-5"
+                          />
                           <strong className="me-auto text-sm text-default-600">
                             Yum
                           </strong>
@@ -131,13 +139,13 @@ const Alerts = () => {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Alerts
+export default Alerts;

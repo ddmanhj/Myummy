@@ -1,11 +1,26 @@
-import { BreadcrumbAdmin, DateFormInput, PasswordFormInput, SelectFormInput, TextAreaFormInput, TextFormInput } from "@/components"
-import { useForm } from "react-hook-form"
-import ReactSlider from "react-slider"
+import {
+  BreadcrumbAdmin,
+  DateFormInput,
+  PasswordFormInput,
+  SelectFormInput,
+  TextAreaFormInput,
+  TextFormInput,
+} from "@/components";
+import { useForm } from "react-hook-form";
+import ReactSlider from "react-slider";
 
-const colors: string[] = ['primary', 'success', 'info', 'secondary', 'warning', 'danger', 'dark']
+const colors: string[] = [
+  "primary",
+  "success",
+  "info",
+  "secondary",
+  "warning",
+  "danger",
+  "dark",
+];
 
 const BasicInputElements = () => {
-  const { control } = useForm()
+  const { control } = useForm();
   return (
     <div className="border border-default-200 rounded-lg mb-6">
       <div className="p-6">
@@ -108,7 +123,10 @@ const BasicInputElements = () => {
               />
 
               <div className="help-block mb-3">
-                <small>A block of help text that breaks onto a new line and may extend beyond one line.</small>
+                <small>
+                  A block of help text that breaks onto a new line and may
+                  extend beyond one line.
+                </small>
               </div>
 
               <SelectFormInput
@@ -120,11 +138,11 @@ const BasicInputElements = () => {
                 key="select"
                 control={control}
                 options={[
-                  { value: '1', label: '1' },
-                  { value: '2', label: '2' },
-                  { value: '3', label: '3' },
-                  { value: '4', label: '4' },
-                  { value: '5', label: '5' },
+                  { value: "1", label: "1" },
+                  { value: "2", label: "2" },
+                  { value: "3", label: "3" },
+                  { value: "4", label: "4" },
+                  { value: "5", label: "5" },
                 ]}
                 fullWidth
               />
@@ -132,7 +150,7 @@ const BasicInputElements = () => {
           </div>
 
           <div>
-            <form >
+            <form>
               <SelectFormInput
                 name="selectMulti"
                 label="Multiple Select"
@@ -142,11 +160,11 @@ const BasicInputElements = () => {
                 key="selectMulti"
                 control={control}
                 options={[
-                  { value: '1', label: '1' },
-                  { value: '2', label: '2' },
-                  { value: '3', label: '3' },
-                  { value: '4', label: '4' },
-                  { value: '5', label: '5' },
+                  { value: "1", label: "1" },
+                  { value: "2", label: "2" },
+                  { value: "3", label: "3" },
+                  { value: "4", label: "4" },
+                  { value: "5", label: "5" },
                 ]}
               />
 
@@ -261,11 +279,11 @@ const BasicInputElements = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const InputSizes = () => {
-  const { control } = useForm()
+  const { control } = useForm();
   return (
     <div className="border border-default-200 rounded-lg">
       <div className="p-6">
@@ -313,8 +331,8 @@ const InputSizes = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Checkboxes = () => {
   return (
@@ -337,7 +355,11 @@ const Checkboxes = () => {
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="checkbox" className="form-checkbox rounded text-primary" id="customCheck2" />
+                <input
+                  type="checkbox"
+                  className="form-checkbox rounded text-primary"
+                  id="customCheck2"
+                />
                 <label className="ms-1.5" htmlFor="customCheck2">
                   Check this checkbox
                 </label>
@@ -359,7 +381,11 @@ const Checkboxes = () => {
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="checkbox" className="form-checkbox rounded text-primary" id="InlineCheckbox2" />
+                <input
+                  type="checkbox"
+                  className="form-checkbox rounded text-primary"
+                  id="InlineCheckbox2"
+                />
                 <label className="ms-1.5" htmlFor="InlineCheckbox2">
                   Check this checkbox
                 </label>
@@ -383,7 +409,12 @@ const Checkboxes = () => {
                 </label>
               </div>
               <div className="flex items-center opacity-75">
-                <input type="checkbox" className="form-checkbox rounded text-primary" id="customCheck6" disabled />
+                <input
+                  type="checkbox"
+                  className="form-checkbox rounded text-primary"
+                  id="customCheck6"
+                  disabled
+                />
                 <label className="ms-1.5" htmlFor="customCheck6">
                   Check this checkbox
                 </label>
@@ -407,14 +438,14 @@ const Checkboxes = () => {
                     {color.charAt(0).toUpperCase() + color.slice(1)} Checkbox
                   </label>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Radios = () => {
   return (
@@ -437,7 +468,12 @@ const Radios = () => {
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="radio" className="form-radio text-primary" name="formRadio" id="formRadio02" />
+                <input
+                  type="radio"
+                  className="form-radio text-primary"
+                  name="formRadio"
+                  id="formRadio02"
+                />
                 <label className="ms-1.5" htmlFor="formRadio02">
                   Or toggle this other custom radio
                 </label>
@@ -460,7 +496,12 @@ const Radios = () => {
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="radio" className="form-radio text-primary" name="InlineRadio" id="InlineRadio02" />
+                <input
+                  type="radio"
+                  className="form-radio text-primary"
+                  name="InlineRadio"
+                  id="InlineRadio02"
+                />
                 <label className="ms-1.5" htmlFor="InlineRadio02">
                   Or toggle this other custom radio
                 </label>
@@ -472,14 +513,25 @@ const Radios = () => {
 
             <div className="flex gap-5">
               <div className="opacity-75">
-                <input type="radio" className="form-radio text-primary" id="formRadio04" defaultChecked disabled />
+                <input
+                  type="radio"
+                  className="form-radio text-primary"
+                  id="formRadio04"
+                  defaultChecked
+                  disabled
+                />
                 <label className="ms-1.5" htmlFor="formRadio04">
                   Toggle this custom radio
                 </label>
               </div>
 
               <div className="opacity-75">
-                <input type="radio" className="form-radio text-primary" id="formRadio05" disabled />
+                <input
+                  type="radio"
+                  className="form-radio text-primary"
+                  id="formRadio05"
+                  disabled
+                />
                 <label className="ms-1.5" htmlFor="formRadio05">
                   Or toggle this other custom radio
                 </label>
@@ -503,14 +555,14 @@ const Radios = () => {
                     {color.charAt(0).toUpperCase() + color.slice(1)} Radio
                   </label>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Switches = () => {
   return (
@@ -522,13 +574,22 @@ const Switches = () => {
           <div className="mt-4">
             <div className="flex flex-col gap-2">
               <div className="flex items-center">
-                <input type="checkbox" className="form-switch text-primary" id="chechThisSwitch" defaultChecked />
+                <input
+                  type="checkbox"
+                  className="form-switch text-primary"
+                  id="chechThisSwitch"
+                  defaultChecked
+                />
                 <label className="ms-1.5" htmlFor="chechThisSwitch">
                   Check this Switch
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="checkbox" className="form-switch text-primary" id="chechThisSwitch2" />
+                <input
+                  type="checkbox"
+                  className="form-switch text-primary"
+                  id="chechThisSwitch2"
+                />
                 <label className="ms-1.5" htmlFor="chechThisSwitch2">
                   Check this Switch
                 </label>
@@ -540,13 +601,22 @@ const Switches = () => {
             <h6 className="text-sm mb-2">Inline</h6>
             <div className="flex gap-5">
               <div className="flex items-center">
-                <input type="checkbox" className="form-switch text-primary" id="formInlineSwitch1" defaultChecked />
+                <input
+                  type="checkbox"
+                  className="form-switch text-primary"
+                  id="formInlineSwitch1"
+                  defaultChecked
+                />
                 <label className="ms-1.5" htmlFor="formInlineSwitch1">
                   Check this Switch
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="checkbox" className="form-switch text-primary" id="formInlineSwitch2" />
+                <input
+                  type="checkbox"
+                  className="form-switch text-primary"
+                  id="formInlineSwitch2"
+                />
                 <label className="ms-1.5" htmlFor="formInlineSwitch2">
                   Check this Switch
                 </label>
@@ -569,7 +639,11 @@ const Switches = () => {
                 </label>
               </div>
               <div className="flex items-center">
-                <input type="checkbox" className="form-switch form-switch-lg text-primary" id="formSwitchlarge" />
+                <input
+                  type="checkbox"
+                  className="form-switch form-switch-lg text-primary"
+                  id="formSwitchlarge"
+                />
                 <label className="ms-1.5" htmlFor="formSwitchlarge">
                   Large Switch
                 </label>
@@ -594,7 +668,12 @@ const Switches = () => {
                 </label>
               </div>
               <div className="flex items-center opacity-75">
-                <input type="checkbox" className="form-switch text-primary" id="formSwitchDisabled2" disabled />
+                <input
+                  type="checkbox"
+                  className="form-switch text-primary"
+                  id="formSwitchDisabled2"
+                  disabled
+                />
                 <label className="ms-1.5" htmlFor="formSwitchDisabled2">
                   Check this Switch
                 </label>
@@ -619,7 +698,7 @@ const Switches = () => {
                       Default Switch
                     </label>
                   </div>
-                )
+                );
               })}
             </div>
 
@@ -635,19 +714,22 @@ const Switches = () => {
                       id={`formSwitchSquare${idx + 1}`}
                       defaultChecked
                     />
-                    <label className="ms-1.5" htmlFor={`formSwitchSquare${idx + 1}`}>
+                    <label
+                      className="ms-1.5"
+                      htmlFor={`formSwitchSquare${idx + 1}`}
+                    >
                       Default Switch
                     </label>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const CustomSwitch = () => {
   return (
@@ -659,35 +741,107 @@ const CustomSwitch = () => {
           <input type="checkbox" id="switch0" data-switch="none" />
           <label htmlFor="switch0" data-on-label="" data-off-label=""></label>
 
-          <input type="checkbox" id="switch1" defaultChecked data-switch="bool" />
-          <label htmlFor="switch1" data-on-label="On" data-off-label="Off"></label>
+          <input
+            type="checkbox"
+            id="switch1"
+            defaultChecked
+            data-switch="bool"
+          />
+          <label
+            htmlFor="switch1"
+            data-on-label="On"
+            data-off-label="Off"
+          ></label>
 
-          <input type="checkbox" id="switch2" defaultChecked data-switch="primary" />
-          <label htmlFor="switch2" data-on-label="On" data-off-label="Off"></label>
+          <input
+            type="checkbox"
+            id="switch2"
+            defaultChecked
+            data-switch="primary"
+          />
+          <label
+            htmlFor="switch2"
+            data-on-label="On"
+            data-off-label="Off"
+          ></label>
 
-          <input type="checkbox" id="switch3" defaultChecked data-switch="success" />
-          <label htmlFor="switch3" data-on-label="Yes" data-off-label="No"></label>
+          <input
+            type="checkbox"
+            id="switch3"
+            defaultChecked
+            data-switch="success"
+          />
+          <label
+            htmlFor="switch3"
+            data-on-label="Yes"
+            data-off-label="No"
+          ></label>
 
-          <input type="checkbox" id="switch4" defaultChecked data-switch="info" />
-          <label htmlFor="switch4" data-on-label="On" data-off-label="Off"></label>
+          <input
+            type="checkbox"
+            id="switch4"
+            defaultChecked
+            data-switch="info"
+          />
+          <label
+            htmlFor="switch4"
+            data-on-label="On"
+            data-off-label="Off"
+          ></label>
 
-          <input type="checkbox" id="switch5" defaultChecked data-switch="warning" />
-          <label htmlFor="switch5" data-on-label="Yes" data-off-label="No"></label>
+          <input
+            type="checkbox"
+            id="switch5"
+            defaultChecked
+            data-switch="warning"
+          />
+          <label
+            htmlFor="switch5"
+            data-on-label="Yes"
+            data-off-label="No"
+          ></label>
 
-          <input type="checkbox" id="switch6" defaultChecked data-switch="danger" />
-          <label htmlFor="switch6" data-on-label="On" data-off-label="Off"></label>
+          <input
+            type="checkbox"
+            id="switch6"
+            defaultChecked
+            data-switch="danger"
+          />
+          <label
+            htmlFor="switch6"
+            data-on-label="On"
+            data-off-label="Off"
+          ></label>
 
-          <input type="checkbox" id="switch7" defaultChecked data-switch="secondary" />
-          <label htmlFor="switch7" data-on-label="Yes" data-off-label="No"></label>
+          <input
+            type="checkbox"
+            id="switch7"
+            defaultChecked
+            data-switch="secondary"
+          />
+          <label
+            htmlFor="switch7"
+            data-on-label="Yes"
+            data-off-label="No"
+          ></label>
 
-          <input type="checkbox" id="switchdis" data-switch="primary" defaultChecked disabled />
-          <label htmlFor="switchdis" data-on-label="On" data-off-label="Off"></label>
+          <input
+            type="checkbox"
+            id="switchdis"
+            data-switch="primary"
+            defaultChecked
+            disabled
+          />
+          <label
+            htmlFor="switchdis"
+            data-on-label="On"
+            data-off-label="Off"
+          ></label>
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 const BasicElements = () => {
   return (
@@ -705,7 +859,7 @@ const BasicElements = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BasicElements
+export default BasicElements;

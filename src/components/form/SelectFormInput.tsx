@@ -1,11 +1,13 @@
+import { Controller, FieldPath, FieldValues } from "react-hook-form";
+import ReactSelect, { type Props } from "react-select";
+import { LuAlertCircle } from "react-icons/lu";
+import { FormInputProps } from "./TextFormInput";
+import { cn } from "@/utils";
 
-import { Controller, FieldPath, FieldValues } from 'react-hook-form'
-import ReactSelect, { type Props } from 'react-select'
-import { LuAlertCircle } from 'react-icons/lu'
-import { FormInputProps } from './TextFormInput'
-import { cn } from '@/utils'
-
-const SelectFormInput = <TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>({
+const SelectFormInput = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({
   control,
   id,
   name,
@@ -24,7 +26,13 @@ const SelectFormInput = <TFieldValues extends FieldValues = FieldValues, TName e
       render={({ field, fieldState }) => (
         <div className={containerClassName}>
           {label && (
-            <label htmlFor={id ?? name} className={cn('mb-2 block text-sm font-medium text-default-900', labelClassName)}>
+            <label
+              htmlFor={id ?? name}
+              className={cn(
+                "mb-2 block text-sm font-medium text-default-900",
+                labelClassName,
+              )}
+            >
               {label}
             </label>
           )}
@@ -32,16 +40,17 @@ const SelectFormInput = <TFieldValues extends FieldValues = FieldValues, TName e
             <ReactSelect
               {...other}
               {...field}
-              classNamePrefix={'react-select'}
+              classNamePrefix={"react-select"}
               unstyled
               id={id ?? name}
               className={cn(
-                'block w-full cursor-pointer rounded-lg border border-default-200 bg-transparent focus-within:border focus-within:border-primary dark:bg-default-50',
+                "block w-full cursor-pointer rounded-lg border border-default-200 bg-transparent focus-within:border focus-within:border-primary dark:bg-default-50",
                 className,
-                fullWidth && 'w-full',
+                fullWidth && "w-full",
                 {
-                  'border-red-500 focus:border-red-500': !noValidate && fieldState.error?.message,
-                }
+                  "border-red-500 focus:border-red-500":
+                    !noValidate && fieldState.error?.message,
+                },
               )}
             />
             {!noValidate && fieldState.error?.message && (
@@ -50,11 +59,15 @@ const SelectFormInput = <TFieldValues extends FieldValues = FieldValues, TName e
               </div>
             )}
           </div>
-          {!noValidate && fieldState.error?.message && <p className="mt-2 text-xs text-red-600">{fieldState.error.message}</p>}
+          {!noValidate && fieldState.error?.message && (
+            <p className="mt-2 text-xs text-red-600">
+              {fieldState.error.message}
+            </p>
+          )}
         </div>
       )}
     />
-  )
-}
+  );
+};
 
-export default SelectFormInput
+export default SelectFormInput;

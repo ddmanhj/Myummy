@@ -1,15 +1,18 @@
-import { BreadcrumbAdmin } from "@/components"
-import { FilePond, registerPlugin } from 'react-filepond'
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-import FilePondPluginImageCrop from 'filepond-plugin-image-crop'
+import { BreadcrumbAdmin } from "@/components";
+import { FilePond, registerPlugin } from "react-filepond";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import FilePondPluginImageCrop from "filepond-plugin-image-crop";
 
-import 'filepond/dist/filepond.min.css'
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 // Register the plugins
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop)
-
+registerPlugin(
+  FilePondPluginImageExifOrientation,
+  FilePondPluginImagePreview,
+  FilePondPluginImageCrop,
+);
 
 const FileUploads = () => {
   return (
@@ -40,7 +43,7 @@ const FileUploads = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FileUploads
+export default FileUploads;

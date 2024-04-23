@@ -1,25 +1,24 @@
-
-import { FaStar, FaStarHalfStroke } from 'react-icons/fa6'
-import { LuMoreVertical } from 'react-icons/lu'
-import { DemoFilterDropdown, GoToAddButton } from '../index'
-import { currentCurrency } from '@/common'
-import type { ColumnType } from '@/types/util'
-import type { CategoryType, DishType } from '@/types/food'
+import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
+import { LuMoreVertical } from "react-icons/lu";
+import { DemoFilterDropdown, GoToAddButton } from "../index";
+import { currentCurrency } from "@/common";
+import type { ColumnType } from "@/types/util";
+import type { CategoryType, DishType } from "@/types/food";
 
 type DataTableProps = {
-  images: DishType['images']
-  name: DishType['name']
-  review: DishType['review']
-  category?: CategoryType
-}
+  images: DishType["images"];
+  name: DishType["name"];
+  review: DishType["review"];
+  category?: CategoryType;
+};
 
 type RestaurantMenuDataTableProps<T extends DataTableProps> = {
-  rows: T[]
-  columns: Array<ColumnType<T>>
-  title: string
-  buttonText: string
-  buttonLink: string
-}
+  rows: T[];
+  columns: Array<ColumnType<T>>;
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+};
 
 const RestaurantMenuDataTable = <DataType extends DataTableProps>({
   buttonLink,
@@ -33,9 +32,18 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
       <div className="border-b border-b-default-200 p-6">
         <h4 className="mb-4 text-xl font-medium text-default-900">{title}</h4>
         <div className="flex flex-wrap items-center gap-4">
-          <DemoFilterDropdown filterOptions={['Best Seller', 'High to Low', 'Low to High']} filterType="Popular" />
-          <DemoFilterDropdown filterOptions={['Newest', 'Oldest']} filterType="Upload Date" />
-          <DemoFilterDropdown filterOptions={['Average', 'Good', 'Best']} filterType="Rating" />
+          <DemoFilterDropdown
+            filterOptions={["Best Seller", "High to Low", "Low to High"]}
+            filterType="Popular"
+          />
+          <DemoFilterDropdown
+            filterOptions={["Newest", "Oldest"]}
+            filterType="Upload Date"
+          />
+          <DemoFilterDropdown
+            filterOptions={["Average", "Good", "Best"]}
+            filterType="Rating"
+          />
           <div className="ms-auto">
             <GoToAddButton buttonLink={buttonLink} buttonText={buttonText} />
           </div>
@@ -55,7 +63,10 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
                           type="checkbox"
                           className="form-checkbox h-5 w-5 rounded border border-default-300 bg-transparent text-primary focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0"
                         />
-                        <label htmlFor="hs-table-search-checkbox-all" className="sr-only">
+                        <label
+                          htmlFor="hs-table-search-checkbox-all"
+                          className="sr-only"
+                        >
                           Checkbox
                         </label>
                       </div>
@@ -69,7 +80,10 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
                         {column.name}
                       </th>
                     ))}
-                    <th scope="col" className="whitespace-nowrap px-6 py-3 text-start text-base font-medium text-default-500">
+                    <th
+                      scope="col"
+                      className="whitespace-nowrap px-6 py-3 text-start text-base font-medium text-default-500"
+                    >
                       Actions
                     </th>
                   </tr>
@@ -85,50 +99,96 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
                               type="checkbox"
                               className="form-checkbox h-5 w-5 rounded border border-default-300 bg-transparent text-primary focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0"
                             />
-                            <label htmlFor="hs-table-search-checkbox-1" className="sr-only">
+                            <label
+                              htmlFor="hs-table-search-checkbox-1"
+                              className="sr-only"
+                            >
                               Checkbox
                             </label>
                           </div>
                         </td>
                         {columns.map((column, idx) => {
-                          const tableData = row[column.key] as string
-                          if (column.key == 'name') {
+                          const tableData = row[column.key] as string;
+                          if (column.key == "name") {
                             return (
-                              <td className="whitespace-nowrap px-6 py-4" key={tableData + idx}>
+                              <td
+                                className="whitespace-nowrap px-6 py-4"
+                                key={tableData + idx}
+                              >
                                 <div className="flex items-start gap-3">
-                                  <img src={row?.images[0] ?? ''} width={48} height={48} className="h-12 w-12 rounded-full" alt={row.name ?? ''} />
-                                  <h5 className="text-base font-medium text-default-700">{tableData}</h5>
+                                  <img
+                                    src={row?.images[0] ?? ""}
+                                    width={48}
+                                    height={48}
+                                    className="h-12 w-12 rounded-full"
+                                    alt={row.name ?? ""}
+                                  />
+                                  <h5 className="text-base font-medium text-default-700">
+                                    {tableData}
+                                  </h5>
                                 </div>
                               </td>
-                            )
-                          } else if (column.key == 'review') {
+                            );
+                          } else if (column.key == "review") {
                             return (
-                              <td key={idx} className="whitespace-nowrap px-6 py-4 text-base text-default-800">
+                              <td
+                                key={idx}
+                                className="whitespace-nowrap px-6 py-4 text-base text-default-800"
+                              >
                                 <div className="flex items-center justify-start gap-1">
-                                  {Array.from(new Array(Math.floor(row.review.stars ?? 0))).map((_star, idx) => (
-                                    <FaStar key={idx} size={18} className="fill-yellow-400 text-yellow-400" />
+                                  {Array.from(
+                                    new Array(
+                                      Math.floor(row.review.stars ?? 0),
+                                    ),
+                                  ).map((_star, idx) => (
+                                    <FaStar
+                                      key={idx}
+                                      size={18}
+                                      className="fill-yellow-400 text-yellow-400"
+                                    />
                                   ))}
-                                  {!Number.isInteger(row.review.stars ?? 0) && <FaStarHalfStroke size={18} className="text-yellow-400" />}
+                                  {!Number.isInteger(row.review.stars ?? 0) && (
+                                    <FaStarHalfStroke
+                                      size={18}
+                                      className="text-yellow-400"
+                                    />
+                                  )}
                                   {(row.review.stars ?? 0) < 5 &&
-                                    Array.from(new Array(5 - Math.ceil(row.review.stars ?? 0))).map((_val, idx) => (
-                                      <FaStar key={idx} size={18} className="text-default-400" />
+                                    Array.from(
+                                      new Array(
+                                        5 - Math.ceil(row.review.stars ?? 0),
+                                      ),
+                                    ).map((_val, idx) => (
+                                      <FaStar
+                                        key={idx}
+                                        size={18}
+                                        className="text-default-400"
+                                      />
                                     ))}
                                 </div>
                               </td>
-                            )
+                            );
                           } else {
                             return (
-                              <td key={idx} className="whitespace-nowrap px-6 py-4 text-base text-default-800">
-                                {column.key == 'price' && currentCurrency}{' '}
-                                {typeof tableData == 'object' && row.category ? row.category.name : tableData}
+                              <td
+                                key={idx}
+                                className="whitespace-nowrap px-6 py-4 text-base text-default-800"
+                              >
+                                {column.key == "price" && currentCurrency}{" "}
+                                {typeof tableData == "object" && row.category
+                                  ? row.category.name
+                                  : tableData}
                               </td>
-                            )
+                            );
                           }
                         })}
 
                         <td className="whitespace-nowrap px-6 py-4 text-center">
                           <div className="hs-dropdown relative inline-flex [--placement:bottom-right]">
-                            <button type="button" className="hs-dropdown-toggle inline-flex font-medium text-default-600 transition-all">
+                            <button
+                              type="button"
+                              className="hs-dropdown-toggle inline-flex font-medium text-default-600 transition-all"
+                            >
                               <LuMoreVertical size={22} />
                             </button>
 
@@ -154,7 +214,7 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
                           </div>
                         </td>
                       </tr>
-                    )
+                    );
                   })}
                 </tbody>
               </table>
@@ -163,7 +223,7 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RestaurantMenuDataTable
+export default RestaurantMenuDataTable;

@@ -1,14 +1,19 @@
-
-
-import { useState } from 'react'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
-import { SpecialMenuSwiper } from './swipers'
-import { categoriesData, specialMenuData, leafHomeImg, onionHomeImg } from '@/assets/data'
-import { cn } from '@/utils'
-import type { CategoryType } from '@/types/food'
+import { useState } from "react";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { SpecialMenuSwiper } from "./swipers";
+import {
+  categoriesData,
+  specialMenuData,
+  leafHomeImg,
+  onionHomeImg,
+} from "@/assets/data";
+import { cn } from "@/utils";
+import type { CategoryType } from "@/types/food";
 
 const SpecialMenu = () => {
-  const [selectedCategory, setSelectedCategory] = useState<CategoryType['id']>(categoriesData[0].id)
+  const [selectedCategory, setSelectedCategory] = useState<CategoryType["id"]>(
+    categoriesData[0].id,
+  );
 
   return (
     <section className="py-6 lg:py-16">
@@ -16,30 +21,50 @@ const SpecialMenu = () => {
         <div className="grid gap-6 lg:grid-cols-4 lg:gap-10">
           <div>
             <div>
-              <span className="mb-6 inline-flex rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">Menu</span>
-              <h2 className="mb-6 text-3xl font-semibold text-default-900">Special Menu for you...</h2>
+              <span className="mb-6 inline-flex rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">
+                Menu
+              </span>
+              <h2 className="mb-6 text-3xl font-semibold text-default-900">
+                Special Menu for you...
+              </h2>
             </div>
             <div className="flex w-full flex-wrap">
               <div className="custom-scroll -mx-4 h-auto w-screen overflow-auto px-2 lg:mx-0 lg:h-[30rem] lg:w-full">
-                <nav className="flex gap-2 lg:flex-col" aria-label="Tabs" role="tablist" data-hs-tabs-vertical="true">
+                <nav
+                  className="flex gap-2 lg:flex-col"
+                  aria-label="Tabs"
+                  role="tablist"
+                  data-hs-tabs-vertical="true"
+                >
                   {categoriesData.map((category) => (
                     <button
                       type="button"
                       role="tab"
                       key={category.id}
-                      className={cn('flex p-1', selectedCategory == category.id && 'active')}
-                      id={category.name + '-menu-toggle'}
-                      data-hs-tab={'#' + category.name + '-menu'}
-                      aria-controls={category.name + '-menu'}
+                      className={cn(
+                        "flex p-1",
+                        selectedCategory == category.id && "active",
+                      )}
+                      id={category.name + "-menu-toggle"}
+                      data-hs-tab={"#" + category.name + "-menu"}
+                      aria-controls={category.name + "-menu"}
                       onClick={() => setSelectedCategory(category.id)}
                     >
                       <span className="flex w-full items-center justify-start gap-4 rounded-full p-2 pe-6 text-default-900 transition-all hover:text-primary hs-tab-active:bg-primary xl:w-2/3">
                         <div>
                           <span className="inline-flex h-14 w-14 grow items-center justify-center rounded-full hs-tab-active:bg-white">
-                            <img src={category.image} height={32} width={32} className="h-8 w-8" alt="category-img" />
+                            <img
+                              src={category.image}
+                              height={32}
+                              width={32}
+                              className="h-8 w-8"
+                              alt="category-img"
+                            />
                           </span>
                         </div>
-                        <span className="shrink text-base font-medium hs-tab-active:text-white">{category.name}</span>
+                        <span className="shrink text-base font-medium hs-tab-active:text-white">
+                          {category.name}
+                        </span>
                       </span>
                     </button>
                   ))}
@@ -64,16 +89,22 @@ const SpecialMenu = () => {
                     return (
                       <div
                         key={category.id}
-                        id={category.name + '-menu'}
+                        id={category.name + "-menu"}
                         role="tabpanel"
                         aria-labelledby="pizza-menu-item"
-                        className={cn(selectedCategory != category.id && 'hidden')}
+                        className={cn(
+                          selectedCategory != category.id && "hidden",
+                        )}
                       >
                         <div className="grid grid-cols-1">
-                          <SpecialMenuSwiper dishes={specialMenuData.filter((dish) => dish.category_id == selectedCategory)} />
+                          <SpecialMenuSwiper
+                            dishes={specialMenuData.filter(
+                              (dish) => dish.category_id == selectedCategory,
+                            )}
+                          />
                         </div>
                       </div>
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -92,7 +123,7 @@ const SpecialMenu = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SpecialMenu
+export default SpecialMenu;

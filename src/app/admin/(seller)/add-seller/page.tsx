@@ -1,16 +1,19 @@
-
-import AddSellerForm from './AddSellerForm'
-import { BreadcrumbAdmin } from '@/components'
+import AddSellerForm from "./AddSellerForm";
+import { BreadcrumbAdmin } from "@/components";
 
 const AddSeller = () => {
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
-        <BreadcrumbAdmin title="Add Seller" subtitle="Sellers" link="/admin/sellers" />
+        <BreadcrumbAdmin
+          title="Add Seller"
+          subtitle="Sellers"
+          link="/admin/sellers"
+        />
         <AddSellerForm />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddSeller
+export default AddSeller;

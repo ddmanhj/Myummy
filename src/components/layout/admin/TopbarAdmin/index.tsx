@@ -1,12 +1,11 @@
-
-import { Link } from 'react-router-dom'
-import { LuAlignJustify, LuSearch } from 'react-icons/lu'
-import MaximizeScreen from './MaximizeScreen'
-import LanguageDropdown from './LanguageDropdown'
-import ProfileDropdown from './ProfileDropdown'
-import NotificationDropdown from './NotificationDropdown'
-import { logoDarkImg, logoLightImg } from '@/assets/data/images'
-import { notificationsData } from '@/assets/data'
+import { Link } from "react-router-dom";
+import { LuAlignJustify, LuSearch } from "react-icons/lu";
+import MaximizeScreen from "./MaximizeScreen";
+import LanguageDropdown from "./LanguageDropdown";
+import ProfileDropdown from "./ProfileDropdown";
+import NotificationDropdown from "./NotificationDropdown";
+import { logoDarkImg, logoLightImg } from "@/assets/data/images";
+import { notificationsData } from "@/assets/data";
 
 const TopbarAdmin = () => {
   return (
@@ -25,9 +24,21 @@ const TopbarAdmin = () => {
         </div>
 
         <div className="flex lg:hidden">
-          <Link to="/home">
-            <img src={logoDarkImg} height={40} width={130} alt="logo" className="flex h-10 w-full dark:hidden" />
-            <img src={logoLightImg} height={40} width={130} alt="logo" className="hidden h-10 w-full dark:flex" />
+          <Link to="/landing">
+            <img
+              src={logoDarkImg}
+              height={40}
+              width={130}
+              alt="logo"
+              className="flex h-10 w-full dark:hidden"
+            />
+            <img
+              src={logoLightImg}
+              height={40}
+              width={130}
+              alt="logo"
+              className="hidden h-10 w-full dark:flex"
+            />
           </Link>
         </div>
 
@@ -63,7 +74,7 @@ const TopbarAdmin = () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default TopbarAdmin
+export default TopbarAdmin;

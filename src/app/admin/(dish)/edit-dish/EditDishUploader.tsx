@@ -1,17 +1,19 @@
-
-
-import { FilePond, registerPlugin } from 'react-filepond'
-import { LuImage, LuUploadCloud } from 'react-icons/lu'
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-import FilePondPluginImageCrop from 'filepond-plugin-image-crop'
-import { burritoBowlImg } from '@/assets/data'
+import { FilePond, registerPlugin } from "react-filepond";
+import { LuImage, LuUploadCloud } from "react-icons/lu";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import FilePondPluginImageCrop from "filepond-plugin-image-crop";
+import { burritoBowlImg } from "@/assets/data";
 
 // styles
-import 'filepond/dist/filepond.min.css'
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop)
+registerPlugin(
+  FilePondPluginImageExifOrientation,
+  FilePondPluginImagePreview,
+  FilePondPluginImageCrop,
+);
 
 const EditDishUploader = () => {
   return (
@@ -25,7 +27,9 @@ const EditDishUploader = () => {
             <LuUploadCloud className="ms-2 inline-flex" />
             Upload Image
           </h5>
-          <p className="mb-2 text-sm text-default-600">Upload a cover image for your product.</p>
+          <p className="mb-2 text-sm text-default-600">
+            Upload a cover image for your product.
+          </p>
           <p className="text-sm text-default-600">
             File Format
             <span className="text-default-800">jpeg, png</span>
@@ -35,7 +39,9 @@ const EditDishUploader = () => {
         </div>
         <img src={burritoBowlImg} alt="burrito" />
       </div>
-      <h4 className="mb-4 text-base font-medium text-default-800">Additional Images</h4>
+      <h4 className="mb-4 text-base font-medium text-default-800">
+        Additional Images
+      </h4>
       <div className="grid grid-cols-2 gap-6">
         <div className="flex h-40 flex-col items-center justify-center rounded-lg border border-default-200 p-6">
           <FilePond
@@ -48,7 +54,7 @@ const EditDishUploader = () => {
         <div className="flex h-40 flex-col items-center justify-center rounded-lg border border-dashed border-default-200" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EditDishUploader
+export default EditDishUploader;

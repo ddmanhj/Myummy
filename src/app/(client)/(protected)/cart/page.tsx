@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-import { Breadcrumb } from '@/components'
-import CouponCodeForm from './CouponCodeForm'
-import AllCartItems from './AllCartItems'
-import CartTotal from './CartTotal'
-
+import { Breadcrumb } from "@/components";
+import CouponCodeForm from "./CouponCodeForm";
+import AllCartItems from "./AllCartItems";
+import CartTotal from "./CartTotal";
 
 const Cart = () => {
   return (
@@ -16,7 +15,9 @@ const Cart = () => {
             <div className="col-span-1 lg:col-span-2">
               <div className="rounded-lg border border-default-200">
                 <div className="border-b border-default-200 px-6 py-5">
-                  <h4 className="text-lg font-medium text-default-800">Shopping Cart</h4>
+                  <h4 className="text-lg font-medium text-default-800">
+                    Shopping Cart
+                  </h4>
                 </div>
                 <div className="flex flex-col overflow-hidden">
                   <div className="-m-1.5 overflow-x-auto">
@@ -25,16 +26,28 @@ const Cart = () => {
                         <table className="min-w-full divide-y divide-default-200">
                           <thead className="bg-default-400/10">
                             <tr>
-                              <th scope="col" className="min-w-[14rem] px-5 py-3 text-start text-xs font-medium uppercase text-default-500">
+                              <th
+                                scope="col"
+                                className="min-w-[14rem] px-5 py-3 text-start text-xs font-medium uppercase text-default-500"
+                              >
                                 Products
                               </th>
-                              <th scope="col" className="px-5 py-3 text-start text-xs font-medium uppercase text-default-500">
+                              <th
+                                scope="col"
+                                className="px-5 py-3 text-start text-xs font-medium uppercase text-default-500"
+                              >
                                 Price
                               </th>
-                              <th scope="col" className="px-5 py-3 text-start text-xs font-medium uppercase text-default-500">
+                              <th
+                                scope="col"
+                                className="px-5 py-3 text-start text-xs font-medium uppercase text-default-500"
+                              >
                                 Quantity
                               </th>
-                              <th scope="col" className="px-5 py-3 text-center text-xs font-medium uppercase text-default-500">
+                              <th
+                                scope="col"
+                                className="px-5 py-3 text-center text-xs font-medium uppercase text-default-500"
+                              >
                                 Sub-Total
                               </th>
                             </tr>
@@ -68,7 +81,7 @@ const Cart = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

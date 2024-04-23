@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import SimpleBar from 'simplebar-react'
-import DatePicker from 'react-flatpickr'
+import { Link } from "react-router-dom";
+import SimpleBar from "simplebar-react";
+import DatePicker from "react-flatpickr";
 
 // data
 import {
@@ -10,13 +10,13 @@ import {
   teamWidget4,
   teamWidget5,
   teamWidget6,
-} from './data'
+} from "./data";
 
 // component
-import Dropdown from './Dropdown'
-import TeamIcon from './TeamIcon'
+import Dropdown from "./Dropdown";
+import TeamIcon from "./TeamIcon";
 
-import { LuCalendar, LuFocus } from 'react-icons/lu'
+import { LuCalendar, LuFocus } from "react-icons/lu";
 
 const TeamWidget = () => {
   return (
@@ -39,9 +39,7 @@ const TeamWidget = () => {
                         alt="Yum"
                       />
                       <div className="flex-grow">
-                        <h5 className="mt-1 text-default-700">
-                          {value.name}
-                        </h5>
+                        <h5 className="mt-1 text-default-700">{value.name}</h5>
                         <h6 className="text-gray-500 font-n mt-1 mb-2 dark:text-gray-400">
                           {value.post}
                         </h6>
@@ -50,7 +48,7 @@ const TeamWidget = () => {
                         <Dropdown />
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -74,9 +72,9 @@ const TeamWidget = () => {
                         <div
                           key={idx}
                           className={`flex ${
-                            value.name === 'Dominic'
-                              ? 'flex-row-reverse text-end'
-                              : 'text-start'
+                            value.name === "Dominic"
+                              ? "flex-row-reverse text-end"
+                              : "text-start"
                           } 
                             items-start gap-3 group ${value.class}`}
                         >
@@ -89,9 +87,9 @@ const TeamWidget = () => {
                           </div>
                           <div
                             className={`max-w-3/4 ${
-                              value.name === 'Dominic'
-                                ? 'bg-warning/20'
-                                : 'bg-light dark:bg-default-100'
+                              value.name === "Dominic"
+                                ? "bg-warning/20"
+                                : "bg-light dark:bg-default-100"
                             }
                               p-2 relative rounded `}
                           >
@@ -101,7 +99,7 @@ const TeamWidget = () => {
                             <p className="pt-1">{value.text}</p>
                           </div>
                         </div>
-                      )
+                      );
                     })}
                   </div>
                 </SimpleBar>
@@ -146,10 +144,7 @@ const TeamWidget = () => {
               </div>
               <div className="grid sm:grid-cols-2 gap-5 mt-7">
                 <div>
-                  <DatePicker
-                     className="hidden"
-                    options={{inline:true}}
-                  />
+                  <DatePicker className="hidden" options={{ inline: true }} />
                 </div>
                 <div className="mx-auto">
                   <div className="space-y-5">
@@ -167,10 +162,13 @@ const TeamWidget = () => {
                             {value.event}
                           </h6>
                         </div>
-                      )
+                      );
                     })}
                     <div>
-                      <Link to="" className="justify-center rounded-lg py-2 px-4 inline-flex font-semibold tracking-wide items-center duration-500 text-sm text-center rounded-lg-sm  bg-primary/90 text-white hover:bg-primary me-1">
+                      <Link
+                        to=""
+                        className="justify-center rounded-lg py-2 px-4 inline-flex font-semibold tracking-wide items-center duration-500 text-sm text-center rounded-lg-sm  bg-primary/90 text-white hover:bg-primary me-1"
+                      >
                         <LuFocus size={16} className="me-2" />
                         Add Event
                       </Link>
@@ -200,7 +198,7 @@ const TeamWidget = () => {
                   amount={value.amount}
                   icon={value.icon}
                 />
-              )
+              );
             })}
           </div>
         </div>
@@ -232,12 +230,10 @@ const TeamWidget = () => {
                       >
                         {value.text1}
                       </label>
-                      <p className="text-default-600">
-                        {value.text2}
-                      </p>
+                      <p className="text-default-600">{value.text2}</p>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -256,7 +252,7 @@ const TeamWidget = () => {
             </div>
             <div className="space-y-8">
               {(teamWidget6 || []).map((value, idx) => {
-                const Icon = value.icon
+                const Icon = value.icon;
                 return (
                   <div key={idx} className={`flex ${value.class}`}>
                     {value.img ? (
@@ -304,14 +300,14 @@ const TeamWidget = () => {
                       </p>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default TeamWidget
+export default TeamWidget;

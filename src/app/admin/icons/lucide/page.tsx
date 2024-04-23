@@ -1,8 +1,10 @@
-import { BreadcrumbAdmin } from "@/components"
-import * as  AllLucideIcons from "react-icons/lu"
+import { BreadcrumbAdmin } from "@/components";
+import * as AllLucideIcons from "react-icons/lu";
 
 const Lucide = () => {
-  const allLucideIcons = Object.keys(AllLucideIcons) as (keyof typeof AllLucideIcons)[]
+  const allLucideIcons = Object.keys(
+    AllLucideIcons,
+  ) as (keyof typeof AllLucideIcons)[];
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
@@ -20,14 +22,14 @@ const Lucide = () => {
                     <Icon name={icon} size={24} />
                     <span className="text-sm">{icon.slice(2)}</span>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Lucide
+export default Lucide;

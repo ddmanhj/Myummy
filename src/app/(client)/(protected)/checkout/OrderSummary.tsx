@@ -1,28 +1,38 @@
-
-
-import { useShoppingContext } from '@/context'
-import { currentCurrency } from '@/common'
-import { calculatedPrice } from '@/helpers'
+import { useShoppingContext } from "@/context";
+import { currentCurrency } from "@/common";
+import { calculatedPrice } from "@/helpers";
 
 const OrderSummary = () => {
-  const { cartItems, getCalculatedOrder } = useShoppingContext()
+  const { cartItems, getCalculatedOrder } = useShoppingContext();
 
   return (
     <div className="mb-5">
       <div className="rounded-lg border border-default-200 p-5">
-        <h4 className="mb-5 text-lg font-semibold text-default-700">Order Summary</h4>
+        <h4 className="mb-5 text-lg font-semibold text-default-700">
+          Order Summary
+        </h4>
 
         {cartItems.map((item) => {
-          const dish = item.dish
-          const quantity = cartItems.find((cartItem) => cartItem.dish_id == item.dish_id)?.quantity ?? 1
+          const dish = item.dish;
+          const quantity =
+            cartItems.find((cartItem) => cartItem.dish_id == item.dish_id)
+              ?.quantity ?? 1;
           return (
             dish && (
               <div key={item.id + dish?.id} className="mb-4 flex items-center">
-                <img src={dish.images[0]} height={80} width={80} className="me-2 h-20 w-20" alt={dish.name} />
+                <img
+                  src={dish.images[0]}
+                  height={80}
+                  width={80}
+                  className="me-2 h-20 w-20"
+                  alt={dish.name}
+                />
                 <div>
-                  <h4 className="mb-2 text-base font-semibold text-default-700">{dish.name}</h4>
+                  <h4 className="mb-2 text-base font-semibold text-default-700">
+                    {dish.name}
+                  </h4>
                   <h4 className="text-sm text-default-600">
-                    {quantity} x{' '}
+                    {quantity} x{" "}
                     <span className="font-semibold text-primary">
                       {currentCurrency}
                       {calculatedPrice(dish)}
@@ -31,7 +41,7 @@ const OrderSummary = () => {
                 </div>
               </div>
             )
-          )
+          );
         })}
 
         <div className="mb-6">
@@ -77,7 +87,7 @@ const OrderSummary = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderSummary
+export default OrderSummary;

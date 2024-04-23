@@ -1,9 +1,11 @@
-import { FaStar } from 'react-icons/fa6'
+import { FaStar } from "react-icons/fa6";
 
 const DishRatingRepresentation = () => {
   return (
     <>
-      <h4 className="mb-4 text-xl font-semibold text-default-800">Consumer Ratings</h4>
+      <h4 className="mb-4 text-xl font-semibold text-default-800">
+        Consumer Ratings
+      </h4>
       <div className="grid items-center gap-5 lg:grid-cols-4">
         <div className="flex flex-col items-center justify-center rounded-lg bg-primary/10 py-8">
           <h1 className="mb-4 text-6xl font-semibold text-default-800">4.7</h1>
@@ -25,7 +27,8 @@ const DishRatingRepresentation = () => {
             </span>
           </div>
           <h4 className="text-base font-medium text-default-700">
-            Customer Rating <span className="font-normal text-default-500">(23,476)</span>
+            Customer Rating{" "}
+            <span className="font-normal text-default-500">(23,476)</span>
           </h4>
         </div>
         <div className="md:col-span-3 xl:col-span-2">
@@ -59,7 +62,9 @@ const DishRatingRepresentation = () => {
               </div>
             </div>
             <div className="md:col-span-2">
-              <h4 className="inline-block text-sm font-medium text-default-700">66%</h4>
+              <h4 className="inline-block text-sm font-medium text-default-700">
+                66%
+              </h4>
               <span className="font-normal text-default-500">(94,532)</span>
             </div>
           </div>
@@ -93,7 +98,9 @@ const DishRatingRepresentation = () => {
               </div>
             </div>
             <div className="md:col-span-2">
-              <h4 className="inline-block text-sm font-medium text-default-700">25%</h4>
+              <h4 className="inline-block text-sm font-medium text-default-700">
+                25%
+              </h4>
               <span className="font-normal text-default-500">(6,717)</span>
             </div>
           </div>
@@ -127,7 +134,9 @@ const DishRatingRepresentation = () => {
               </div>
             </div>
             <div className="md:col-span-2">
-              <h4 className="inline-block text-sm font-medium text-default-700">16%</h4>
+              <h4 className="inline-block text-sm font-medium text-default-700">
+                16%
+              </h4>
               <span className="font-normal text-default-500">(714)</span>
             </div>
           </div>
@@ -161,7 +170,9 @@ const DishRatingRepresentation = () => {
               </div>
             </div>
             <div className="md:col-span-2">
-              <h4 className="inline-block text-sm font-medium text-default-700">8%</h4>
+              <h4 className="inline-block text-sm font-medium text-default-700">
+                8%
+              </h4>
               <span className="font-normal text-default-500">(643)</span>
             </div>
           </div>
@@ -195,14 +206,16 @@ const DishRatingRepresentation = () => {
               </div>
             </div>
             <div className="md:col-span-2">
-              <h4 className="inline-block text-sm font-medium text-default-700">4%</h4>
+              <h4 className="inline-block text-sm font-medium text-default-700">
+                4%
+              </h4>
               <span className="font-normal text-default-500">(152)</span>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DishRatingRepresentation
+export default DishRatingRepresentation;

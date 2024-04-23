@@ -1,14 +1,14 @@
-import 'jsvectormap'
-import 'jsvectormap/dist/maps/us-merc-en'
+import "jsvectormap";
+import "jsvectormap/dist/maps/us-merc-en";
 
 //components
-import BaseVectorMap from './BaseVectorMap'
+import BaseVectorMap from "./BaseVectorMap";
 
 type UsaVectorMapProps = {
-  width?: string
-  height?: string
-  options?: any
-}
+  width?: string;
+  height?: string;
+  options?: any;
+};
 
 const UsaVectorMap = ({ width, height, options }: UsaVectorMapProps) => {
   return (
@@ -20,7 +20,7 @@ const UsaVectorMap = ({ width, height, options }: UsaVectorMapProps) => {
         type="us_merc_en"
       />
     </>
-  )
-}
+  );
+};
 
-export default UsaVectorMap
+export default UsaVectorMap;

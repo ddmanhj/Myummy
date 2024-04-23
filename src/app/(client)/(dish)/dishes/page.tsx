@@ -1,7 +1,12 @@
-
-import { LuSettings2 } from 'react-icons/lu'
-import { Breadcrumb, ProductPagination, DiscountCard, DemoFilterDropdown, MegaProductFilter } from '@/components'
-import DishesGrid, { FoundResultsCount } from './DishesGrid'
+import { LuSettings2 } from "react-icons/lu";
+import {
+  Breadcrumb,
+  ProductPagination,
+  DiscountCard,
+  DemoFilterDropdown,
+  MegaProductFilter,
+} from "@/components";
+import DishesGrid, { FoundResultsCount } from "./DishesGrid";
 
 const ProductsGrid = () => {
   return (
@@ -27,14 +32,22 @@ const ProductsGrid = () => {
                   </div>
 
                   <div className="flex items-center">
-                    <DemoFilterDropdown filterOptions={['Latest', 'Featured', 'Rating', 'Popularity']} filterType="Sort By" />
+                    <DemoFilterDropdown
+                      filterOptions={[
+                        "Latest",
+                        "Featured",
+                        "Rating",
+                        "Popularity",
+                      ]}
+                      filterType="Sort By"
+                    />
                   </div>
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                   <div className="order-1 sm:col-span-2 xl:order-2">
                     <div className="order-1 h-full sm:col-span-2 xl:order-2">
-                      <DiscountCard discount={'52% Discount'} link="/dishes" />
+                      <DiscountCard discount={"52% Discount"} link="/dishes" />
                     </div>
                   </div>
 
@@ -47,7 +60,7 @@ const ProductsGrid = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default ProductsGrid
+export default ProductsGrid;

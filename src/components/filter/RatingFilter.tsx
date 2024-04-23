@@ -1,9 +1,8 @@
-
-import { useFilterContext } from '@/context'
-import { FaStar } from 'react-icons/fa6'
+import { useFilterContext } from "@/context";
+import { FaStar } from "react-icons/fa6";
 
 const RatingFilter = () => {
-  const { rating, updateRating } = useFilterContext()
+  const { rating, updateRating } = useFilterContext();
 
   return (
     <>
@@ -18,11 +17,18 @@ const RatingFilter = () => {
               defaultChecked={rating == 5 - idx}
               onChange={() => updateRating(5 - idx)}
             />
-            <label htmlFor={`${idx + 1}_star`} className="flex flex-1 select-none flex-col justify-center ps-2.5 sm:ps-3.5">
+            <label
+              htmlFor={`${idx + 1}_star`}
+              className="flex flex-1 select-none flex-col justify-center ps-2.5 sm:ps-3.5"
+            >
               <div className="flex items-center gap-2">
                 {Array.from(new Array(5 - idx)).map((_star, i) => (
                   <span key={i}>
-                    <FaStar key={idx} size={18} className="fill-yellow-400 text-yellow-400" />
+                    <FaStar
+                      key={idx}
+                      size={18}
+                      className="fill-yellow-400 text-yellow-400"
+                    />
                   </span>
                 ))}
 
@@ -36,10 +42,10 @@ const RatingFilter = () => {
               </div>
             </label>
           </div>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default RatingFilter
+export default RatingFilter;

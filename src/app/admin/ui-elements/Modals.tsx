@@ -1,5 +1,5 @@
-import { LuAlertCircle, LuArrowLeft, LuX } from 'react-icons/lu'
-import { Link } from 'react-router-dom'
+import { LuAlertCircle, LuArrowLeft, LuX } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const Modals = () => {
   return (
@@ -77,7 +77,10 @@ const Modals = () => {
                       >
                         Close
                       </button>
-                      <Link className="py-2 px-5 inline-flex font-semibold tracking-wide align-middle duration-500 text-sm text-center bg-primary text-white rounded-lg" to="">
+                      <Link
+                        className="py-2 px-5 inline-flex font-semibold tracking-wide align-middle duration-500 text-sm text-center bg-primary text-white rounded-lg"
+                        to=""
+                      >
                         Save Changes
                       </Link>
                     </div>
@@ -405,7 +408,10 @@ const Modals = () => {
                         >
                           Close
                         </button>
-                        <Link className="py-2 px-5 inline-flex font-semibold tracking-wide rounded-lg align-middle duration-500 text-sm text-center bg-primary text-white" to="">
+                        <Link
+                          className="py-2 px-5 inline-flex font-semibold tracking-wide rounded-lg align-middle duration-500 text-sm text-center bg-primary text-white"
+                          to=""
+                        >
                           Save Changes
                         </Link>
                       </div>
@@ -443,7 +449,10 @@ const Modals = () => {
                       <div className="p-9 overflow-y-auto">
                         <div className="text-center">
                           <div className="flex justify-center">
-                            <LuAlertCircle size={48} className=" text-warning " />
+                            <LuAlertCircle
+                              size={48}
+                              className=" text-warning "
+                            />
                           </div>
                           <h4 className="text-base text-danger font-medium mt-3 mb-2.5">
                             Page not Found
@@ -471,7 +480,7 @@ const Modals = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modals
+export default Modals;
