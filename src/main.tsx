@@ -11,6 +11,6 @@ if (container) {
       <BrowserRouter basename={"/"}>
         <App />
       </BrowserRouter>
-    </StrictMode>,
+    </StrictMode>
   );
 }

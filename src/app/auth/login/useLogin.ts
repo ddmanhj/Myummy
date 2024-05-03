@@ -8,10 +8,13 @@ import { type AxiosResponse } from "axios";
 import { useAuthContext } from "@/context";
 import { HttpClient } from "@/helpers";
 import type { IUser } from "@/types/user";
+import { useLoginCustomer } from "@/services/services";
 
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const mutationLoginCustomer = useLoginCustomer();
+
 
   const { session, saveSession } = useAuthContext();
   const [searchParams] = useSearchParams();
@@ -69,6 +72,7 @@ const useLogin = () => {
   type LoginFormFields = yup.InferType<typeof loginFormSchema>;
 
   const login = handleSubmit(async (values: LoginFormFields) => {
+    await mutationLoginCustomer.mutate(values);
     try {
       const res: AxiosResponse<IUser> = await HttpClient.post("/login", values);
       if (res.data.token) {

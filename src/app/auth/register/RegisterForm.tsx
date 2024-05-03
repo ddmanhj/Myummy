@@ -2,36 +2,60 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { PasswordFormInput, TextFormInput } from "@/components";
+import { RegisterType } from "@/types/user";
+import { useRegisterCustomer } from "@/services/services";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const registerFormSchema = yup.object({
-    fullName: yup.string().required("Please enter your name"),
+    customerName: yup.string().required("Please enter your name"),
     email: yup
       .string()
       .email("Please enter a valid email")
       .required("Please enter your email"),
     password: yup.string().required("Please enter your password"),
+    phone: yup.string().required("Please enter your phone number"),
   });
 
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(registerFormSchema),
     defaultValues: {
-      fullName: "Yum Coderthemes",
+      customerName: "Yum Coderthemes",
       email: "user@demo.com",
       password: "password",
     },
   });
 
+  const mutationRegisterCustomer = useRegisterCustomer(navigate);
+
+  const handleSubmitRegister = (data: RegisterType) => {
+    mutationRegisterCustomer.mutate(data);
+  };
+
   return (
-    <form onSubmit={handleSubmit(() => null)}>
+    <form onSubmit={handleSubmit(handleSubmitRegister)}>
       <TextFormInput
-        name="fullName"
+        name="customerName"
         control={control}
         type="text"
         className="bg-white"
         placeholder="Enter your name"
         containerClassName="mb-6"
         label="Full Name"
+        fullWidth
+      />
+
+      <TextFormInput
+        name="phone"
+        control={control}
+        type="text"
+        pattern="[0-9]{10}"
+        maxLength={10}
+        className="bg-white"
+        placeholder="Enter your phone"
+        containerClassName="mb-6"
+        label="Phone"
         fullWidth
       />
 

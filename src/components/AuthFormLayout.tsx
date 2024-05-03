@@ -46,7 +46,7 @@ const AuthFormLayout = ({
               />
             </Link>
           </div>
-          <div className="py-10">
+          <div className="py-5">
             <h1 className="mb-2 text-3xl font-semibold text-default-800">
               {authTitle}
             </h1>
@@ -55,7 +55,7 @@ const AuthFormLayout = ({
 
           {children}
 
-          {hasThirdPartyAuth && (
+          {/* {hasThirdPartyAuth && (
             <div className="my-6 flex items-center justify-center gap-4">
               <img
                 height={32}
@@ -72,11 +72,11 @@ const AuthFormLayout = ({
                 className="h-8 w-8"
               />
             </div>
-          )}
+          )} */}
         </div>
 
         {bottomLink && (
-          <div className="mt-16 flex grow items-end justify-center">
+          <div className="mt-10 flex grow items-end justify-center">
             {bottomLink}
           </div>
         )}

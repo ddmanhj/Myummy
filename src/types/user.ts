@@ -15,3 +15,16 @@ export type AuthContextType = {
   saveSession: (session: IUser) => void;
   removeSession: () => void;
 };
+
+export type RegisterType = {
+  customerName: string;
+  email: string;
+  password: string;
+  phone: string;
+};
+
+export type LoginType = {
+  email: string;
+  password: string;
+};
+
