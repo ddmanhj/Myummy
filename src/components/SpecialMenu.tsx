@@ -12,7 +12,7 @@ import type { CategoryType } from "@/types/food";
 
 const SpecialMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryType["id"]>(
-    categoriesData[0].id,
+    categoriesData[0].id
   );
 
   return (
@@ -43,7 +43,7 @@ const SpecialMenu = () => {
                       key={category.id}
                       className={cn(
                         "flex p-1",
-                        selectedCategory == category.id && "active",
+                        selectedCategory == category.id && "active"
                       )}
                       id={category.name + "-menu-toggle"}
                       data-hs-tab={"#" + category.name + "-menu"}
@@ -93,13 +93,13 @@ const SpecialMenu = () => {
                         role="tabpanel"
                         aria-labelledby="pizza-menu-item"
                         className={cn(
-                          selectedCategory != category.id && "hidden",
+                          selectedCategory != category.id && "hidden"
                         )}
                       >
                         <div className="grid grid-cols-1">
                           <SpecialMenuSwiper
                             dishes={specialMenuData.filter(
-                              (dish) => dish.category_id == selectedCategory,
+                              (dish) => dish.category_id == selectedCategory
                             )}
                           />
                         </div>

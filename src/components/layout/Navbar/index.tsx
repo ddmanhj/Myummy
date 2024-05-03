@@ -16,11 +16,19 @@ import { logoDarkImg, logoLightImg } from "@/assets/data/images";
 import { getClientVerticalMenuItems, getHorizontalMenuItems } from "@/helpers";
 import ProductSearchBar from "./ProductSearchBar";
 import CartAndWishList from "./CartAndWishList";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const HorizontalMenu = lazy(() => import("./HorizontalMenu"));
 const StickyHeader = lazy(() => import("../../StickyHeader"));
+import { useLogoutCustomer } from "@/services/services";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const mutationLogOutCustomer = useLogoutCustomer();
+  const logOutHandle = async () => {
+    await mutationLogOutCustomer.mutate();
+    navigate("/auth/logout");
+  };
+
   return (
     <>
       <OfferAdBanner />
@@ -111,13 +119,13 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
-                            to="/auth/logout"
-                            className="flex w-full items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                          <span
+                            onClick={logOutHandle}
+                            className="flex w-full items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700 cursor-pointer"
                           >
                             <LuLogOut size={16} />
                             Log Out
-                          </Link>
+                          </span>
                         </li>
                       </ul>
                     </div>

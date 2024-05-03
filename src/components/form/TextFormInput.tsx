@@ -27,6 +27,7 @@ export type FormInputProps<
   containerClassName?: string;
   noValidate?: boolean;
   fullWidth?: boolean;
+  phone?: Number;
 };
 
 type ExtendedFormInputProps = {
@@ -65,7 +66,7 @@ const TextFormInput = <
             <label
               className={cn(
                 "mb-2 block text-sm font-medium text-default-900",
-                labelClassName,
+                labelClassName
               )}
               htmlFor={name}
             >
@@ -86,7 +87,7 @@ const TextFormInput = <
                   "border-red-500 focus:border-red-500":
                     !noValidate && fieldState.error?.message,
                 },
-                className,
+                className
               )}
             />
 
@@ -109,7 +110,7 @@ const TextFormInput = <
               <div
                 className={cn(
                   "pointer-events-none absolute inset-y-0 flex items-center",
-                  endButtonIcon ? "end-14" : "end-4",
+                  endButtonIcon ? "end-14" : "end-4"
                 )}
               >
                 <LuAlertCircle size={20} className="text-red-500" />

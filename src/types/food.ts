@@ -5,6 +5,11 @@ export type CategoryType = {
   name: string;
   image: string;
 };
+export type CategoryTypeAPI = {
+  id: IdType;
+  category_name: string;
+  url_image_category: string;
+};
 
 export type ReviewType = {
   count: number;
