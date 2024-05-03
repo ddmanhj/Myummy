@@ -28,3 +28,11 @@ export type LoginType = {
   password: string;
 };
 
+export type CustomerType = {
+  id: number,
+  customerName: string,
+  phone: string,
+  email: string,
+  urlImageAvatar: string,
+  role: string,
+}

@@ -5,7 +5,7 @@ import {
   DefaultLayout,
   AdminLayout,
 } from "../layouts";
-import { useAuthContext } from "@/context";
+// import { useAuthContext } from "@/context";
 import {
   allAuthFlattedRoutes,
   clientPublicFlattedRoutes,
@@ -13,9 +13,14 @@ import {
   allAdminFlattedRoutes,
   allBlankFlattedRoutes,
 } from "./index";
+import { useSelector } from "react-redux";
+import { isEmpty } from "lodash";
 
 const AllRoutes = (props: RouteProps) => {
-  const { session, isAuthenticated } = useAuthContext();
+  // const { session, isAuthenticated } = useAuthContext();
+  const customerData = useSelector(
+    (customer: any) => customer.customer.customer
+  );
 
   return (
     <Routes>
@@ -59,7 +64,8 @@ const AllRoutes = (props: RouteProps) => {
             key={idx}
             path={route.path}
             element={
-              isAuthenticated && session?.role == "user" ? (
+              // isAuthenticated && session?.role == "user" ? (
+              !isEmpty(customerData) && customerData?.role == "customer" ? (
                 <ClientLayout {...props}>{route.element}</ClientLayout>
               ) : (
                 <Navigate
@@ -81,7 +87,8 @@ const AllRoutes = (props: RouteProps) => {
             key={idx}
             path={route.path}
             element={
-              isAuthenticated && session?.role == "admin" ? (
+              // isAuthenticated && session?.role == "admin" ? (
+              !isEmpty(customerData) && customerData?.role == "admin" ? (
                 <AdminLayout {...props}>{route.element}</AdminLayout>
               ) : (
                 <Navigate

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AuthFormLayout, PageTitle } from "@/components";
-import { useAuthContext } from "@/context";
+// import { useAuthContext } from "@/context";
 
 const BottomLink = () => (
   <p className="mt-auto text-center text-default-950">
@@ -12,9 +12,9 @@ const BottomLink = () => (
 );
 
 const Logout = () => {
-  const { removeSession } = useAuthContext();
+  // const { removeSession } = useAuthContext();
 
-  removeSession();
+  // removeSession();
 
   return (
     <AuthFormLayout
