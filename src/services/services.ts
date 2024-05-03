@@ -1,7 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getRequest, notify, postRequest } from "../utils/common";
-import { LoginType, RegisterType } from "@/types/user";
+import { CustomerType, LoginType, RegisterType } from "@/types/user";
 import { NavigateFunction } from "react-router-dom";
+import { getInfoCustomer } from "@/redux/customerSlice";
 
 export const useGetSpecialMenu = () => {
     return useQuery({
@@ -29,15 +30,17 @@ export const useRegisterCustomer = (navigate: NavigateFunction) => {
   });
 }
 
-export const useLoginCustomer = () => {
+export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
   return useMutation({
     mutationKey: ['registerCustomer'],
-    // onSuccess: () => {
-    //   notify('Đăng nhập thành công', 'success');
-    // },
-    // onError: () => {
-    //   notify('Đăng nhập thất bại', 'error');
-    // },
+    onSuccess: (data) => {
+      redirectAsRole(data.data.role, true);
+      dispatch(getInfoCustomer(data.data))
+      notify('Đăng nhập thành công', 'success');
+    },
+    onError: () => {
+      notify('Đăng nhập thất bại', 'error');
+    },
     mutationFn: (dataCustomer: LoginType) =>
       postRequest(
         `/auth/login`,

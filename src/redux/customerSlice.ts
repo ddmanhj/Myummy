@@ -5,7 +5,6 @@ const initialState = {
     id: "",
     customerName: "",
     urlImageAvatar: "",
-    password: "",
     phone: "",
     email: "",
     role: "",
@@ -20,12 +19,16 @@ const customerSlice = createSlice({
     reducers: {
       getInfoCustomer: (state, action) => {
         state.customer = action.payload;
+      },
+      customerLogOut: (state) => {
+        state.customer = initialState.customer;
       }
     },
   });
   
   export const {
-    getInfoCustomer
+    getInfoCustomer,
+    customerLogOut
   } = customerSlice.actions;
   
 export default customerSlice.reducer;

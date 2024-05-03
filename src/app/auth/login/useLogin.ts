@@ -2,21 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
-import { toast } from "sonner";
-import { type AxiosResponse } from "axios";
-import { useAuthContext } from "@/context";
-import { HttpClient } from "@/helpers";
-import type { IUser } from "@/types/user";
 import { useLoginCustomer } from "@/services/services";
 
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const mutationLoginCustomer = useLoginCustomer();
+  const dispatch = useDispatch();
+  const customerData = useSelector((state: any) => state.customer.customer)
 
-
-  const { session, saveSession } = useAuthContext();
   const [searchParams] = useSearchParams();
 
   const loginFormSchema = yup.object({
@@ -35,73 +30,43 @@ const useLogin = () => {
     },
   });
 
-  const changeUserRole = (role: IUser["role"]) => {
-    reset({
-      email: role == "user" ? "user@coderthemes.com" : "admin@coderthemes.com",
-      password: role == "user" ? "password" : "password",
-    });
-  };
-
   useEffect(() => {
-    if (session) {
-      redirectAsRole(session.role);
+    if (customerData?.role) {
+      redirectAsRole(customerData?.role);
     }
   }, []);
 
-  const redirectAsRole = (role: "admin" | "user", current = false) => {
+  const redirectAsRole = (role: "admin" | "customer", current = false) => {
     const redirectLink = searchParams.get("redirectTo");
     const adminRoute = redirectLink?.startsWith("/admin");
 
-    if (role == "admin" && !(redirectLink && !adminRoute)) {
+    if (customerData?.role == "admin" && !(redirectLink && !adminRoute)) {
       navigate(redirectLink && adminRoute ? redirectLink : "/admin/dashboard");
       return;
-    } else if (role == "user" && !(redirectLink && adminRoute)) {
-      navigate(redirectLink && !adminRoute ? redirectLink : "/");
+    } else if (customerData?.role == "customer" && !(redirectLink && adminRoute)) {
+      console.log(redirectLink, 'check');
+      // navigate(redirectLink && !adminRoute ? redirectLink : "/");
+      console.log("wtf");
       return;
     }
 
     if (current) {
       if (role == "admin") {
         navigate("/admin/dashboard");
-      } else if (role == "user") {
+      } else if (role == "customer") {
         navigate("/");
       }
     }
   };
 
-  type LoginFormFields = yup.InferType<typeof loginFormSchema>;
-
+  const mutationLoginCustomer = useLoginCustomer(dispatch, redirectAsRole);
+  type LoginFormFields = yup.InferType<typeof loginFormSchema>
   const login = handleSubmit(async (values: LoginFormFields) => {
+    mutationLoginCustomer.isPending && setLoading(true);
     await mutationLoginCustomer.mutate(values);
-    try {
-      const res: AxiosResponse<IUser> = await HttpClient.post("/login", values);
-      if (res.data.token) {
-        saveSession({
-          ...(res.data ?? {}),
-          token: res.data.token,
-        });
-        if (res.data.role == "user" || res.data.role == "admin") {
-          redirectAsRole(res.data.role, true);
-        }
-      }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e: any) {
-      if (e.response?.data?.error) {
-        toast.error(e.response?.data?.error, {
-          position: "top-right",
-          duration: 2000,
-        });
-      }
-    } finally {
-      setLoading(false);
-    }
-    toast.success("Successfully logged in. Redirecting....", {
-      position: "top-right",
-      duration: 2000,
-    });
   });
 
-  return { loading, login, control, changeUserRole };
+  return { loading,login, control };
 };
 
 export default useLogin;

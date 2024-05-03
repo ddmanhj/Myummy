@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { useDispatch } from "react-redux";
 import {
   LuHeart,
   LuLogOut,
@@ -20,12 +21,15 @@ import { Link, useNavigate } from "react-router-dom";
 const HorizontalMenu = lazy(() => import("./HorizontalMenu"));
 const StickyHeader = lazy(() => import("../../StickyHeader"));
 import { useLogoutCustomer } from "@/services/services";
+import { customerLogOut } from "@/redux/customerSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const mutationLogOutCustomer = useLogoutCustomer();
   const logOutHandle = async () => {
     await mutationLogOutCustomer.mutate();
+    dispatch(customerLogOut());
     navigate("/auth/logout");
   };
 

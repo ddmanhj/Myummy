@@ -4,7 +4,8 @@ import useLogin from "./useLogin";
 import { PasswordFormInput, TextFormInput } from "@/components";
 
 const LoginForm = () => {
-  const { loading, login, control, changeUserRole } = useLogin();
+  // const { loading, login, control, changeUserRole } = useLogin();
+  const { loading, login, control } = useLogin();
 
   return (
     <>
@@ -54,7 +55,7 @@ const LoginForm = () => {
             </div>
             <button
               className="flex items-center gap-1.5 rounded-md bg-primary px-2 py-1 text-sm text-white transition-all hover:bg-primary-600"
-              onClick={() => changeUserRole("user")}
+              // onClick={() => changeUserRole("user")}
             >
               <LuCopy />
               Use
@@ -78,7 +79,7 @@ const LoginForm = () => {
             </div>
             <button
               className="flex items-center gap-1.5 rounded-md bg-primary px-2 py-1 text-sm text-white transition-all hover:bg-primary-600"
-              onClick={() => changeUserRole("admin")}
+              // onClick={() => changeUserRole("admin")}
             >
               <LuCopy />
               Use
