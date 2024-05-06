@@ -5,6 +5,7 @@ import type {
   InternalAxiosRequestConfig,
 } from 'axios';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 import { baseApi as baseURL } from '@/utils/constants';
 
@@ -29,11 +30,10 @@ const onRequest = async (
   if (!newConfig?.headers['Content-Type']) {
     newConfig.headers['Content-Type'] = 'application/json';
   }
-  // const loginData = sessionStorage.getItem('loginData');
-  // const token = loginData ? JSON.parse(loginData)?.access_token : null;
-  // const token = localStorage.getItem('token');
-  const token = ''
 
+  const loginData = Cookies.get('newAccessToken');
+  const token = loginData ? loginData : null;
+    
   if (token) {
     newConfig.headers.Authorization = `Bearer ${token}`;
   }

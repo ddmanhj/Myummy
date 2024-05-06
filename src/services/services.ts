@@ -3,11 +3,13 @@ import { getRequest, notify, postRequest } from "../utils/common";
 import { CustomerType, LoginType, RegisterType } from "@/types/user";
 import { NavigateFunction } from "react-router-dom";
 import { getInfoCustomer } from "@/redux/customerSlice";
+import Cookies from "js-cookie";
 
 export const useGetSpecialMenu = () => {
     return useQuery({
       queryKey: ['searchSpecialMenu'],
       enabled: false,
+      retry: 1,
       queryFn: () => getRequest(`/special_menu`),
     });
 };
@@ -32,13 +34,19 @@ export const useRegisterCustomer = (navigate: NavigateFunction) => {
 
 export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
   return useMutation({
-    mutationKey: ['registerCustomer'],
+    mutationKey: ['loginCustomer'],
     onSuccess: (data) => {
+      if(data.status === false) {
+        notify(data?.data, 'error');
+        return;
+      }
       redirectAsRole(data.data.role, true);
       dispatch(getInfoCustomer(data.data))
+      Cookies.set('getRefreshToken', data.data?.refreshToken, { expires: 7 });
       notify('Đăng nhập thành công', 'success');
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       notify('Đăng nhập thất bại', 'error');
     },
     mutationFn: (dataCustomer: LoginType) =>
@@ -49,9 +57,9 @@ export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
   });
 }
 
-export const useLogoutCustomer = () => {
+export const useLogoutCustomer = (id: number) => {
   return useMutation({
-    mutationKey: ['registerCustomer'],
+    mutationKey: ['logOutCustomer'],
     onSuccess: () => {
       notify('Đăng xuất thành công', 'success');
     },
@@ -59,8 +67,9 @@ export const useLogoutCustomer = () => {
       notify('Đăng xuất thất bại', 'error');
     },
     mutationFn: () =>
-      getRequest(
+      postRequest(
         `/auth/logout`,
+        {id: id}
       ),
   });
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { SpecialMenuSwiper } from "./swipers";
 import {
@@ -9,11 +9,17 @@ import {
 } from "@/assets/data";
 import { cn } from "@/utils";
 import type { CategoryType } from "@/types/food";
+import { useGetSpecialMenu } from "@/services/services";
 
 const SpecialMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryType["id"]>(
     categoriesData[0].id
   );
+  const { data: querySpecialMenu, refetch: callApiGetSpecialMenu } =
+    useGetSpecialMenu();
+  useEffect(() => {
+    callApiGetSpecialMenu();
+  }, []);
 
   return (
     <section className="py-6 lg:py-16">

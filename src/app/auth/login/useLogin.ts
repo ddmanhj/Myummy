@@ -44,9 +44,7 @@ const useLogin = () => {
       navigate(redirectLink && adminRoute ? redirectLink : "/admin/dashboard");
       return;
     } else if (customerData?.role == "customer" && !(redirectLink && adminRoute)) {
-      console.log(redirectLink, 'check');
-      // navigate(redirectLink && !adminRoute ? redirectLink : "/");
-      console.log("wtf");
+      navigate(redirectLink && !adminRoute ? redirectLink : "/");
       return;
     }
 
@@ -54,7 +52,7 @@ const useLogin = () => {
       if (role == "admin") {
         navigate("/admin/dashboard");
       } else if (role == "customer") {
-        navigate("/");
+        navigate(redirectLink && !adminRoute ? redirectLink : "/");
       }
     }
   };

@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   LuHeart,
   LuLogOut,
@@ -22,13 +22,20 @@ const HorizontalMenu = lazy(() => import("./HorizontalMenu"));
 const StickyHeader = lazy(() => import("../../StickyHeader"));
 import { useLogoutCustomer } from "@/services/services";
 import { customerLogOut } from "@/redux/customerSlice";
+import { CustomerType } from "@/types/user";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const mutationLogOutCustomer = useLogoutCustomer();
+  const getCustomerData = useSelector(
+    (state: CustomerType) => state.customer.customer
+  );
+  const mutationLogOutCustomer = useLogoutCustomer(getCustomerData.id);
   const logOutHandle = async () => {
     await mutationLogOutCustomer.mutate();
+    Cookies.remove("getRefreshToken");
+    Cookies.remove("newAccessToken");
     dispatch(customerLogOut());
     navigate("/auth/logout");
   };
