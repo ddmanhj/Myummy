@@ -5,7 +5,7 @@ import {
   DefaultLayout,
   AdminLayout,
 } from "../layouts";
-import { useAuthContext } from "@/context";
+// import { useAuthContext } from "@/context";
 import {
   allAuthFlattedRoutes,
   clientPublicFlattedRoutes,
@@ -13,9 +13,16 @@ import {
   allAdminFlattedRoutes,
   allBlankFlattedRoutes,
 } from "./index";
+import { useSelector } from "react-redux";
+import { isEmpty } from "lodash";
+import Cookies from "js-cookie";
 
 const AllRoutes = (props: RouteProps) => {
-  const { session, isAuthenticated } = useAuthContext();
+  // const { session, isAuthenticated } = useAuthContext();
+  const customerData = useSelector(
+    (customer: any) => customer.customer.customer
+  );
+  const session = Cookies.get("getRefreshToken");
 
   return (
     <Routes>
@@ -59,7 +66,8 @@ const AllRoutes = (props: RouteProps) => {
             key={idx}
             path={route.path}
             element={
-              isAuthenticated && session?.role == "user" ? (
+              // isAuthenticated && session?.role == "user" ? (
+              !isEmpty(session) && customerData?.role == "customer" ? (
                 <ClientLayout {...props}>{route.element}</ClientLayout>
               ) : (
                 <Navigate
@@ -81,7 +89,8 @@ const AllRoutes = (props: RouteProps) => {
             key={idx}
             path={route.path}
             element={
-              isAuthenticated && session?.role == "admin" ? (
+              // isAuthenticated && session?.role == "admin" ? (
+              !isEmpty(session) && customerData?.role == "admin" ? (
                 <AdminLayout {...props}>{route.element}</AdminLayout>
               ) : (
                 <Navigate

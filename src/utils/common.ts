@@ -1,10 +1,13 @@
 import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import Cookies from 'js-cookie';
 import dayjs from 'dayjs';
 import saveAs from 'file-saver';
 import { toast } from 'sonner';
 
 // eslint-disable-next-line import/no-cycle
 import baseApi from './baseApi';
+import axios from 'axios';
+import { isEmpty } from 'lodash';
 
 type ToastType = 'info' | 'success' | 'warning' | 'error' | 'default';
 
@@ -12,31 +15,31 @@ export const notify = (message: string, type?: ToastType): void => {
   if (type === 'info') {
     toast.info(message, {
       position: "top-right",
-      duration: 5000,
+      duration: 3000,
     });
   }
   if (type === 'success') {
     toast.success(message, {
       position: "top-right",
-      duration: 5000,
+      duration: 3000,
     });
   }
   if (type === 'warning') {
     toast.warning(message, {
       position: "top-right",
-      duration: 5000,
+      duration: 3000,
     });
   }
   if (type === 'error') {
     toast.error(message, {
       position: "top-right",
-      duration: 5000,
+      duration: 3000,
     });
   }
   if (!type || type === 'default') {
     toast(message, {
       position: "top-right",
-      duration: 5000,
+      duration: 3000,
     });
   }
 };
@@ -72,40 +75,40 @@ export const checkTimeAgo = (time: string) => {
   return 'Vài phút trước';
 };
 
-const refreshAccessToken = async (token: string): Promise<any> => {
+export const refreshAccessToken = async (refreshToken: string): Promise<any> => {
   const res = await baseApi.post(
-    '/security-service/oauth/token',
+    '/auth/refresh_token',
     {
       grant_type: 'refresh_token',
-      refresh_token: token,
     },
     {
       headers: {
-        Authorization: `Basic d2ViYXBwOmVuYW9AMTIz`,
+        authorization: `Bearer ${refreshToken}`,
         'Content-Type': 'multipart/form-data',
       },
+      withCredentials: true
     },
   );
   return res;
 };
 
 const handleRefreshToken = (refreshToken: string) => {
-  refreshAccessToken(refreshToken);
+   refreshAccessToken(refreshToken);
 };
 
 export const handleError = async (error: any): Promise<void> => {
+  const loginData =  Cookies.get('getRefreshToken');
   const originalRequest = { ...error.config };
-  if (error?.response?.status === 401) {
+  if (error?.response?.status === 403) {
     if (!originalRequest?.retry) {
       originalRequest.retry = true;
-      const loginData = sessionStorage.getItem('loginData');
       const refreshToken = loginData
-        ? JSON.parse(loginData).refresh_token
-        : null;
+        ? loginData 
+        : '';
       const response = (await handleRefreshToken(refreshToken)) as any;
-      if (response?.data?.access_token) {
-        // axios.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
-        sessionStorage.setItem('loginData', JSON.stringify(response?.data));
+      if (response?.data?.data) {
+        // axios.defaults.headers.common.Authorization = `${response.data.data}`;
+        Cookies.set('newAccessToken', response.data.data?.token, { expires: 7 });
         baseApi(error.config);
       } else {
         // xử lý khi refresh token lỗi
@@ -115,6 +118,9 @@ export const handleError = async (error: any): Promise<void> => {
       // xử lý sau khi đã refresh
       // window.location.reload();
     }
+  }
+  if (error?.response?.status === 401 || isEmpty(loginData)) {
+    window.location.href = '/auth/login';
   }
 };
 

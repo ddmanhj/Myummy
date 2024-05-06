@@ -480,7 +480,7 @@ export const specialMenuData: DishType[] = (
       type: "veg",
       tags: ["Finishers", "Dessert"],
       quantity: 20,
-      review: {
+      review: { 
         count: 231,
         stars: 4.5,
       },

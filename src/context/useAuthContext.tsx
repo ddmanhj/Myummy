@@ -24,7 +24,7 @@ export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [session, setSession] = useState(
     getCookie(authSessionKey)
       ? JSON.parse(getCookie(authSessionKey) ?? "{}")
-      : undefined,
+      : undefined
   );
 
   const saveSession = (user: IUser) => {
@@ -48,7 +48,7 @@ export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
           saveSession,
           removeSession,
         }),
-        [session],
+        [session]
       )}
     >
       {children}
