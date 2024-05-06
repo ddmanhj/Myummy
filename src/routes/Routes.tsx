@@ -15,12 +15,14 @@ import {
 } from "./index";
 import { useSelector } from "react-redux";
 import { isEmpty } from "lodash";
+import Cookies from "js-cookie";
 
 const AllRoutes = (props: RouteProps) => {
   // const { session, isAuthenticated } = useAuthContext();
   const customerData = useSelector(
     (customer: any) => customer.customer.customer
   );
+  const session = Cookies.get("getRefreshToken");
 
   return (
     <Routes>
@@ -65,7 +67,7 @@ const AllRoutes = (props: RouteProps) => {
             path={route.path}
             element={
               // isAuthenticated && session?.role == "user" ? (
-              !isEmpty(customerData) && customerData?.role == "customer" ? (
+              !isEmpty(session) && customerData?.role == "customer" ? (
                 <ClientLayout {...props}>{route.element}</ClientLayout>
               ) : (
                 <Navigate
@@ -88,7 +90,7 @@ const AllRoutes = (props: RouteProps) => {
             path={route.path}
             element={
               // isAuthenticated && session?.role == "admin" ? (
-              !isEmpty(customerData) && customerData?.role == "admin" ? (
+              !isEmpty(session) && customerData?.role == "admin" ? (
                 <AdminLayout {...props}>{route.element}</AdminLayout>
               ) : (
                 <Navigate

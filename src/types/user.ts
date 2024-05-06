@@ -29,10 +29,12 @@ export type LoginType = {
 };
 
 export type CustomerType = {
-  id: number,
-  customerName: string,
-  phone: string,
-  email: string,
-  urlImageAvatar: string,
-  role: string,
+  customer: {
+    customer: {id: number,
+    customerName: string,
+    phone: string,
+    email: string,
+    urlImageAvatar: string,
+    role: string,}
+  }
 }
