@@ -7,10 +7,10 @@ const container = document.getElementById("root");
 if (container) {
   const root = createRoot(container);
   root.render(
-    <StrictMode>
-      <BrowserRouter basename={"/"}>
-        <App />
-      </BrowserRouter>
-    </StrictMode>
+    // <StrictMode>
+    <BrowserRouter basename={"/"}>
+      <App />
+    </BrowserRouter>
+    // </StrictMode>
   );
 }

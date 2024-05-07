@@ -182,6 +182,7 @@ import offerBgOtherImg from "../images/other/offer-bg.png";
 import offerBg2OtherImg from "../images/other/offer-bg2.png";
 import offerBg3OtherImg from "../images/other/offer-bg3.png";
 import waveOtherImg from "../images/other/wave.png";
+import emptyWishlistImg from "../images/other/empty_wish_list.png";
 
 // payment
 import amazonPaymentImg from "../images/payment/amazon.svg";
@@ -305,6 +306,7 @@ export {
   russiaImg,
   spainImg,
   usaImg,
+  emptyWishlistImg,
   appetizerBanner1Img,
   appetizerBanner2Img,
   appetizerBanner3Img,

@@ -74,3 +74,9 @@ export type RestaurantType = {
   email: string;
   contact_no: number;
 };
+
+export type SpecialMenuType = {
+  id: number,
+  categoryName: string,
+  urlImageCategory: string,
+}
