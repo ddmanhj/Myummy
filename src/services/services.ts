@@ -5,12 +5,13 @@ import { NavigateFunction } from "react-router-dom";
 import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 
-export const useGetSpecialMenu = () => {
+export const useMenu = () => {
     return useQuery({
-      queryKey: ['searchSpecialMenu'],
-      enabled: false,
-      retry: 1,
-      queryFn: () => getRequest(`/special_menu`),
+      queryKey: ['menu'],
+      enabled: true,
+      staleTime: 1000 * 60 * 60 * 24,
+      refetchOnMount: false, // Không gọi lại khi mount lại
+      queryFn: () => getRequest(`/menu`),
     });
 };
 
@@ -73,3 +74,19 @@ export const useLogoutCustomer = (id: number) => {
       ),
   });
 }
+
+export const useGetListFoodSpecialMenu = () => {
+  const queryFnWithId = async (idSpecialMenu: number) => {
+    try {
+      const response = await getRequest(`/special_menu/${idSpecialMenu}`);
+      return response.data; // Giả sử dữ liệu trả về từ API được lưu trong response.data
+    } catch (error: any) {
+      notify(error, 'error')
+      // Xử lý lỗi nếu cần
+    }
+  };
+  
+  return {
+    callApiListFoodSpecialMenu: queryFnWithId,
+  };
+};

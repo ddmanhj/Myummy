@@ -87,7 +87,7 @@ export const categoriesData: CategoryType[] = [
 export const specialMenuData: DishType[] = (
   [
     {
-      id: 101,
+      id: 11,
       category_id: 1,
       name: "Cappuccino",
       price: 419.45,
@@ -101,7 +101,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 102,
+      id: 5,
       category_id: 1,
       name: "Espresso Coffee",
       price: 40.14,
@@ -116,7 +116,7 @@ export const specialMenuData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 103,
+      id: 12,
       category_id: 1,
       name: "Iced Cold Coffee",
       price: 49.75,
@@ -130,7 +130,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 104,
+      id: 13,
       category_id: 1,
       name: "Flat White",
       price: 14.99,
@@ -144,7 +144,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 105,
+      id: 14,
       category_id: 2,
       name: "Cheese Burger",
       price: 23,
@@ -158,7 +158,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 106,
+      id: 15,
       category_id: 2,
       name: "Fried Egg Burger",
       price: 39.75,
@@ -172,7 +172,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 107,
+      id: 16,
       category_id: 2,
       name: "Meat Burger",
       price: 488,
@@ -186,7 +186,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 108,
+      id: 17,
       category_id: 2,
       name: "Gourmet cheeseburger",
       price: 549,
@@ -258,7 +258,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 113,
+      id: 10,
       category_id: 4,
       name: "Italian Pizza",
       price: 79,
@@ -496,7 +496,7 @@ export const specialMenuData: DishType[] = (
 export const dishesData: DishType[] = (
   [
     {
-      id: 1001,
+      id: 10,
       category_id: 4,
       restaurant_id: 901,
       name: "Italian Pizza",
@@ -516,7 +516,7 @@ export const dishesData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 1002,
+      id: 1,
       category_id: 2,
       restaurant_id: 902,
       name: "Veg Burger",
@@ -536,7 +536,7 @@ export const dishesData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 1003,
+      id: 2,
       category_id: 3,
       restaurant_id: 903,
       name: "Spaghetti",
@@ -552,7 +552,7 @@ export const dishesData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 1004,
+      id: 3,
       category_id: 7,
       restaurant_id: 904,
       name: "Red Velvet Cake",
@@ -572,7 +572,7 @@ export const dishesData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 1005,
+      id: 4,
       category_id: 6,
       restaurant_id: 905,
       name: "Mix Salad",
@@ -587,7 +587,7 @@ export const dishesData: DishType[] = (
       },
     },
     {
-      id: 1006,
+      id: 5,
       category_id: 1,
       restaurant_id: 906,
       name: "Espresso Coffee",
@@ -602,7 +602,7 @@ export const dishesData: DishType[] = (
       },
     },
     {
-      id: 1007,
+      id: 6,
       category_id: 6,
       restaurant_id: 907,
       name: "Steamed Dumplings",
@@ -617,7 +617,7 @@ export const dishesData: DishType[] = (
       },
     },
     {
-      id: 1008,
+      id: 7,
       category_id: 6,
       restaurant_id: 908,
       name: "Gujarati Thali",
@@ -636,7 +636,7 @@ export const dishesData: DishType[] = (
       },
     },
     {
-      id: 1009,
+      id: 8,
       category_id: 6,
       restaurant_id: 901,
       name: "Chickenpea Hummus",
@@ -651,7 +651,7 @@ export const dishesData: DishType[] = (
       },
     },
     {
-      id: 1010,
+      id: 9,
       category_id: 7,
       restaurant_id: 902,
       name: "Butter Cookies",
