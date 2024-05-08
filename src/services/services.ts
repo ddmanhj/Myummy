@@ -75,18 +75,26 @@ export const useLogoutCustomer = (id: number) => {
   });
 }
 
-export const useGetListFoodSpecialMenu = () => {
-  const queryFnWithId = async (idSpecialMenu: number) => {
-    try {
-      const response = await getRequest(`/special_menu/${idSpecialMenu}`);
-      return response.data; // Giả sử dữ liệu trả về từ API được lưu trong response.data
-    } catch (error: any) {
-      notify(error, 'error')
-      // Xử lý lỗi nếu cần
-    }
-  };
-  
-  return {
-    callApiListFoodSpecialMenu: queryFnWithId,
-  };
+export const useGetListFoodSpecialMenu = (idSpecialMenu: number) => {
+  return useQuery({
+    queryKey: ['listFoodSpecialMenu'],
+    enabled: true,
+    retry: 1,
+    staleTime: 1000 * 60 * 60 * 24,
+    queryFn: () => getRequest(`/special_menu/${idSpecialMenu}`),
+  });
 };
+
+// export const useGetListFoodSpecialMenu = () => {
+//   const queryFnWithId = async (idSpecialMenu: number) => {
+//     try {
+//       const response = await getRequest(`/special_menu/${idSpecialMenu}`);
+//       return response.data;
+//     } catch (error: any) {
+//       notify(error, 'error')
+//     }
+//   };
+//   return {
+//     callApiListFoodSpecialMenu: queryFnWithId,
+//   };
+// };

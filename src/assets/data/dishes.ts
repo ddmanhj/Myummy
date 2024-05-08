@@ -201,7 +201,7 @@ export const specialMenuData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 109,
+      id: 18,
       category_id: 3,
       name: "Asian Noodles",
       price: 119,
@@ -216,7 +216,7 @@ export const specialMenuData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 110,
+      id: 2,
       category_id: 3,
       name: "Spaghetti",
       price: 23,
@@ -230,7 +230,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 111,
+      id: 19,
       category_id: 3,
       name: "Veg Noodles",
       price: 108,
@@ -244,7 +244,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 112,
+      id: 20,
       category_id: 3,
       name: "Italian Noodle Pasta",
       price: 223,
@@ -272,7 +272,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 114,
+      id: 21,
       category_id: 4,
       name: "Margarita Pizza",
       price: 14,
@@ -286,7 +286,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 115,
+      id: 22,
       category_id: 4,
       name: "Vegetarian Pizza",
       price: 25,
@@ -300,7 +300,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 116,
+      id: 23,
       category_id: 4,
       name: "Turkish Pizza",
       price: 16,
@@ -315,7 +315,7 @@ export const specialMenuData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 117,
+      id: 24,
       category_id: 5,
       name: "Asian wraps",
       price: 229,
@@ -329,7 +329,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 118,
+      id: 25,
       category_id: 5,
       name: "Meat wraps",
       price: 59,
@@ -343,7 +343,7 @@ export const specialMenuData: DishType[] = (
       },
     },
     {
-      id: 119,
+      id: 26,
       category_id: 5,
       name: "Frankie",
       price: 349,
@@ -358,7 +358,7 @@ export const specialMenuData: DishType[] = (
       is_popular: true,
     },
     {
-      id: 120,
+      id: 27,
       category_id: 5,
       name: "Burrito wraps Pasta",
       price: 10.99,
