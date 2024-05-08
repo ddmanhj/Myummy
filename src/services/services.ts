@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getRequest, notify, postRequest } from "../utils/common";
-import { CustomerType, LoginType, RegisterType } from "@/types/user";
+import { LoginType, RegisterType } from "@/types/user";
 import { NavigateFunction } from "react-router-dom";
 import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";

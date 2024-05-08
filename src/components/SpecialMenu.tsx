@@ -20,11 +20,6 @@ const SpecialMenu = () => {
   const { data: queryMenu } = useMenu();
   const { callApiListFoodSpecialMenu } = useGetListFoodSpecialMenu();
 
-  // useEffect(() => {
-  //   console.log("chạy 2 lần");
-  //   callApiGetMenu();
-  // }, []);
-
   const handleSelectSpecialMenu = async (idSpecialMenu: number) => {
     const data = await callApiListFoodSpecialMenu(idSpecialMenu);
     setListFoodSpecialMenu(data);
