@@ -104,6 +104,7 @@ import italyImg from "../images/flags/italy.jpg";
 import russiaImg from "../images/flags/russia.jpg";
 import spainImg from "../images/flags/spain.jpg";
 import usaImg from "../images/flags/usa.jpg";
+import vietnamImg from '../images/flags/vietnam.jpg';
 
 // home banner
 import appetizerBanner1Img from "../images/home/banner/appetizer-1.png";
@@ -306,6 +307,7 @@ export {
   russiaImg,
   spainImg,
   usaImg,
+  vietnamImg,
   emptyWishlistImg,
   appetizerBanner1Img,
   appetizerBanner2Img,
