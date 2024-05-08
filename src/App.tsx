@@ -13,14 +13,8 @@ import "@/assets/css/style.css";
 
 configureFakeBackend();
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      // staleTime: 60 * 1000,
-      staleTime: 0,
-    },
-  },
-});
+// Create a client
+const queryClient = new QueryClient();
 
 const App = () => {
   return (

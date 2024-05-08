@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { SpecialMenuSwiper } from "./swipers";
+import { isEmpty } from "lodash";
 import {
   categoriesData,
   specialMenuData,
@@ -8,18 +9,21 @@ import {
   onionHomeImg,
 } from "@/assets/data";
 import { cn } from "@/utils";
-import type { CategoryType } from "@/types/food";
-import { useGetSpecialMenu } from "@/services/services";
+import type { CategoryType, SpecialMenuType } from "@/types/food";
+import { useGetListFoodSpecialMenu, useMenu } from "@/services/services";
 
 const SpecialMenu = () => {
+  const [listFoodSpecialMenu, setListFoodSpecialMenu] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState<CategoryType["id"]>(
     categoriesData[0].id
   );
-  const { data: querySpecialMenu, refetch: callApiGetSpecialMenu } =
-    useGetSpecialMenu();
-  useEffect(() => {
-    callApiGetSpecialMenu();
-  }, []);
+  const { data: queryMenu } = useMenu();
+  const { callApiListFoodSpecialMenu } = useGetListFoodSpecialMenu();
+
+  const handleSelectSpecialMenu = async (idSpecialMenu: number) => {
+    const data = await callApiListFoodSpecialMenu(idSpecialMenu);
+    setListFoodSpecialMenu(data);
+  };
 
   return (
     <section className="py-6 lg:py-16">
@@ -42,38 +46,42 @@ const SpecialMenu = () => {
                   role="tablist"
                   data-hs-tabs-vertical="true"
                 >
-                  {categoriesData.map((category) => (
-                    <button
-                      type="button"
-                      role="tab"
-                      key={category.id}
-                      className={cn(
-                        "flex p-1",
-                        selectedCategory == category.id && "active"
-                      )}
-                      id={category.name + "-menu-toggle"}
-                      data-hs-tab={"#" + category.name + "-menu"}
-                      aria-controls={category.name + "-menu"}
-                      onClick={() => setSelectedCategory(category.id)}
-                    >
-                      <span className="flex w-full items-center justify-start gap-4 rounded-full p-2 pe-6 text-default-900 transition-all hover:text-primary hs-tab-active:bg-primary xl:w-2/3">
-                        <div>
-                          <span className="inline-flex h-14 w-14 grow items-center justify-center rounded-full hs-tab-active:bg-white">
-                            <img
-                              src={category.image}
-                              height={32}
-                              width={32}
-                              className="h-8 w-8"
-                              alt="category-img"
-                            />
+                  {!isEmpty(queryMenu) &&
+                    queryMenu?.data?.map((category: SpecialMenuType) => (
+                      <button
+                        type="button"
+                        role="tab"
+                        key={category.id}
+                        className={cn(
+                          "flex p-1",
+                          selectedCategory == category.id && "active"
+                        )}
+                        id={category.categoryName + "-menu-toggle"}
+                        data-hs-tab={"#" + category.categoryName + "-menu"}
+                        aria-controls={category.categoryName + "-menu"}
+                        onClick={() => {
+                          handleSelectSpecialMenu(category.id);
+                          setSelectedCategory(category.id);
+                        }}
+                      >
+                        <span className="flex w-full items-center justify-start gap-4 rounded-full p-2 pe-6 text-default-900 transition-all hover:text-primary hs-tab-active:bg-primary xl:w-2/3">
+                          <div>
+                            <span className="inline-flex h-14 w-14 grow items-center justify-center rounded-full hs-tab-active:bg-white">
+                              <img
+                                src={category?.urlImageCategory}
+                                height={32}
+                                width={32}
+                                className="h-8 w-8"
+                                alt="category-img"
+                              />
+                            </span>
+                          </div>
+                          <span className="shrink text-base font-medium hs-tab-active:text-white">
+                            {category.categoryName}
                           </span>
-                        </div>
-                        <span className="shrink text-base font-medium hs-tab-active:text-white">
-                          {category.name}
                         </span>
-                      </span>
-                    </button>
-                  ))}
+                      </button>
+                    ))}
                 </nav>
               </div>
             </div>

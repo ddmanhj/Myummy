@@ -104,6 +104,7 @@ import italyImg from "../images/flags/italy.jpg";
 import russiaImg from "../images/flags/russia.jpg";
 import spainImg from "../images/flags/spain.jpg";
 import usaImg from "../images/flags/usa.jpg";
+import vietnamImg from '../images/flags/vietnam.jpg';
 
 // home banner
 import appetizerBanner1Img from "../images/home/banner/appetizer-1.png";
@@ -182,6 +183,7 @@ import offerBgOtherImg from "../images/other/offer-bg.png";
 import offerBg2OtherImg from "../images/other/offer-bg2.png";
 import offerBg3OtherImg from "../images/other/offer-bg3.png";
 import waveOtherImg from "../images/other/wave.png";
+import emptyWishlistImg from "../images/other/empty_wish_list.png";
 
 // payment
 import amazonPaymentImg from "../images/payment/amazon.svg";
@@ -305,6 +307,8 @@ export {
   russiaImg,
   spainImg,
   usaImg,
+  vietnamImg,
+  emptyWishlistImg,
   appetizerBanner1Img,
   appetizerBanner2Img,
   appetizerBanner3Img,
