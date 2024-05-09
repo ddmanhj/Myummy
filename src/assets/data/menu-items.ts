@@ -29,128 +29,56 @@ const clientMenuItems: MenuItemType[] = [
   },
   {
     key: "dish",
-    label: "Dishes",
+    label: "Menu",
     isTitle: true,
-    children: [
-      {
-        key: "dish-grid",
-        label: "Dishes Grid",
-        url: "/dishes",
-        parentKey: "dish",
-      },
-      {
-        key: "dish-list",
-        label: "Dishes List",
-        url: "/dishes-list",
-        parentKey: "dish",
-      },
-      {
-        key: "dish-details",
-        label: "Dish Details",
-        url: "/dishes/1001",
-        parentKey: "dish",
-      },
-    ],
+    url: "/dishes",
+    // children: [
+    //   {
+    //     key: "dish-list",
+    //     label: "Dishes List",
+    //     url: "/dishes-list",
+    //     parentKey: "dish",
+    //   },
+    //   {
+    //     key: "dish-details",
+    //     label: "Dish Details",
+    //     url: "/dishes/1001",
+    //     parentKey: "dish",
+    //   },
+    // ],
   },
   {
     key: "user-pages",
-    label: "Pages",
+    label: "About us",
     isTitle: true,
-    children: [
-      {
-        key: "user-pages-account-cart",
-        label: "Cart",
-        url: "/cart",
-        parentKey: "user-pages",
-      },
-      {
-        key: "user-pages-account-wishlist",
-        label: "Wishlist",
-        url: "/wishlist",
-        parentKey: "user-pages",
-      },
-      {
-        key: "user-pages-checkout",
-        label: "Checkout",
-        url: "/checkout",
-        parentKey: "user-pages",
-      },
-      {
-        key: "user-pages-faqs",
-        label: "FAQ",
-        url: "/faqs",
-        parentKey: "user-pages",
-      },
-      {
-        key: "user-pages-contact-us",
-        label: "Contact Us",
-        url: "/contact-us",
-        parentKey: "user-pages",
-      },
-      {
-        key: "user-pages-not-found",
-        label: "Error 404",
-        url: "/not-found",
-        parentKey: "user-pages",
-      },
-      {
-        key: "auth-login",
-        label: "Login",
-        url: "/auth/login",
-        parentKey: "user-pages",
-      },
-      {
-        key: "auth-register",
-        label: "Register",
-        url: "/auth/register",
-        parentKey: "user-pages",
-      },
-      {
-        key: "auth-forgot-password",
-        label: "Forgot Password",
-        url: "/auth/forgot-password",
-        parentKey: "user-pages",
-      },
-      {
-        key: "auth-reset-password",
-        label: "Reset Password",
-        url: "/auth/reset-password",
-        parentKey: "user-pages",
-      },
-      {
-        key: "auth-logout",
-        label: "Logout",
-        url: "/auth/logout",
-        parentKey: "user-pages",
-      },
-    ],
+    url: '/about-us'
   },
   {
-    key: "admin-dashboard",
-    label: "Admin",
-    url: "/admin/dashboard",
+    key: "Contact",
+    label: "Contact",
+    url: "/contact-us",
     isTitle: true,
   },
 ];
 
-const megaMenuItem: MenuItemType = {
-  key: "mega-menu",
-  label: "Mega Menu",
-  isTitle: true,
-  isMega: true,
-  children: [
-    {
-      key: "mega-menu-1",
-      label: "Mega Menu",
-      url: "/",
-      parentKey: "mega-menu",
-    },
-  ],
-};
+// const megaMenuItem: MenuItemType = {
+//   key: "mega-menu",
+//   label: "Mega Menu",
+//   isTitle: true,
+//   isMega: true,
+//   children: [
+//     {
+//       key: "mega-menu-1",
+//       label: "Mega Menu",
+//       url: "/",
+//       parentKey: "mega-menu",
+//     },
+//   ],
+// };
 
 const addMegaMenu = () => {
   const menuItems = [...clientMenuItems];
-  menuItems.splice(2, 0, megaMenuItem);
+  // menuItems.splice(2, 0, megaMenuItem);
   return menuItems;
 };
 

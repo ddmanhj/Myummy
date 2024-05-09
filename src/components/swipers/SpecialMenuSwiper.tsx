@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import { LuChevronRight } from "react-icons/lu";
+import { Image } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { currentCurrency } from "@/common";
-import type { DishType } from "@/types/food";
+import type { DishTypeAPI } from "@/types/food";
+import { useSelector } from "react-redux";
+import { StateReduxLanguage } from "@/types/other";
+import { readMoneyCurrency } from "@/utils";
+import QuantityInteraction from "../ProductDetailView/OrderInteraction";
 
-const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
+const SpecialMenuSwiper = ({ dishes }: { dishes: DishTypeAPI[] }) => {
+  const language = useSelector(
+    (state: StateReduxLanguage) => state.customer.language
+  );
   return (
     <Swiper
       className="menu-swiper h-full w-full"
@@ -36,8 +44,8 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
       {dishes.map((dish) => (
         <SwiperSlide key={dish.id}>
           <div className="relative cursor-pointer overflow-hidden rounded-lg">
-            <img
-              src={dish.images[0]}
+            <Image
+              src={dish.urlImageDishes}
               className="h-full w-full"
               alt="pizza"
               width={336.7}
@@ -47,13 +55,13 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
               <div className="inline-flex h-full w-full items-end">
                 <div className="p-6">
                   <h5 className="mb-2 text-xl font-medium text-white">
-                    {dish.name}
+                    {dish.dishesName}
                   </h5>
                   <h5 className="mb-2 text-xl font-semibold text-white">
-                    <span className="text-base font-medium text-yellow-400">
+                    {/* <span className="text-base font-medium text-yellow-400">
                       {currentCurrency}&nbsp;
-                    </span>
-                    {dish.price}
+                    </span> */}
+                    {readMoneyCurrency(dish.price, language)}
                   </h5>
                   <Link
                     to="/dishes"

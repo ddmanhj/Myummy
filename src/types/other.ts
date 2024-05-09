@@ -21,6 +21,12 @@ export type CardType = {
   provider: string;
 };
 
+export type StateReduxLanguage ={
+  customer: {
+    language: string;
+  }
+}
+
 export type LandingDemoType = {
   link: string;
   image: string;
