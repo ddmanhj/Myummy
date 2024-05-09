@@ -1,13 +1,13 @@
 import { lazy } from "react";
-import type { DishType } from "@/types/food";
+import type { DishType, DishTypeAPI } from "@/types/food";
 const ProductQuantityToggler = lazy(
-  () => import("../shopping-interactivity/ProductQuantityToggler"),
+  () => import("../shopping-interactivity/ProductQuantityToggler")
 );
 const AddToCartButton = lazy(
-  () => import("../shopping-interactivity/AddToCartButton"),
+  () => import("../shopping-interactivity/AddToCartButton")
 );
 const ProductWishlistToggler = lazy(
-  () => import("../shopping-interactivity/ProductWishlistToggler"),
+  () => import("../shopping-interactivity/ProductWishlistToggler")
 );
 
 const QuantityInteraction = ({ dish }: { dish: DishType }) => {

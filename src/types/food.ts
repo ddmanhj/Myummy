@@ -7,8 +7,8 @@ export type CategoryType = {
 };
 export type CategoryTypeAPI = {
   id: IdType;
-  category_name: string;
-  url_image_category: string;
+  categoryName: string;
+  urlImageCategory: string;
 };
 
 export type ReviewType = {
@@ -46,6 +46,25 @@ export type DishType = {
   quantity: number;
   type: "veg" | "non-veg" | "eggetarian";
 };
+
+export type DishTypeAPI = {
+  id: IdType;
+  dishesName: string;
+  price: number;
+  description: string,
+  urlImageDishes: string;
+  quantity: number;
+  reviewCount: number;
+  reviewStars: number;
+  isPopular: boolean;
+  calories: number;
+  fat: number;
+  carbs: number;
+  protein: number;
+  saleDiscount: number;
+  saleType: string;
+  categoryId?: number;
+}
 
 export type SellerType = {
   id: IdType;
