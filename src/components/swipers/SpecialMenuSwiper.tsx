@@ -5,8 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { currentCurrency } from "@/common";
 import type { DishTypeAPI } from "@/types/food";
+import { useSelector } from "react-redux";
+import { StateReduxLanguage } from "@/types/other";
+import { readMoneyCurrency } from "@/utils";
+import QuantityInteraction from "../ProductDetailView/OrderInteraction";
 
 const SpecialMenuSwiper = ({ dishes }: { dishes: DishTypeAPI[] }) => {
+  const language = useSelector(
+    (state: StateReduxLanguage) => state.customer.language
+  );
   return (
     <Swiper
       className="menu-swiper h-full w-full"
@@ -51,10 +58,10 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishTypeAPI[] }) => {
                     {dish.dishesName}
                   </h5>
                   <h5 className="mb-2 text-xl font-semibold text-white">
-                    <span className="text-base font-medium text-yellow-400">
+                    {/* <span className="text-base font-medium text-yellow-400">
                       {currentCurrency}&nbsp;
-                    </span>
-                    {dish.price}
+                    </span> */}
+                    {readMoneyCurrency(dish.price, language)}
                   </h5>
                   <Link
                     to="/dishes"

@@ -44,21 +44,20 @@ export const notify = (message: string, type?: ToastType): void => {
   }
 };
 
-export const readVietnameseCurrency = (amount: number): String => {
-  if (amount >= 1000000000) {
-    if (amount % 1000000000 === 0) {
-      return `${amount / 1000000000} tỷ`;
-    }
-    return `${(amount / 1000000000).toFixed(2)} tỷ`;
+export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
+  if (language == "vi") {
+    return Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    }).format(amount)
+  } else {
+    return Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      currencyDisplay: 'narrowSymbol'
+    }).format(amount / 25437)
   }
-  if (amount >= 1000000) {
-    if (amount % 1000000 === 0) {
-      return `${amount / 1000000} triệu`;
-    }
-    return `${(amount / 1000000).toFixed(2)} triệu`;
-  }
-  return `${amount.toLocaleString('vi-VN')} đồng`;
-};
+}
 
 // so sánh thời gian hiện tại với thời gian truyền vào , trả về kiều 1 ngày trước, 1 giờ trước ....
 export const checkTimeAgo = (time: string) => {

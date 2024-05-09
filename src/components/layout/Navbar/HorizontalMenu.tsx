@@ -43,7 +43,7 @@ const MenuItemWithChildren = ({
         <button
           className={cn(
             "hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base",
-            { "text-primary": activeMenuItems!.includes(item.key) },
+            { "text-primary": activeMenuItems!.includes(item.key) }
           )}
           aria-expanded={open}
           data-menu-key={item.key}
@@ -150,7 +150,7 @@ const HorizontalMenu = ({ menuItems }: AppMenuProps) => {
   }, [activeMenu, menuItems]);
 
   return (
-    <ul className="menu relative hidden items-center justify-center lg:flex">
+    <ul className="menu relative hidden items-center justify-center lg:flex gap-5">
       {(menuItems ?? []).map((item) => {
         return (
           <Fragment key={item.key}>
@@ -162,15 +162,15 @@ const HorizontalMenu = ({ menuItems }: AppMenuProps) => {
                 toggleMenu={toggleMenu}
                 activeMenuItems={activeMenuItems}
                 linkClassName={cn(
-                  "flex items-center font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded",
+                  "flex items-center font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded"
                 )}
               />
             ) : (
               <MenuItem
                 item={item}
                 linkClassName={cn(
-                  "inline-flex items-center text-sm lg:text-base font-medium text-default-800 py-2 px-4 rounded-full hover:text-primary",
-                  { "text-primary": activeMenuItems.includes(item.key) },
+                  "inline-flex items-center text-sm lg:text-base font-medium text-default-800 py-2 px-4 rounded-full hover:text-primary w-max",
+                  { "text-primary": activeMenuItems.includes(item.key) }
                 )}
                 className={""}
               />
