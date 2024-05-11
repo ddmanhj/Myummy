@@ -1,16 +1,49 @@
 import { LuHeart } from "react-icons/lu";
-import { useShoppingContext } from "@/context";
 import { cn } from "@/utils";
-import type { DishType } from "@/types/food";
+import type { DishTypeAPI, wishlistType } from "@/types/food";
+import { useDispatch, useSelector } from "react-redux";
+import { addDishToWishList, deleteDishWishList } from "@/redux/wishListSlice";
+import { useAddWishList, useDeleteWishList } from "@/services/services";
+import { CustomerType } from "@/types/user";
 
 const ProductWishlistToggler = ({
   dish,
   size,
 }: {
-  dish: DishType;
+  dish: DishTypeAPI;
   size?: number;
 }) => {
-  const { toggleToWishlist, isInWishlist } = useShoppingContext();
+  const dispatch = useDispatch();
+  const getCustomerData = useSelector(
+    (state: CustomerType) => state.customer.customer
+  );
+  const wishList = useSelector((state: any) => state?.wishList?.dishesID);
+
+  const mutationAddWishList = useAddWishList();
+  const mutationDeleteWishList = useDeleteWishList();
+
+  const isInWishlist = (dish: DishTypeAPI): boolean => {
+    return (
+      wishList?.find((wishlistDish: any) => wishlistDish?.id == dish?.id) !=
+      null
+    );
+  };
+
+  const toggleToWishlist = async (dish: DishTypeAPI | any) => {
+    if (isInWishlist(dish)) {
+      await mutationDeleteWishList.mutate({
+        customerID: getCustomerData?.id,
+        dishesID: dish?.id,
+      });
+      dispatch(deleteDishWishList(dish));
+    } else {
+      await mutationAddWishList.mutate({
+        customerID: getCustomerData?.id,
+        dishesID: dish?.id,
+      });
+      dispatch(addDishToWishList(dish));
+    }
+  };
 
   return (
     <button onClick={() => toggleToWishlist(dish)}>
@@ -20,7 +53,7 @@ const ProductWishlistToggler = ({
           "relative z-10 cursor-pointer transition-all",
           isInWishlist(dish)
             ? "fill-red-500 text-red-500"
-            : "hover:fill-red-500 hover:text-red-500",
+            : "hover:fill-red-500 hover:text-red-500"
         )}
       />
     </button>

@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { LuHeart, LuShoppingCart } from "react-icons/lu";
 import { useShoppingContext } from "@/context";
+import { useSelector } from "react-redux";
 
 const CartAndWishList = () => {
   const { cartItems, wishlists } = useShoppingContext();
+  const wishList = useSelector((state: any) => state?.wishList?.dishesID);
   return (
     <>
       <li className="menu-item flex">
@@ -24,7 +26,7 @@ const CartAndWishList = () => {
         >
           <LuHeart size={20} className="fill-red-500  text-red-500" />
           <span className="absolute -top-2.5 end-0 z-10 inline-flex h-5 w-5 translate-x-1/2 transform items-center justify-center rounded-full bg-orange-500 p-1 text-xs font-bold leading-none text-red-100">
-            {wishlists.length}
+            {wishList?.length ?? 0}
           </span>
         </Link>
       </li>

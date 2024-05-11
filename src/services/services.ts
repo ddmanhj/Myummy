@@ -4,7 +4,10 @@ import { LoginType, RegisterType } from "@/types/user";
 import { NavigateFunction } from "react-router-dom";
 import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
+import { DataWishListRequest } from "@/types/food";
+import { getWishListAPI } from "@/redux/wishListSlice";
 
+// Menu
 export const useMenu = () => {
     return useQuery({
       queryKey: ['menu'],
@@ -33,6 +36,9 @@ export const useRegisterCustomer = (navigate: NavigateFunction) => {
   });
 }
 
+// END Auth Menu
+
+// Auth Login
 export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
   return useMutation({
     mutationKey: ['loginCustomer'],
@@ -43,6 +49,7 @@ export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
       }
       redirectAsRole(data.data.role, true);
       dispatch(getInfoCustomer(data.data))
+      dispatch(getWishListAPI(data?.data?.wishList));
       Cookies.set('getRefreshToken', data.data?.refreshToken, { expires: 7 });
       notify('Đăng nhập thành công', 'success');
     },
@@ -75,6 +82,9 @@ export const useLogoutCustomer = (id: number) => {
   });
 }
 
+// END Auth Login
+
+// Food
 export const useGetListFoodSpecialMenu = (idSpecialMenu: number) => {
   return useQuery({
     queryKey: ['listFoodSpecialMenu'],
@@ -85,16 +95,74 @@ export const useGetListFoodSpecialMenu = (idSpecialMenu: number) => {
   });
 };
 
-// export const useGetListFoodSpecialMenu = () => {
-//   const queryFnWithId = async (idSpecialMenu: number) => {
-//     try {
-//       const response = await getRequest(`/special_menu/${idSpecialMenu}`);
-//       return response.data;
-//     } catch (error: any) {
-//       notify(error, 'error')
-//     }
-//   };
-//   return {
-//     callApiListFoodSpecialMenu: queryFnWithId,
-//   };
-// };
+export const useGetListDishes = () => {
+  return useQuery({
+    queryKey: ['listDishes'],
+    enabled: true,
+    retry: 1,
+    staleTime: 1000 * 60 * 60 * 24,
+    queryFn: () => getRequest(`/all_dishes`),
+  });
+};
+// END Food
+
+
+// Wish list
+export const useGetDishByWishList = (dispatch: any) => {
+  return useMutation({
+    mutationKey: ['addWishList'],
+    onSuccess: (data) => {
+      if(data.status === false) {
+        notify(data?.data, 'error');
+        return;
+      }
+      dispatch(getWishListAPI(data.data));
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: number) =>
+      getRequest(`/dishes_by_wish_list?customerID=${data}`)
+  });
+};
+
+export const useAddWishList = () => {
+  return useMutation({
+    mutationKey: ['addWishList'],
+    onSuccess: (data) => {
+      if(data.status === false) {
+        notify(data?.data, 'error');
+        return;
+      }
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: DataWishListRequest) =>
+      postRequest(
+        `/add_wish_list`,
+        data,
+      ),
+  });
+}
+
+export const useDeleteWishList = () => {
+  return useMutation({
+    mutationKey: ['deleteWishList'],
+    onSuccess: (data) => {
+      if(data.status === false) {
+        notify(data?.data, 'error');
+        return;
+      }
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: DataWishListRequest) =>
+      postRequest(
+        `/delete_wish_list`,
+        data,
+      )
+  });
+}
+// END wish list

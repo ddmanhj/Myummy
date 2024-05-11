@@ -1,6 +1,8 @@
 import { useFilterContext } from "@/context";
 import { ProductGridCard } from "@/components";
 import { getFilteredProducts } from "@/helpers";
+import { useGetListDishes } from "@/services/services";
+import { DishTypeAPI } from "@/types/food";
 
 export const FoundResultsCount = () => {
   const { categories, maxPrice, minPrice, rating, restaurants, search } =
@@ -26,6 +28,8 @@ const DishesGrid = () => {
   const { categories, maxPrice, minPrice, rating, restaurants, search } =
     useFilterContext();
 
+  const { data: listDishes } = useGetListDishes();
+
   const dishes = getFilteredProducts({
     categories,
     maxPrice,
@@ -37,7 +41,7 @@ const DishesGrid = () => {
 
   return (
     <>
-      {dishes.map((dish) => (
+      {listDishes?.data?.map((dish: DishTypeAPI) => (
         <ProductGridCard key={dish.id} dish={dish} />
       ))}
     </>

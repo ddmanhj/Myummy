@@ -1,29 +1,29 @@
-import { lazy, useEffect, useState } from "react";
+import { lazy } from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
-import type { DishType, RestaurantType } from "@/types/food";
-import { calculatedPrice, getRestaurantById } from "@/helpers";
-import { currentCurrency } from "@/common";
+import type { DishTypeAPI } from "@/types/food";
+import { calculatedPrice } from "@/helpers";
+import { readMoneyCurrency } from "@/utils";
+import { StateReduxLanguage } from "@/types/other";
+import { useSelector } from "react-redux";
 const AddToCartButton = lazy(
-  () => import("../shopping-interactivity/AddToCartButton"),
+  () => import("../shopping-interactivity/AddToCartButton")
 );
 const ProductWishlistToggler = lazy(
-  () => import("../shopping-interactivity/ProductWishlistToggler"),
+  () => import("../shopping-interactivity/ProductWishlistToggler")
 );
 
-const ProductWishListCard = ({ dish }: { dish: DishType }) => {
-  const { images, name, price, review, restaurant_id } = dish;
-
-  const [restaurant, setRestaurant] = useState<RestaurantType>();
-
-  useEffect(() => {
-    (async () => {
-      const foundRestaurant = await getRestaurantById(restaurant_id, {
-        dummyDelay: false,
-      });
-      if (foundRestaurant) setRestaurant(foundRestaurant);
-    })();
-  }, [restaurant_id]);
-
+const ProductWishListCard = ({ dish }: { dish: DishTypeAPI }) => {
+  const {
+    urlImageDishes,
+    dishesName,
+    price,
+    reviewCount,
+    reviewStars,
+    saleDiscount,
+  } = dish;
+  const language = useSelector(
+    (state: StateReduxLanguage) => state.customer.language
+  );
   const discountedPrice = calculatedPrice(dish);
 
   return (
@@ -31,18 +31,19 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
       <div className="col-span-2 lg:col-span-1">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <img
-            src={images[0]}
+            // src={images[0]}
+            src={urlImageDishes}
             width={112}
             height={112}
             className="me-2 h-28 w-28 place-self-end sm:place-self-start lg:me-4"
             alt="sushi"
           />
           <div className="w-2/3 md:w-auto">
-            <p className="mb-2 text-xs font-medium text-primary">
+            {/* <p className="mb-2 text-xs font-medium text-primary">
               {restaurant?.name ?? ""}
-            </p>
+            </p> */}
             <h4 className="mb-2 line-clamp-1 text-xl font-semibold text-default-800">
-              {name}
+              {dishesName}
             </h4>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5">
@@ -51,36 +52,36 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
                     <FaStar size={12} className="fill-white text-white" />
                   </span>
                   <span className="from-inherit text-sm text-default-950">
-                    {review.stars}
+                    {reviewStars}
                   </span>
                 </span>
                 <div className="hidden gap-1.5 lg:flex">
-                  {Array.from(new Array(Math.floor(review.stars))).map(
+                  {Array.from(new Array(Math.floor(reviewStars))).map(
                     (_star, idx) => (
                       <FaStar
                         key={idx}
                         size={20}
                         className="fill-yellow-400 text-yellow-400"
                       />
-                    ),
+                    )
                   )}
-                  {!Number.isInteger(review.stars) && (
+                  {!Number.isInteger(reviewStars) && (
                     <FaStarHalfStroke size={20} className="text-yellow-400" />
                   )}
-                  {review.stars < 5 &&
-                    Array.from(new Array(5 - Math.ceil(review.stars))).map(
+                  {reviewStars < 5 &&
+                    Array.from(new Array(5 - Math.ceil(reviewStars))).map(
                       (_val, idx) => (
                         <FaStar
                           key={idx}
                           size={20}
                           className="text-default-400"
                         />
-                      ),
+                      )
                     )}
                 </div>
               </div>
               <h6 className="mt-1 text-sm font-medium text-default-500">
-                ({review.count})
+                ({reviewCount})
               </h6>
             </div>
           </div>
@@ -89,19 +90,19 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
       <div className="self-center">
         <div className="flex flex-col items-end lg:text-end">
           <h4 className="inline-block text-2xl font-medium text-default-500">
-            {currentCurrency}
-            {discountedPrice}
+            {readMoneyCurrency(price, language)}
           </h4>
-          <h4 className="inline-block text-base font-medium text-default-500 line-through">
-            {currentCurrency}
-            {price}
-          </h4>
+          {saleDiscount > 0 && (
+            <h4 className="inline-block text-base font-medium text-default-500 line-through">
+              {readMoneyCurrency(discountedPrice, language)}
+            </h4>
+          )}
         </div>
       </div>
       <div className="col-span-3 mt-4 lg:col-span-1 lg:mt-0">
         <div className="flex justify-center gap-5 lg:flex-col lg:items-end">
           <ProductWishlistToggler dish={dish} />
-          <AddToCartButton dish={dish} />
+          {/* <AddToCartButton dish={dish} /> */}
         </div>
       </div>
     </div>

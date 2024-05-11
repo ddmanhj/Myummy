@@ -2,9 +2,7 @@ import { LuChevronDown, LuX } from "react-icons/lu";
 import { FilterResetButton, SimplebarReactClient } from "../index";
 import CategoriesFilter from "./CategoriesFilter";
 import PriceFilter from "./PriceFilter";
-import RestaurantFilter from "./RestaurantFilter";
 import RatingFilter from "./RatingFilter";
-import { dishTags } from "@/assets/data";
 import PopularDishOfferCard from "./PopularDishOfferCard";
 
 const MegaProductFilter = () => {
@@ -50,29 +48,11 @@ const MegaProductFilter = () => {
           <div>
             <button
               className="hs-collapse-toggle open inline-flex w-full justify-between gap-2 py-4 text-start text-lg font-medium uppercase text-default-900 transition-all"
-              data-hs-collapse="#cafe_restaurant"
-              id="hs-basic-collapse"
-              type="button"
-            >
-              Popular Café / Restaurant
-              <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
-            </button>
-            <div
-              className="hs-collapse open w-full overflow-hidden transition-[height] duration-300"
-              id="cafe_restaurant"
-            >
-              <RestaurantFilter />
-            </div>
-          </div>
-
-          <div>
-            <button
-              className="hs-collapse-toggle open inline-flex w-full justify-between gap-2 py-4 text-start text-lg font-medium uppercase text-default-900 transition-all"
               data-hs-collapse="#dish_ratings"
               id="hs-basic-collapse"
               type="button"
             >
-              Popular Café / Restaurant
+              Popular Dishes
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
             <div
@@ -80,43 +60,6 @@ const MegaProductFilter = () => {
               id="dish_ratings"
             >
               <RatingFilter />
-            </div>
-          </div>
-          <div>
-            <button
-              className="hs-collapse-toggle open inline-flex w-full justify-between gap-2 py-4 text-lg font-medium uppercase text-default-900 transition-all"
-              data-hs-collapse="#popular_tags"
-              id="hs-basic-collapse"
-              type="button"
-            >
-              Popular tags
-              <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
-            </button>
-            <div
-              className="hs-collapse open w-full overflow-hidden transition-[height] duration-300"
-              id="popular_tags"
-            >
-              <div className="my-3 flex flex-wrap gap-2 gap-y-4">
-                {dishTags.map((tag, idx) => {
-                  return (
-                    <div key={tag + idx}>
-                      <input
-                        type="checkbox"
-                        name={tag + idx}
-                        id={tag + idx}
-                        className={`peer hidden`}
-                        defaultChecked={idx == 2 || idx == 7}
-                      />
-                      <label
-                        htmlFor={tag + idx}
-                        className={`cursor-pointer rounded-full border border-default-200 px-3 py-1 transition-all hover:border-primary-500/60 hover:bg-primary/10 hover:text-primary peer-checked:border-primary-500/60 peer-checked:bg-primary/10 peer-checked:text-primary`}
-                      >
-                        {tag}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
             </div>
           </div>
 
