@@ -1,28 +1,34 @@
+import { DishTypeAPI, wishlistType } from "@/types/food";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    wishList: {
-        customerID: "",
-        dishesID: [],
-    }
+    dishesID: [],
 };
 
 const customerSlice = createSlice({
     name: 'wishList',
     initialState,
     reducers: {
-      addDishesWishList: (state, action) => {
-        state.wishList = action.payload;
+      getWishListAPI: (state: any, action: any) => {
+        state.dishesID = action.payload;
+        },
+      addDishToWishList: (state: any, action: any) => {
+        state.dishesID = [...state.dishesID, action.payload];
       },
-      deleteAllWishList: (state) => {
-        state.wishList = initialState.wishList;
+      deleteDishWishList: (state: any, action: any) => {
+        state.dishesID = state.dishesID.filter((dish: wishlistType) => dish.id !== action.payload.id);
+      },
+      resetWishList: (state) => {
+        state.dishesID = initialState.dishesID;
       }
     },
   });
   
   export const {
-    addDishesWishList,
-    deleteAllWishList
+    getWishListAPI,
+    addDishToWishList,
+    deleteDishWishList,
+    resetWishList
   } = customerSlice.actions;
   
 export default customerSlice.reducer;

@@ -3,19 +3,20 @@ import { lazy } from "react";
 import { FaStar } from "react-icons/fa6";
 import { currentCurrency } from "@/common";
 import { calculatedPrice } from "@/helpers";
-import type { DishType } from "@/types/food";
+import type { DishType, DishTypeAPI } from "@/types/food";
+import { Image } from "antd";
 const AddToFavouriteButton = lazy(
-  () => import("../shopping-interactivity/ProductWishlistToggler"),
+  () => import("../shopping-interactivity/ProductWishlistToggler")
 );
 const ProductQuantityToggler = lazy(
-  () => import("../shopping-interactivity/ProductQuantityToggler"),
+  () => import("../shopping-interactivity/ProductQuantityToggler")
 );
 const AddToCartButton = lazy(
-  () => import("../shopping-interactivity/AddToCartButton"),
+  () => import("../shopping-interactivity/AddToCartButton")
 );
 
-const ProductGridCard = ({ dish }: { dish: DishType }) => {
-  const { images, name, review, id } = dish;
+const ProductGridCard = ({ dish }: { dish: DishTypeAPI }) => {
+  // const { images, name, review, id } = dish;
 
   const discountedPrice = calculatedPrice(dish);
 
@@ -23,11 +24,13 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
     <div className="order-3 overflow-hidden rounded-lg border border-default-200 p-4 transition-all duration-300 hover:border-primary hover:shadow-xl">
       <div className="group relative divide-y divide-default-200 overflow-hidden rounded-lg">
         <div className="mx-auto mb-4">
-          <img
+          <Image
             width={339}
-            height={263}
-            src={images[0]}
-            alt={name}
+            height={380}
+            // Khi ghép API sẽ là một mảng ảnh
+            // src={images[0]}
+            src={dish.urlImageDishes}
+            alt={dish.dishesName}
             className="h-full w-full transition-all group-hover:scale-105"
           />
         </div>
@@ -35,9 +38,9 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
           <div className="mb-4 flex items-center justify-between">
             <Link
               className="line-clamp-1 text-xl font-semibold text-default-800 after:absolute after:inset-0"
-              to={`/dishes/${id}`}
+              to={`/dishes/${dish.id}`}
             >
-              {name}
+              {dish.dishesName}
             </Link>
 
             <AddToFavouriteButton dish={dish} />
@@ -47,7 +50,7 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
               <FaStar size={12} className="fill-white text-white" />
             </span>
             <span className="from-inherit text-sm text-default-950">
-              {review.stars}
+              {dish.reviewStars}
             </span>
           </span>
           <div className="mb-4 flex items-end justify-between">
@@ -56,10 +59,10 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
               {discountedPrice}
             </h4>
 
-            <ProductQuantityToggler dish={dish} />
+            {/* <ProductQuantityToggler dish={dish} /> */}
           </div>
 
-          <AddToCartButton dish={dish} className="!w-full" />
+          {/* <AddToCartButton dish={dish} className="!w-full" /> */}
         </div>
       </div>
     </div>

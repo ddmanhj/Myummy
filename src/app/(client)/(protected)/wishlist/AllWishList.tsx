@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom";
-import { useShoppingContext } from "@/context";
+import { useDispatch, useSelector } from "react-redux";
 import { ProductWishListCard } from "@/components";
-import { error404OtherImg } from "@/assets/data";
 import { emptyWishlistImg } from "@/assets/data";
+import { CustomerType } from "@/types/user";
+import { useGetDishByWishList } from "@/services/services";
+import { useEffect } from "react";
+import { DishTypeAPI } from "@/types/food";
 
 const AllWishList = () => {
-  const { wishlists } = useShoppingContext();
-  return !!wishlists.length ? (
+  const dispatch = useDispatch();
+  const getCustomerData = useSelector(
+    (state: CustomerType) => state.customer.customer
+  );
+
+  const mutationGetDishByWishList = useGetDishByWishList(dispatch);
+
+  useEffect(() => {
+    mutationGetDishByWishList.mutate(getCustomerData?.id);
+  }, []);
+
+  return !!mutationGetDishByWishList?.data?.data?.length ? (
     <>
-      {wishlists.map((dish) => (
+      {mutationGetDishByWishList?.data?.data?.map((dish: DishTypeAPI) => (
         <ProductWishListCard key={dish.id} dish={dish} />
       ))}
     </>

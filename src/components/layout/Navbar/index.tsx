@@ -1,4 +1,5 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
+import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import {
   LuHeart,
@@ -23,7 +24,7 @@ const StickyHeader = lazy(() => import("../../StickyHeader"));
 import { useLogoutCustomer } from "@/services/services";
 import { customerLogOut } from "@/redux/customerSlice";
 import { CustomerType } from "@/types/user";
-import Cookies from "js-cookie";
+import { resetWishList } from "@/redux/wishListSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Navbar = () => {
     Cookies.remove("getRefreshToken");
     Cookies.remove("newAccessToken");
     dispatch(customerLogOut());
+    dispatch(resetWishList());
     navigate("/auth/logout");
   };
 

@@ -1,14 +1,14 @@
-import type { DishType } from "@/types/food";
+import type { DishTypeAPI } from "@/types/food";
 
-export const calculateDiscount = (dish: DishType): number => {
-  return dish.sale?.type == "amount"
-    ? dish.sale.discount
-    : dish.sale?.type == "percent"
-      ? (dish.price / 100) * dish.sale.discount
+export const calculateDiscount = (dish: DishTypeAPI): number => {
+  return dish.saleType == "amount"
+    ? dish.saleDiscount
+    : dish.saleType  == "percent"
+      ? (dish.price / 100) * dish.saleDiscount
       : 0;
 };
 
-export const calculatedPrice = (dish: DishType): number => {
+export const calculatedPrice = (dish: DishTypeAPI): number => {
   return getPreciseCurrency(dish.price - calculateDiscount(dish));
 };
 
