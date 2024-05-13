@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { SpecialMenuSwiper } from "./swipers";
+import { useTranslation } from "react-i18next";
+import { Image } from "antd";
 import { isEmpty } from "lodash";
 import { leafHomeImg, onionHomeImg } from "@/assets/data";
 import { imgEmptySpecialMenu } from "@/assets/data";
-import { cn, t } from "@/utils";
+import { cn } from "@/utils";
 import type { CategoryTypeAPI, SpecialMenuType } from "@/types/food";
 import { useGetListFoodSpecialMenu, useMenu } from "@/services/services";
-import { Image } from "antd";
 
 const SpecialMenu = () => {
+  const { t } = useTranslation();
   const [selectIdSpecialMenu, setSelectIdSpecialMenu] = useState(1);
   const { data: queryMenu } = useMenu();
   const { data: listFoodSpecialMenu, refetch: callApiListFoodSpecialMenu } =

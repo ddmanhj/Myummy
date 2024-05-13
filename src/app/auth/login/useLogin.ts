@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
+import { isEmpty } from "lodash";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
@@ -11,6 +13,7 @@ const useLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const customerData = useSelector((state: any) => state.customer.customer)
+  const getSessionCustomer = Cookies.get("getRefreshToken");
 
   const [searchParams] = useSearchParams();
 
@@ -40,10 +43,10 @@ const useLogin = () => {
     const redirectLink = searchParams.get("redirectTo");
     const adminRoute = redirectLink?.startsWith("/admin");
 
-    if (customerData?.role == "admin" && !(redirectLink && !adminRoute)) {
+    if (customerData?.role == "admin" && !isEmpty(getSessionCustomer) && !(redirectLink && !adminRoute)) {
       navigate(redirectLink && adminRoute ? redirectLink : "/admin/dashboard");
       return;
-    } else if (customerData?.role == "customer" && !(redirectLink && adminRoute)) {
+    } else if (customerData?.role == "customer" && !isEmpty(getSessionCustomer)  && !(redirectLink && adminRoute)) {
       navigate(redirectLink && !adminRoute ? redirectLink : "/");
       return;
     }

@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 import dayjs from 'dayjs';
 import saveAs from 'file-saver';
 import { toast } from 'sonner';
-import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line import/no-cycle
 import baseApi from './baseApi';
@@ -43,8 +42,6 @@ export const notify = (message: string, type?: ToastType): void => {
     });
   }
 };
-
-export const { t } = useTranslation();
 
 export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
   if (language == "vi") {
@@ -98,7 +95,7 @@ const handleRefreshToken = (refreshToken: string) => {
 };
 
 export const handleError = async (error: any): Promise<void> => {
-  const loginData =  Cookies.get('getRefreshToken');
+  const loginData = Cookies.get('getRefreshToken');
   const originalRequest = { ...error.config };
   if (error?.response?.status === 403) {
     if (!originalRequest?.retry) {
@@ -109,7 +106,7 @@ export const handleError = async (error: any): Promise<void> => {
       const response = (await handleRefreshToken(refreshToken)) as any;
       if (response?.data?.data) {
         // axios.defaults.headers.common.Authorization = `${response.data.data}`;
-        Cookies.set('newAccessToken', response.data.data?.token, { expires: 7 });
+        Cookies.set('newAccessToken', response.data.data?.token, { expires: 1 });
         baseApi(error.config);
       } else {
         // xử lý khi refresh token lỗi
@@ -125,7 +122,7 @@ export const handleError = async (error: any): Promise<void> => {
         const response = (await handleRefreshToken(loginData ?? "")) as any;
         if (response?.data?.data && response?.status) {
           // axios.defaults.headers.common.Authorization = `${response.data.data}`;
-          Cookies.set('newAccessToken', response.data.data?.token, { expires: 7 });
+          Cookies.set('newAccessToken', response.data.data?.token, { expires: 1 });
           baseApi(error.config);
         } else {
           window.location.href = '/auth/login';
