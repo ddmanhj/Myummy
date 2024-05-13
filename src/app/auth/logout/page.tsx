@@ -12,10 +12,6 @@ const BottomLink = () => (
 );
 
 const Logout = () => {
-  // const { removeSession } = useAuthContext();
-
-  // removeSession();
-
   return (
     <AuthFormLayout
       authTitle="Logout"

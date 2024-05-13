@@ -4,11 +4,11 @@ import { DemoFilterDropdown } from "../index";
 import { cn, toSentenceCase } from "@/utils";
 import { currentCurrency } from "@/common";
 import type { ColumnType } from "@/types/util";
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 
 type DataTableProps = {
   id: string;
-  dish?: DishType;
+  dish?: DishTypeTemplate;
 };
 
 type OrderDataTableProps<T extends DataTableProps> = {
@@ -93,8 +93,8 @@ const OrderDataTable = <DataType extends DataTableProps>({
                                     <div className="flex gap-1.5">
                                       {Array.from(
                                         new Array(
-                                          Math.floor(dish?.review.stars ?? 0),
-                                        ),
+                                          Math.floor(dish?.review.stars ?? 0)
+                                        )
                                       ).map((_star, idx) => (
                                         <FaStar
                                           key={idx}
@@ -103,7 +103,7 @@ const OrderDataTable = <DataType extends DataTableProps>({
                                         />
                                       ))}
                                       {!Number.isInteger(
-                                        dish?.review.stars,
+                                        dish?.review.stars
                                       ) && (
                                         <FaStarHalfStroke
                                           size={18}
@@ -114,10 +114,8 @@ const OrderDataTable = <DataType extends DataTableProps>({
                                         Array.from(
                                           new Array(
                                             5 -
-                                              Math.ceil(
-                                                dish?.review.stars ?? 0,
-                                              ),
-                                          ),
+                                              Math.ceil(dish?.review.stars ?? 0)
+                                          )
                                         ).map((_val, idx) => (
                                           <FaStar
                                             key={idx}
@@ -146,7 +144,7 @@ const OrderDataTable = <DataType extends DataTableProps>({
                               <span
                                 className={cn(
                                   "rounded-md px-3 py-1 text-xs font-medium",
-                                  colorClassName,
+                                  colorClassName
                                 )}
                               >
                                 {toSentenceCase(tableData)}

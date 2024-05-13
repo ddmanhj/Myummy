@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { calculatedPrice } from "@/helpers";
 import { currentCurrency } from "@/common";
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 
-const BestSellingProductCard = ({ product }: { product: DishType }) => {
+const BestSellingProductCard = ({ product }: { product: DishTypeTemplate }) => {
   const { images, name } = product;
 
   const discountedPrice = calculatedPrice(product);

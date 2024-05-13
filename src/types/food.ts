@@ -29,7 +29,7 @@ export type SaleType = {
     }
 );
 
-export type DishType = {
+export type DishTypeTemplate = {
   id: IdType;
   category_id: CategoryType["id"];
   restaurant_id: RestaurantType["id"];
@@ -47,7 +47,7 @@ export type DishType = {
   type: "veg" | "non-veg" | "eggetarian";
 };
 
-export type DishTypeAPI = {
+export type DishType = {
   id: IdType | any;
   dishesName: string;
   price: number;
@@ -64,6 +64,9 @@ export type DishTypeAPI = {
   saleDiscount: number;
   saleType: string;
   categoryId?: number;
+  quantityCart?: number;
+  unitPrice?: number;
+  totalPrice?:number;
 }
 
 export type SellerType = {
@@ -104,7 +107,7 @@ export type wishlistType = {
   id: IdType,
   wishList: {
     wishList:{
-      dishesID: DishTypeAPI[]
+      dishesID: DishType[]
     }
   }
 }

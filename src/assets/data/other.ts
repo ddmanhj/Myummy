@@ -2,7 +2,7 @@ import type {
   AnalyticsOverviewCardType,
   CardType,
   OrderType,
-  AdminDishType,
+  AdminDishTypeTemplate,
   TestimonialType,
   TransactionType,
   OrderProgressType,
@@ -680,7 +680,7 @@ export const analyticsOverviewData: AnalyticsOverviewCardType[] = [
   },
 ];
 
-export const adminDishListData: AdminDishType[] = [
+export const adminDishListData: AdminDishTypeTemplate[] = [
   {
     dish_id: 1001,
     create_by: "Admin",

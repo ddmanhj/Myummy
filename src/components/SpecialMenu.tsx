@@ -4,14 +4,12 @@ import { SpecialMenuSwiper } from "./swipers";
 import { isEmpty } from "lodash";
 import { leafHomeImg, onionHomeImg } from "@/assets/data";
 import { imgEmptySpecialMenu } from "@/assets/data";
-import { cn } from "@/utils";
+import { cn, t } from "@/utils";
 import type { CategoryTypeAPI, SpecialMenuType } from "@/types/food";
 import { useGetListFoodSpecialMenu, useMenu } from "@/services/services";
 import { Image } from "antd";
-import { useTranslation } from "react-i18next";
 
 const SpecialMenu = () => {
-  const { t } = useTranslation();
   const [selectIdSpecialMenu, setSelectIdSpecialMenu] = useState(1);
   const { data: queryMenu } = useMenu();
   const { data: listFoodSpecialMenu, refetch: callApiListFoodSpecialMenu } =

@@ -12,6 +12,9 @@ const MegaProductFilter = () => {
       id="filter_Offcanvas"
       tabIndex={-1}
     >
+      <div className="block border-b border-default-200 px-4 py-4">
+        <FilterResetButton />
+      </div>
       <div className="flex items-center justify-between border-b border-default-200 px-4 py-3 lg:hidden">
         <h3 className="font-medium text-default-800">Filter Options</h3>
         <button
@@ -66,9 +69,6 @@ const MegaProductFilter = () => {
           <PopularDishOfferCard />
         </div>
       </SimplebarReactClient>
-      <div className="block border-t border-default-200 px-4 py-4 lg:hidden">
-        <FilterResetButton />
-      </div>
     </div>
   );
 };

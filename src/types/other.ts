@@ -1,5 +1,5 @@
 import { type IconType } from "react-icons";
-import type { DishType } from "./food";
+import type { DishTypeTemplate } from "./food";
 
 export type IdType = number;
 
@@ -12,6 +12,22 @@ export type TestimonialType = {
   stars: number;
   review: string;
 };
+
+export type AddressProvinceType = {
+  province_id: string,
+  province_name: string,
+  province_type: string
+}
+
+export type AddressDistrictType = {
+  district_id: string,
+  district_name: string,
+}
+
+export type AddressWardType = {
+  ward_id: string,
+  ward_name: string,
+}
 
 export type CardType = {
   id: IdType;
@@ -53,9 +69,9 @@ export type BreadcrumbProps = {
 export type OrderType = {
   id: string;
   date: string;
-  dish_id: DishType["id"];
-  dish?: DishType;
-  amount: DishType["price"];
+  dish_id: DishTypeTemplate["id"];
+  dish?: DishTypeTemplate;
+  amount: DishTypeTemplate["price"];
   status: StatusType;
 };
 
@@ -73,9 +89,9 @@ export type AnalyticsOverviewCardType = {
   change: string;
 };
 
-export type AdminDishType = {
-  dish_id: DishType["id"];
-  dish?: DishType;
+export type AdminDishTypeTemplate = {
+  dish_id: DishTypeTemplate["id"];
+  dish?: DishTypeTemplate;
   create_by: string;
   status: "draft" | "published" | "reviewing";
 };

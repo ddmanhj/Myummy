@@ -5,7 +5,7 @@ import { emptyWishlistImg } from "@/assets/data";
 import { CustomerType } from "@/types/user";
 import { useGetDishByWishList } from "@/services/services";
 import { useEffect } from "react";
-import { DishTypeAPI } from "@/types/food";
+import { DishType } from "@/types/food";
 
 const AllWishList = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const AllWishList = () => {
 
   return !!mutationGetDishByWishList?.data?.data?.length ? (
     <>
-      {mutationGetDishByWishList?.data?.data?.map((dish: DishTypeAPI) => (
+      {mutationGetDishByWishList?.data?.data?.map((dish: DishType) => (
         <ProductWishListCard key={dish.id} dish={dish} />
       ))}
     </>

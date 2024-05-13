@@ -25,6 +25,7 @@ import { useLogoutCustomer } from "@/services/services";
 import { customerLogOut } from "@/redux/customerSlice";
 import { CustomerType } from "@/types/user";
 import { resetWishList } from "@/redux/wishListSlice";
+import { clearCart } from "@/redux/cartSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ const Navbar = () => {
     Cookies.remove("newAccessToken");
     dispatch(customerLogOut());
     dispatch(resetWishList());
+    dispatch(clearCart());
     navigate("/auth/logout");
   };
 

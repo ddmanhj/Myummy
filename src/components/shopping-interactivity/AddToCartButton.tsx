@@ -1,23 +1,37 @@
 import { cn } from "@/utils";
-import type { DishType } from "@/types/food";
-import { useShoppingContext } from "@/context";
 import { LuShoppingCart, LuTrash } from "react-icons/lu";
+import { useDispatch, useSelector } from "react-redux";
+import { addDish, deleteDish, checkIsInCart } from "@/redux/cartSlice";
+import { DishType } from "@/types/food";
 
-type AddToCartButtonProps = {
-  dish: DishType;
+export type PropsAddToCartButton = {
+  dish?: DishType | any;
   className?: string;
 };
 
-const AddToCartButton = ({ dish, className }: AddToCartButtonProps) => {
-  const { addToCart, removeFromCart, isInCart } = useShoppingContext();
+const AddToCartButton = ({ dish, className }: PropsAddToCartButton) => {
+  const dispatch = useDispatch();
+  const isInCart = useSelector(checkIsInCart(dish));
 
-  return isInCart(dish) ? (
+  function handleAddToCard(dish: DishType): void {
+    const newItem: any = {
+      id: dish.id,
+      dishesName: dish.dishesName,
+      urlImageDishes: dish.urlImageDishes,
+      quantityCart: 1,
+      unitPrice: dish.price,
+      totalPrice: dish.price * 1,
+    };
+    dispatch(addDish(newItem));
+  }
+
+  return isInCart ? (
     <button
       className={cn(
         "relative z-10 inline-flex w-full items-center justify-center rounded-lg bg-red-500/20 px-6 py-3 text-center text-sm font-medium text-red-500 shadow-sm transition-all duration-300 hover:bg-red-500 hover:text-white lg:w-auto",
-        className,
+        className
       )}
-      onClick={() => removeFromCart(dish)}
+      onClick={() => dispatch(deleteDish(dish?.id))}
     >
       <LuTrash size={18} className="me-2" />
       <span className="line-clamp-1">Remove from Cart</span>
@@ -26,9 +40,9 @@ const AddToCartButton = ({ dish, className }: AddToCartButtonProps) => {
     <button
       className={cn(
         "relative z-10 inline-flex w-full items-center justify-center rounded-lg bg-primary px-6 py-3 text-center text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-primary-500 lg:w-auto",
-        className,
+        className
       )}
-      onClick={() => addToCart(dish, 1)}
+      onClick={() => dish && handleAddToCard(dish)}
     >
       <LuShoppingCart size={18} className="me-2" />
       Add to Cart

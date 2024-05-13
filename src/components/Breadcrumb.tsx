@@ -17,7 +17,7 @@ const Breadcrumb = ({ title, subtitle }: BreadcrumbProps) => {
               <li className="text-sm">
                 <Link
                   className="flex items-center gap-2 align-middle leading-none text-default-800 transition-all hover:text-primary-500"
-                  to="/home"
+                  to="/"
                 >
                   <LuHome size={16} />
                   Home

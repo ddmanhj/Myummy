@@ -13,10 +13,10 @@ import LogisticsDetails from "./LogisticsDetails";
 import { dishesData } from "@/assets/data";
 import { useEffect, useState } from "react";
 import type { ColumnType } from "@/types/util";
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 import type { OrderType } from "@/types/other";
 
-const columns: Array<ColumnType<DishType>> = [
+const columns: Array<ColumnType<DishTypeTemplate>> = [
   {
     key: "name",
     name: "Dish",

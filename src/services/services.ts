@@ -6,6 +6,7 @@ import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 import { DataWishListRequest } from "@/types/food";
 import { getWishListAPI } from "@/redux/wishListSlice";
+import axios from "axios";
 
 // Menu
 export const useMenu = () => {
@@ -18,6 +19,9 @@ export const useMenu = () => {
     });
 };
 
+// END Menu
+
+// Register
 export const useRegisterCustomer = (navigate: NavigateFunction) => {
   return useMutation({
     mutationKey: ['registerCustomer'],
@@ -35,8 +39,7 @@ export const useRegisterCustomer = (navigate: NavigateFunction) => {
       ),
   });
 }
-
-// END Auth Menu
+// END Register
 
 // Auth Login
 export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
@@ -82,7 +85,7 @@ export const useLogoutCustomer = (id: number) => {
   });
 }
 
-// END Auth Login
+// END Login
 
 // Food
 export const useGetListFoodSpecialMenu = (idSpecialMenu: number) => {
@@ -166,3 +169,83 @@ export const useDeleteWishList = () => {
   });
 }
 // END wish list
+
+// CALL API TỈNh THÀNH VIỆT NAM
+export const useGetProvinceList = () => {
+  return useMutation({
+    mutationKey: ['getProvinceList'],
+    onSuccess: (data) => {
+      return data;
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: async() =>
+      await fetch("https://vapi.vnappmob.com/api/province")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        return data?.results
+      })
+      .catch((error) => {
+        console.error("Lỗi khi gọi API:", error);
+      })
+  });
+}
+
+export const useGetDistrictList = () => {
+  return useMutation({
+    mutationKey: ['getDistrictList'],
+    onSuccess: (data) => {
+      return data;
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: async(province_id: string) =>
+      await fetch(`https://vapi.vnappmob.com/api/province/district/${province_id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        return data?.results
+      })
+      .catch((error) => {
+        console.error("Lỗi khi gọi API:", error);
+      })
+  });
+}
+
+export const useGetWardList = () => {
+  return useMutation({
+    mutationKey: ['getWardList'],
+    onSuccess: (data) => {
+      return data;
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: async(district_id: string) =>
+      await fetch(`https://vapi.vnappmob.com/api/province/ward/${district_id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        return data?.results
+      })
+      .catch((error) => {
+        console.error("Lỗi khi gọi API:", error);
+      })
+  });
+}
+// END CALL API TỈNh THÀNH VIỆT NAM

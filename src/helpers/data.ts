@@ -7,7 +7,7 @@ import {
   restaurantsData,
   sellersData,
 } from "@/assets/data";
-import type { CategoryType, DishType, RestaurantType } from "@/types/food";
+import type { CategoryType, DishTypeTemplate, RestaurantType } from "@/types/food";
 import type { OrderType } from "@/types/other";
 import type { FilterState } from "../types/state";
 
@@ -16,8 +16,8 @@ export const getFilteredProducts = (
     FilterState,
     "categories" | "restaurants" | "minPrice" | "maxPrice" | "rating" | "search"
   >,
-): DishType[] => {
-  const products: DishType[] = dishesData;
+): DishTypeTemplate[] => {
+  const products: DishTypeTemplate[] = dishesData;
   filter = filter ?? {};
   return products.filter((dish) => {
     return !(
@@ -65,7 +65,7 @@ export const getAllOrders = async () => {
   return orderHistoryData;
 };
 
-export const getDishById = async (id: DishType["id"]) => {
+export const getDishById = async (id: DishTypeTemplate["id"]) => {
   // You can fetch data from your server here
   await sleep(200);
   const dish = dishesData.find((dish) => dish.id == id);

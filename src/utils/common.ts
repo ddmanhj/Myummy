@@ -3,10 +3,10 @@ import Cookies from 'js-cookie';
 import dayjs from 'dayjs';
 import saveAs from 'file-saver';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line import/no-cycle
 import baseApi from './baseApi';
-import axios from 'axios';
 import { isEmpty } from 'lodash';
 
 type ToastType = 'info' | 'success' | 'warning' | 'error' | 'default';
@@ -15,34 +15,36 @@ export const notify = (message: string, type?: ToastType): void => {
   if (type === 'info') {
     toast.info(message, {
       position: "top-right",
-      duration: 3000,
+      duration: 2000,
     });
   }
   if (type === 'success') {
     toast.success(message, {
       position: "top-right",
-      duration: 3000,
+      duration: 2000,
     });
   }
   if (type === 'warning') {
     toast.warning(message, {
       position: "top-right",
-      duration: 3000,
+      duration: 2000,
     });
   }
   if (type === 'error') {
     toast.error(message, {
       position: "top-right",
-      duration: 3000,
+      duration: 2000,
     });
   }
   if (!type || type === 'default') {
     toast(message, {
       position: "top-right",
-      duration: 3000,
+      duration: 2000,
     });
   }
 };
+
+export const { t } = useTranslation();
 
 export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
   if (language == "vi") {

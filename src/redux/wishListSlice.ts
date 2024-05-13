@@ -1,11 +1,11 @@
-import { DishTypeAPI, wishlistType } from "@/types/food";
+import { wishlistType } from "@/types/food";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     dishesID: [],
 };
 
-const customerSlice = createSlice({
+const wishListSlice = createSlice({
     name: 'wishList',
     initialState,
     reducers: {
@@ -29,6 +29,6 @@ const customerSlice = createSlice({
     addDishToWishList,
     deleteDishWishList,
     resetWishList
-  } = customerSlice.actions;
+  } = wishListSlice.actions;
   
-export default customerSlice.reducer;
+export default wishListSlice.reducer;

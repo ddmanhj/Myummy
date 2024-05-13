@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { BiFoodTag } from "react-icons/bi";
 import { LuPencil } from "react-icons/lu";
 import { currentCurrency } from "@/common";
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 
-const NewMenuCard = ({ dish }: { dish: DishType }) => {
+const NewMenuCard = ({ dish }: { dish: DishTypeTemplate }) => {
   const { name, price, type } = dish;
   return (
     <div className="rounded-lg bg-default-500/5 p-4">

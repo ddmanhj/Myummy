@@ -6,14 +6,14 @@ import {
   ProductDetailView,
 } from "@/components";
 import { getDishById } from "@/helpers";
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 
 const DishDetails = () => {
   const { adminDishId } = useParams();
 
   const navigate = useNavigate();
 
-  const [dish, setDish] = useState<DishType>();
+  const [dish, setDish] = useState<DishTypeTemplate>();
 
   useEffect(() => {
     (async () => {
