@@ -24,7 +24,6 @@ const config: Config = {
   darkMode: ['class'],
 
   theme: {
-
     container: {
       center: true,
       padding: '1rem'
@@ -36,6 +35,9 @@ const config: Config = {
     },
 
     extend: {
+      screens: {
+        mobile: {max: '500px'}
+      },
       colors: {
         primary: {
           ...colors.orange,

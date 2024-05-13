@@ -23,9 +23,7 @@ const AppProvidersWrapper = ({ children }: { children: ReactNode }) => {
     <HelmetProvider>
       {/* Sử dụng Layout Context để tùy chỉnh theme light or dark */}
       <LayoutProvider>
-        {/* <ShopProvider> */}
         <FilterProvider>{children}</FilterProvider>
-        {/* </ShopProvider> */}
       </LayoutProvider>
     </HelmetProvider>
   );
