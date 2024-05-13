@@ -5,9 +5,10 @@ import { vietnamImg, usaImg } from "@/assets/data/images";
 import i18next from "@/locales/i18n";
 import { changeLanguageCustomer } from "@/redux/customerSlice";
 import { useDispatch } from "react-redux";
-import { t } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 const OfferAdBanner = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [language, setLanguage] = useState("vi");
   const handleViChangeLanguage = () => {
