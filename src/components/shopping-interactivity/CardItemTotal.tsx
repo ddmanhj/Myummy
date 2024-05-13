@@ -1,15 +1,13 @@
-import { currentCurrency } from "@/common";
-import { useShoppingContext } from "@/context";
-import { getPreciseCurrency } from "@/helpers";
+import { languageState } from "@/redux/customerSlice";
+import { totalCartPrice } from "@/redux/quantityAndTotalItem";
+import { readMoneyCurrency } from "@/utils";
+import { useSelector } from "react-redux";
 
 const CardItemTotal = () => {
-  const { getCalculatedOrder } = useShoppingContext();
-  return (
-    <p>
-      {currentCurrency}
-      {getPreciseCurrency(getCalculatedOrder().orderTotal)}
-    </p>
-  );
+  const totalPrice = useSelector(totalCartPrice);
+  const language = useSelector(languageState);
+
+  return <p>{readMoneyCurrency(totalPrice, language)}</p>;
 };
 
 export default CardItemTotal;

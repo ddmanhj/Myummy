@@ -3,12 +3,12 @@ import { LuMoreVertical } from "react-icons/lu";
 import { DemoFilterDropdown, GoToAddButton } from "../index";
 import { currentCurrency } from "@/common";
 import type { ColumnType } from "@/types/util";
-import type { CategoryType, DishType } from "@/types/food";
+import type { CategoryType, DishTypeTemplate } from "@/types/food";
 
 type DataTableProps = {
-  images: DishType["images"];
-  name: DishType["name"];
-  review: DishType["review"];
+  images: DishTypeTemplate["images"];
+  name: DishTypeTemplate["name"];
+  review: DishTypeTemplate["review"];
   category?: CategoryType;
 };
 
@@ -137,9 +137,7 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
                               >
                                 <div className="flex items-center justify-start gap-1">
                                   {Array.from(
-                                    new Array(
-                                      Math.floor(row.review.stars ?? 0),
-                                    ),
+                                    new Array(Math.floor(row.review.stars ?? 0))
                                   ).map((_star, idx) => (
                                     <FaStar
                                       key={idx}
@@ -156,8 +154,8 @@ const RestaurantMenuDataTable = <DataType extends DataTableProps>({
                                   {(row.review.stars ?? 0) < 5 &&
                                     Array.from(
                                       new Array(
-                                        5 - Math.ceil(row.review.stars ?? 0),
-                                      ),
+                                        5 - Math.ceil(row.review.stars ?? 0)
+                                      )
                                     ).map((_val, idx) => (
                                       <FaStar
                                         key={idx}

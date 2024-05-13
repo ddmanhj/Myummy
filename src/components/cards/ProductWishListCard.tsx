@@ -1,10 +1,11 @@
 import { lazy } from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
-import type { DishTypeAPI } from "@/types/food";
+import type { DishType } from "@/types/food";
 import { calculatedPrice } from "@/helpers";
 import { readMoneyCurrency } from "@/utils";
 import { StateReduxLanguage } from "@/types/other";
 import { useSelector } from "react-redux";
+import { languageState } from "@/redux/customerSlice";
 const AddToCartButton = lazy(
   () => import("../shopping-interactivity/AddToCartButton")
 );
@@ -12,7 +13,7 @@ const ProductWishlistToggler = lazy(
   () => import("../shopping-interactivity/ProductWishlistToggler")
 );
 
-const ProductWishListCard = ({ dish }: { dish: DishTypeAPI }) => {
+const ProductWishListCard = ({ dish }: { dish: DishType }) => {
   const {
     urlImageDishes,
     dishesName,
@@ -21,9 +22,8 @@ const ProductWishListCard = ({ dish }: { dish: DishTypeAPI }) => {
     reviewStars,
     saleDiscount,
   } = dish;
-  const language = useSelector(
-    (state: StateReduxLanguage) => state.customer.language
-  );
+  const language = useSelector(languageState);
+
   const discountedPrice = calculatedPrice(dish);
 
   return (
@@ -102,7 +102,7 @@ const ProductWishListCard = ({ dish }: { dish: DishTypeAPI }) => {
       <div className="col-span-3 mt-4 lg:col-span-1 lg:mt-0">
         <div className="flex justify-center gap-5 lg:flex-col lg:items-end">
           <ProductWishlistToggler dish={dish} />
-          {/* <AddToCartButton dish={dish} /> */}
+          <AddToCartButton dish={dish} />
         </div>
       </div>
     </div>

@@ -2,10 +2,17 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import customerSlice from "./customerSlice";
 import wishListSlice from "./wishListSlice";
+import cartSlice from './cartSlice';
 
 const persistConfig = {
   key: "root",
@@ -13,13 +20,22 @@ const persistConfig = {
 };
 const rootReducer = combineReducers({
   customer: customerSlice,
-  wishList: wishListSlice
+  wishList: wishListSlice,
+  cart: cartSlice
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    })
 });
+
+
 
 // const rootReducer = combineReducers({
 //   customer: customerSlice,

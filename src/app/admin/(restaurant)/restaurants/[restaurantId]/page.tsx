@@ -12,10 +12,10 @@ import {
   restaurantBgImg,
 } from "@/assets/data/images";
 import { dishesData } from "@/assets/data";
-import type { DishType, RestaurantType } from "@/types/food";
+import type { DishTypeTemplate, RestaurantType } from "@/types/food";
 import type { ColumnType } from "@/types/util";
 
-const columns: Array<ColumnType<DishType>> = [
+const columns: Array<ColumnType<DishTypeTemplate>> = [
   {
     key: "name",
     name: "Dish",

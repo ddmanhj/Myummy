@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import type { DishType, DishTypeAPI } from "@/types/food";
+import type { DishType } from "@/types/food";
 const ProductQuantityToggler = lazy(
   () => import("../shopping-interactivity/ProductQuantityToggler")
 );

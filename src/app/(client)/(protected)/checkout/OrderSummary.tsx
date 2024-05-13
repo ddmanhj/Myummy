@@ -1,9 +1,16 @@
 import { useShoppingContext } from "@/context";
 import { currentCurrency } from "@/common";
-import { calculatedPrice } from "@/helpers";
+import { useSelector } from "react-redux";
+import { getCart } from "@/redux/cartSlice";
+import { DishType } from "@/types/food";
+import { readMoneyCurrency } from "@/utils";
+import { languageState } from "@/redux/customerSlice";
+import { totalCartPrice } from "@/redux/quantityAndTotalItem";
 
 const OrderSummary = () => {
-  const { cartItems, getCalculatedOrder } = useShoppingContext();
+  const cart = useSelector(getCart);
+  const language = useSelector(languageState);
+  const totalPrice = useSelector(totalCartPrice);
 
   return (
     <div className="mb-5">
@@ -12,30 +19,26 @@ const OrderSummary = () => {
           Order Summary
         </h4>
 
-        {cartItems.map((item) => {
-          const dish = item.dish;
-          const quantity =
-            cartItems.find((cartItem) => cartItem.dish_id == item.dish_id)
-              ?.quantity ?? 1;
+        {cart.map((dish: DishType) => {
           return (
             dish && (
-              <div key={item.id + dish?.id} className="mb-4 flex items-center">
+              <div key={dish?.id} className="mb-4 flex items-center">
                 <img
-                  src={dish.images[0]}
+                  // src={dish.images[0]}
+                  src={dish.urlImageDishes}
                   height={80}
                   width={80}
                   className="me-2 h-20 w-20"
-                  alt={dish.name}
+                  alt={dish.dishesName}
                 />
                 <div>
                   <h4 className="mb-2 text-base font-semibold text-default-700">
-                    {dish.name}
+                    {dish.dishesName}
                   </h4>
                   <h4 className="text-sm text-default-600">
-                    {quantity} x{" "}
+                    {dish.quantityCart} x{" "}
                     <span className="font-semibold text-primary">
-                      {currentCurrency}
-                      {calculatedPrice(dish)}
+                      {readMoneyCurrency(dish?.unitPrice || 0, language)}
                     </span>
                   </h4>
                 </div>
@@ -48,8 +51,7 @@ const OrderSummary = () => {
           <div className="mb-3 flex justify-between">
             <p className="text-sm text-default-500">Sub-total</p>
             <p className="text-sm font-medium text-default-700">
-              {currentCurrency}
-              {getCalculatedOrder().orderTotal.toFixed(2)}
+              {readMoneyCurrency(totalPrice, language)}
             </p>
           </div>
           <div className="mb-3 flex justify-between">
@@ -58,24 +60,13 @@ const OrderSummary = () => {
           </div>
           <div className="mb-3 flex justify-between">
             <p className="text-sm text-default-500">Discount</p>
-            <p className="text-sm font-medium text-default-700">
-              -{currentCurrency}
-              {getCalculatedOrder().totalDiscount.toFixed(2)}
-            </p>
-          </div>
-          <div className="mb-3 flex justify-between">
-            <p className="text-sm text-default-500">Tax</p>
-            <p className="text-sm font-medium text-default-700">
-              +{currentCurrency}
-              {getCalculatedOrder().tax.toFixed(2)}
-            </p>
+            <p className="text-sm font-medium text-default-700">0</p>
           </div>
           <div className="my-4 border-b border-default-200" />
           <div className="mb-3 flex justify-between">
             <p className="text-base text-default-700">Total</p>
             <p className="text-base font-medium text-default-700">
-              {currentCurrency}
-              {getCalculatedOrder().total.toFixed(2)}
+              {readMoneyCurrency(totalPrice, language)}
             </p>
           </div>
         </div>

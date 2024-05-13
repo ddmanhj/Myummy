@@ -1,10 +1,10 @@
 import { BreadcrumbAdmin, DishDataTable } from "@/components";
 import { dishesData, adminDishListData } from "@/assets/data";
-import type { AdminDishType } from "@/types/other";
-import type { DishType } from "@/types/food";
+import type { AdminDishTypeTemplate } from "@/types/other";
+import type { DishTypeTemplate } from "@/types/food";
 import type { ColumnType } from "@/types/util";
 
-const columns: Array<ColumnType<DishType & AdminDishType>> = [
+const columns: Array<ColumnType<DishTypeTemplate & AdminDishTypeTemplate>> = [
   {
     key: "name",
     name: "Dish Name",
@@ -46,7 +46,7 @@ const ProductList = () => {
 
         <div className="grid grid-cols-1">
           <div className="rounded-lg border border-default-200">
-            <DishDataTable<DishType & AdminDishType>
+            <DishDataTable<DishTypeTemplate & AdminDishTypeTemplate>
               rows={rows}
               columns={columns}
               title="Dishes List"

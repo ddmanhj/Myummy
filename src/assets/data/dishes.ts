@@ -1,4 +1,4 @@
-import type { CategoryType, DishType } from "@/types/food";
+import type { CategoryType, DishTypeTemplate } from "@/types/food";
 
 import {
   appetizerBanner1Img,
@@ -84,7 +84,7 @@ export const categoriesData: CategoryType[] = [
   },
 ];
 
-export const specialMenuData: DishType[] = (
+export const specialMenuData: DishTypeTemplate[] = (
   [
     {
       id: 11,
@@ -485,7 +485,7 @@ export const specialMenuData: DishType[] = (
         stars: 4.5,
       },
     },
-  ] as DishType[]
+  ] as DishTypeTemplate[]
 ).map((dish) => {
   return {
     ...dish,
@@ -493,7 +493,7 @@ export const specialMenuData: DishType[] = (
   };
 });
 
-export const dishesData: DishType[] = (
+export const dishesData: DishTypeTemplate[] = (
   [
     {
       id: 10,
@@ -665,7 +665,7 @@ export const dishesData: DishType[] = (
         stars: 5,
       },
     },
-  ] as DishType[]
+  ] as DishTypeTemplate[]
 ).map((dish) => {
   return {
     ...dish,

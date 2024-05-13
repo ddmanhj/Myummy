@@ -4,18 +4,18 @@ import { lazy } from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 import { currentCurrency } from "@/common";
 import { calculatedPrice } from "@/helpers";
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 const AddToFavouriteButton = lazy(
-  () => import("../shopping-interactivity/ProductWishlistToggler"),
+  () => import("../shopping-interactivity/ProductWishlistToggler")
 );
 const AddToCartButton = lazy(
-  () => import("../shopping-interactivity/AddToCartButton"),
+  () => import("../shopping-interactivity/AddToCartButton")
 );
 const ProductQuantityToggler = lazy(
-  () => import("../shopping-interactivity/ProductQuantityToggler"),
+  () => import("../shopping-interactivity/ProductQuantityToggler")
 );
 
-const ProductListCard = ({ dish }: { dish: DishType }) => {
+const ProductListCard = ({ dish }: { dish: DishTypeTemplate }) => {
   const { images, name, id, price, sale, review } = dish;
 
   const discountedPrice = calculatedPrice(dish);
@@ -77,7 +77,7 @@ const ProductListCard = ({ dish }: { dish: DishType }) => {
                           size={16}
                           className="text-yellow-400"
                         />
-                      ),
+                      )
                     )}
                     {!Number.isInteger(review.stars) && (
                       <FaStarHalfStroke size={16} className="text-yellow-400" />
@@ -91,7 +91,7 @@ const ProductListCard = ({ dish }: { dish: DishType }) => {
                             size={16}
                             className="text-default-400"
                           />
-                        ),
+                        )
                       )}
                   </div>
                   <h6 className="mt-1 text-xs text-default-500">

@@ -6,12 +6,12 @@ import { cn, toSentenceCase } from "@/utils";
 import { currentCurrency } from "@/common";
 import { getCategoryById } from "@/helpers";
 import type { ColumnType } from "@/types/util";
-import type { CategoryType, DishType } from "@/types/food";
+import type { CategoryType, DishTypeTemplate } from "@/types/food";
 import { ReactNode, useEffect, useState } from "react";
 
 type DataTableProps = {
-  category_id: DishType["category_id"];
-  images: DishType["images"];
+  category_id: DishTypeTemplate["category_id"];
+  images: DishTypeTemplate["images"];
   category?: {
     name: CategoryType["name"];
   };
@@ -83,7 +83,7 @@ const DishDataTable = <DataType extends DataTableProps>({
                     <span
                       className={cn(
                         "rounded-md px-3 py-1 text-xs font-medium",
-                        colorClassName,
+                        colorClassName
                       )}
                     >
                       {toSentenceCase(tableData)}
@@ -101,7 +101,7 @@ const DishDataTable = <DataType extends DataTableProps>({
                   </td>
                 );
               }
-            }),
+            })
           );
 
           return (
@@ -125,7 +125,7 @@ const DishDataTable = <DataType extends DataTableProps>({
               </td>
             </tr>
           );
-        }),
+        })
       );
       setFetchedCategories(resolvedCategories);
     };

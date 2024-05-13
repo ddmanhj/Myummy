@@ -1,6 +1,6 @@
-import type { DishType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 
-const UpcomingNewMenuCard = ({ product }: { product: DishType }) => {
+const UpcomingNewMenuCard = ({ product }: { product: DishTypeTemplate }) => {
   const { images, name } = product;
   return (
     <div className="rounded-lg bg-default-500/5 p-4">

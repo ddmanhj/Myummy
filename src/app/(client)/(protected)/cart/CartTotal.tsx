@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
-import { useShoppingContext } from "@/context";
-import { currentCurrency } from "@/common";
+import { totalCartPrice } from "@/redux/quantityAndTotalItem";
+import { useSelector } from "react-redux";
+import { languageState } from "@/redux/customerSlice";
+import { readMoneyCurrency } from "@/utils";
 
 const CartTotal = () => {
-  const { getCalculatedOrder } = useShoppingContext();
+  const currentCurrency = useSelector(totalCartPrice);
+  const language = useSelector(languageState);
+
   return (
     <div className="mb-5 rounded-lg border border-default-200 p-5">
       <h4 className="mb-5 text-lg font-semibold text-default-800">
@@ -13,8 +17,7 @@ const CartTotal = () => {
         <div className="mb-3 flex justify-between">
           <p className="text-sm text-default-500">Sub-total</p>
           <p className="text-sm font-medium text-default-700">
-            {currentCurrency}
-            {getCalculatedOrder().orderTotal.toFixed(2)}
+            {readMoneyCurrency(currentCurrency, language)}
           </p>
         </div>
         <div className="mb-3 flex justify-between">
@@ -23,24 +26,13 @@ const CartTotal = () => {
         </div>
         <div className="mb-3 flex justify-between">
           <p className="text-sm text-default-500">Discount</p>
-          <p className="text-sm font-medium text-default-700">
-            -{currentCurrency}
-            {getCalculatedOrder().totalDiscount.toFixed(2)}
-          </p>
-        </div>
-        <div className="mb-3 flex justify-between">
-          <p className="text-sm text-default-500">Tax</p>
-          <p className="text-sm font-medium text-default-700">
-            +{currentCurrency}
-            {getCalculatedOrder().tax.toFixed(2)}
-          </p>
+          <p className="text-sm font-medium text-default-700">0</p>
         </div>
         <div className="my-4 border-b border-default-200" />
         <div className="mb-3 flex justify-between">
           <p className="text-base text-default-700">Total</p>
           <p className="text-base font-medium text-default-700">
-            {currentCurrency}
-            {getCalculatedOrder().total.toFixed(2)}
+            {readMoneyCurrency(currentCurrency, language)}
           </p>
         </div>
       </div>

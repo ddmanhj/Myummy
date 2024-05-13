@@ -3,17 +3,13 @@ import { LuChevronRight } from "react-icons/lu";
 import { Image } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
-import { currentCurrency } from "@/common";
-import type { DishTypeAPI } from "@/types/food";
+import type { DishType } from "@/types/food";
 import { useSelector } from "react-redux";
-import { StateReduxLanguage } from "@/types/other";
 import { readMoneyCurrency } from "@/utils";
-import QuantityInteraction from "../ProductDetailView/OrderInteraction";
+import { languageState } from "@/redux/customerSlice";
 
-const SpecialMenuSwiper = ({ dishes }: { dishes: DishTypeAPI[] }) => {
-  const language = useSelector(
-    (state: StateReduxLanguage) => state.customer.language
-  );
+const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
+  const language = useSelector(languageState);
   return (
     <Swiper
       className="menu-swiper h-full w-full"

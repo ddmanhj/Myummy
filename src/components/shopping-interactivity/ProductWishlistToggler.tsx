@@ -1,6 +1,6 @@
 import { LuHeart } from "react-icons/lu";
 import { cn } from "@/utils";
-import type { DishTypeAPI, wishlistType } from "@/types/food";
+import type { DishType, wishlistType } from "@/types/food";
 import { useDispatch, useSelector } from "react-redux";
 import { addDishToWishList, deleteDishWishList } from "@/redux/wishListSlice";
 import { useAddWishList, useDeleteWishList } from "@/services/services";
@@ -10,7 +10,7 @@ const ProductWishlistToggler = ({
   dish,
   size,
 }: {
-  dish: DishTypeAPI;
+  dish: DishType;
   size?: number;
 }) => {
   const dispatch = useDispatch();
@@ -22,14 +22,14 @@ const ProductWishlistToggler = ({
   const mutationAddWishList = useAddWishList();
   const mutationDeleteWishList = useDeleteWishList();
 
-  const isInWishlist = (dish: DishTypeAPI): boolean => {
+  const isInWishlist = (dish: DishType): boolean => {
     return (
       wishList?.find((wishlistDish: any) => wishlistDish?.id == dish?.id) !=
       null
     );
   };
 
-  const toggleToWishlist = async (dish: DishTypeAPI | any) => {
+  const toggleToWishlist = async (dish: DishType | any) => {
     if (isInWishlist(dish)) {
       await mutationDeleteWishList.mutate({
         customerID: getCustomerData?.id,

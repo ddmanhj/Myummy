@@ -6,7 +6,7 @@ import {
   useMemo,
   useEffect,
 } from "react";
-import type { CategoryType, RestaurantType } from "@/types/food";
+import type { CategoryType } from "@/types/food";
 import type { FilterState } from "../types/state";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
@@ -31,9 +31,6 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     categories: searchParams.has("categories")
       ? queryParams["categories"].split(",").map((id) => Number(id))
       : [],
-    restaurants: searchParams.has("restaurants")
-      ? queryParams["restaurants"].split(",").map((id) => Number(id))
-      : [],
     search: searchParams.has("search") ? queryParams["search"] : undefined,
     minPrice: searchParams.has("minPrice")
       ? Number(queryParams["minPrice"])
@@ -45,7 +42,6 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
       ? Number(queryParams["rating"])
       : undefined,
     updateCategory: () => {},
-    updateRestaurant: () => {},
     updateSearch: () => {},
     updateMinPrice: () => {},
     updateMaxPrice: () => {},
@@ -67,18 +63,6 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const updateRestaurant = (restaurantId: RestaurantType["id"]) => {
-    const restaurants = state.restaurants;
-    if (!restaurants.length || !restaurants.includes(restaurantId)) {
-      restaurants.push(restaurantId);
-      updateState({ restaurants });
-    } else if (restaurants.includes(restaurantId)) {
-      updateState({
-        restaurants: restaurants.filter((id) => id != restaurantId),
-      });
-    }
-  };
-
   const updateSearch = (search: string) => updateState({ search });
 
   const updateMinPrice = (minPrice: number) => updateState({ minPrice });
@@ -91,9 +75,6 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     let query = "";
     if (!(!state.categories || !state.categories.length)) {
       query += `categories=${state.categories?.join(",")}&`;
-    }
-    if (!(!state.restaurants || !state.restaurants.length)) {
-      query += `restaurants=${state.restaurants?.join(",")}&`;
     }
     if (state.minPrice) {
       query += `minPrice=${state.minPrice.toString()}&`;
@@ -118,13 +99,12 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
         () => ({
           ...state,
           updateCategory,
-          updateRestaurant,
           updateSearch,
           updateMinPrice,
           updateMaxPrice,
           updateRating,
         }),
-        [state],
+        [state]
       )}
     >
       {children}

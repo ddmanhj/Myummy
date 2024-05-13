@@ -5,7 +5,7 @@ import { LuEye } from "react-icons/lu";
 import { kebabToTitleCase } from "@/utils";
 import { calculatedPrice, getRestaurantById } from "@/helpers";
 import { currentCurrency } from "@/common";
-import type { DishType, RestaurantType } from "@/types/food";
+import type { DishTypeTemplate, RestaurantType } from "@/types/food";
 const OrderInteraction = lazy(() => import("./OrderInteraction"));
 
 const dishNutritionFacts = [
@@ -31,7 +31,7 @@ const ProductDetailView = ({
   dish,
   showButtons,
 }: {
-  dish: DishType;
+  dish: DishTypeTemplate;
   showButtons?: boolean;
 }) => {
   const { name, price, restaurant_id, review, tags, type, sale } = dish;
@@ -82,7 +82,7 @@ const ProductDetailView = ({
             Array.from(new Array(5 - Math.ceil(review.stars))).map(
               (_val, idx) => (
                 <FaStar key={idx} size={18} className="text-default-400" />
-              ),
+              )
             )}
         </div>
         <div className="h-4 w-px bg-default-400" />

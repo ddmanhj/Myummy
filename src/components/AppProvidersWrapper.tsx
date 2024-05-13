@@ -1,8 +1,6 @@
-import { type ReactNode, useEffect, lazy } from "react";
+import { type ReactNode, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
-// import { AuthProvider, FilterProvider, LayoutProvider } from "@/context";
 import { FilterProvider, LayoutProvider } from "@/context";
-const ShopProvider = lazy(() => import("@/context/useShoppingContext"));
 
 const AppProvidersWrapper = ({ children }: { children: ReactNode }) => {
   const handleChangeTitle = () => {
@@ -25,12 +23,9 @@ const AppProvidersWrapper = ({ children }: { children: ReactNode }) => {
     <HelmetProvider>
       {/* Sử dụng Layout Context để tùy chỉnh theme light or dark */}
       <LayoutProvider>
-        {/* Auth để xấc minh quyền */}
-        {/* <AuthProvider> */}
-        <ShopProvider>
-          <FilterProvider>{children}</FilterProvider>
-        </ShopProvider>
-        {/* </AuthProvider> */}
+        {/* <ShopProvider> */}
+        <FilterProvider>{children}</FilterProvider>
+        {/* </ShopProvider> */}
       </LayoutProvider>
     </HelmetProvider>
   );

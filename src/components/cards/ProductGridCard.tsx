@@ -3,7 +3,7 @@ import { lazy } from "react";
 import { FaStar } from "react-icons/fa6";
 import { currentCurrency } from "@/common";
 import { calculatedPrice } from "@/helpers";
-import type { DishType, DishTypeAPI } from "@/types/food";
+import type { DishType } from "@/types/food";
 import { Image } from "antd";
 const AddToFavouriteButton = lazy(
   () => import("../shopping-interactivity/ProductWishlistToggler")
@@ -15,7 +15,7 @@ const AddToCartButton = lazy(
   () => import("../shopping-interactivity/AddToCartButton")
 );
 
-const ProductGridCard = ({ dish }: { dish: DishTypeAPI }) => {
+const ProductGridCard = ({ dish }: { dish: DishType }) => {
   // const { images, name, review, id } = dish;
 
   const discountedPrice = calculatedPrice(dish);
@@ -59,10 +59,10 @@ const ProductGridCard = ({ dish }: { dish: DishTypeAPI }) => {
               {discountedPrice}
             </h4>
 
-            {/* <ProductQuantityToggler dish={dish} /> */}
+            <ProductQuantityToggler dish={dish} />
           </div>
 
-          {/* <AddToCartButton dish={dish} className="!w-full" /> */}
+          <AddToCartButton dish={dish} className="!w-full" />
         </div>
       </div>
     </div>
