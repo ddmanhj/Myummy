@@ -1,14 +1,15 @@
 import { ShoppingCartCard } from "@/components";
-import { useShoppingContext } from "@/context";
+import { getCart } from "@/redux/cartSlice";
 import type { DishType } from "@/types/food";
+import { useSelector } from "react-redux";
 
 const AllCartItems = () => {
-  const { cartItems } = useShoppingContext();
+  const cart = useSelector(getCart);
 
   return (
     <>
-      {cartItems.map((item) => {
-        const dish: DishType | undefined = item.dish;
+      {cart?.map((item: DishType) => {
+        const dish: DishType | undefined = item;
         return dish && <ShoppingCartCard key={item.id} dish={dish} />;
       })}
     </>

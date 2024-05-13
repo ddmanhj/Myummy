@@ -31,6 +31,8 @@ const customerSlice = createSlice({
       }
     },
   });
+
+  export const languageState = (state: any) => state.customer.language.language;
   
   export const {
     getInfoCustomer,

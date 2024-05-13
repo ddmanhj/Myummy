@@ -11,14 +11,14 @@ import { cn } from "@/utils";
 import { getDishById } from "@/helpers";
 import { consumerReviews, dishesData } from "@/assets/data";
 import { useEffect, useState } from "react";
-import { DishType } from "@/types/food";
+import { DishTypeTemplate } from "@/types/food";
 
 const ProductDetail = () => {
   const navigate = useNavigate();
 
   const { dishId } = useParams();
 
-  const [dish, setDish] = useState<DishType>();
+  const [dish, setDish] = useState<DishTypeTemplate>();
 
   useEffect(() => {
     (async () => {

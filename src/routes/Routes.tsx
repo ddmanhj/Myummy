@@ -18,7 +18,6 @@ import { isEmpty } from "lodash";
 import Cookies from "js-cookie";
 
 const AllRoutes = (props: RouteProps) => {
-  // const { session, isAuthenticated } = useAuthContext();
   const customerData = useSelector(
     (customer: any) => customer.customer.customer
   );
@@ -66,7 +65,6 @@ const AllRoutes = (props: RouteProps) => {
             key={idx}
             path={route.path}
             element={
-              // isAuthenticated && session?.role == "user" ? (
               !isEmpty(session) && customerData?.role == "customer" ? (
                 <ClientLayout {...props}>{route.element}</ClientLayout>
               ) : (
@@ -89,7 +87,6 @@ const AllRoutes = (props: RouteProps) => {
             key={idx}
             path={route.path}
             element={
-              // isAuthenticated && session?.role == "admin" ? (
               !isEmpty(session) && customerData?.role == "admin" ? (
                 <AdminLayout {...props}>{route.element}</AdminLayout>
               ) : (

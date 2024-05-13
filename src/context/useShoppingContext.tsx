@@ -7,8 +7,8 @@ import {
 } from "react";
 import { useLocalStorage } from "@/hooks";
 import { calculateDiscount } from "@/helpers";
-import type { CartType, ShoppingState } from "../types/state";
-import type { DishType } from "@/types/food";
+import type { CartTypeTemplate, ShoppingState } from "../types/state";
+import type { DishTypeTemplate } from "@/types/food";
 
 const INIT_STATE: ShoppingState = {
   cartItems: [],
@@ -46,7 +46,7 @@ const ShopProvider = ({ children }: { children: ReactNode }) => {
     INIT_STATE
   );
 
-  const addToCart = (dish: DishType, quantity: number): void => {
+  const addToCart = (dish: DishTypeTemplate, quantity: number): void => {
     const cartItems = state.cartItems;
     if (isInCart(dish)) {
       return;
@@ -80,17 +80,19 @@ const ShopProvider = ({ children }: { children: ReactNode }) => {
     };
   }, [state.cartItems]);
 
-  const getCartItemById = (dish: DishType): CartType | undefined => {
+  const getCartItemById = (
+    dish: DishTypeTemplate
+  ): CartTypeTemplate | undefined => {
     return state.cartItems.find((item) => item.dish_id == dish.id);
   };
 
-  const removeFromCart = (dish: DishType): void => {
+  const removeFromCart = (dish: DishTypeTemplate): void => {
     let cartItems = state.cartItems;
     cartItems = cartItems.filter((cart) => cart.dish_id != dish.id);
     updateState({ cartItems });
   };
 
-  const isInCart = (dish: DishType): boolean => {
+  const isInCart = (dish: DishTypeTemplate): boolean => {
     return (
       state.cartItems.find(
         (wishlistDish) => wishlistDish?.dish_id == dish?.id
@@ -98,14 +100,17 @@ const ShopProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const isInWishlist = (dish: DishType): boolean => {
+  const isInWishlist = (dish: DishTypeTemplate): boolean => {
     return (
       state.wishlists.find((wishlistDish) => wishlistDish?.id == dish?.id) !=
       null
     );
   };
 
-  const updateQuantityForDish = (dish: DishType, quantity: number): void => {
+  const updateQuantityForDish = (
+    dish: DishTypeTemplate,
+    quantity: number
+  ): void => {
     updateState({
       cartItems: state.cartItems.map((cartItem) => {
         if (cartItem.dish_id == dish.id) {
@@ -119,7 +124,7 @@ const ShopProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const toggleToWishlist = (dish: DishType): void => {
+  const toggleToWishlist = (dish: DishTypeTemplate): void => {
     let wishlists = state.wishlists;
     if (isInWishlist(dish)) {
       wishlists = wishlists.filter((p) => p.id != dish.id);

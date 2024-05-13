@@ -1,6 +1,6 @@
-import type { DishTypeAPI } from "@/types/food";
+import type { DishType } from "@/types/food";
 
-export const calculateDiscount = (dish: DishTypeAPI): number => {
+export const calculateDiscount = (dish: DishType): number => {
   return dish.saleType == "amount"
     ? dish.saleDiscount
     : dish.saleType  == "percent"
@@ -8,7 +8,7 @@ export const calculateDiscount = (dish: DishTypeAPI): number => {
       : 0;
 };
 
-export const calculatedPrice = (dish: DishTypeAPI): number => {
+export const calculatedPrice = (dish: DishType): number => {
   return getPreciseCurrency(dish.price - calculateDiscount(dish));
 };
 
