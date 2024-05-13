@@ -14,7 +14,7 @@ import SimplebarReactClient from "../../SimplebarReactClient";
 import TabNavigation from "./TabNavigation";
 import VerticalMenu from "./VerticalMenu";
 import { OfferAdBanner } from "../../index";
-import { logoDarkImg, logoLightImg } from "@/assets/data/images";
+import { logoDarkImg, logoLightImg, logoMyummy } from "@/assets/data/images";
 import { getClientVerticalMenuItems, getHorizontalMenuItems } from "@/helpers";
 import ProductSearchBar from "./ProductSearchBar";
 import CartAndWishList from "./CartAndWishList";
@@ -65,18 +65,18 @@ const Navbar = () => {
 
                 <Link to="/">
                   <img
-                    src={logoDarkImg}
-                    height={40}
-                    width={130}
+                    src={logoMyummy}
+                    height={50}
+                    width={120}
                     alt="logo"
-                    className="flex h-10 dark:hidden"
+                    className="flex h-20 w-20 dark:hidden mobile:h-10 mobile:w-10"
                   />
                   <img
-                    src={logoLightImg}
-                    height={40}
-                    width={130}
+                    src={logoMyummy}
+                    height={50}
+                    width={120}
                     alt="logo"
-                    className="hidden h-10 dark:flex"
+                    className="hidden h-20 w-20 dark:flex"
                   />
                 </Link>
               </div>

@@ -55,7 +55,7 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
           updateTheme,
           resetSettings,
         }),
-        [settings, themeMode],
+        [settings, themeMode]
       )}
     >
       {children}

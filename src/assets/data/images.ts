@@ -1,5 +1,6 @@
 import logoDarkImg from "../images/logo-dark.png";
 import logoLightImg from "../images/logo-light.png";
+import logoMyummy from "../images/logo-Myummy.png";
 
 // avatars
 import avatar1Img from "../images/avatars/avatar1.png";
@@ -218,6 +219,7 @@ import seller6Img from "../images/seller/6.png";
 export {
   logoDarkImg,
   logoLightImg,
+  logoMyummy,
   avatar1Img,
   avatar2Img,
   avatar3Img,

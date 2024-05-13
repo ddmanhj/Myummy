@@ -19,27 +19,16 @@ import {
   mockupHomeImg,
   offerBgHomeImg,
 } from "@/assets/data/images";
-import Cookies from "js-cookie";
 import { consumerReviews } from "@/assets/data";
 
 import { currentCurrency } from "@/common";
 import { PageTitle } from "@/components";
-import { useDispatch } from "react-redux";
-import { isEmpty } from "lodash";
-import { customerLogOut } from "@/redux/customerSlice";
-import { clearCart } from "@/redux/cartSlice";
 const TestimonialsSwiper = lazy(
   () => import("@/components/swipers/TestimonialsSwiper")
 );
 const SpecialMenu = lazy(() => import("@/components/SpecialMenu"));
 
 const Home = () => {
-  const getSessionCustomer = Cookies.get("getRefreshToken");
-  const dispatch = useDispatch();
-  if (isEmpty(getSessionCustomer)) {
-    dispatch(clearCart());
-    dispatch(customerLogOut());
-  }
   return (
     <>
       <PageTitle title="Home" />
