@@ -31,12 +31,6 @@ const onRequest = async (
     newConfig.headers['Content-Type'] = 'application/json';
   }
 
-  const loginData = Cookies.get('newAccessToken');
-  const token = loginData ? loginData : null;
-    
-  if (token) {
-    newConfig.headers.Authorization = `Bearer ${token}`;
-  }
   newConfig.headers.clientTime = new Date().toISOString();
   newConfig.headers.clientMessageId = 4263432;
   return newConfig;
