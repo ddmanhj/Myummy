@@ -114,7 +114,6 @@ export const useGetListDishes = () => {
 export const useGetDishByWishList = (dispatch: any) => {
   return useMutation({
     mutationKey: ['addWishList'],
-    retry: 1,
     onSuccess: (data) => {
       if(data.status === false) {
         notify(data?.data, 'error');
@@ -133,7 +132,6 @@ export const useGetDishByWishList = (dispatch: any) => {
 export const useAddWishList = () => {
   return useMutation({
     mutationKey: ['addWishList'],
-    retry: 1,
     onSuccess: (data) => {
       if(data.status === false) {
         notify(data?.data, 'error');
@@ -154,7 +152,6 @@ export const useAddWishList = () => {
 export const useDeleteWishList = () => {
   return useMutation({
     mutationKey: ['deleteWishList'],
-    retry: 1,
     onSuccess: (data) => {
       if(data.status === false) {
         notify(data?.data, 'error');
