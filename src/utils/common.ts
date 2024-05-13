@@ -106,6 +106,7 @@ export const handleError = async (error: any): Promise<void> => {
       const response = (await handleRefreshToken(refreshToken)) as any;
       if (response?.data?.data) {
         // axios.defaults.headers.common.Authorization = `${response.data.data}`;
+        Cookies.set('newAccessToken', response.data.data?.token, { expires: 1 });
         baseApi(error.config);
       } else {
         // xử lý khi refresh token lỗi
@@ -121,6 +122,7 @@ export const handleError = async (error: any): Promise<void> => {
         const response = (await handleRefreshToken(loginData ?? "")) as any;
         if (response?.data?.data && response?.status) {
           // axios.defaults.headers.common.Authorization = `${response.data.data}`;
+          Cookies.set('newAccessToken', response.data.data?.token, { expires: 1 });
           baseApi(error.config);
         } else {
           window.location.href = '/auth/login';
