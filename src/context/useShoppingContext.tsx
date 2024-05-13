@@ -43,7 +43,7 @@ export const useShoppingContext = (): ShoppingState => {
 const ShopProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useLocalStorage<ShoppingState>(
     "__Yum_Next_Session__",
-    INIT_STATE,
+    INIT_STATE
   );
 
   const addToCart = (dish: DishType, quantity: number): void => {
@@ -93,7 +93,7 @@ const ShopProvider = ({ children }: { children: ReactNode }) => {
   const isInCart = (dish: DishType): boolean => {
     return (
       state.cartItems.find(
-        (wishlistDish) => wishlistDish?.dish_id == dish?.id,
+        (wishlistDish) => wishlistDish?.dish_id == dish?.id
       ) != null
     );
   };
@@ -146,7 +146,7 @@ const ShopProvider = ({ children }: { children: ReactNode }) => {
           getCalculatedOrder,
           getCartItemById,
         }),
-        [state, isInWishlist, isInCart],
+        [state, isInWishlist, isInCart]
       )}
     >
       {children}

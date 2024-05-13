@@ -119,7 +119,18 @@ export const handleError = async (error: any): Promise<void> => {
     }
   }
   if (error?.response?.status === 401 || isEmpty(loginData)) {
-    window.location.href = '/auth/login';
+      if(!isEmpty(loginData)) {
+        const response = (await handleRefreshToken(loginData ?? "")) as any;
+        if (response?.data?.data && response?.status) {
+          // axios.defaults.headers.common.Authorization = `${response.data.data}`;
+          Cookies.set('newAccessToken', response.data.data?.token, { expires: 7 });
+          baseApi(error.config);
+        } else {
+          window.location.href = '/auth/login';
+        }
+      } else {
+        window.location.href = '/auth/login';
+      }
   }
 };
 

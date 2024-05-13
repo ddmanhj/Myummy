@@ -48,7 +48,7 @@ export type DishType = {
 };
 
 export type DishTypeAPI = {
-  id: IdType;
+  id: IdType | any;
   dishesName: string;
   price: number;
   description: string,
@@ -98,4 +98,18 @@ export type SpecialMenuType = {
   id: number,
   categoryName: string,
   urlImageCategory: string,
+}
+
+export type wishlistType = {
+  id: IdType,
+  wishList: {
+    wishList:{
+      dishesID: DishTypeAPI[]
+    }
+  }
+}
+
+export type DataWishListRequest = {
+  customerID?: IdType,
+  dishesID?: number
 }

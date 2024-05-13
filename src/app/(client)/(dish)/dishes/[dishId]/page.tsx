@@ -69,7 +69,7 @@ const ProductDetail = () => {
                   className={cn(
                     "py-5",
                     consumerReviews.length !== idx + 1 &&
-                      "border-b border-default-200",
+                      "border-b border-default-200"
                   )}
                 >
                   <div className="mb-3 flex items-center">
@@ -97,7 +97,7 @@ const ProductDetail = () => {
                               key={idx}
                               className="text-base text-yellow-400"
                             />
-                          ),
+                          )
                         )}
                         {!Number.isInteger(review.stars) && (
                           <FaStarHalfStroke
@@ -107,7 +107,7 @@ const ProductDetail = () => {
                         )}
                         {review.stars < 5 &&
                           Array.from(
-                            new Array(5 - Math.ceil(review.stars)),
+                            new Array(5 - Math.ceil(review.stars))
                           ).map((_val, idx) => (
                             <FaStar
                               key={idx}
