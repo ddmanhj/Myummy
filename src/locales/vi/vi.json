@@ -1,5 +1,23 @@
 {
+  "/*Menu Items*/": "",
   "Claim Offer": "Nhận Ưu Đãi",
-  "Contact Us": "Liên Hệ",
-  "specialMenu": "Thực Đơn Đặc Biệt"
+  "contact": "Liên Hệ",
+  "help": "Trợ Giúp",
+  "specialMenu": "Thực Đơn Đặc Biệt",
+  "menu": "Menu",
+  "home": "Trang chủ",
+  "about us": "Về chúng tôi",
+  "/*End Menu Items*/": "",
+
+  "/*Home Page*/": "",
+  "specialFood": "Thực Đơn Đặc Biệt",
+  "headingDescription": "Chúng tôi cung cấp dịch vụ ngon và nhanh chóng",
+  "weOffer": "Chúng tôi cung cấp ",
+  "food": "Thức ăn",
+  "delicious": "Ngon",
+  "service": "Dịch vụ",
+  "quickly": "Nhanh chóng",
+  "descriptionHomePage": "Hãy tưởng tượng bạn không cần ăn kiêng vì chúng tôi cung cấp thực phẩm lành mạnh và ngon miệng cho bạn!.",
+  "ourHappyCustomers": "Khách hàng thân thiết",
+  "/*End Home Page*/": ""
 }

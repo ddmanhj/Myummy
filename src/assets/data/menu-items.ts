@@ -23,13 +23,13 @@ import { AdminMenuItemType, MenuItemType } from "@/helpers";
 const clientMenuItems: MenuItemType[] = [
   {
     key: "home-page",
-    label: "Home",
+    label: "home",
     url: "/",
     isTitle: true,
   },
   {
     key: "dish",
-    label: "Menu",
+    label: "menu",
     isTitle: true,
     url: "/dishes",
     // children: [
@@ -49,13 +49,13 @@ const clientMenuItems: MenuItemType[] = [
   },
   {
     key: "user-pages",
-    label: "About us",
+    label: "about us",
     isTitle: true,
     url: '/about-us'
   },
   {
     key: "Contact",
-    label: "Contact",
+    label: "contact",
     url: "/contact-us",
     isTitle: true,
   },

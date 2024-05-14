@@ -84,12 +84,12 @@ const OfferAdBanner = () => {
           <ul className="flex items-center justify-end gap-4">
             <li className="menu-item flex">
               <Link className="text-sm hover:text-primary" to="/faqs">
-                Help
+                {t("help")}
               </Link>
             </li>
             <li className="menu-item flex">
               <Link className="text-sm hover:text-primary" to="/contact-us">
-                {t("Contact Us")}
+                {t("contact")}
               </Link>
             </li>
           </ul>
