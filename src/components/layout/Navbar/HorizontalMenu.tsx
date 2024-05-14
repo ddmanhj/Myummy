@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { LuChevronDown } from "react-icons/lu";
@@ -36,6 +37,7 @@ const MenuItemWithChildren = ({
     if (toggleMenu) toggleMenu(item, status);
     return false;
   };
+  const { t } = useTranslation();
 
   return (
     <li>
@@ -49,7 +51,7 @@ const MenuItemWithChildren = ({
           data-menu-key={item.key}
           onClick={toggleMenuItem}
         >
-          {item.label}
+          {t(`${item.label}`)}
           <LuChevronDown className="ms-2 h-4 w-4" />
         </button>
         <div className="hs-dropdown-menu z-10 mt-4 hidden min-w-[200px] rounded-lg border border-default-100 bg-white p-1.5 opacity-0 shadow-lg transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
@@ -94,6 +96,7 @@ const MenuItem = ({ item, className, linkClassName }: SubMenus) => {
 };
 
 const MenuItemLink = ({ item, className }: SubMenus) => {
+  const { t } = useTranslation();
   return (
     <Link
       className={className}
@@ -101,7 +104,7 @@ const MenuItemLink = ({ item, className }: SubMenus) => {
       target={item.target}
       data-menu-key={item.key}
     >
-      {item.label}
+      {t(`${item.label}`)}
     </Link>
   );
 };

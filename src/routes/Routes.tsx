@@ -23,6 +23,9 @@ const AllRoutes = (props: RouteProps) => {
   );
   const session = Cookies.get("getRefreshToken");
 
+  // import { useTranslation } from "react-i18next";
+  // const { t } = useTranslation();
+
   return (
     <Routes>
       <Route>
