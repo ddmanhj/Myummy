@@ -1,18 +1,23 @@
-import React, { useMemo } from "react";
+import { memo } from "react";
 import { FaStar } from "react-icons/fa6";
 import {
   circleLineHomeImg,
-  logoMyummy,
   arrowHomeImg,
   avatar1Img,
   avatar2Img,
   avatar3Img,
   burger1IconCategoryImg,
 } from "@/assets/data/images";
-import videoLoopHomepage from "@/assets/images/videos/homepage.mp4";
+import gifHomePage from "@/assets/images/videos/homepage.gif";
 import { LuClock3 } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { languageState } from "@/redux/customerSlice";
+import { readMoneyCurrency } from "@/utils";
 
 const videoHomepage = () => {
+  const { t } = useTranslation();
+  const language = useSelector(languageState);
   return (
     <>
       <section className="relative py-6 lg:py-16">
@@ -23,12 +28,24 @@ const videoHomepage = () => {
               <div className="z-10 order-last flex items-center justify-center lg:order-first lg:justify-start">
                 <div className="text-center lg:text-start">
                   <span className="mb-8 inline-flex rounded-full bg-primary/20 px-4 py-2 text-sm text-primary lg:mb-2">
-                    #Special Food 🍇
+                    #{t("specialFood")} 🍇
                   </span>
                   <div className="mb-5 text-3xl font-bold capitalize text-default-950 md:text-5xl/snug lg:text-6xl/normal">
-                    We Offer&nbsp;
+                    {t(`weOffer`)}{" "}
+                    {language == "vi" ? (
+                      <span className="text-primary">{t("food")}</span>
+                    ) : (
+                      ""
+                    )}{" "}
+                    &nbsp;
                     <span className="relative inline-flex">
-                      <span>Delicious</span>
+                      <span>
+                        {language == "vi" ? (
+                          <>{t("delicious")}</>
+                        ) : (
+                          t("delicious")
+                        )}
+                      </span>
                       <img
                         src={circleLineHomeImg}
                         width={282}
@@ -37,11 +54,23 @@ const videoHomepage = () => {
                         className="absolute -z-10 hidden h-full w-full lg:flex"
                       />
                     </span>
-                    <span className="text-primary">Food</span> And Quick Service
+                    {language == "vi" ? (
+                      <>
+                        <br />
+                        <span className="text-primary">
+                          {t("service")}
+                        </span>{" "}
+                        <>{t("quickly")}</>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-primary">Food</span>{" "}
+                        <>And Quick Service</>
+                      </>
+                    )}
                   </div>
                   <p className="mx-auto mb-8 text-lg font-medium text-default-700 md:max-w-md lg:mx-0">
-                    Imagine you don’t need a diet because we provide healthy and
-                    delicious food for you!.
+                    {t("descriptionHomePage")}
                   </p>
 
                   <div className="mt-14">
@@ -77,7 +106,7 @@ const videoHomepage = () => {
                       </div>
                       <div>
                         <h1 className="text-base font-medium text-default-800">
-                          Our Happy Customers
+                          {t("ourHappyCustomers")}
                         </h1>
                         <p className="text-base text-default-900">
                           <FaStar
@@ -156,7 +185,7 @@ const videoHomepage = () => {
                   </span>
                   <div>
                     <h6 className="text-sm font-medium text-default-900">
-                      MCD Veg Burger
+                      Veg Burger
                     </h6>
                     <span className="inline-flex gap-0.5">
                       <FaStar
@@ -181,27 +210,21 @@ const videoHomepage = () => {
                       />
                     </span>
                     <h6 className="text-sm font-medium text-default-900">
-                      <span className="text-sm text-primary">$</span> 8.14
+                      <span className="text-sm text-primary">
+                        {readMoneyCurrency(40000, language)}
+                      </span>
                     </h6>
                   </div>
                 </div>
               </div>
 
-              <video
-                src={videoLoopHomepage}
-                width={600}
+              <img
+                src={gifHomePage}
+                width={800}
                 height={600}
-                loop
-                autoPlay
-                className="mx-auto"
-              />
-              {/* <img
-                src={logoMyummy}
-                width={497}
-                height={537}
                 alt="logoMyummy"
                 className="mx-auto"
-              /> */}
+              />
             </div>
           </div>
         </div>
@@ -210,4 +233,4 @@ const videoHomepage = () => {
   );
 };
 
-export default videoHomepage;
+export default memo(videoHomepage);

@@ -20,7 +20,7 @@ function useLayoutContext() {
 
 function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
   const INIT_STATE: LayoutState = {
-    theme: "light",
+    theme: (localStorage.getItem("theme") as LayoutTheme) || "light",
   };
 
   const [settings, setSettings] = useState<LayoutState>(INIT_STATE);
@@ -29,6 +29,7 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
 
   // update settings
   const updateSettings = (_newSettings: Partial<LayoutState>) => {
+    localStorage.setItem("theme", _newSettings.theme || "light");
     setSettings({ ...settings, ..._newSettings });
   };
 
@@ -39,6 +40,7 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
   }, [themeMode]);
 
   const updateTheme = (newTheme: LayoutTheme) => {
+    console.log("🚀 ~ updateTheme ~ newTheme:", newTheme);
     updateSettings({ ...settings, theme: newTheme });
   };
 

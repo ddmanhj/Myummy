@@ -8,6 +8,7 @@ import {
   getMenuItemFromURL,
 } from "@/helpers";
 import { cn } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 type SubMenus = {
   item: MenuItemType;
@@ -25,6 +26,7 @@ const MenuItemWithChildren = ({
   className,
 }: SubMenus) => {
   const [open, setOpen] = useState(activeMenuItems!.includes(item.key));
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (activeMenuItems) setOpen(activeMenuItems.includes(item.key));
@@ -42,13 +44,13 @@ const MenuItemWithChildren = ({
       <button
         className={cn(
           "hs-accordion-toggle flex w-full items-center gap-x-3.5 rounded-md px-2.5 py-2 text-sm font-medium text-default-700 hover:bg-default-100 hs-accordion-active:bg-default-100 hs-accordion-active:text-primary",
-          { "text-primary": activeMenuItems!.includes(item.key) },
+          { "text-primary": activeMenuItems!.includes(item.key) }
         )}
         aria-expanded={open}
         data-menu-key={item.key}
         onClick={toggleMenuItem}
       >
-        {item.label}
+        {t(`${item.label}`)}
         <LuChevronDown
           size={20}
           className="ms-auto h-5 w-5 transition-all hs-accordion-active:rotate-180"
@@ -96,6 +98,7 @@ const MenuItem = ({ item, className, linkClassName }: SubMenus) => {
 };
 
 const MenuItemLink = ({ item, className }: SubMenus) => {
+  const { t } = useTranslation();
   return (
     <Link
       className={className}
@@ -103,7 +106,7 @@ const MenuItemLink = ({ item, className }: SubMenus) => {
       target={item.target}
       data-menu-key={item.key}
     >
-      {item.label}
+      {t(`${item.label}`)}
     </Link>
   );
 };
@@ -159,7 +162,7 @@ const VerticalMenu = ({ menuItems }: { menuItems: MenuItemType[] }) => {
                 className="hs-accordion"
                 activeMenuItems={activeMenuItems}
                 linkClassName={cn(
-                  "flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100",
+                  "flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100"
                 )}
               />
             ) : (
@@ -169,7 +172,7 @@ const VerticalMenu = ({ menuItems }: { menuItems: MenuItemType[] }) => {
                   "flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100",
                   {
                     "text-primary": activeMenuItems.includes(item.key),
-                  },
+                  }
                 )}
                 className=""
               />

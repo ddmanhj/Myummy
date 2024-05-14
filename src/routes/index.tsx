@@ -8,7 +8,7 @@ import { flattenRoutes } from "@/helpers";
 const Landing = lazy(() => import("../app/page"));
 const NotFound = lazy(() => import("../app/not-found"));
 const NotFoundAlt = lazy(
-  () => import("../app/admin/extra-pages/not-found-alt/page"),
+  () => import("../app/admin/extra-pages/not-found-alt/page")
 );
 const Maintenance = lazy(() => import("../app/(plain)/maintenance/page"));
 const ComingSoon = lazy(() => import("../app/(plain)/coming-soon/page"));
@@ -23,66 +23,66 @@ const Logout = lazy(() => import("../app/auth/logout/page"));
 // client pages
 const Dishes = lazy(() => import("../app/(client)/(dish)/dishes/page"));
 const DishDetails = lazy(
-  () => import("../app/(client)/(dish)/dishes/[dishId]/page"),
+  () => import("../app/(client)/(dish)/dishes/[dishId]/page")
 );
 const DishesList = lazy(
-  () => import("../app/(client)/(dish)/dishes-list/page"),
+  () => import("../app/(client)/(dish)/dishes-list/page")
 );
 const ContactUs = lazy(() => import("../app/(client)/contact-us/page"));
 const FAQs = lazy(() => import("../app/(client)/faqs/page"));
 const Home = lazy(() => import("../app/(client)/home/page"));
 const Cart = lazy(() => import("../app/(client)/(protected)/cart/page"));
 const Checkout = lazy(
-  () => import("../app/(client)/(protected)/checkout/page"),
+  () => import("../app/(client)/(protected)/checkout/page")
 );
 const Wishlist = lazy(
-  () => import("../app/(client)/(protected)/wishlist/page"),
+  () => import("../app/(client)/(protected)/wishlist/page")
 );
 
 // admin pages
 const AdminCustomers = lazy(
-  () => import("../app/admin/(customer)/customers/page"),
+  () => import("../app/admin/(customer)/customers/page")
 );
 const AdminCustomerDetails = lazy(
-  () => import("../app/admin/(customer)/customers/[customerId]/page"),
+  () => import("../app/admin/(customer)/customers/[customerId]/page")
 );
 const AdminAddCustomer = lazy(
-  () => import("../app/admin/(customer)/add-customer/page"),
+  () => import("../app/admin/(customer)/add-customer/page")
 );
 const AdminEditCustomer = lazy(
-  () => import("../app/admin/(customer)/edit-customer/page"),
+  () => import("../app/admin/(customer)/edit-customer/page")
 );
 const AdminDishes = lazy(() => import("../app/admin/(dish)/dishes/page"));
 const AdminDishDetails = lazy(
-  () => import("../app/admin/(dish)/dishes/[adminDishId]/page"),
+  () => import("../app/admin/(dish)/dishes/[adminDishId]/page")
 );
 const AdminAddDish = lazy(() => import("../app/admin/(dish)/add-dish/page"));
 const AdminEditDish = lazy(() => import("../app/admin/(dish)/edit-dish/page"));
 const AdminOrders = lazy(() => import("../app/admin/(order)/orders/page"));
 const AdminOrderDetails = lazy(
-  () => import("../app/admin/(order)/orders/[orderId]/page"),
+  () => import("../app/admin/(order)/orders/[orderId]/page")
 );
 const AdminRestaurants = lazy(
-  () => import("../app/admin/(restaurant)/restaurants/page"),
+  () => import("../app/admin/(restaurant)/restaurants/page")
 );
 const AdminRestaurantDetails = lazy(
-  () => import("../app/admin/(restaurant)/restaurants/[restaurantId]/page"),
+  () => import("../app/admin/(restaurant)/restaurants/[restaurantId]/page")
 );
 const AdminAddRestaurant = lazy(
-  () => import("../app/admin/(restaurant)/add-restaurant/page"),
+  () => import("../app/admin/(restaurant)/add-restaurant/page")
 );
 const AdminEditRestaurant = lazy(
-  () => import("../app/admin/(restaurant)/edit-restaurant/page"),
+  () => import("../app/admin/(restaurant)/edit-restaurant/page")
 );
 const AdminSellers = lazy(() => import("../app/admin/(seller)/sellers/page"));
 const AdminSellerDetails = lazy(
-  () => import("../app/admin/(seller)/sellers/[sellerId]/page"),
+  () => import("../app/admin/(seller)/sellers/[sellerId]/page")
 );
 const AdminAddSeller = lazy(
-  () => import("../app/admin/(seller)/add-seller/page"),
+  () => import("../app/admin/(seller)/add-seller/page")
 );
 const AdminEditSeller = lazy(
-  () => import("../app/admin/(seller)/edit-seller/page"),
+  () => import("../app/admin/(seller)/edit-seller/page")
 );
 const AdminManage = lazy(() => import("../app/admin/manage/page"));
 const AdminProfile = lazy(() => import("../app/admin/profile/page"));
@@ -94,7 +94,7 @@ const GalleryPage = lazy(() => import("../app/admin/extra-pages/gallery/page"));
 const InvoicePage = lazy(() => import("../app/admin/extra-pages/invoice/page"));
 const PricingPage = lazy(() => import("../app/admin/extra-pages/pricing/page"));
 const TimelinePage = lazy(
-  () => import("../app/admin/extra-pages/timeline/page"),
+  () => import("../app/admin/extra-pages/timeline/page")
 );
 
 const UiElements = lazy(() => import("../app/admin/ui-elements/page"));
@@ -103,7 +103,7 @@ const FeatherIcons = lazy(() => import("../app/admin/icons/feather/page"));
 const LucideIcons = lazy(() => import("../app/admin/icons/lucide/page"));
 
 const BasicElemets = lazy(
-  () => import("../app/admin/forms/basic-elements/page"),
+  () => import("../app/admin/forms/basic-elements/page")
 );
 const Advanced = lazy(() => import("../app/admin/forms/advanced/page"));
 const Validation = lazy(() => import("../app/admin/forms/validation/page"));
@@ -116,7 +116,7 @@ const BarApex = lazy(() => import("../app/admin/charts/bar/page"));
 const BoxPlotApex = lazy(() => import("../app/admin/charts/box-plot/page"));
 const BubbleApex = lazy(() => import("../app/admin/charts/bubble/page"));
 const CandleStickApex = lazy(
-  () => import("../app/admin/charts/candle-stick/page"),
+  () => import("../app/admin/charts/candle-stick/page")
 );
 const ColumnApex = lazy(() => import("../app/admin/charts/column/page"));
 const HeatApex = lazy(() => import("../app/admin/charts/heat/page"));
@@ -128,7 +128,7 @@ const RadarApex = lazy(() => import("../app/admin/charts/radar/page"));
 const RadialbarApex = lazy(() => import("../app/admin/charts/radialbar/page"));
 const ScatterApex = lazy(() => import("../app/admin/charts/scatter/page"));
 const SparklinesApex = lazy(
-  () => import("../app/admin/charts/sparklines/page"),
+  () => import("../app/admin/charts/sparklines/page")
 );
 const TimelineApex = lazy(() => import("../app/admin/charts/timeline/page"));
 const TreemapApex = lazy(() => import("../app/admin/charts/treemap/page"));
