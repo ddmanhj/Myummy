@@ -6,17 +6,19 @@ import { LuQuote } from "react-icons/lu";
 import { avatar1Img, avatar2Img, avatar3Img, avatar4Img } from "@/assets/data";
 import type { Swiper as SwiperType } from "swiper";
 import type { TestimonialType } from "@/types/other";
+import { useTranslation } from "react-i18next";
 
 const TestimonialsSwiper = ({ reviews }: { reviews: TestimonialType[] }) => {
+  const { t } = useTranslation();
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
     <div>
       <span className="mb-6 inline-flex rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">
-        Testimonials
+        {t("testimonials")}
       </span>
       <h2 className="mb-4 max-w-xl text-3xl font-semibold text-default-900">
-        What They Say About Us.
+        {t("customersFeedback")}
       </h2>
       <div className="product-img-slider sticky-side-div">
         <Swiper
@@ -58,7 +60,7 @@ const TestimonialsSwiper = ({ reviews }: { reviews: TestimonialType[] }) => {
                               size={16}
                               className="fill-yellow-400 text-yellow-400"
                             />
-                          ),
+                          )
                         )}
                         {!Number.isInteger(review.stars) && (
                           <FaStarHalfStroke

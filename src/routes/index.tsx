@@ -25,9 +25,6 @@ const Dishes = lazy(() => import("../app/(client)/(dish)/dishes/page"));
 const DishDetails = lazy(
   () => import("../app/(client)/(dish)/dishes/[dishId]/page")
 );
-const DishesList = lazy(
-  () => import("../app/(client)/(dish)/dishes-list/page")
-);
 const ContactUs = lazy(() => import("../app/(client)/contact-us/page"));
 const FAQs = lazy(() => import("../app/(client)/faqs/page"));
 const Home = lazy(() => import("../app/(client)/home/page"));
@@ -183,11 +180,6 @@ const clientRoutes: RoutesProps[] = [
     path: "/dishes/:dishId",
     name: "Dish Details",
     element: <DishDetails />,
-  },
-  {
-    path: "/dishes-list",
-    name: "Dishes List",
-    element: <DishesList />,
   },
   {
     path: "/contact-us",

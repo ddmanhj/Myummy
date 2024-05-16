@@ -26,7 +26,7 @@ const ProductSearchBar = () => {
 
   return (
     <form>
-      <div className="relative w-72">
+      <div className="relative w-60">
         <input
           type="search"
           placeholder="Search for items..."
@@ -44,7 +44,7 @@ const ProductSearchBar = () => {
       <button className="hidden" type="submit" />
       {createPortal(
         <FloatingSearchBar handleSearch={handleSearch} searchValue={search} />,
-        document.body,
+        document.body
       )}
     </form>
   );

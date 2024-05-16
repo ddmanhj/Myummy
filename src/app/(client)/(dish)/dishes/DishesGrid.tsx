@@ -5,15 +5,13 @@ import { useGetListDishes } from "@/services/services";
 import { DishType } from "@/types/food";
 
 export const FoundResultsCount = () => {
-  const { categories, maxPrice, minPrice, rating, restaurants, search } =
-    useFilterContext();
+  const { categories, maxPrice, minPrice, rating, search } = useFilterContext();
 
   const dishes = getFilteredProducts({
     categories,
     maxPrice,
     minPrice,
     rating,
-    restaurants,
     search,
   });
 
@@ -25,8 +23,7 @@ export const FoundResultsCount = () => {
 };
 
 const DishesGrid = () => {
-  const { categories, maxPrice, minPrice, rating, restaurants, search } =
-    useFilterContext();
+  const { categories, maxPrice, minPrice, rating, search } = useFilterContext();
   const { data: listDishes } = useGetListDishes();
 
   const dishes = getFilteredProducts({
@@ -34,7 +31,6 @@ const DishesGrid = () => {
     maxPrice,
     minPrice,
     rating,
-    restaurants,
     search,
   });
 

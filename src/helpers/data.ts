@@ -4,34 +4,30 @@ import {
   categoriesData,
   dishesData,
   orderHistoryData,
-  restaurantsData,
   sellersData,
 } from "@/assets/data";
-import type { CategoryType, DishTypeTemplate, RestaurantType } from "@/types/food";
+import type { CategoryType, DishType, RestaurantType } from "@/types/food";
 import type { OrderType } from "@/types/other";
 import type { FilterState } from "../types/state";
 
 export const getFilteredProducts = (
   filter: Pick<
     FilterState,
-    "categories" | "restaurants" | "minPrice" | "maxPrice" | "rating" | "search"
+    "categories"  | "minPrice" | "maxPrice" | "rating" | "search"
   >,
-): DishTypeTemplate[] => {
-  const products: DishTypeTemplate[] = dishesData;
+): DishType[] => {
+  const products: DishType[] = [];
   filter = filter ?? {};
   return products.filter((dish) => {
     return !(
       (filter.categories &&
         !!filter.categories.length &&
-        !filter.categories.includes(dish.category_id)) ||
-      (filter.restaurants &&
-        !!filter.restaurants.length &&
-        !filter.restaurants.includes(dish.restaurant_id)) ||
+        !filter.categories.includes(dish?.categoryID)) ||
       (filter.minPrice && !(calculatedPrice(dish) >= filter.minPrice)) ||
       (filter.maxPrice && !(calculatedPrice(dish) <= filter.maxPrice)) ||
       (filter.search &&
-        !dish.name.toLowerCase().includes(filter.search.toLowerCase())) ||
-      (filter.rating && !(dish.review.stars >= filter.rating))
+        !dish.dishesName.toLowerCase().includes(filter.search.toLowerCase())) ||
+      (filter.rating && !(dish.reviewStars >= filter.rating))
     );
   });
 };
@@ -48,12 +44,6 @@ export const getAllCategories = async () => {
   return categoriesData;
 };
 
-export const getAllRestaurants = async () => {
-  // You can fetch data from your server here
-  await sleep(200);
-  return restaurantsData;
-};
-
 export const getAllSellers = async () => {
   // You can fetch data from your server here
   await sleep(200);
@@ -65,7 +55,7 @@ export const getAllOrders = async () => {
   return orderHistoryData;
 };
 
-export const getDishById = async (id: DishTypeTemplate["id"]) => {
+export const getDishById = async (id: DishType["id"]) => {
   // You can fetch data from your server here
   await sleep(200);
   const dish = dishesData.find((dish) => dish.id == id);
@@ -76,17 +66,6 @@ export const getCategoryById = async (id: CategoryType["id"]) => {
   // You can fetch data from your server here
   await sleep(200);
   return categoriesData.find((category) => category.id == id);
-};
-
-export const getRestaurantById = async (
-  id: RestaurantType["id"],
-  options: { dummyDelay: boolean } = { dummyDelay: true },
-) => {
-  // You can fetch data from your server here
-  if (options.dummyDelay) {
-    await sleep(200);
-  }
-  return restaurantsData.find((restaurant) => restaurant.id == id);
 };
 
 export const getSellerById = async (id: RestaurantType["id"]) => {

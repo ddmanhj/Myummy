@@ -49,9 +49,7 @@ const Home = () => {
                 {t("aboutUsHeading")}
               </h2>
               <p className="mb-16 max-w-2xl font-medium text-default-500 xl:mb-20">
-                It’s the perfect dining experience where every dish is crafted
-                with fresh, high-quality ingredients and served by friendly
-                staff who go.
+                {t("aboutUsDescription")}
               </p>
               <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                 <div className="rounded-md border border-default-100 bg-transparent shadow-lg transition-all duration-200 hover:border-primary">
@@ -65,10 +63,10 @@ const Home = () => {
                       />
                     </div>
                     <h3 className="mb-6 text-xl font-medium text-default-900">
-                      Fast Foods
+                      {t("fastFood")}
                     </h3>
                     <p className="text-base text-default-500">
-                      Healthy Foods are nutrient-Dense Foods
+                      {t("descriptionFastFoodCard")}
                     </p>
                   </div>
                 </div>
@@ -83,10 +81,10 @@ const Home = () => {
                       />
                     </div>
                     <h3 className="mb-6 text-xl font-medium text-default-900">
-                      Healthy Foods
+                      {t("healthyFoods")}
                     </h3>
                     <p className="text-base text-default-500">
-                      Healthy Foods are nutrient-Dense Foods
+                      {t("descriptionHealthyFoodsCard")}
                     </p>
                   </div>
                 </div>
@@ -101,10 +99,10 @@ const Home = () => {
                       />
                     </div>
                     <h3 className="mb-6 text-xl font-medium text-default-900">
-                      Fast Delivery
+                      {t("fastDelivery")}
                     </h3>
                     <p className="text-base text-default-500">
-                      Healthy Foods are nutrient-Dense Foods
+                      {t("descriptionFastDeliveryCard")}
                     </p>
                   </div>
                 </div>
@@ -112,7 +110,7 @@ const Home = () => {
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
                 <div className="flex items-center gap-2">
                   <img
-                    src={avatar3Img}
+                    src={"https://i.imgur.com/feZ6He1.gif"}
                     height={48}
                     width={48}
                     className="h-12 w-12 rounded-full"
@@ -120,7 +118,7 @@ const Home = () => {
                   />
                   <div>
                     <h6 className="text-base font-medium text-default-900">
-                      Marley Culhane
+                      Manhj
                     </h6>
                     <p className="text-sm font-medium text-default-500">
                       Founder CEO

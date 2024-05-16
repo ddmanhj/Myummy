@@ -220,10 +220,8 @@ const videoHomepage = () => {
 
               <img
                 src={gifHomePage}
-                width={800}
-                height={600}
                 alt="logoMyummy"
-                className="mx-auto"
+                className="mx-auto mobile:w-[1000px] mobile:h-650px mobile:max-w-[110%]"
               />
             </div>
           </div>
