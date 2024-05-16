@@ -135,13 +135,18 @@ const SpecialMenu = () => {
               </div>
             </div>
           ) : (
-            <Image
-              src={imgEmptySpecialMenu}
-              alt="empty-special-menu"
-              width={1118}
-              height={664.69}
-              preview={false}
-            />
+            <>
+              <div></div>
+              <div className="m-auto">
+                <Image
+                  src={imgEmptySpecialMenu}
+                  alt="empty-special-menu"
+                  preview={false}
+                  className="rounded-lg mobile:w-[400px] mobile-h:[400px] w-full h-[664.69px]"
+                />
+              </div>
+              <div></div>
+            </>
           )}
         </div>
       </div>

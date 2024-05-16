@@ -1,4 +1,4 @@
-import { lazy, useEffect } from "react";
+import { lazy } from "react";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,7 +13,7 @@ import {
 import SimplebarReactClient from "../../SimplebarReactClient";
 import TabNavigation from "./TabNavigation";
 import VerticalMenu from "./VerticalMenu";
-import { OfferAdBanner } from "../../index";
+// import { OfferAdBanner } from "../../index";
 import { logoDarkImg, logoLightImg, logoMyummy } from "@/assets/data/images";
 import { getClientVerticalMenuItems, getHorizontalMenuItems } from "@/helpers";
 import ProductSearchBar from "./ProductSearchBar";
@@ -21,6 +21,7 @@ import CartAndWishList from "./CartAndWishList";
 import { Link, useNavigate } from "react-router-dom";
 const HorizontalMenu = lazy(() => import("./HorizontalMenu"));
 const StickyHeader = lazy(() => import("../../StickyHeader"));
+const Language = lazy(() => import("./Language"));
 import { useLogoutCustomer } from "@/services/services";
 import { customerLogOut } from "@/redux/customerSlice";
 import { CustomerType } from "@/types/user";
@@ -30,6 +31,7 @@ import { clearCart } from "@/redux/cartSlice";
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const getCustomerData = useSelector(
     (state: CustomerType) => state.customer.customer
   );
@@ -46,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <OfferAdBanner />
+      {/* <OfferAdBanner /> */}
 
       <StickyHeader>
         <div className="flex h-14 items-center lg:h-20">
@@ -79,24 +81,26 @@ const Navbar = () => {
                     className="hidden h-20 w-20 dark:flex"
                   />
                 </Link>
+
+                <ul className="flex items-center gap-x-6 ml-5 mobile:ml-2">
+                  <li className="menu-item relative hidden xl:flex">
+                    <ProductSearchBar />
+                  </li>
+
+                  <li className="menu-item flex xl:hidden">
+                    <button
+                      data-hs-overlay="#mobileSearchSidebar"
+                      className="relative flex text-base text-default-600 transition-all hover:text-primary"
+                    >
+                      <LuSearch size={20} />
+                    </button>
+                  </li>
+                </ul>
               </div>
 
               <HorizontalMenu menuItems={getHorizontalMenuItems()} />
 
               <ul className="flex items-center justify-end gap-x-6">
-                <li className="menu-item relative hidden 2xl:flex">
-                  <ProductSearchBar />
-                </li>
-
-                <li className="menu-item flex 2xl:hidden">
-                  <button
-                    data-hs-overlay="#mobileSearchSidebar"
-                    className="relative flex text-base text-default-600 transition-all hover:text-primary"
-                  >
-                    <LuSearch size={20} />
-                  </button>
-                </li>
-
                 <CartAndWishList />
 
                 <li className="menu-item flex">
@@ -145,6 +149,10 @@ const Navbar = () => {
                       </ul>
                     </div>
                   </div>
+                </li>
+
+                <li className="menu-item flex mobile:mr-5">
+                  <Language />
                 </li>
               </ul>
             </div>

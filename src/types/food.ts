@@ -63,7 +63,7 @@ export type DishType = {
   protein: number;
   saleDiscount: number;
   saleType: string;
-  categoryId?: number;
+  categoryID?: number | any;
   quantityCart?: number;
   unitPrice?: number;
   totalPrice?:number;

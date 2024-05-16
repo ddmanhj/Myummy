@@ -50,8 +50,18 @@ export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
         notify(data?.data, 'error');
         return;
       }
+      const infoCustomer = {
+        id: data?.data?.id,
+        email: data?.data?.email,
+        role: data?.data?.role,
+        customerName: data?.data?.customerName,
+        urlImageAvatar: data?.data?.urlImageAvatar,
+        phone: data?.data?.phone,
+        createdAt: data?.data?.createdAt,
+        wishList: data?.data?.wishList
+      }
       redirectAsRole(data.data.role, true);
-      dispatch(getInfoCustomer(data.data))
+      dispatch(getInfoCustomer(infoCustomer))
       dispatch(getWishListAPI(data?.data?.wishList));
       Cookies.set('getRefreshToken', data.data?.refreshToken, { expires: 7 });
       notify('Đăng nhập thành công', 'success');

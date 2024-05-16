@@ -3,7 +3,7 @@ import { BiFoodTag } from "react-icons/bi";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 import { LuEye } from "react-icons/lu";
 import { kebabToTitleCase } from "@/utils";
-import { calculatedPrice, getRestaurantById } from "@/helpers";
+import { calculatedPrice } from "@/helpers";
 import { currentCurrency } from "@/common";
 import type { DishTypeTemplate, RestaurantType } from "@/types/food";
 const OrderInteraction = lazy(() => import("./OrderInteraction"));
@@ -34,18 +34,9 @@ const ProductDetailView = ({
   dish: DishTypeTemplate;
   showButtons?: boolean;
 }) => {
-  const { name, price, restaurant_id, review, tags, type, sale } = dish;
+  const { name, price, review, tags, type, sale } = dish;
 
-  const [restaurant, setRestaurant] = useState<RestaurantType>();
-
-  useEffect(() => {
-    (async () => {
-      const foundRestaurant = await getRestaurantById(restaurant_id);
-      if (foundRestaurant) setRestaurant(foundRestaurant);
-    })();
-  }, [restaurant_id]);
-
-  const discountedPrice = calculatedPrice(dish);
+  const [restaurant] = useState<RestaurantType>();
 
   return (
     <div>
@@ -53,7 +44,6 @@ const ProductDetailView = ({
         <h4 className="text-4xl">{name}</h4>
         <h3 className="text-3xl">
           {currentCurrency}
-          {discountedPrice}&nbsp;
           {sale && (
             <span className="ms-1 text-base text-gray-400 line-through">
               {currentCurrency}

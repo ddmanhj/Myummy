@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
-import { getRestaurantById, getSellerById } from "@/helpers";
+import { getSellerById } from "@/helpers";
 import { BreadcrumbAdmin } from "@/components";
 import { RestaurantMenuDataTable } from "@/components/data-tables";
 import CostAndUsageChart from "./CostAndUsageChart";
@@ -39,24 +39,7 @@ const columns: Array<ColumnType<DishTypeTemplate>> = [
 ];
 
 const RestaurantDetails = () => {
-  const { restaurantId } = useParams();
-
   const [restaurant, setRestaurant] = useState<RestaurantType | undefined>();
-
-  useEffect(() => {
-    (async () => {
-      const foundRestaurant = await getRestaurantById(Number(restaurantId));
-      let foundSeller;
-      if (foundRestaurant)
-        foundSeller = await getSellerById(foundRestaurant.seller_id);
-
-      if (!foundRestaurant || !foundSeller) {
-        navigate("/not-found");
-      } else {
-        setRestaurant({ ...foundRestaurant, seller: foundSeller });
-      }
-    })();
-  }, [restaurantId]);
 
   const navigate = useNavigate();
 
