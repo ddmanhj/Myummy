@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import { LuPhone } from "react-icons/lu";
 import {
   avatar1Img,
   avatar2Img,
@@ -9,15 +8,11 @@ import {
   vegetablesIconImg,
   truckIconImg,
   testimonialHomeImg,
-  avatar4Img,
-  offerPopupHomeImg,
-  mockupHomeImg,
-  offerBgHomeImg,
 } from "@/assets/data/images";
 import { consumerReviews } from "@/assets/data";
 
-import { currentCurrency } from "@/common";
 import { PageTitle } from "@/components";
+import { useTranslation } from "react-i18next";
 const TestimonialsSwiper = lazy(
   () => import("@/components/swipers/TestimonialsSwiper")
 );
@@ -25,6 +20,7 @@ const SpecialMenu = lazy(() => import("@/components/SpecialMenu"));
 const VideoHomePage = lazy(() => import("./videoHomepage.tsx"));
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <>
       <PageTitle title="Home" />
@@ -47,10 +43,10 @@ const Home = () => {
             </div>
             <div>
               <span className="mb-6 inline-flex rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">
-                About Us
+                {t("about us")}
               </span>
               <h2 className="mb-6 max-w-xl text-3xl font-semibold text-default-900">
-                Where quality food meet Excellent services.
+                {t("aboutUsHeading")}
               </h2>
               <p className="mb-16 max-w-2xl font-medium text-default-500 xl:mb-20">
                 It’s the perfect dining experience where every dish is crafted
@@ -186,114 +182,6 @@ const Home = () => {
             </div>
 
             <TestimonialsSwiper reviews={consumerReviews} />
-          </div>
-        </div>
-      </section>
-
-      <section
-        style={{ backgroundImage: `url(${offerBgHomeImg})` }}
-        className="relative bg-cover bg-no-repeat py-10 lg:py-28"
-      >
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container">
-          <div className="relative w-full lg:w-1/2">
-            <h4 className="mb-6 font-handrawn text-2xl text-yellow-500">
-              Special Combo Offer
-            </h4>
-            <h2 className="mb-8 text-4xl font-semibold text-white">
-              We make best Food in your town
-            </h2>
-            <p className="mb-10 max-w-2xl text-base text-white/75">
-              &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.&quot;
-            </p>
-            <div className="inline-flex flex-wrap items-center justify-center gap-4">
-              <button className="rounded-full bg-primary px-10 py-4 font-medium text-white transition-all hover:bg-primary-500">
-                Fill My Tummy
-              </button>
-              <h4 className="text-2xl font-medium text-yellow-400">
-                {currentCurrency}23.47{" "}
-                <span className="text-lg text-white/75 line-through">
-                  {currentCurrency}44.99
-                </span>
-              </h4>
-            </div>
-            <div className="absolute bottom-10 end-0 lg:-bottom-16">
-              <img
-                src={offerPopupHomeImg}
-                className="w-20 lg:w-auto"
-                alt="offer"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-6 lg:py-16">
-        <div className="container">
-          <div className="rounded-lg bg-primary/10">
-            <div className="grid items-center gap-6 lg:grid-cols-2">
-              <div className="relative h-full p-6 lg:p-20">
-                <span className="absolute end-16 top-1/3 rotate-45 text-xl">
-                  😃
-                </span>
-                <span className="absolute end-0 top-1/2 rotate-45 text-xl">
-                  🔥
-                </span>
-                <span className="absolute bottom-40 end-40 inline-flex h-2 w-2 items-center justify-center rounded-full bg-primary text-white" />
-                <div className="absolute bottom-4 end-2 hidden lg:-end-6 lg:block xl:bottom-10 xl:end-0">
-                  <div className="rounded-full bg-default-50 p-2 shadow-lg">
-                    <div className="flex items-center gap-4">
-                      <div className="h-14 w-14 overflow-hidden rounded-full">
-                        <img src={avatar4Img} alt="avatar" />
-                      </div>
-                      <div>
-                        <h6 className="mb-1 text-base font-medium text-default-900">
-                          Richard Watson
-                        </h6>
-                        <p className="text-sm font-medium text-default-500">
-                          Food Courier
-                        </p>
-                      </div>
-                      <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white">
-                        <LuPhone />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span className="mb-6 inline-flex rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">
-                  Download App
-                </span>
-                <h2 className="mb-6 max-w-sm text-3xl/relaxed font-semibold text-default-900">
-                  Get Started With Us Today!
-                </h2>
-                <p className="mb-10 max-w-md text-base text-default-900">
-                  Discover food wherever and whenever and get your food
-                  delivered quickly.
-                </p>
-                <button className="inline-flex rounded-full bg-primary px-10 py-4 font-medium text-white transition-all hover:bg-primary-500">
-                  Order Now
-                </button>
-              </div>
-              <div className="relative px-20 pt-20">
-                <span className="absolute bottom-28 end-10 -rotate-45 text-3xl">
-                  🔥
-                </span>
-                <span className="absolute bottom-10 end-20 inline-flex h-3 w-3 items-center justify-center rounded-full bg-primary text-white" />
-                <span className="absolute end-10 top-1/4 inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-yellow-400 text-white" />
-                <span className="absolute end-1/4 top-12 -rotate-45 text-xl">
-                  😋
-                </span>
-                <span className="absolute start-10 top-12 inline-flex h-2 w-2 items-center justify-center rounded-full bg-primary text-white" />
-                <img
-                  src={mockupHomeImg}
-                  className="max-h-full max-w-full"
-                  alt="mockup"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
