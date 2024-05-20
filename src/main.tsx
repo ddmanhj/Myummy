@@ -8,7 +8,7 @@ if (container) {
   const root = createRoot(container);
   root.render(
     // <StrictMode>
-    <BrowserRouter basename={"/"}>
+    <BrowserRouter basename={""}>
       <App />
     </BrowserRouter>
     // </StrictMode>

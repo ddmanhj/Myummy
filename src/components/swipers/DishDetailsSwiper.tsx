@@ -15,7 +15,7 @@ const DishDetailsSwiper = ({ images }: { images?: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   const dishImages =
-    [burritoBowlImg, burritoBowl2Img, burritoBowl3Img] ?? images;
+    [burritoBowlImg, burritoBowl2Img, burritoBowl3Img] || images;
 
   return (
     <div className="grid grid-cols-1">
