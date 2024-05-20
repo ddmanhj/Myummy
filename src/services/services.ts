@@ -25,9 +25,14 @@ export const useMenu = () => {
 export const useRegisterCustomer = (navigate: NavigateFunction) => {
   return useMutation({
     mutationKey: ['registerCustomer'],
-    onSuccess: () => {
-      notify('Đăng ký thành công', 'success');
-      navigate('/auth/login')
+    onSuccess: (data) => {
+      if(data?.status === false) {
+        notify(data?.data, 'error');
+        return;
+      } else {
+        notify('Đăng ký thành công', 'success');
+        navigate('/auth/login')
+      }
     },
     onError: () => {
       notify('Đăng ký thất bại', 'error');
@@ -117,6 +122,21 @@ export const useGetListDishes = () => {
     queryFn: () => getRequest(`/all_dishes`),
   });
 };
+
+export const useGetListFood = ( 
+  page: number = 1,
+  limit: number = 10,
+  categories: number[] | undefined,
+  priceRange: number [],
+  rating: number | undefined,
+  search: string | undefined) => {
+  return useQuery({
+    queryKey: ['listFood'],
+    enabled: false,
+    retry: 1,
+    queryFn: () => getRequest(`/all_food?page=${page}&limit=${limit}&categoryID=${categories}&price=${priceRange}&reviewStars=${rating}&search=${search}`),
+  });
+}
 // END Food
 
 

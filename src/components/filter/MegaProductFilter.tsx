@@ -4,8 +4,9 @@ import CategoriesFilter from "./CategoriesFilter";
 import PriceFilter from "./PriceFilter";
 import RatingFilter from "./RatingFilter";
 import PopularDishOfferCard from "./PopularDishOfferCard";
+import { ProductPaginationProps } from "@/types/other";
 
-const MegaProductFilter = () => {
+const MegaProductFilter = ({ setCurrentPage }: ProductPaginationProps) => {
   return (
     <div
       className="hs-overlay fixed start-0 top-0 z-[45] hidden h-full w-full max-w-xs -translate-x-full transform bg-white transition-all hs-overlay-open:translate-x-0 dark:bg-default-50 lg:static lg:start-auto lg:z-auto lg:block lg:w-1/4 lg:max-w-full lg:translate-x-0"
@@ -13,7 +14,7 @@ const MegaProductFilter = () => {
       tabIndex={-1}
     >
       <div className="block border-b border-default-200 px-4 py-4">
-        <FilterResetButton />
+        <FilterResetButton setCurrentPage={setCurrentPage} />
       </div>
       <div className="flex items-center justify-between border-b border-default-200 px-4 py-3 lg:hidden">
         <h3 className="font-medium text-default-800">Filter Options</h3>

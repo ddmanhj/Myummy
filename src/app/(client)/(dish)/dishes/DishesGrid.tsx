@@ -1,42 +1,58 @@
-import { useFilterContext } from "@/context";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { ProductGridCard } from "@/components";
-import { getFilteredProducts } from "@/helpers";
-import { useGetListDishes } from "@/services/services";
 import { DishType } from "@/types/food";
+import { useGetListFood } from "@/services/services";
+import { ProductPaginationStateProps } from "@/types/other";
+import { useDebouncedCallback } from "use-debounce";
 
 export const FoundResultsCount = () => {
-  const { categories, maxPrice, minPrice, rating, search } = useFilterContext();
-
-  const dishes = getFilteredProducts({
-    categories,
-    maxPrice,
-    minPrice,
-    rating,
-    search,
-  });
-
   return (
     <h6 className="hidden text-base text-default-950 lg:flex">
-      {dishes.length ?? 0} Results Found
+      0 Results Found
     </h6>
   );
 };
 
-const DishesGrid = () => {
-  const { categories, maxPrice, minPrice, rating, search } = useFilterContext();
-  const { data: listDishes } = useGetListDishes();
+const DishesGrid = ({
+  currentPage,
+  setTotalItem,
+}: ProductPaginationStateProps) => {
+  const { categories, priceRange, rating, search } = useSelector(
+    (state: { filterDish: any }) => state?.filterDish
+  );
 
-  const dishes = getFilteredProducts({
+  const { data: listFood, refetch: callApiGetListFood } = useGetListFood(
+    currentPage.page,
+    currentPage.limit,
     categories,
-    maxPrice,
-    minPrice,
+    priceRange,
     rating,
-    search,
-  });
+    search
+  );
+
+  // Sử dụng useDebouncedCallback để debounce việc gọi API
+  const debouncedCallApiGetListFood = useDebouncedCallback(
+    callApiGetListFood,
+    700
+  );
+
+  // Sử dụng useEffect để gọi hàm debounce khi có sự thay đổi trong search
+  useEffect(() => {
+    debouncedCallApiGetListFood();
+  }, [search]);
+
+  useEffect(() => {
+    setTotalItem(listFood?.data?.count);
+  }, [listFood?.data?.count]);
+
+  useEffect(() => {
+    callApiGetListFood();
+  }, [categories, priceRange, rating, currentPage]);
 
   return (
     <>
-      {listDishes?.data?.map((dish: DishType) => (
+      {listFood?.data?.rows?.map((dish: DishType) => (
         <ProductGridCard key={dish.id} dish={dish} />
       ))}
     </>

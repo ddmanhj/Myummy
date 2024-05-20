@@ -1,13 +1,12 @@
 import { lazy, useEffect, useState } from "react";
 import { BreadcrumbAdmin, OrderDataTable } from "@/components";
 import { orderRows } from "../../../(order)/orders/page";
-import { getSellerById } from "@/helpers";
 import type { ColumnType } from "@/types/util";
 import type { OrderType } from "@/types/other";
 import { useNavigate, useParams } from "react-router-dom";
 import type { SellerType } from "@/types/food";
 const PersonDetailsCard = lazy(
-  () => import("@/components/cards/PersonDetailsCard"),
+  () => import("@/components/cards/PersonDetailsCard")
 );
 
 const CustomerDetails = () => {
@@ -15,17 +14,6 @@ const CustomerDetails = () => {
   const { customerId } = useParams();
 
   const [seller, setSeller] = useState<SellerType>();
-
-  useEffect(() => {
-    (async () => {
-      const foundSeller = await getSellerById(Number(customerId));
-      if (!foundSeller) {
-        navigate("/not-found");
-      } else {
-        setSeller(foundSeller);
-      }
-    })();
-  }, [customerId]);
 
   const columns: Array<ColumnType<OrderType>> = [
     {

@@ -40,7 +40,6 @@ function LayoutProvider({ children }: Readonly<{ children: ReactNode }>) {
   }, [themeMode]);
 
   const updateTheme = (newTheme: LayoutTheme) => {
-    console.log("🚀 ~ updateTheme ~ newTheme:", newTheme);
     updateSettings({ ...settings, theme: newTheme });
   };
 

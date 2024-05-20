@@ -1,4 +1,4 @@
-import { CategoryType, DishTypeTemplate, RestaurantType } from "./food";
+import { CategoryType, DishTypeTemplate } from "./food";
 import { IdType } from "./other";
 
 export type WishlistType = DishTypeTemplate;
@@ -15,19 +15,6 @@ export type CalculatedOrder = {
   totalDiscount: number;
   tax: number;
   orderTotal: number;
-};
-
-export type ShoppingState = {
-  cartItems: CartTypeTemplate[];
-  wishlists: WishlistType[];
-  addToCart: (dish: DishTypeTemplate, quantity: number) => void;
-  toggleToWishlist: (dish: DishTypeTemplate) => void;
-  isInWishlist: (dish: DishTypeTemplate) => boolean;
-  isInCart: (dish: DishTypeTemplate) => boolean;
-  removeFromCart: (dish: DishTypeTemplate) => void;
-  updateQuantityForDish: (dish: DishTypeTemplate, quantity: number) => void;
-  getCalculatedOrder: () => CalculatedOrder;
-  getCartItemById: (dishId: DishTypeTemplate) => CartTypeTemplate | undefined;
 };
 
 export type FilterState = {
