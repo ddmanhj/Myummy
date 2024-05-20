@@ -163,7 +163,7 @@ const Navbar = () => {
 
       <div
         id="mobile-menu"
-        className="hs-overlay fixed left-0 top-0 z-60 hidden h-full w-full max-w-[270px] -translate-x-full transform border-r border-default-200  bg-white transition-all hs-overlay-open:translate-x-0 dark:bg-default-50"
+        className="hs-overlay fixed left-0 top-0 z-[61] hidden h-full w-full max-w-[270px] -translate-x-full transform border-r border-default-200  bg-white transition-all hs-overlay-open:translate-x-0 dark:bg-default-50"
         tabIndex={-1}
       >
         <div className="flex h-16 items-center justify-center border-b border-dashed border-default-200 transition-all duration-300">
