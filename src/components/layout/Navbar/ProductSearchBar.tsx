@@ -2,21 +2,22 @@ import { type ChangeEvent, lazy } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { LuSearch } from "react-icons/lu";
-import { useFilterContext } from "@/context";
+import { useDispatch, useSelector } from "react-redux";
+import { searchFilter, updateSearch } from "@/redux/filterDishSlice";
 const FloatingSearchBar = lazy(() => import("./FloatingSearchBar"));
 
 const ProductSearchBar = () => {
-  const { search, updateSearch } = useFilterContext();
-
   const pagesWithDishes = ["/dishes", "/dishes-list"];
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const search = useSelector(searchFilter);
 
   const [searchParams] = useSearchParams();
   const queryParams = Object.fromEntries([...searchParams]);
+  const dispatch = useDispatch();
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    updateSearch(e.target.value);
+    dispatch(updateSearch(e.target.value));
     setTimeout(() => {
       if (!pagesWithDishes.includes(pathname)) {
         navigate(`/dishes? + ${new URLSearchParams(queryParams).toString()}`);
@@ -43,7 +44,7 @@ const ProductSearchBar = () => {
 
       <button className="hidden" type="submit" />
       {createPortal(
-        <FloatingSearchBar handleSearch={handleSearch} searchValue={search} />,
+        <FloatingSearchBar handleSearch={handleSearch} />,
         document.body
       )}
     </form>

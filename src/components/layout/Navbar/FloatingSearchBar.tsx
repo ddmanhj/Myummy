@@ -1,15 +1,14 @@
+import { searchFilter } from "@/redux/filterDishSlice";
 import { ChangeEvent } from "react";
 import { LuSearch, LuX } from "react-icons/lu";
+import { useSelector } from "react-redux";
 
 type FloatingSearchBarProps = {
   handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-  searchValue: string | undefined;
 };
 
-const FloatingSearchBar = ({
-  handleSearch,
-  searchValue,
-}: FloatingSearchBarProps) => {
+const FloatingSearchBar = ({ handleSearch }: FloatingSearchBarProps) => {
+  const search = useSelector(searchFilter);
   return (
     <div
       id="mobileSearchSidebar"
@@ -23,7 +22,7 @@ const FloatingSearchBar = ({
             </span>
             <input
               onChange={handleSearch}
-              value={searchValue ?? ""}
+              value={search ?? ""}
               className="block w-full rounded-lg border-transparent bg-transparent px-10 py-2.5 text-sm text-primary-500 placeholder-primary-500"
               placeholder="Search for items..."
               type="search"

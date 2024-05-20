@@ -6,7 +6,7 @@ import {
   orderHistoryData,
   sellersData,
 } from "@/assets/data";
-import type { CategoryType, DishType, RestaurantType } from "@/types/food";
+import type { CategoryType, DishType } from "@/types/food";
 import type { OrderType } from "@/types/other";
 import type { FilterState } from "../types/state";
 
@@ -66,12 +66,6 @@ export const getCategoryById = async (id: CategoryType["id"]) => {
   // You can fetch data from your server here
   await sleep(200);
   return categoriesData.find((category) => category.id == id);
-};
-
-export const getSellerById = async (id: RestaurantType["id"]) => {
-  // You can fetch data from your server here
-  await sleep(200);
-  return sellersData.find((seller) => seller.id == id);
 };
 
 export const getOrderById = async (id: OrderType["id"]) => {

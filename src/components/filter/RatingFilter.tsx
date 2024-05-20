@@ -1,8 +1,14 @@
-import { useFilterContext } from "@/context";
+import {
+  ratingFilter,
+  updateRating,
+  updateSearch,
+} from "@/redux/filterDishSlice";
 import { FaStar } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
 
 const RatingFilter = () => {
-  const { rating, updateRating } = useFilterContext();
+  const dispatch = useDispatch();
+  const rating = useSelector(ratingFilter);
 
   return (
     <>
@@ -14,8 +20,11 @@ const RatingFilter = () => {
               type="radio"
               name="ratingFilterGroup"
               id={`${idx + 1}_star`}
-              defaultChecked={rating == 5 - idx}
-              onChange={() => updateRating(5 - idx)}
+              checked={rating == 5 - idx}
+              onChange={() => {
+                dispatch(updateRating(5 - idx));
+                dispatch(updateSearch(""));
+              }}
             />
             <label
               htmlFor={`${idx + 1}_star`}

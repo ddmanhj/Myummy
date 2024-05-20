@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
-import { getSellerById } from "@/helpers";
 import { BreadcrumbAdmin } from "@/components";
 import { RestaurantMenuDataTable } from "@/components/data-tables";
 import CostAndUsageChart from "./CostAndUsageChart";
@@ -12,7 +11,7 @@ import {
   restaurantBgImg,
 } from "@/assets/data/images";
 import { dishesData } from "@/assets/data";
-import type { DishTypeTemplate, RestaurantType } from "@/types/food";
+import type { DishTypeTemplate } from "@/types/food";
 import type { ColumnType } from "@/types/util";
 
 const columns: Array<ColumnType<DishTypeTemplate>> = [
@@ -39,18 +38,13 @@ const columns: Array<ColumnType<DishTypeTemplate>> = [
 ];
 
 const RestaurantDetails = () => {
-  const [restaurant, setRestaurant] = useState<RestaurantType | undefined>();
+  const [restaurant, setRestaurant] = useState<undefined>();
 
   const navigate = useNavigate();
 
   return (
     <div className="w-full lg:ps-64">
       <div className="page-content space-y-6 p-6">
-        <BreadcrumbAdmin
-          title={restaurant?.name ?? "Restaurant Detail"}
-          subtitle="Restaurants"
-          link="/admin/restaurants"
-        />
         <div className="mb-6 rounded-lg border border-default-200 p-6">
           <img
             src={restaurantBgImg}
@@ -64,9 +58,6 @@ const RestaurantDetails = () => {
               alt="restaurant"
             />
             <div>
-              <h4 className="mb-1 text-base font-medium text-default-800">
-                {restaurant?.name ?? "Restaurant Detail"}
-              </h4>
               <p className="text-sm text-default-600">Since 2013</p>
             </div>
           </div>
@@ -89,58 +80,6 @@ const RestaurantDetails = () => {
                 <h4 className="text-xl font-medium text-default-900">
                   Seller Personal Detail
                 </h4>
-              </div>
-              <div className="px-6 py-5">
-                <table cellPadding={10}>
-                  <tbody>
-                    <tr>
-                      <td className="text-start text-base font-medium">
-                        Owner Name:
-                      </td>
-                      <td className="text-start">{restaurant?.seller?.name}</td>
-                    </tr>
-                    <tr>
-                      <td className="text-start text-base font-medium">
-                        Status:
-                      </td>
-                      <td className="text-start">
-                        {restaurant?.seller?.status}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-start text-base font-medium">
-                        Email:
-                      </td>
-                      <td className="text-start">
-                        {restaurant?.seller?.email}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-start text-base font-medium">
-                        Contact No:
-                      </td>
-                      <td className="text-start">
-                        {restaurant?.seller?.contact_no}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-start text-base font-medium">
-                        Orders:
-                      </td>
-                      <td className="text-start">
-                        {restaurant?.seller?.orders}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-start text-base font-medium">
-                        Location:
-                      </td>
-                      <td className="text-start">
-                        {restaurant?.seller?.location}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </div>
             <div className="mb-6 rounded-lg border border-default-200">

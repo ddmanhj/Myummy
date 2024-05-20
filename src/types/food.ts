@@ -83,20 +83,6 @@ export type SellerType = {
   status: "active" | "blocked";
 };
 
-export type RestaurantType = {
-  id: IdType;
-  seller_id: SellerType["id"];
-  seller?: SellerType;
-  name: string;
-  logo: string;
-  categories: CategoryType["id"][];
-  total_dishes: number;
-  total_sales: number;
-  address: string;
-  email: string;
-  contact_no: number;
-};
-
 export type SpecialMenuType = {
   id: number,
   categoryName: string,

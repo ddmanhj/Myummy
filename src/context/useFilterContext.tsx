@@ -55,6 +55,10 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
 
   const updateCategory = (categoryId: CategoryType["id"]) => {
     const categories = state.categories;
+    if (categoryId == 0) {
+      categories.splice(0, categories.length);
+      return updateState({ categories });
+    }
     if (!categories.length || !categories.includes(categoryId)) {
       categories.push(categoryId);
       updateState({ categories });

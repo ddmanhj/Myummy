@@ -29,6 +29,26 @@ export type AddressWardType = {
   ward_name: string,
 }
 
+export type ProductPaginationProps = {
+  currentPage?: CurrentPageType;
+  setCurrentPage: React.Dispatch<React.SetStateAction<CurrentPageType>>;
+  totalItem?: number;
+  
+};
+export type ProductPaginationStateProps = {
+  currentPage: CurrentPageType;
+  setTotalItem: React.Dispatch<React.SetStateAction<number>>
+};
+
+export type CurrentPageType = {
+  page: number;
+  limit: number;
+  currentPage?: {
+    page: number;
+    limit: number;
+  }
+}
+
 export type CardType = {
   id: IdType;
   cardNo: number;
