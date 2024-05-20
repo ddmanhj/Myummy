@@ -32,10 +32,10 @@ const ProductsGrid = () => {
                     >
                       Filter <LuSettings2 size={16} />
                     </button>
-                    <FoundResultsCount />
+                    <FoundResultsCount totalItem={totalItem} />
                   </div>
 
-                  <div className="flex items-center">
+                  {/* <div className="flex items-center">
                     <DemoFilterDropdown
                       filterOptions={[
                         "Latest",
@@ -45,7 +45,7 @@ const ProductsGrid = () => {
                       ]}
                       filterType="Sort By"
                     />
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -58,6 +58,7 @@ const ProductsGrid = () => {
                   <DishesGrid
                     currentPage={currentPage}
                     setTotalItem={setTotalItem}
+                    setCurrentPage={setCurrentPage}
                   />
                 </div>
               </div>

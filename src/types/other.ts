@@ -37,6 +37,7 @@ export type ProductPaginationProps = {
 };
 export type ProductPaginationStateProps = {
   currentPage: CurrentPageType;
+  setCurrentPage: React.Dispatch<React.SetStateAction<CurrentPageType>>;
   setTotalItem: React.Dispatch<React.SetStateAction<number>>
 };
 

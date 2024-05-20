@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { lazy } from "react";
 import { FaStar } from "react-icons/fa6";
-import { currentCurrency } from "@/common";
 import { calculatedPrice } from "@/helpers";
 import type { DishType } from "@/types/food";
 import { Image } from "antd";
+import { useSelector } from "react-redux";
+import { languageState } from "@/redux/customerSlice";
+import { readMoneyCurrency } from "@/utils";
 const AddToFavouriteButton = lazy(
   () => import("../shopping-interactivity/ProductWishlistToggler")
 );
@@ -19,6 +21,7 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
   // const { images, name, review, id } = dish;
 
   const discountedPrice = calculatedPrice(dish);
+  const language = useSelector(languageState);
 
   return (
     <div className="order-3 overflow-hidden rounded-lg border border-default-200 p-4 transition-all duration-300 hover:border-primary hover:shadow-xl">
@@ -55,8 +58,7 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
           </span>
           <div className="mb-4 flex items-end justify-between">
             <h4 className="text-2xl font-semibold leading-9 text-default-900">
-              {currentCurrency}
-              {discountedPrice}
+              {readMoneyCurrency(discountedPrice, language)}
             </h4>
 
             <ProductQuantityToggler dish={dish} />
