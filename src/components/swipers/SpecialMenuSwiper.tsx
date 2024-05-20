@@ -40,9 +40,9 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
       {dishes.map((dish) => (
         <SwiperSlide key={dish.id}>
           <div className="relative cursor-pointer overflow-hidden rounded-lg">
-            <Image
+            <img
               src={dish.urlImageDishes}
-              className="h-full w-full"
+              className="w-full min-h-[500px] object-cover"
               alt="pizza"
               width={336.7}
               height={449.7}

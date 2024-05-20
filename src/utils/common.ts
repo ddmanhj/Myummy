@@ -122,8 +122,6 @@ export const handleError = async (error: any): Promise<void> => {
         if (response?.data?.data && response?.status) {
           // axios.defaults.headers.common.Authorization = `${response.data.data}`;
           baseApi(error.config);
-        } else {
-          window.location.href = '/auth/login';
         }
       } else {
         window.location.href = '/auth/login';

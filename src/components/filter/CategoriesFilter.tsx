@@ -1,28 +1,34 @@
-import { useFilterContext } from "@/context";
-import { categoriesData } from "@/assets/data";
+import {
+  categoryFilter,
+  updateCategory,
+  updateSearch,
+} from "@/redux/filterDishSlice";
+import { useMenu } from "@/services/services";
+import { SpecialMenuType } from "@/types/food";
+import { Checkbox, Col, Row } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 
 const CategoriesFilter = () => {
-  const { categories, updateCategory } = useFilterContext();
+  const { data: queryMenu } = useMenu();
+  const dispatch = useDispatch();
+  const listFilterCategory = useSelector(categoryFilter);
+
+  const onChange = (checkedValues: number[]) => {
+    dispatch(updateCategory(checkedValues));
+    dispatch(updateSearch(""));
+  };
 
   return (
     <div className="relative mb-6 flex flex-col space-y-4">
-      {categoriesData.map((category) => (
-        <div key={category.id} className="flex items-center">
-          <input
-            id={category.name + category.id}
-            defaultChecked={categories.includes(category.id)}
-            onChange={() => updateCategory(category.id)}
-            type="checkbox"
-            className="form-checkbox h-5 w-5 cursor-pointer rounded border-default-400 bg-transparent text-primary focus:ring-transparent"
-          />
-          <label
-            htmlFor={category.name + category.id}
-            className="inline-flex select-none items-center ps-3 text-sm text-default-600"
-          >
-            {category.name}
-          </label>
-        </div>
-      ))}
+      <Checkbox.Group onChange={onChange} value={listFilterCategory}>
+        <Row>
+          {queryMenu?.data?.map((menu: SpecialMenuType) => (
+            <Col span={8} className="my-2" key={menu.id}>
+              <Checkbox value={menu.id}>{menu.categoryName}</Checkbox>
+            </Col>
+          ))}
+        </Row>
+      </Checkbox.Group>
     </div>
   );
 };

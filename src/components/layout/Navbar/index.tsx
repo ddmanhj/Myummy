@@ -39,7 +39,6 @@ const Navbar = () => {
   const logOutHandle = async () => {
     await mutationLogOutCustomer.mutate();
     Cookies.remove("getRefreshToken");
-    Cookies.remove("newAccessToken");
     dispatch(customerLogOut());
     dispatch(resetWishList());
     dispatch(clearCart());

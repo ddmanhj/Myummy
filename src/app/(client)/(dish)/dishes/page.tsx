@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { LuSettings2 } from "react-icons/lu";
 import {
   Breadcrumb,
@@ -9,6 +10,9 @@ import {
 import DishesGrid, { FoundResultsCount } from "./DishesGrid";
 
 const ProductsGrid = () => {
+  const [currentPage, setCurrentPage] = useState({ page: 1, limit: 10 });
+  const [totalItem, setTotalItem] = useState(0);
+
   return (
     <>
       <Breadcrumb title="Dishes" subtitle="Dishes" />
@@ -16,7 +20,7 @@ const ProductsGrid = () => {
         <div className="container">
           <div className="">
             <div className="gap-6 lg:flex">
-              <MegaProductFilter />
+              <MegaProductFilter setCurrentPage={setCurrentPage} />
 
               <div className="relative lg:w-3/4">
                 <div className="mb-10 flex flex-wrap items-center justify-between gap-4 md:flex-nowrap">
@@ -51,11 +55,18 @@ const ProductsGrid = () => {
                     </div>
                   </div>
 
-                  <DishesGrid />
+                  <DishesGrid
+                    currentPage={currentPage}
+                    setTotalItem={setTotalItem}
+                  />
                 </div>
               </div>
             </div>
-            <ProductPagination />
+            <ProductPagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalItem={totalItem}
+            />
           </div>
         </div>
       </section>

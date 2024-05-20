@@ -1,27 +1,19 @@
-import { useState } from "react";
 import ReactSlider from "react-slider";
 import { LuChevronDown } from "react-icons/lu";
-import { useFilterContext } from "@/context";
-import { usePriceRange } from "@/hooks";
+import {
+  priceRangeFilter,
+  updatePriceRange,
+  updateSearch,
+} from "@/redux/filterDishSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const PriceFilter = () => {
-  const { minPrice, maxPrice, updateMinPrice, updateMaxPrice } =
-    useFilterContext();
+  const priceRange = useSelector(priceRangeFilter);
+  const dispatch = useDispatch();
 
-  const prices = usePriceRange();
-
-  const [priceRange, setPriceRange] = useState<number[]>([
-    minPrice ?? prices?.minPrice ?? 0,
-    maxPrice ?? prices?.maxPrice ?? 3000,
-  ]);
   const onPriceChange = (values: number[]) => {
-    setPriceRange([values[0], values[1]]);
-    if (priceRange[0] != values[0]) {
-      updateMinPrice(values[0]);
-    }
-    if (priceRange[1] != values[1]) {
-      updateMaxPrice(values[1]);
-    }
+    dispatch(updatePriceRange(values));
+    dispatch(updateSearch(""));
   };
 
   return (
@@ -48,9 +40,9 @@ const PriceFilter = () => {
               className="h-6 w-full max-w-[500px]"
               thumbClassName="h-5 w-5 rounded-full -right-2.5 -top-1.5 outline-none cursor-pointer bg-primary border-2 transition-colors border-primary-600 hover:bg-primary-600"
               trackClassName="bg-[#ddd] h-2 rounded-lg [&.slider-track-1]:bg-primary-400 slider-track"
-              min={prices?.minPrice}
-              max={prices?.maxPrice}
-              defaultValue={[priceRange[0], priceRange[1]]}
+              min={0}
+              max={85000}
+              value={[priceRange[0], priceRange[1]]}
               onAfterChange={onPriceChange}
             />
           </div>
