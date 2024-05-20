@@ -21,7 +21,7 @@ const DemoFilterDropdown = ({
         type="button"
         className={cn(
           "hs-dropdown-toggle flex items-center gap-2 rounded-md bg-default-100 px-4 py-3 text-sm font-medium text-default-700 transition-all xl:px-5",
-          buttonClassName,
+          buttonClassName
         )}
       >
         {filterType && filterType + " : "} {selectedOption ?? ""}{" "}
@@ -37,7 +37,7 @@ const DemoFilterDropdown = ({
                   "flex items-center gap-3 rounded px-3 py-2 font-normal transition-all hover:bg-default-100 hover:text-default-700",
                   selectedOption == option
                     ? " bg-default-100 text-default-700"
-                    : "text-default-600",
+                    : "text-default-600"
                 )}
               >
                 {option}
