@@ -6,10 +6,10 @@ import { useGetListFood } from "@/services/services";
 import { ProductPaginationStateProps } from "@/types/other";
 import { useDebouncedCallback } from "use-debounce";
 
-export const FoundResultsCount = () => {
+export const FoundResultsCount = ({ totalItem }: { totalItem: number }) => {
   return (
     <h6 className="hidden text-base text-default-950 lg:flex">
-      0 Results Found
+      {totalItem} Results Found
     </h6>
   );
 };
@@ -17,6 +17,7 @@ export const FoundResultsCount = () => {
 const DishesGrid = ({
   currentPage,
   setTotalItem,
+  setCurrentPage,
 }: ProductPaginationStateProps) => {
   const { categories, priceRange, rating, search } = useSelector(
     (state: { filterDish: any }) => state?.filterDish
@@ -40,6 +41,7 @@ const DishesGrid = ({
   // Sử dụng useEffect để gọi hàm debounce khi có sự thay đổi trong search
   useEffect(() => {
     debouncedCallApiGetListFood();
+    setCurrentPage({ page: 1, limit: 10 });
   }, [search]);
 
   useEffect(() => {
@@ -48,7 +50,12 @@ const DishesGrid = ({
 
   useEffect(() => {
     callApiGetListFood();
-  }, [categories, priceRange, rating, currentPage]);
+  }, [currentPage]);
+
+  useEffect(() => {
+    callApiGetListFood();
+    setCurrentPage({ page: 1, limit: 10 });
+  }, [categories, priceRange, rating]);
 
   return (
     <>

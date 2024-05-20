@@ -124,6 +124,7 @@ export const handleError = async (error: any): Promise<void> => {
           baseApi(error.config);
         }
       } else {
+        if (error?.response?.status === 401)
         window.location.href = '/auth/login';
       }
   }
