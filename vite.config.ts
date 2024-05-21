@@ -6,7 +6,7 @@ import path from 'path'
 export default defineConfig({
   base:'/',
   plugins: [react()],
-  define: { 'process.env': {}, },
+  define: { 'process.env': process.env, },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
