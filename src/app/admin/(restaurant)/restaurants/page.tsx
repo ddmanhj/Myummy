@@ -1,9 +1,5 @@
-import {
-  BreadcrumbAdmin,
-  ProductPagination,
-  RestaurantListCard,
-} from "@/components";
-import { restaurantsData } from "@/assets/data";
+import { BreadcrumbAdmin } from "@/components";
+import { Pagination } from "antd";
 
 const RestaurantList = () => {
   return (
@@ -11,11 +7,11 @@ const RestaurantList = () => {
       <div className="page-content space-y-6 p-6">
         <BreadcrumbAdmin title="Restaurants List" subtitle="Restaurants" />
         <div className="mb-6 grid gap-6 md:grid-cols-2 2xl:grid-cols-4">
-          {restaurantsData.map((restaurant) => (
+          {/* {restaurantsData.map((restaurant) => (
             <RestaurantListCard key={restaurant.id} restaurant={restaurant} />
-          ))}
+          ))} */}
         </div>
-        <ProductPagination />
+        <Pagination />
       </div>
     </div>
   );
