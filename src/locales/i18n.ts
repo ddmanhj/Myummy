@@ -9,7 +9,7 @@ i18n
   .use(LanguageDetector) // sử dụng LanguageDetector để tự động phát hiện ngôn ngữ
   .init({
     backend: {
-      loadPath: 'http://localhost:5173/src/locales/{{lng}}/{{lng}}.json' // Đường dẫn tới các tệp dịch
+      loadPath: `${import.meta.env.VITE_BASE_DOMAIN}src/locales/{{lng}}/{{lng}}.json` // Đường dẫn tới các tệp dịch
     },
     lng: 'vi', // ngôn ngữ mặc định
     fallbackLng: 'en', // ngôn ngữ dự phòng
