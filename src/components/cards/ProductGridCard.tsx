@@ -4,9 +4,7 @@ import { FaStar } from "react-icons/fa6";
 import { calculatedPrice } from "@/helpers";
 import type { DishType } from "@/types/food";
 import { Image } from "antd";
-import { useSelector } from "react-redux";
-import { languageState } from "@/redux/customerSlice";
-import { readMoneyCurrency } from "@/utils";
+import { languageState, readMoneyCurrency } from "@/utils";
 const AddToFavouriteButton = lazy(
   () => import("../shopping-interactivity/ProductWishlistToggler")
 );
@@ -21,7 +19,7 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
   // const { images, name, review, id } = dish;
 
   const discountedPrice = calculatedPrice(dish);
-  const language = useSelector(languageState);
+  const language = languageState();
 
   return (
     <div className="order-3 overflow-hidden rounded-lg border border-default-200 p-4 transition-all duration-300 hover:border-primary hover:shadow-xl">

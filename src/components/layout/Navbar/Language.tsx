@@ -1,21 +1,15 @@
 import { useState } from "react";
 import i18next from "i18next";
-import { useDispatch } from "react-redux";
-
 import { vietnamImg, usaImg } from "@/assets/data/images";
-import { changeLanguageCustomer } from "@/redux/customerSlice";
 
 const Language = () => {
   const [language, setLanguage] = useState("vi");
-  const dispatch = useDispatch();
   const handleViChangeLanguage = () => {
     setLanguage("vi");
-    dispatch(changeLanguageCustomer("vi"));
     i18next.changeLanguage("vi");
   };
   const handleEngChangeLanguage = () => {
     setLanguage("en");
-    dispatch(changeLanguageCustomer("en"));
     i18next.changeLanguage("en");
   };
   return (

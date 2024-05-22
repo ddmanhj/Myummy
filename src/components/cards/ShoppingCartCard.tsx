@@ -1,11 +1,10 @@
 import { lazy } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { LuXCircle } from "react-icons/lu";
 import { calculatedPrice } from "@/helpers";
 import type { DishType } from "@/types/food";
-import { languageState } from "@/redux/customerSlice";
-import { readMoneyCurrency } from "@/utils";
+import { languageState, readMoneyCurrency } from "@/utils";
 import { deleteDish } from "@/redux/cartSlice";
 const ProductQuantityToggler = lazy(
   () => import("../shopping-interactivity/ProductQuantityToggler")
@@ -15,7 +14,7 @@ const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
   const { id, dishesName, urlImageDishes, quantity, unitPrice, totalPrice } =
     dish;
   const dispatch = useDispatch();
-  const language = useSelector(languageState);
+  const language = languageState();
 
   const discountedPrice = calculatedPrice(dish);
 

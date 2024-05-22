@@ -43,6 +43,11 @@ export const notify = (message: string, type?: ToastType): void => {
   }
 };
 
+export const languageState = () => {
+  const language = localStorage.getItem('i18nextLng');
+  return language ?? 'vi';
+}
+
 export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
   if (language == "vi") {
     return Intl.NumberFormat("vi-VN", {

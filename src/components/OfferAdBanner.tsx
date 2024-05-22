@@ -3,22 +3,17 @@ import { useState } from "react";
 import { currentCurrency } from "@/common";
 import { vietnamImg, usaImg } from "@/assets/data/images";
 import i18next from "@/locales/i18n";
-import { changeLanguageCustomer } from "@/redux/customerSlice";
-import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 const OfferAdBanner = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
   const [language, setLanguage] = useState("vi");
   const handleViChangeLanguage = () => {
     setLanguage("vi");
-    dispatch(changeLanguageCustomer("vi"));
     i18next.changeLanguage("vi");
   };
   const handleEngChangeLanguage = () => {
     setLanguage("en");
-    dispatch(changeLanguageCustomer("en"));
     i18next.changeLanguage("en");
   };
   return (
