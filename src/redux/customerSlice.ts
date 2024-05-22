@@ -10,10 +10,7 @@ const initialState = {
     role: "",
     createdAt: "",
     updatedAt: "",
-  },
-  language: {
-    language: "vi"
-  },
+  }
 };
 
 const customerSlice = createSlice({
@@ -26,18 +23,12 @@ const customerSlice = createSlice({
       customerLogOut: (state) => {
         state.customer = initialState.customer;
       },
-      changeLanguageCustomer: (state, action) => {
-        state.language = action.payload;
-      }
     },
   });
-
-  export const languageState = (state: any) => state.customer.language;
-  
+ 
   export const {
     getInfoCustomer,
     customerLogOut,
-    changeLanguageCustomer
   } = customerSlice.actions;
   
 export default customerSlice.reducer;

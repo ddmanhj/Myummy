@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { totalCartPrice } from "@/redux/quantityAndTotalItem";
 import { useSelector } from "react-redux";
-import { languageState } from "@/redux/customerSlice";
-import { readMoneyCurrency } from "@/utils";
+import { languageState, readMoneyCurrency } from "@/utils";
 
 const CartTotal = () => {
   const currentCurrency = useSelector(totalCartPrice);
-  const language = useSelector(languageState);
+  const language = languageState();
 
   return (
     <div className="mb-5 rounded-lg border border-default-200 p-5">

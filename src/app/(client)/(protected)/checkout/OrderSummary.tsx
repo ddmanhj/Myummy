@@ -1,15 +1,12 @@
-import { useShoppingContext } from "@/context";
-import { currentCurrency } from "@/common";
 import { useSelector } from "react-redux";
 import { getCart } from "@/redux/cartSlice";
 import { DishType } from "@/types/food";
-import { readMoneyCurrency } from "@/utils";
-import { languageState } from "@/redux/customerSlice";
+import { languageState, readMoneyCurrency } from "@/utils";
 import { totalCartPrice } from "@/redux/quantityAndTotalItem";
 
 const OrderSummary = () => {
   const cart = useSelector(getCart);
-  const language = useSelector(languageState);
+  const language = languageState();
   const totalPrice = useSelector(totalCartPrice);
 
   return (
