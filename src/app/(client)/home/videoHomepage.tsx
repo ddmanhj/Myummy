@@ -11,13 +11,11 @@ import {
 import gifHomePage from "@/assets/images/videos/homepage.gif";
 import { LuClock3 } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { languageState } from "@/redux/customerSlice";
-import { readMoneyCurrency } from "@/utils";
+import { languageState, readMoneyCurrency } from "@/utils";
 
 const videoHomepage = () => {
   const { t } = useTranslation();
-  const language = useSelector(languageState);
+  const language = languageState();
   return (
     <>
       <section className="relative py-6 lg:py-16">

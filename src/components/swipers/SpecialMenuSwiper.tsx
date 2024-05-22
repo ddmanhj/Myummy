@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import { LuChevronRight } from "react-icons/lu";
-import { Image } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import type { DishType } from "@/types/food";
-import { useSelector } from "react-redux";
-import { readMoneyCurrency } from "@/utils";
-import { languageState } from "@/redux/customerSlice";
+import { languageState, readMoneyCurrency } from "@/utils";
 
 const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
-  const language = useSelector(languageState);
+  const language = languageState();
   return (
     <Swiper
       className="menu-swiper h-full w-full"

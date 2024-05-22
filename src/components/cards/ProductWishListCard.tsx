@@ -2,10 +2,7 @@ import { lazy } from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 import type { DishType } from "@/types/food";
 import { calculatedPrice } from "@/helpers";
-import { readMoneyCurrency } from "@/utils";
-import { StateReduxLanguage } from "@/types/other";
-import { useSelector } from "react-redux";
-import { languageState } from "@/redux/customerSlice";
+import { languageState, readMoneyCurrency } from "@/utils";
 const AddToCartButton = lazy(
   () => import("../shopping-interactivity/AddToCartButton")
 );
@@ -22,7 +19,7 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
     reviewStars,
     saleDiscount,
   } = dish;
-  const language = useSelector(languageState);
+  const language = languageState();
 
   const discountedPrice = calculatedPrice(dish);
 
