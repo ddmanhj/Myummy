@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 const PageTitle = ({ title }: { title: string }) => {
   return (
     <Helmet>
-      <title>{title} | Myummy</title>
+      <title>{title ?? "Best"} | Myummy</title>
     </Helmet>
   );
 };
