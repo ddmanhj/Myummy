@@ -32,9 +32,7 @@ export type SaleType = {
 export type DishTypeTemplate = {
   id: IdType;
   category_id: CategoryType["id"];
-  restaurant_id: RestaurantType["id"];
   category?: CategoryType;
-  restaurant?: RestaurantType;
   name: string;
   images: string[];
   tags: string[];
