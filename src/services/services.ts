@@ -6,7 +6,6 @@ import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 import { DataWishListRequest } from "@/types/food";
 import { getWishListAPI } from "@/redux/wishListSlice";
-import axios from "axios";
 
 // Menu
 export const useMenu = () => {
@@ -113,16 +112,6 @@ export const useGetListFoodSpecialMenu = (idSpecialMenu: number) => {
   });
 };
 
-export const useGetListDishes = () => {
-  return useQuery({
-    queryKey: ['listDishes'],
-    enabled: true,
-    retry: 1,
-    staleTime: 1000 * 60 * 60 * 24,
-    queryFn: () => getRequest(`/all_dishes`),
-  });
-};
-
 export const useGetListFood = ( 
   page: number = 1,
   limit: number = 10,
@@ -134,7 +123,27 @@ export const useGetListFood = (
     queryKey: ['listFood'],
     enabled: false,
     retry: 1,
+    staleTime: 1000 * 60 * 60 * 24,
     queryFn: () => getRequest(`/all_food?page=${page}&limit=${limit}&categoryID=${categories}&price=${priceRange}&reviewStars=${rating}&search=${search}`),
+  });
+}
+
+export const useGetDetailFood = (id: number) => {
+  return useQuery({
+    queryKey: ['detailFood'],
+    enabled: false,
+    retry: 1,
+    staleTime: 1000 * 60 * 60 * 24,
+    queryFn: () => getRequest(`/dish/${id}`),
+  });
+}
+
+export const useGetListRandomFood = () => {
+  return useQuery({
+    queryKey: ['listRandomFood'],
+    enabled: false,
+    retry: 1,
+    queryFn: () => getRequest(`/random_dishes`),
   });
 }
 // END Food

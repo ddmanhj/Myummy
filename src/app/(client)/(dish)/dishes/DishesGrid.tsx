@@ -5,6 +5,7 @@ import { DishType } from "@/types/food";
 import { useGetListFood } from "@/services/services";
 import { ProductPaginationStateProps } from "@/types/other";
 import { useDebouncedCallback } from "use-debounce";
+import { isEmpty } from "lodash";
 
 export const FoundResultsCount = ({ totalItem }: { totalItem: number }) => {
   return (
@@ -37,11 +38,14 @@ const DishesGrid = ({
     callApiGetListFood,
     700
   );
+  const CallApiGetListFoodWait = useDebouncedCallback(callApiGetListFood, 200);
 
   // Sử dụng useEffect để gọi hàm debounce khi có sự thay đổi trong search
   useEffect(() => {
-    debouncedCallApiGetListFood();
-    setCurrentPage({ page: 1, limit: 10 });
+    if (!isEmpty(search)) {
+      debouncedCallApiGetListFood();
+      setCurrentPage({ page: 1, limit: 10 });
+    }
   }, [search]);
 
   useEffect(() => {
@@ -49,12 +53,17 @@ const DishesGrid = ({
   }, [listFood?.data?.count]);
 
   useEffect(() => {
-    callApiGetListFood();
+    if (currentPage.page !== 1) {
+      callApiGetListFood();
+    }
   }, [currentPage]);
 
   useEffect(() => {
-    callApiGetListFood();
-    setCurrentPage({ page: 1, limit: 10 });
+    const fetchData = async () => {
+      await setCurrentPage({ page: 1, limit: 10 });
+      CallApiGetListFoodWait();
+    };
+    fetchData();
   }, [categories, priceRange, rating]);
 
   return (

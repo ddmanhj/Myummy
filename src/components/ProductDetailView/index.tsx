@@ -1,153 +1,81 @@
-import { lazy, useEffect, useState } from "react";
-import { BiFoodTag } from "react-icons/bi";
+import { lazy } from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 import { LuEye } from "react-icons/lu";
-import { kebabToTitleCase } from "@/utils";
-import { calculatedPrice } from "@/helpers";
 import { currentCurrency } from "@/common";
-import type { DishTypeTemplate, RestaurantType } from "@/types/food";
-const OrderInteraction = lazy(() => import("./OrderInteraction"));
+import type { DishType } from "@/types/food";
+import DishSpecifications from "./DishSpecifications";
+import { languageState, readMoneyCurrency } from "@/utils";
 
-const dishNutritionFacts = [
-  {
-    name: "Calories",
-    qty: "564",
-  },
-  {
-    name: "Fat",
-    qty: "306mg",
-  },
-  {
-    name: "Carbs",
-    qty: "2gm",
-  },
-  {
-    name: "Protein",
-    qty: "6.5gm",
-  },
-];
+const OrderInteraction = lazy(() => import("./OrderInteraction"));
 
 const ProductDetailView = ({
   dish,
   showButtons,
 }: {
-  dish: DishTypeTemplate;
+  dish: DishType;
   showButtons?: boolean;
 }) => {
-  const { name, price, review, tags, type, sale } = dish;
-
-  const [restaurant] = useState<RestaurantType>();
+  const {
+    dishesName,
+    price,
+    description,
+    reviewCount,
+    reviewStars,
+    saleDiscount,
+    calories,
+    fat,
+    carbs,
+    protein,
+  } = dish;
+  const convertReviewStars = parseFloat(String(reviewStars));
+  const language = languageState();
 
   return (
     <div>
-      <div className="mb-1 flex flex-wrap items-end justify-between font-medium text-default-800">
-        <h4 className="text-4xl">{name}</h4>
-        <h3 className="text-3xl">
-          {currentCurrency}
-          {sale && (
+      <div className="mb-1 flex flex-wrap items-end justify-between font-medium text-default-800 mobile:flex-col mobile:items-start">
+        <h4 className="text-4xl">{dishesName}</h4>
+        <h3 className="text-3xl mobile: my-2">
+          {readMoneyCurrency(price - saleDiscount, language)}
+          {saleDiscount > 0 && (
             <span className="ms-1 text-base text-gray-400 line-through">
-              {currentCurrency}
-              {price}
+              {readMoneyCurrency(price, language)}
             </span>
           )}
         </h3>
       </div>
-
-      {restaurant && (
-        <h5 className="mb-2 text-lg font-medium text-default-600">
-          <span className="text-base font-normal text-default-500">by </span>
-          {restaurant.name}
-        </h5>
-      )}
-
       <div className="mb-3 flex items-center gap-3">
         <div className="flex gap-1.5">
-          {Array.from(new Array(Math.floor(review.stars))).map((_star, idx) => (
-            <FaStar key={idx} size={18} className="text-yellow-400" />
-          ))}
-          {!Number.isInteger(review.stars) && (
+          {Array.from(new Array(Math.floor(convertReviewStars))).map(
+            (_star, idx) => (
+              <FaStar key={idx} size={18} className="text-yellow-400" />
+            )
+          )}
+          {!Number.isInteger(convertReviewStars) && (
             <FaStarHalfStroke size={18} className="text-yellow-400" />
           )}
-          {review.stars < 5 &&
-            Array.from(new Array(5 - Math.ceil(review.stars))).map(
+          {convertReviewStars < 5 &&
+            Array.from(new Array(5 - Math.ceil(convertReviewStars))).map(
               (_val, idx) => (
                 <FaStar key={idx} size={18} className="text-default-400" />
               )
             )}
         </div>
         <div className="h-4 w-px bg-default-400" />
-        <h5 className="text-sm text-default-500">{review.count} Reviews</h5>
+        <h5 className="text-sm text-default-500">{reviewCount} Reviews</h5>
       </div>
-      <p className="mb-4 text-sm text-default-500">
-        Mexican burritos are usually made with a wheat tortilla and contain
-        grilled meat, cheese toppings, and fresh vegetables which are sources of
-        vitamins, proteins, fibers, minerals, and antioxidants. This makes
-        burritos a balanced meal that can be enjoyed in moderation as part of a
-        healthy meal plan.
-      </p>
-      <div className="mb-5 flex gap-2">
-        <div className="flex items-center gap-2.5 rounded-full border border-default-200 px-3 py-1.5">
-          <BiFoodTag
-            height={16}
-            width={16}
-            color={
-              type == "non-veg" ? "red" : type == "veg" ? "green" : "orange"
-            }
-          />
-          <span className="text-xs">{kebabToTitleCase(type)}</span>
-        </div>
-
-        {tags.map((tag, idx) => (
-          <div
-            key={tag + idx}
-            className="flex items-center rounded-full border border-default-200 px-3 py-1.5"
-          >
-            <span className="text-xs">{tag}</span>
-          </div>
-        ))}
-      </div>
-      <div className="mb-8 flex items-center gap-3">
-        <h4 className="text-sm text-default-700">Size :</h4>
-
-        {["S", "M", "L"].map((size, idx) => (
-          <div key={size + idx}>
-            <input
-              type="radio"
-              name="size-options"
-              id={size + idx}
-              value={size}
-              className="peer hidden"
-              defaultChecked
-            />
-            <label
-              htmlFor={size + idx}
-              className="flex h-9 w-9 cursor-pointer select-none items-center justify-center rounded-full bg-default-200 text-center text-sm peer-checked:bg-primary peer-checked:text-white"
-            >
-              {size}
-            </label>
-          </div>
-        ))}
-      </div>
-
+      <p className="mb-4 text-sm text-default-500">{description}</p>
       {showButtons && <OrderInteraction dish={dish} />}
-
       <div className="mb-6">
         <h4 className="mb-4 text-lg font-medium text-default-700">
           Nutrition Facts{" "}
           <span className="text-sm text-default-400">(per serving)</span>
         </h4>
-        <div className="rounded-lg border border-default-200 p-3">
-          <div className="grid grid-cols-4 justify-center">
-            {dishNutritionFacts.map((nutrition, idx) => (
-              <div key={nutrition.name + idx} className="text-center">
-                <h4 className="mb-1 text-base font-medium text-default-700">
-                  {nutrition.qty}
-                </h4>
-                <h4 className="text-base text-default-700">{nutrition.name}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
+        <DishSpecifications
+          calories={calories}
+          fat={fat}
+          carbs={carbs}
+          protein={protein}
+        />
       </div>
       <div className="flex items-center">
         <LuEye size={20} className="me-2 text-primary" />
