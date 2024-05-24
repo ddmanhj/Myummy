@@ -13,6 +13,30 @@ export type TestimonialType = {
   review: string;
 };
 
+export type PostCommentReview = {
+  star: number;
+  review: string;
+}
+
+export type StarRatingProps = {
+  maxRating?: number;
+  defaultRating?: number;
+  color?: string;
+  size?: number;
+  messages?: string[];
+  className?: string;
+  onSetRating?: any;
+};
+
+export type StarProps = {
+  onRate: any;
+  full: boolean;
+  onHoverIn: any;
+  onHoverOut: any;
+  color: string;
+  size: number;
+};
+
 export type AddressProvinceType = {
   province_id: string,
   province_name: string,

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const OfferAdBanner = () => {
   const { t } = useTranslation();
-  const [language, setLanguage] = useState("vi");
+  const [language, setLanguage] = useState(localStorage.getItem("i18nextLng"));
   const handleViChangeLanguage = () => {
     setLanguage("vi");
     i18next.changeLanguage("vi");

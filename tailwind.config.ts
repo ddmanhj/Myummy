@@ -39,6 +39,7 @@ const config: Config = {
         mobile: {max: '500px'}
       },
       colors: {
+        'starColor': '#fcc419',
         primary: {
           ...colors.orange,
           'DEFAULT': '#F58220',
