@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   SelectFormInput,
@@ -19,6 +18,7 @@ import {
   AddressWardType,
 } from "@/types/other";
 import { isEmpty } from "lodash";
+import { billingFormSchema } from "@/utils";
 
 const BillingInformation = () => {
   const mutationProvinceList = useGetProvinceList();
@@ -27,26 +27,6 @@ const BillingInformation = () => {
   useEffect(() => {
     mutationProvinceList.mutate();
   }, []);
-
-  const billingFormSchema = yup.object({
-    customerName: yup.string().required("Please enter your full name"),
-    address: yup.string().required("Please enter your address"),
-    district: yup.object().nullable().required("Please select your district"),
-    ward: yup.object().nullable().required("Please select your State/Province"),
-    province: yup.object().nullable().required("Please select your Province"),
-    email: yup
-      .string()
-      .email("Please enter a valid email")
-      .required("Please enter your email"),
-    phoneNo: yup
-      .string()
-      .matches(
-        /^(0|\+84)(3[2-9]|5[689]|7[06-9]|8[1-689]|9[0-4|6-9])\d{7}$/,
-        "Số điện thoại không hợp lệ"
-      )
-      .required("Vui lòng nhập số điện thoại"),
-    message: yup.string().optional(),
-  });
 
   const { control, handleSubmit, watch } = useForm({
     resolver: yupResolver(billingFormSchema),
