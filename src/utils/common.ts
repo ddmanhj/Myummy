@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 // eslint-disable-next-line import/no-cycle
 import baseApi from './baseApi';
 import { isEmpty } from 'lodash';
+import { jwtDecode } from 'jwt-decode';
 
 type ToastType = 'info' | 'success' | 'warning' | 'error' | 'default';
 
@@ -63,6 +64,16 @@ export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
   }
 }
 
+export const expToken = () => {
+  const expirationTime = Cookies.get('expAccessToken') ?? 0;
+  const currentTimestamp = Math.floor(Date.now() / 1000); // Thời gian hiện tại
+  if (Number(expirationTime) > currentTimestamp) {
+    return true
+  } else {
+    return false
+  }
+}
+
 // so sánh thời gian hiện tại với thời gian truyền vào , trả về kiều 1 ngày trước, 1 giờ trước ....
 export const checkTimeAgo = (time: string) => {
   const now = dayjs();
@@ -111,6 +122,12 @@ export const handleError = async (error: any): Promise<void> => {
       const response = (await handleRefreshToken(refreshToken)) as any;
       if (response?.data?.data) {
         // axios.defaults.headers.common.Authorization = `${response.data.data}`;
+        // Giải mã token để truy cập thông tin payload
+        const decodedToken = jwtDecode(response?.data?.data);
+
+        // Kiểm tra thời gian hết hạn (expiration time) của token
+        const expirationTime = decodedToken?.exp ?? '';
+        Cookies.set('expAccessToken', expirationTime?.toString(), { expires: 2});
         baseApi(error.config);
       } else {
         // xử lý khi refresh token lỗi
@@ -125,6 +142,12 @@ export const handleError = async (error: any): Promise<void> => {
       if(!isEmpty(loginData)) {
         const response = (await handleRefreshToken(loginData ?? "")) as any;
         if (response?.data?.data && response?.status) {
+        // Giải mã token để truy cập thông tin payload
+        const decodedToken = jwtDecode(response?.data?.data);
+
+         // Kiểm tra thời gian hết hạn (expiration time) của token
+        const expirationTime = decodedToken?.exp ?? '';
+        Cookies.set('expAccessToken', expirationTime?.toString(), { expires: 2});
           // axios.defaults.headers.common.Authorization = `${response.data.data}`;
           baseApi(error.config);
         }
