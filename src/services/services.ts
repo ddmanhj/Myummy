@@ -7,6 +7,7 @@ import { getWishListAPI } from "@/redux/wishListSlice";
 import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 import { DataWishListRequest } from "@/types/food";
+import { PostCommentReviewType } from "@/types/other";
 
 // Menu
 export const useMenu = () => {
@@ -157,11 +158,39 @@ export const useGetListRandomFood = () => {
 }
 // END Food
 
+// Consumer Review
+export const useGetReviewFood = (dishID: number, page: number, limit: number) => {
+  return useQuery({
+    queryKey: ['getReviewFood'],
+    enabled: false,
+    retry: 1,
+    queryFn: () => getRequest(`/consumer_review?dishID=${dishID}&page=${page}&limit=${limit}`),
+  });
+}
+
+
+export const usePostReview = () => {
+  return useMutation({
+    mutationKey: ['postReview'],
+    onSuccess: () => {},
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: PostCommentReviewType) =>
+      postRequest(
+        `/consumer_review`,
+        data,
+      ),
+  });
+}
+// END Consumer Review
+
 
 // Wish list
 export const useGetDishByWishList = (dispatch: any) => {
   return useMutation({
     mutationKey: ['addWishList'],
+    retry: 1,
     onSuccess: (data) => {
       if(data.status === false) {
         notify(data?.data, 'error');

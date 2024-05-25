@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StarProps, StarRatingProps } from "@/types/other";
 
 //Phần đánh giá
@@ -18,9 +18,17 @@ const StarRating = ({
   messages = [],
   defaultRating = 0,
   onSetRating,
+  doneAPI = false,
 }: StarRatingProps) => {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
+
+  useEffect(() => {
+    if (doneAPI) {
+      setTempRating(0);
+      setRating(0);
+    }
+  }, [doneAPI]);
 
   function handleRating(rating: number) {
     onSetRating.onChange(rating);

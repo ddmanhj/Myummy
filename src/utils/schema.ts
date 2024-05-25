@@ -1,10 +1,8 @@
 import i18n from "@/locales/i18n";
 import * as yup from "yup";
 
-
-
 export const postCommentReviewSchema = yup.object({
-    star: yup.number().required("Please select a star rating"),
+    star: yup.number().positive().required("Please select a star rating"),
     review: yup.string().required("Please enter your comment"),
 });
 

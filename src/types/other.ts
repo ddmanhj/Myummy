@@ -13,9 +13,25 @@ export type TestimonialType = {
   review: string;
 };
 
-export type PostCommentReview = {
+export type SchemaPostCommentReviewType = {
   star: number;
   review: string;
+}
+
+export type PostCommentReviewType = {
+  id?: number;
+  star: number;
+  review: string;
+  dishID?:number;
+  customerID?:number;
+  urlImageConsumerReview?: [any];
+  image_consumer_reviews?: [any];
+  updatedAt?: string;
+  createdAt?: string;
+  customer?: {
+    customerName?: string;
+    urlImageAvatar?: string;
+  }
 }
 
 export type StarRatingProps = {
@@ -26,6 +42,7 @@ export type StarRatingProps = {
   messages?: string[];
   className?: string;
   onSetRating?: any;
+  doneAPI?: boolean;
 };
 
 export type StarProps = {
