@@ -7,6 +7,8 @@ import { toast } from 'sonner';
 // eslint-disable-next-line import/no-cycle
 import baseApi from './baseApi';
 import { isEmpty } from 'lodash';
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 type ToastType = 'info' | 'success' | 'warning' | 'error' | 'default';
 
@@ -63,6 +65,16 @@ export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
   }
 }
 
+export const expToken = () => {
+  const expirationTime = Cookies.get('expAccessToken') ?? 0;
+  const currentTimestamp = Math.floor(Date.now() / 1000); // Thời gian hiện tại
+  if (Number(expirationTime) > currentTimestamp) {
+    return true
+  } else {
+    return false
+  }
+}
+
 // so sánh thời gian hiện tại với thời gian truyền vào , trả về kiều 1 ngày trước, 1 giờ trước ....
 export const checkTimeAgo = (time: string) => {
   const now = dayjs();
@@ -86,7 +98,7 @@ export const refreshAccessToken = async (refreshToken: string): Promise<any> => 
     },
     {
       headers: {
-        authorization: `Bearer ${refreshToken}`,
+        Authorization: `Bearer ${refreshToken}`,
         'Content-Type': 'multipart/form-data',
       },
       withCredentials: true
@@ -96,7 +108,7 @@ export const refreshAccessToken = async (refreshToken: string): Promise<any> => 
 };
 
 const handleRefreshToken = (refreshToken: string) => {
-   refreshAccessToken(refreshToken);
+   return refreshAccessToken(refreshToken);
 };
 
 export const handleError = async (error: any): Promise<void> => {
@@ -108,30 +120,54 @@ export const handleError = async (error: any): Promise<void> => {
       const refreshToken = loginData
         ? loginData 
         : '';
-      const response = (await handleRefreshToken(refreshToken)) as any;
-      if (response?.data?.data) {
-        // axios.defaults.headers.common.Authorization = `${response.data.data}`;
-        baseApi(error.config);
-      } else {
-        // xử lý khi refresh token lỗi
-        // window.location.reload();
-      }
+        try {
+          const response = await (handleRefreshToken(refreshToken)) as any;
+          if (response?.data?.data) {
+            axios.defaults.headers.common.Authorization = `${response.data.data.token}`;
+            // Giải mã token để truy cập thông tin payload
+            const decodedToken = jwtDecode(response?.data?.data?.token);
+
+            // Kiểm tra thời gian hết hạn (expiration time) của token
+            const expirationTime = decodedToken?.exp ?? '';
+            Cookies.set('expAccessToken', expirationTime?.toString(), { expires: 2 });
+            baseApi(error.config);
+          }
+        } catch (error) {
+          window.location.href = '/auth/login';
+        }
+      
     } else {
       // xử lý sau khi đã refresh
       // window.location.reload();
     }
   }
   if (error?.response?.status === 401 || isEmpty(loginData)) {
+    if (!originalRequest?.retry) {
+      originalRequest.retry = true;
       if(!isEmpty(loginData)) {
-        const response = (await handleRefreshToken(loginData ?? "")) as any;
-        if (response?.data?.data && response?.status) {
-          // axios.defaults.headers.common.Authorization = `${response.data.data}`;
+        const refreshToken = loginData ? loginData : '';
+        try {
+          const response = await(handleRefreshToken(refreshToken ?? "")) as any;
+        if (response?.data?.data && response?.status && response?.data?.data?.status == true) {
+          const decodedToken = jwtDecode(response?.data?.data?.token);
+
+          const expirationTime = decodedToken?.exp ?? '';
+          Cookies.set('expAccessToken', expirationTime?.toString(), { expires: 2 });
+          axios.defaults.headers.common.Authorization = `${response.data.data.token}`;
           baseApi(error.config);
+        } else {
+          window.location.href = '/auth/login';
+        }
+        } catch (error) {
+          window.location.href = '/auth/login';
         }
       } else {
         if (error?.response?.status === 401)
         window.location.href = '/auth/login';
       }
+    } else {
+      window.location.href = '/auth/login';
+    }
   }
 };
 

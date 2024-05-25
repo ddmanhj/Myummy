@@ -13,7 +13,7 @@ const useLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const customerData = useSelector((state: any) => state.customer.customer)
-  const getSessionCustomer = Cookies.get("getRefreshToken");
+  const getSessionCustomer = Cookies.get("expAccessToken");
 
   const [searchParams] = useSearchParams();
 
@@ -25,7 +25,7 @@ const useLogin = () => {
     password: yup.string().required("Please enter your password"),
   });
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit } = useForm({
     resolver: yupResolver(loginFormSchema),
     defaultValues: {
       email: "user@coderthemes.com",

@@ -3,7 +3,7 @@ import i18next from "i18next";
 import { vietnamImg, usaImg } from "@/assets/data/images";
 
 const Language = () => {
-  const [language, setLanguage] = useState("vi");
+  const [language, setLanguage] = useState(localStorage.getItem("i18nextLng"));
   const handleViChangeLanguage = () => {
     setLanguage("vi");
     i18next.changeLanguage("vi");

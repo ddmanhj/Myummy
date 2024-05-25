@@ -21,7 +21,7 @@ const AllRoutes = (props: RouteProps) => {
   const customerData = useSelector(
     (customer: any) => customer.customer.customer
   );
-  const session = Cookies.get("getRefreshToken");
+  const session = Cookies.get("expAccessToken");
 
   // import { useTranslation } from "react-i18next";
   // const { t } = useTranslation();

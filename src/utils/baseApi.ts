@@ -5,12 +5,12 @@ import type {
   InternalAxiosRequestConfig,
 } from 'axios';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 import { baseApi as baseURL } from '@/utils/constants';
 
 // eslint-disable-next-line import/no-cycle
 import { handleError } from './common';
+import Cookies from 'js-cookie';
 
 // const isServer = typeof window === 'undefined'
 
@@ -27,12 +27,16 @@ const onRequest = async (
     timeout: 60000,
     // validateStatus: () => true,
   };
+  const expirationTime = Cookies.get('expAccessToken');
+  const currentTimestamp = Math.floor(Date.now() / 1000); // Thời gian hiện tại
+  if (Number(expirationTime) < currentTimestamp) {
+    Cookies.set('expAccessToken', '', { expires: 2});
+  } 
+  
   if (!newConfig?.headers['Content-Type']) {
     newConfig.headers['Content-Type'] = 'application/json';
   }
 
-  newConfig.headers.clientTime = new Date().toISOString();
-  newConfig.headers.clientMessageId = 4263432;
   return newConfig;
 };
 

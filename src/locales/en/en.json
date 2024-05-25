@@ -27,5 +27,9 @@
   "descriptionFastDeliveryCard": "Experience our speedy and reliable delivery service right at your doorstep.",
   "testimonials": "Testimonials",
   "customersFeedback": "What They Say About Us.",
-  "/*End Home Page*/": ""
+  "/*End Home Page*/": "",
+
+  "/*Require Schema*/": "",
+  "requireFullName": "Please enter your full name",
+  "/*End Require Schema*/": ""
 }

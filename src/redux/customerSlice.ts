@@ -30,5 +30,7 @@ const customerSlice = createSlice({
     getInfoCustomer,
     customerLogOut,
   } = customerSlice.actions;
+
+  export const getCustomer = (state: any) => state.customer.customer;
   
 export default customerSlice.reducer;

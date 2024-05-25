@@ -13,6 +13,47 @@ export type TestimonialType = {
   review: string;
 };
 
+export type SchemaPostCommentReviewType = {
+  star: number;
+  review: string;
+}
+
+export type PostCommentReviewType = {
+  id?: number;
+  star: number;
+  review: string;
+  dishID?:number;
+  customerID?:number;
+  urlImageConsumerReview?: [any];
+  image_consumer_reviews?: [any];
+  updatedAt?: string;
+  createdAt?: string;
+  customer?: {
+    customerName?: string;
+    urlImageAvatar?: string;
+  }
+}
+
+export type StarRatingProps = {
+  maxRating?: number;
+  defaultRating?: number;
+  color?: string;
+  size?: number;
+  messages?: string[];
+  className?: string;
+  onSetRating?: any;
+  doneAPI?: boolean;
+};
+
+export type StarProps = {
+  onRate: any;
+  full: boolean;
+  onHoverIn: any;
+  onHoverOut: any;
+  color: string;
+  size: number;
+};
+
 export type AddressProvinceType = {
   province_id: string,
   province_name: string,

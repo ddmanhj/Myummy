@@ -1,11 +1,13 @@
+import { jwtDecode } from "jwt-decode";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { NavigateFunction } from "react-router-dom";
 import { getRequest, notify, postRequest } from "../utils/common";
 import { LoginType, RegisterType } from "@/types/user";
-import { NavigateFunction } from "react-router-dom";
+import { getWishListAPI } from "@/redux/wishListSlice";
 import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 import { DataWishListRequest } from "@/types/food";
-import { getWishListAPI } from "@/redux/wishListSlice";
+import { PostCommentReviewType } from "@/types/other";
 
 // Menu
 export const useMenu = () => {
@@ -68,6 +70,14 @@ export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
       dispatch(getInfoCustomer(infoCustomer))
       dispatch(getWishListAPI(data?.data?.wishList));
       Cookies.set('getRefreshToken', data.data?.refreshToken, { expires: 7 });
+
+      // Giải mã token để truy cập thông tin payload
+      const decodedToken = jwtDecode(data?.data?.accessToken);
+
+      // Kiểm tra thời gian hết hạn (expiration time) của token
+      const expirationTime = decodedToken?.exp ?? '';
+      Cookies.set('expAccessToken', expirationTime?.toString(), { expires: 2});
+       
       notify('Đăng nhập thành công', 'success');
     },
     onError: (err) => {
@@ -148,11 +158,39 @@ export const useGetListRandomFood = () => {
 }
 // END Food
 
+// Consumer Review
+export const useGetReviewFood = (dishID: number, page: number, limit: number) => {
+  return useQuery({
+    queryKey: ['getReviewFood'],
+    enabled: false,
+    retry: 1,
+    queryFn: () => getRequest(`/consumer_review?dishID=${dishID}&page=${page}&limit=${limit}`),
+  });
+}
+
+
+export const usePostReview = () => {
+  return useMutation({
+    mutationKey: ['postReview'],
+    onSuccess: () => {},
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: PostCommentReviewType) =>
+      postRequest(
+        `/consumer_review`,
+        data,
+      ),
+  });
+}
+// END Consumer Review
+
 
 // Wish list
 export const useGetDishByWishList = (dispatch: any) => {
   return useMutation({
     mutationKey: ['addWishList'],
+    retry: 1,
     onSuccess: (data) => {
       if(data.status === false) {
         notify(data?.data, 'error');

@@ -29,5 +29,9 @@
   "descriptionFastDeliveryCard": "Trải nghiệm dịch vụ giao hàng nhanh chóng và đáng tin cậy của chúng tôi ngay tại cửa nhà bạn.",
   "testimonials": "Phản hồi",
   "customersFeedback": "Khách hàng nói gì về chúng tôi.",
-  "/*End Home Page*/": ""
+  "/*End Home Page*/": "",
+
+  "/*Require Schema*/": "",
+  "requireFullName": "Hãy nhập họ tên của bạn",
+  "/*End Require Schema*/": ""
 }

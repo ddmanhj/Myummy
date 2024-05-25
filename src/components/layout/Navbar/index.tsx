@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   LuHeart,
   LuLogOut,
+  LuLogIn,
   LuMenu,
   LuSearch,
   LuShoppingCart,
   LuUser,
-  LuUserCircle,
 } from "react-icons/lu";
 import SimplebarReactClient from "../../SimplebarReactClient";
 import TabNavigation from "./TabNavigation";
@@ -27,6 +27,7 @@ import { customerLogOut } from "@/redux/customerSlice";
 import { CustomerType } from "@/types/user";
 import { resetWishList } from "@/redux/wishListSlice";
 import { clearCart } from "@/redux/cartSlice";
+import { expToken } from "@/utils";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -35,10 +36,13 @@ const Navbar = () => {
   const getCustomerData = useSelector(
     (state: CustomerType) => state.customer.customer
   );
+
+  const expirationTimeToken = expToken();
   const mutationLogOutCustomer = useLogoutCustomer(getCustomerData.id);
   const logOutHandle = async () => {
     await mutationLogOutCustomer.mutate();
     Cookies.remove("getRefreshToken");
+    Cookies.remove("expAccessToken");
     dispatch(customerLogOut());
     dispatch(resetWishList());
     dispatch(clearCart());
@@ -109,42 +113,37 @@ const Navbar = () => {
                     </div>
                     <div className="hs-dropdown-menu z-20 mt-4 hidden min-w-[200px] rounded-lg border border-default-100 bg-white p-1.5 opacity-0 shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
                       <ul className="flex flex-col gap-1">
-                        <li>
+                        {!expirationTimeToken && (
+                          <li>
+                            <Link
+                              className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                              to="/auth/login"
+                            >
+                              <LuLogIn size={16} />
+                              Đăng nhập
+                            </Link>
+                          </li>
+                        )}
+                        {/* <li>
                           <Link
                             className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
-                            to="/admin/profile"
-                            target="_blank"
-                          >
-                            <LuUserCircle size={16} /> Admin
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
-                            to="/cart"
-                          >
-                            <LuShoppingCart size={16} />
-                            Cart
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
-                            to="/wishlist"
+                            to="/Profile"
                           >
                             <LuHeart size={16} />
-                            Wishlist
+                            Profile
                           </Link>
-                        </li>
-                        <li>
-                          <span
-                            onClick={logOutHandle}
-                            className="flex w-full items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700 cursor-pointer"
-                          >
-                            <LuLogOut size={16} />
-                            Log Out
-                          </span>
-                        </li>
+                        </li> */}
+                        {expirationTimeToken && (
+                          <li>
+                            <span
+                              onClick={logOutHandle}
+                              className="flex w-full items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700 cursor-pointer"
+                            >
+                              <LuLogOut size={16} />
+                              Log Out
+                            </span>
+                          </li>
+                        )}
                       </ul>
                     </div>
                   </div>

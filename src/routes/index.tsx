@@ -35,6 +35,9 @@ const Checkout = lazy(
 const Wishlist = lazy(
   () => import("../app/(client)/(protected)/wishlist/page")
 );
+const PaymentSuccess = lazy(
+  () => import("../app/(client)/(protected)/checkout/PaymentSuccess")
+);
 
 // admin pages
 const AdminCustomers = lazy(
@@ -209,6 +212,12 @@ const clientAccountRoutes: RoutesProps[] = [
     name: "Checkout",
     element: <Checkout />,
   },
+  {
+    path: "/payment-success",
+    name: "PaymentSuccess",
+    element: <PaymentSuccess />,
+  },
+
   {
     path: "/wishlist",
     name: "Wishlist",
