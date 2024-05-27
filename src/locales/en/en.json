@@ -31,5 +31,9 @@
 
   "/*Require Schema*/": "",
   "requireFullName": "Please enter your full name",
-  "/*End Require Schema*/": ""
+  "/*End Require Schema*/": "",
+
+  "/*Button*/": "",
+  "addToCart": "Add to Cart",
+  "/*END Button*/": ""
 }

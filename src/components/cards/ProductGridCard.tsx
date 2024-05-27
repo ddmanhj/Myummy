@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { FaStar } from "react-icons/fa6";
 import { calculatedPrice } from "@/helpers";
 import type { DishType } from "@/types/food";

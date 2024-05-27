@@ -9,6 +9,15 @@ export type CartTypeTemplate = {
   dish?: DishTypeTemplate;
   quantity: number;
 };
+export type CartType = {
+  dishesName: string;
+  id: IdType;
+  quantityCart: number;
+  totalPrice: number;
+  unitPrice: number;
+  urlImageDishes: string;
+  quantity?: number;
+}
 
 export type CalculatedOrder = {
   total: number;
