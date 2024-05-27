@@ -26,6 +26,9 @@ const customerSlice = createSlice({
     },
   });
  
+
+  export const customerState = (state: any) => state.customer.customer;
+  
   export const {
     getInfoCustomer,
     customerLogOut,

@@ -11,7 +11,7 @@ const selectCart = (state: any) => state.cart.cart;
 // selectCart là một selector đơn giản để lấy ra state của giỏ hàng.
 //selectTotalCartQuantity và selectTotalCartPrice là các selector được tạo ra bằng createSelector để tính toán lại khi có thay đổi trong state.
 
-//Đếm số lượng pizza có trong giỏ
+//Đếm số lượng món ăn có trong giỏ
 export const totalCartQuantity = createSelector([selectCart], (cart) =>
   cart.reduce((sum: any, item: any) => sum + item.quantityCart, 0),
 );

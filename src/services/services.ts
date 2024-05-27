@@ -8,6 +8,7 @@ import { getInfoCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 import { DataWishListRequest } from "@/types/food";
 import { PostCommentReviewType } from "@/types/other";
+import { isEmpty } from "lodash";
 
 // Menu
 export const useMenu = () => {
@@ -189,7 +190,7 @@ export const usePostReview = () => {
 // Wish list
 export const useGetDishByWishList = (dispatch: any) => {
   return useMutation({
-    mutationKey: ['addWishList'],
+    mutationKey: ['getWishList'],
     retry: 1,
     onSuccess: (data) => {
       if(data.status === false) {
@@ -246,6 +247,43 @@ export const useDeleteWishList = () => {
   });
 }
 // END wish list
+
+// Orders
+export const useGoToPayment = () => {
+  return useMutation({
+    mutationKey: ['createOrder'],
+    retry: 1,
+    onSuccess: (data) => {
+      if(isEmpty(data?.data?.urlPayment)) return notify('Fail to order', 'error');
+      return data;
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: any) =>
+      postRequest(
+        `/pay-order`,
+        data,
+      )
+  });
+}
+
+export const useConfirmOrder = () => {
+  return useMutation({
+    mutationKey: ['confirmOrder'],
+    retry: 1,
+    onSuccess: () => {},
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: any) =>
+      postRequest(
+        `/create_order`,
+        data
+      )
+  });
+}
+// END Orders
 
 // CALL API TỈNh THÀNH VIỆT NAM
 export const useGetProvinceList = () => {

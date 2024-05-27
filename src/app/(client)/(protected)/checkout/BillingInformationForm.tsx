@@ -11,6 +11,7 @@ import {
   useGetDistrictList,
   useGetProvinceList,
   useGetWardList,
+  useGoToPayment,
 } from "@/services/services";
 import {
   AddressDistrictType,
@@ -19,18 +20,45 @@ import {
 } from "@/types/other";
 import { isEmpty } from "lodash";
 import { billingFormSchema } from "@/utils";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart } from "@/redux/cartSlice";
+import { CartType } from "@/types/state";
+import { customerState } from "@/redux/customerSlice";
+import {
+  getBillingInformation,
+  saveBillingInformation,
+} from "@/redux/orderSlice";
 
 const BillingInformation = () => {
+  const dispatch = useDispatch();
   const mutationProvinceList = useGetProvinceList();
   const mutationDistrictList = useGetDistrictList();
   const mutationWardList = useGetWardList();
   useEffect(() => {
     mutationProvinceList.mutate();
   }, []);
+  const mutationGoToPayment = useGoToPayment();
+  const cart = useSelector(getCart);
+  const customerData = useSelector(customerState);
+
+  const getDataInformation = useSelector(getBillingInformation);
 
   const { control, handleSubmit, watch } = useForm({
     resolver: yupResolver(billingFormSchema),
+    defaultValues: {
+      fullName: getDataInformation.fullName,
+      address: getDataInformation.address,
+      email: getDataInformation.email,
+      phone: getDataInformation.phone,
+      message: getDataInformation.message,
+    },
   });
+
+  useEffect(() => {
+    if (!isEmpty(mutationGoToPayment.data?.data)) {
+      window.location.href = mutationGoToPayment.data?.data?.urlPayment;
+    }
+  }, [mutationGoToPayment.data?.data]);
 
   const handleKeyDown = (event: {
     key: string;
@@ -62,11 +90,27 @@ const BillingInformation = () => {
     }
   }, [watch("district")]);
 
-  const handleSubmitForm = () => {};
+  const handleSubmitForm = (values: any, e: any) => {
+    e.preventDefault();
+    const dishes = cart.map((item: CartType) => {
+      return { id: item.id, quantity: item.quantityCart };
+    });
+    const dataOrder = {
+      ...values,
+      district: values?.district?.label,
+      province: values?.province?.label,
+      ward: values?.ward?.label,
+      customerID: customerData?.id,
+      dishes,
+    };
+    dispatch(saveBillingInformation(dataOrder));
+    mutationGoToPayment.mutate(dataOrder);
+    // mutationCreateOrder.mutate(dataOrder);
+  };
 
   return (
     <form
-      onSubmit={handleSubmit(() => handleSubmitForm)}
+      onSubmit={handleSubmit(handleSubmitForm)}
       className="grid grid-cols-1 gap-6 lg:grid-cols-3"
     >
       <div className="col-span-1 lg:col-span-2">
@@ -76,7 +120,7 @@ const BillingInformation = () => {
           </h4>
           <div className="grid gap-6 lg:grid-cols-4">
             <TextFormInput
-              name="customerName"
+              name="fullName"
               type="text"
               label="Full Name"
               placeholder="Full Name"
@@ -142,7 +186,7 @@ const BillingInformation = () => {
             />
 
             <TextFormInput
-              name="phoneNo"
+              name="phone"
               type="tel"
               label="Phone Number"
               className="block w-full rounded-lg border border-default-200 bg-transparent px-4 py-2.5 dark:bg-default-50"

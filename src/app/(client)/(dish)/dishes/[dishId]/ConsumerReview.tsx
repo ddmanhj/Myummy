@@ -28,7 +28,6 @@ const ConsumerReview = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm<SchemaPostCommentReviewType>({
     resolver: yupResolver(postCommentReviewSchema),
     defaultValues: { review: "", star: 0 },
@@ -65,7 +64,7 @@ const ConsumerReview = () => {
 
   // Nếu ở trang 1 thì gọi API khi trang 1 quá 10 bình luận để cập nhật pagination
   useEffect(() => {
-    if (dataReview?.length > 10) {
+    if (dataReview?.length > 20) {
       const fetchData = async () => {
         await callAPIReviewConsumerFood();
       };
