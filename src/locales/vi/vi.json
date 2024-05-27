@@ -33,5 +33,9 @@
 
   "/*Require Schema*/": "",
   "requireFullName": "Hãy nhập họ tên của bạn",
-  "/*End Require Schema*/": ""
+  "/*End Require Schema*/": "",
+
+  "/*Button*/": "",
+  "addToCart": "Thêm vào giỏ",
+  "/*END Button*/": ""
 }

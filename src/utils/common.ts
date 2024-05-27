@@ -216,7 +216,7 @@ export const getFileRequest = (
 
 export const postRequest = (
   url: string,
-  data: any,
+  data?: any,
   config?: AxiosRequestConfig,
 ): Promise<any> => {
   return new Promise((resolve, reject) => {

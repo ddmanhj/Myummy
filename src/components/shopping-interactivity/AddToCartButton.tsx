@@ -1,8 +1,9 @@
-import { cn } from "@/utils";
+import { cn, languageState } from "@/utils";
 import { LuShoppingCart, LuTrash } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
 import { addDish, deleteDish, checkIsInCart } from "@/redux/cartSlice";
 import { DishType } from "@/types/food";
+import { useTranslation } from "react-i18next";
 
 export type PropsAddToCartButton = {
   dish?: DishType | any;
@@ -10,6 +11,8 @@ export type PropsAddToCartButton = {
 };
 
 const AddToCartButton = ({ dish, className }: PropsAddToCartButton) => {
+  const { t } = useTranslation();
+  const language = languageState();
   const dispatch = useDispatch();
   const isInCart = useSelector(checkIsInCart(dish));
 
@@ -45,7 +48,7 @@ const AddToCartButton = ({ dish, className }: PropsAddToCartButton) => {
       onClick={() => dish && handleAddToCard(dish)}
     >
       <LuShoppingCart size={18} className="me-2" />
-      Add to Cart
+      {t("addToCart")}
     </button>
   );
 };
