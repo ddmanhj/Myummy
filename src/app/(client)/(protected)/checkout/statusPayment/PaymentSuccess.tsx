@@ -1,7 +1,9 @@
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const PaymentSuccess = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="flex flex-col items-center">
@@ -11,16 +13,26 @@ const PaymentSuccess = () => {
           className="w-[8rem] h-[8rem]"
         />
         <p className="mt-15 text-green-500 text-lg font-semibold">
-          Thanh toán thành công!
+          {t("isSuccessOrder")};
         </p>
 
-        <div className="mt-20">
-          <Link
-            to="/"
-            className="w-1/2 rounded-lg bg-primary px-6 py-3 text-base font-medium capitalize text-white transition-all hover:bg-primary-500 lg:w-2/6"
-          >
-            Go To home
-          </Link>
+        <div className="mt-20 flex gap-2">
+          <div>
+            <Link
+              to="/"
+              className="w-1/2 rounded-lg bg-primary px-6 py-3 text-base font-medium capitalize text-white transition-all hover:bg-primary-500 lg:w-2/6"
+            >
+              {t("goToHome")}
+            </Link>
+          </div>
+          <div>
+            <Link
+              to="/orders"
+              className="w-1/2 rounded-lg bg-primary px-6 py-3 text-base font-medium capitalize text-white transition-all hover:bg-primary-500 lg:w-2/6"
+            >
+              {t("goToOrders")}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

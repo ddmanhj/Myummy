@@ -3,13 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { orderRows } from "../../../(order)/orders/page";
 import { BreadcrumbAdmin, OrderDataTable } from "@/components";
 import type { ColumnType } from "@/types/util";
-import type { OrderType } from "@/types/other";
+import type { OrderTypeTemplate } from "@/types/other";
 import { SellerType } from "@/types/food";
 const PersonDetailsCard = lazy(
   () => import("@/components/cards/PersonDetailsCard")
 );
 
-const columns: Array<ColumnType<OrderType>> = [
+const columns: Array<ColumnType<OrderTypeTemplate>> = [
   {
     key: "date",
     name: "Date",
@@ -52,7 +52,7 @@ const SellerDetails = () => {
             {seller && <PersonDetailsCard seller={seller} />}
           </div>
           <div className="lg:col-span-2">
-            <OrderDataTable<OrderType>
+            <OrderDataTable<OrderTypeTemplate>
               title="Sales Order history"
               columns={columns}
               rows={orderRows}

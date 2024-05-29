@@ -15,6 +15,7 @@ File: style Css File
 @import "custom/_helper.css";
 @import "custom/_apex-charts.css";
 @import "custom/_data-table.css";
+@import "custom/other.css";
 
 /* Custom Plugin css */
 @import "custom/_scrollbar.css";

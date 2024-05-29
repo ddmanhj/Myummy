@@ -39,6 +39,15 @@ const Payment = lazy(
   () => import("../app/(client)/(protected)/checkout/Payment")
 );
 
+const ListOrder = lazy(
+  () => import("../app/(client)/(protected)/checkout/(order)/order/page")
+);
+
+const OrderDetails = lazy(
+  () =>
+    import("../app/(client)/(protected)/checkout/(order)/order/[orderId]/page")
+);
+
 // admin pages
 const AdminCustomers = lazy(
   () => import("../app/admin/(customer)/customers/page")
@@ -217,7 +226,16 @@ const clientAccountRoutes: RoutesProps[] = [
     name: "Payment",
     element: <Payment />,
   },
-
+  {
+    path: "/orders",
+    name: "List Order",
+    element: <ListOrder />,
+  },
+  {
+    path: "/orders/:orderId",
+    name: "Order Detail",
+    element: <OrderDetails />,
+  },
   {
     path: "/wishlist",
     name: "Wishlist",

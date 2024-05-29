@@ -7,7 +7,7 @@ import {
   sellersData,
 } from "@/assets/data";
 import type { CategoryType, DishType } from "@/types/food";
-import type { OrderType } from "@/types/other";
+import type { OrderTypeTemplate } from "@/types/other";
 import type { FilterState } from "../types/state";
 
 export const getFilteredProducts = (
@@ -68,13 +68,13 @@ export const getCategoryById = async (id: CategoryType["id"]) => {
   return categoriesData.find((category) => category.id == id);
 };
 
-export const getOrderById = async (id: OrderType["id"]) => {
+export const getOrderById = async (id: OrderTypeTemplate["id"]) => {
   // You can fetch data from your server here
   await sleep(200);
   return orderHistoryData.find((order) => order.id == id);
 };
 
-export const getOrderHistoryById = async (id: OrderType["id"]) => {
+export const getOrderHistoryById = async (id: OrderTypeTemplate["id"]) => {
   // You can fetch data from your server here
   await sleep(200);
   return orderHistoryData.find((order) => order.id == id);

@@ -11,7 +11,7 @@ import {
 import OngoingOrderCalendar from "./OngoingOrderCalendar";
 import type { ColumnType } from "@/types/util";
 import { BreadcrumbAdmin, OrderDataTable } from "@/components";
-import type { OrderType } from "@/types/other";
+import type { OrderTypeTemplate } from "@/types/other";
 import { getDishById, getOrderById } from "@/helpers";
 import { toSentenceCase } from "@/utils";
 import OrderStatistics from "./OrderStatistics";
@@ -25,7 +25,7 @@ export const orderRows = orderHistoryData.map((order) => {
   };
 });
 
-const columns: Array<ColumnType<OrderType>> = [
+const columns: Array<ColumnType<OrderTypeTemplate>> = [
   {
     key: "date",
     name: "Date",
@@ -85,7 +85,7 @@ const OrderList = () => {
                   </div>
                 </div>
               );
-            }),
+            })
           );
 
           return (
@@ -101,7 +101,7 @@ const OrderList = () => {
               <div className="flex flex-col gap-4">{orders}</div>
             </div>
           );
-        }),
+        })
       );
       setFetchedOrders(resolvedStatuses);
     };
@@ -136,7 +136,7 @@ const OrderList = () => {
                 />
               </div>
               <div className="grid grid-cols-1">
-                <OrderDataTable<OrderType>
+                <OrderDataTable<OrderTypeTemplate>
                   title="Order History"
                   columns={columns}
                   rows={orderRows}

@@ -3,7 +3,7 @@ import { LuChevronRight, LuHome } from "react-icons/lu";
 import type { BreadcrumbProps } from "@/types/other";
 import PageTitle from "./PageTitle";
 
-const Breadcrumb = ({ title, subtitle }: BreadcrumbProps) => {
+const Breadcrumb = ({ title, subtitle, link }: BreadcrumbProps) => {
   return (
     <>
       <PageTitle title={title} />
@@ -28,7 +28,7 @@ const Breadcrumb = ({ title, subtitle }: BreadcrumbProps) => {
                 <li className="text-sm">
                   <Link
                     className="flex items-center gap-2 align-middle leading-none text-default-800 transition-all hover:text-primary-500"
-                    to=""
+                    to={link || ""}
                   >
                     {subtitle}
                     <LuChevronRight size={16} />

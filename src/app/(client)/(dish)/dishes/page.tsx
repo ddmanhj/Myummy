@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { LuSettings2 } from "react-icons/lu";
 import {
   Breadcrumb,
@@ -16,61 +16,70 @@ const ProductsGrid = () => {
   return (
     <>
       <Breadcrumb title="Dishes" subtitle="Dishes" />
-      <section className="py-6 lg:py-8">
-        <div className="container">
-          <div className="">
-            <div className="gap-6 lg:flex">
-              <MegaProductFilter setCurrentPage={setCurrentPage} />
+      <Suspense>
+        <section className="py-6 lg:py-8">
+          <div className="container">
+            <div className="">
+              <div className="gap-6 lg:flex">
+                <MegaProductFilter setCurrentPage={setCurrentPage} />
 
-              <div className="relative lg:w-3/4">
-                <div className="mb-10 flex flex-wrap items-center justify-between gap-4 md:flex-nowrap">
-                  <div className="flex flex-wrap items-center gap-4 md:flex-nowrap">
-                    <button
-                      className="inline-flex items-center gap-4 rounded-full border border-default-200 px-4 py-2.5 text-sm text-default-950 transition-all lg:hidden xl:px-5"
-                      data-hs-overlay="#filter_Offcanvas"
-                      type="button"
-                    >
-                      Filter <LuSettings2 size={16} />
-                    </button>
-                    <FoundResultsCount totalItem={totalItem} />
-                  </div>
-
-                  {/* <div className="flex items-center">
-                    <DemoFilterDropdown
-                      filterOptions={[
-                        "Latest",
-                        "Featured",
-                        "Rating",
-                        "Popularity",
-                      ]}
-                      filterType="Sort By"
-                    />
-                  </div> */}
-                </div>
-
-                <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                  <div className="order-1 sm:col-span-2 xl:order-2">
-                    <div className="order-1 h-full sm:col-span-2 xl:order-2">
-                      <DiscountCard discount={"52% Discount"} link="/dishes" />
+                <div className="relative lg:w-3/4">
+                  <div className="mb-10 flex flex-wrap items-center justify-between gap-4 md:flex-nowrap">
+                    <div className="flex flex-wrap items-center gap-4 md:flex-nowrap">
+                      <button
+                        className="inline-flex items-center gap-4 rounded-full border border-default-200 px-4 py-2.5 text-sm text-default-950 transition-all lg:hidden xl:px-5"
+                        data-hs-overlay="#filter_Offcanvas"
+                        type="button"
+                      >
+                        Filter <LuSettings2 size={16} />
+                      </button>
+                      <FoundResultsCount totalItem={totalItem} />
                     </div>
+
+                    {/* <div className="flex items-center">
+                      <DemoFilterDropdown
+                        filterOptions={[
+                          "Latest",
+                          "Featured",
+                          "Rating",
+                          "Popularity",
+                        ]}
+                        filterType="Sort By"
+                      />
+                    </div> */}
                   </div>
 
-                  <DishesGrid
-                    currentPage={currentPage}
-                    setTotalItem={setTotalItem}
-                    setCurrentPage={setCurrentPage}
-                  />
+                  <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                    <div className="order-1 sm:col-span-2 xl:order-2">
+                      <div className="order-1 h-full sm:col-span-2 xl:order-2">
+                        <DiscountCard
+                          discount={"52% Discount"}
+                          link="/dishes"
+                        />
+                      </div>
+                    </div>
+
+                    <Suspense>
+                      <DishesGrid
+                        currentPage={currentPage}
+                        setTotalItem={setTotalItem}
+                        setCurrentPage={setCurrentPage}
+                      />
+                    </Suspense>
+                  </div>
                 </div>
               </div>
+              <div className="custom-pagination">
+                <ProductPagination
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  totalItem={totalItem}
+                />
+              </div>
             </div>
-            <ProductPagination
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              totalItem={totalItem}
-            />
           </div>
-        </div>
-      </section>
+        </section>
+      </Suspense>
     </>
   );
 };
