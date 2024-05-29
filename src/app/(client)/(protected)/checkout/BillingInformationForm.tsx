@@ -209,6 +209,14 @@ const BillingInformation = () => {
             fullWidth
           />
         </div>
+
+        <div>
+          <p className="mb-2 block text-sm font-medium text-default-900 text-red-500">
+            Tài khoản paypal dev thanh toán:
+          </p>
+          <p className="text-red-500">Email: myummydev@gmail.com</p>
+          <p className="text-red-500">password: myummydev</p>
+        </div>
       </div>
 
       <OrderSummary />

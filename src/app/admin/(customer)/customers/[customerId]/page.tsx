@@ -2,7 +2,7 @@ import { lazy, useEffect, useState } from "react";
 import { BreadcrumbAdmin, OrderDataTable } from "@/components";
 import { orderRows } from "../../../(order)/orders/page";
 import type { ColumnType } from "@/types/util";
-import type { OrderType } from "@/types/other";
+import type { OrderTypeTemplate } from "@/types/other";
 import { useNavigate, useParams } from "react-router-dom";
 import type { SellerType } from "@/types/food";
 const PersonDetailsCard = lazy(
@@ -15,7 +15,7 @@ const CustomerDetails = () => {
 
   const [seller, setSeller] = useState<SellerType>();
 
-  const columns: Array<ColumnType<OrderType>> = [
+  const columns: Array<ColumnType<OrderTypeTemplate>> = [
     {
       key: "date",
       name: "Date",
@@ -51,7 +51,7 @@ const CustomerDetails = () => {
             {seller && <PersonDetailsCard seller={seller} />}
           </div>
           <div className="lg:col-span-2">
-            <OrderDataTable<OrderType>
+            <OrderDataTable<OrderTypeTemplate>
               title="Customer Order history"
               columns={columns}
               rows={orderRows}

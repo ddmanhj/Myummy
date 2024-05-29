@@ -122,7 +122,38 @@ export type BreadcrumbProps = {
   link?: string;
 };
 
+export type OrderDetailType = {
+  coupon: any;
+  couponID: IdType;
+  dish: {
+    dishesName: string;
+    price: number;
+    urlImageDishes: string;
+  }
+  dishID: IdType;
+  id: IdType;
+  quantity: number;
+  subTotal: number;
+  total: number;
+}
+
 export type OrderType = {
+  address: string;
+  createdAt: string;
+  customerID: IdType;
+  district: string;
+  email: string;
+  fullName: string;
+  id: IdType;
+  message: string;
+  phone: string;
+  province: string;
+  total: number;
+  updatedAt: string;
+  ward: string;
+}
+
+export type OrderTypeTemplate = {
   id: string;
   date: string;
   dish_id: DishTypeTemplate["id"];
@@ -155,8 +186,8 @@ export type AdminDishTypeTemplate = {
 export type OrderProgressType = {
   [status: string]: {
     time: string;
-    order_id: OrderType["id"];
-    order?: OrderType;
+    order_id: OrderTypeTemplate["id"];
+    order?: OrderTypeTemplate;
   }[];
 };
 

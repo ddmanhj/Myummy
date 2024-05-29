@@ -1,6 +1,8 @@
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
 
 const PaymentLoading = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex items-center justify-center w-full">
@@ -15,7 +17,7 @@ const PaymentLoading = () => {
       </div>
 
       <p className="mt-15 flex items-center justify-center text-lg text-default-600 w-full">
-        Waiting for payment...
+        {t("processingPayment")}
       </p>
     </>
   );

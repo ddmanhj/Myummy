@@ -61,7 +61,7 @@ export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
       style: "currency",
       currency: "USD",
       currencyDisplay: 'narrowSymbol'
-    }).format(amount / 25437)
+    }).format(amount / 25370)
   }
 }
 

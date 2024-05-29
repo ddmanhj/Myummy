@@ -283,6 +283,24 @@ export const useConfirmOrder = () => {
       )
   });
 }
+
+export const useGetListOrder = (page: number, limit: number, customerID: number) => {
+  return useQuery({
+    queryKey: ['listOrder'],
+    enabled: true,
+    retry: 1,
+    queryFn: () => getRequest(`/orders?page=${page}&limit=${limit}&customerID=${customerID}`),
+  });
+}
+
+export const useGetOrderDetail = (id: number) => {
+  return useQuery({
+    queryKey: ['getOrderDetail'],
+    enabled: false,
+    retry: 1,
+    queryFn: () => getRequest(`/order/${id}`),
+  });
+}
 // END Orders
 
 // CALL API TỈNh THÀNH VIỆT NAM

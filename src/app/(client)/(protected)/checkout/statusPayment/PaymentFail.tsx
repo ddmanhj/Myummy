@@ -1,7 +1,9 @@
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const PaymentFail = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div>
@@ -12,7 +14,7 @@ const PaymentFail = () => {
             className="w-[8rem] h-[8rem]"
           />
           <p className="mt-15 text-red-500 text-lg font-semibold">
-            Thanh toán thất bại!
+            {t("isFailOrder")};
           </p>
 
           <div className="mt-20">
@@ -20,7 +22,7 @@ const PaymentFail = () => {
               to="/"
               className="w-1/2 rounded-lg bg-primary px-6 py-3 text-base font-medium capitalize text-white transition-all hover:bg-primary-500 lg:w-2/6"
             >
-              Go To home
+              {t("goToHome")}
             </Link>
           </div>
         </div>

@@ -10,6 +10,7 @@ import {
   LuShoppingCart,
   LuUser,
 } from "react-icons/lu";
+import { RiBillLine } from "react-icons/ri";
 import SimplebarReactClient from "../../SimplebarReactClient";
 import TabNavigation from "./TabNavigation";
 import VerticalMenu from "./VerticalMenu";
@@ -28,10 +29,12 @@ import { CustomerType } from "@/types/user";
 import { resetWishList } from "@/redux/wishListSlice";
 import { clearCart } from "@/redux/cartSlice";
 import { expToken } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const getCustomerData = useSelector(
     (state: CustomerType) => state.customer.customer
@@ -133,6 +136,17 @@ const Navbar = () => {
                             Profile
                           </Link>
                         </li> */}
+                        {expirationTimeToken && (
+                          <li>
+                            <Link
+                              className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                              to="/orders"
+                            >
+                              <RiBillLine size={16} />
+                              {t("orders")}
+                            </Link>
+                          </li>
+                        )}
                         {expirationTimeToken && (
                           <li>
                             <span

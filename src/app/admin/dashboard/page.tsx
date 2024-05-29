@@ -13,11 +13,11 @@ import {
   categoriesData,
   dishesData,
 } from "@/assets/data";
-import type { OrderType } from "@/types/other";
+import type { OrderTypeTemplate } from "@/types/other";
 import type { ColumnType } from "@/types/util";
 
 const Dashboard = () => {
-  const columns: Array<ColumnType<OrderType>> = [
+  const columns: Array<ColumnType<OrderTypeTemplate>> = [
     {
       key: "id",
       name: "Order ID",
@@ -123,7 +123,7 @@ const Dashboard = () => {
           </div>
 
           <div className="pb-10 ">
-            <OrderDataTable<OrderType>
+            <OrderDataTable<OrderTypeTemplate>
               columns={columns}
               rows={orderRows.slice(0, 6)}
               title="Recent Orders"
