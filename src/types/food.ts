@@ -52,7 +52,6 @@ export type DishType = {
   description: string,
   urlImageDishes: string;
   quantity: number;
-  reviewCount: number;
   reviewStars: number;
   isPopular: boolean;
   calories: number;

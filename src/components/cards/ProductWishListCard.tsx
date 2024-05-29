@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, useState } from "react";
 import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 import type { DishType } from "@/types/food";
 import { calculatedPrice } from "@/helpers";
@@ -11,14 +11,7 @@ const ProductWishlistToggler = lazy(
 );
 
 const ProductWishListCard = ({ dish }: { dish: DishType }) => {
-  const {
-    urlImageDishes,
-    dishesName,
-    price,
-    reviewCount,
-    reviewStars,
-    saleDiscount,
-  } = dish;
+  const { urlImageDishes, dishesName, price, reviewStars, saleDiscount } = dish;
   const language = languageState();
 
   const discountedPrice = calculatedPrice(dish);
@@ -77,9 +70,9 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
                     )}
                 </div>
               </div>
-              <h6 className="mt-1 text-sm font-medium text-default-500">
+              {/* <h6 className="mt-1 text-sm font-medium text-default-500">
                 ({reviewCount})
-              </h6>
+              </h6> */}
             </div>
           </div>
         </div>
