@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { LuChevronRight } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import type { DishType } from "@/types/food";
 import { languageState, readMoneyCurrency } from "@/utils";
 
 const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
+  const { t } = useTranslation();
   const language = languageState();
   return (
     <Swiper
@@ -57,10 +59,10 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
                     {readMoneyCurrency(dish.price, language)}
                   </h5>
                   <Link
-                    to="/dishes"
+                    to={`dishes/${dish.id}`}
                     className="inline-flex items-center border-b border-dashed border-white text-white"
                   >
-                    Order Now <LuChevronRight size={20} />
+                    {t("moreDetail")} <LuChevronRight size={20} />
                   </Link>
                 </div>
               </div>

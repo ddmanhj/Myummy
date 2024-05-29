@@ -7,7 +7,17 @@
   "menu": "Menu",
   "home": "Trang chủ",
   "about us": "Về chúng tôi",
+  "moreDetail": "Xem chi tiết",
   "/*End MENU ITEMS*/": "",
+
+  "/*DETAIL FOOD*/": "",
+  "youMayAlsoLike": "Bạn cũng có thể thích",
+  "reviews": "Đánh giá",
+  "nutritionFacts": "Thành phần dinh dưỡng",
+  "perServing": "Mỗi khẩu phần",
+  "viewsWatching": "Người đang xem hiện tại",
+  "consumerRatings": "Đánh giá từ khách hàng",
+  "/*END DETAIL FOOD*/": "",
 
   "/*HOME PAGE*/": "",
   "specialFood": "Thực Đơn Đặc Biệt",
@@ -39,6 +49,7 @@
   "addToCart": "Thêm vào giỏ",
   "goToHome": "Về trang chủ",
   "goToOrders": "Đi đến đơn hàng",
+  "removeFromCart": "Xóa khỏi giỏ hàng",
   "/*END BUTTON*/": "",
 
   "/*CART*/": "",
