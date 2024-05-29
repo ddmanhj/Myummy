@@ -14,7 +14,7 @@ import { dishesData } from "@/assets/data";
 import { useEffect, useState } from "react";
 import type { ColumnType } from "@/types/util";
 import type { DishTypeTemplate } from "@/types/food";
-import type { OrderType } from "@/types/other";
+import type { OrderTypeTemplate } from "@/types/other";
 
 const columns: Array<ColumnType<DishTypeTemplate>> = [
   {
@@ -35,7 +35,7 @@ const OrderDetails = () => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
-  const [order, setOrder] = useState<OrderType>();
+  const [order, setOrder] = useState<OrderTypeTemplate>();
 
   useEffect(() => {
     (async () => {

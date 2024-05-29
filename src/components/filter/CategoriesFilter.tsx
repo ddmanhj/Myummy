@@ -24,7 +24,9 @@ const CategoriesFilter = () => {
         <Row>
           {queryMenu?.data?.map((menu: SpecialMenuType) => (
             <Col span={8} className="my-2" key={menu.id}>
-              <Checkbox value={menu.id}>{menu.categoryName}</Checkbox>
+              <Checkbox className="text-default-600" value={menu.id}>
+                {menu.categoryName}
+              </Checkbox>
             </Col>
           ))}
         </Row>

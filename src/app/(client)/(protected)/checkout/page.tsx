@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components";
 const Checkout = () => {
   return (
     <>
-      <Breadcrumb title="Checkout" subtitle="Order" />
+      <Breadcrumb title="Checkout" subtitle="Cart" link="/cart" />
       <section className="py-6 lg:py-10">
         <div className="container">
           <BillingInformationForm />

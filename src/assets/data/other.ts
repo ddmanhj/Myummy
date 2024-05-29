@@ -1,7 +1,7 @@
 import type {
   AnalyticsOverviewCardType,
   CardType,
-  OrderType,
+  OrderTypeTemplate,
   AdminDishTypeTemplate,
   TestimonialType,
   TransactionType,
@@ -365,7 +365,7 @@ export const sellersData: SellerType[] = [
   },
 ];
 
-export const orderHistoryData: OrderType[] = [
+export const orderHistoryData: OrderTypeTemplate[] = [
   {
     date: "12/03/2022",
     id: "#c0e4f7",
