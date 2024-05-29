@@ -6,8 +6,15 @@
 # Note that environment variables can be set in several places
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 stages:
-- test
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
+  - merge
+
+merge_staging_to_main:
+  stage: merge
+  script:
+    - git config --global user.email "ddmanhj@gmail.com"
+    - git config --global user.name "manhj"
+    - git checkout main
+    - git merge staging
+    - git push origin main
+  only:
+    - staging
