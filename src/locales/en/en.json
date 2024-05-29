@@ -39,6 +39,21 @@
   "goToOrders": "Go to Orders",
   "/*END BUTTON*/": "",
 
+  "/*CART*/": "",
+  "shoppingCart": "Shopping Cart",
+  "product": "Product",
+  "price": "Price",
+  "Quantity": "Quantity",
+  "shopMore": "Shop more",
+  "cartTotal": "Cart Total",
+  "proceedToCheckout": "Proceed to Checkout",
+  "/*END CART*/": "",
+
+  "/*COUPON*/": "",
+  "couponCode": "Coupon Code",
+  "applyCoupon": "Apply Coupon",
+  "/*END COUPON*/": "",
+
   "/*ORDER*/": "",
   "orders": "Orders",
   "orderSummary": "Order Summary",

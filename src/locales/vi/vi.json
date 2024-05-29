@@ -41,6 +41,21 @@
   "goToOrders": "Đi đến đơn hàng",
   "/*END BUTTON*/": "",
 
+  "/*CART*/": "",
+  "shoppingCart": "Giỏ hàng",
+  "product": "Sản phẩm",
+  "price": "Giá",
+  "Quantity": "Số lượng",
+  "shopMore": "Mua thêm",
+  "cartTotal": "Tổng giá trị Giỏ hàng",
+  "proceedToCheckout": "Tiến hành Thanh toán",
+  "/*END CART*/": "",
+
+  "/*COUPON*/": "",
+  "couponCode": "Mã giảm giá",
+  "applyCoupon": "Áp dụng Mã giảm giá",
+  "/*END COUPON*/": "",
+
   "/*ORDER*/": "",
   "orders": "Đơn hàng",
   "orderSummary": "Tổng giá trị đơn hàng",

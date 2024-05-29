@@ -4,8 +4,10 @@ import { Breadcrumb } from "@/components";
 import CouponCodeForm from "./CouponCodeForm";
 import AllCartItems from "./AllCartItems";
 import CartTotal from "./CartTotal";
+import { useTranslation } from "react-i18next";
 
 const Cart = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Breadcrumb title="Cart" />
@@ -16,7 +18,7 @@ const Cart = () => {
               <div className="rounded-lg border border-default-200">
                 <div className="border-b border-default-200 px-6 py-5">
                   <h4 className="text-lg font-medium text-default-800">
-                    Shopping Cart
+                    {t("shoppingCart")}
                   </h4>
                 </div>
                 <div className="flex flex-col overflow-hidden">
@@ -30,25 +32,25 @@ const Cart = () => {
                                 scope="col"
                                 className="min-w-[14rem] px-5 py-3 text-start text-xs font-medium uppercase text-default-500"
                               >
-                                Products
+                                {t("product")}
                               </th>
                               <th
                                 scope="col"
                                 className="px-5 py-3 text-start text-xs font-medium uppercase text-default-500"
                               >
-                                Price
+                                {t("price")}
                               </th>
                               <th
                                 scope="col"
                                 className="px-5 py-3 text-start text-xs font-medium uppercase text-default-500"
                               >
-                                Quantity
+                                {t("quantity")}
                               </th>
                               <th
                                 scope="col"
                                 className="px-5 py-3 text-center text-xs font-medium uppercase text-default-500"
                               >
-                                Sub-Total
+                                {t("subTotal")}
                               </th>
                             </tr>
                           </thead>
@@ -66,7 +68,7 @@ const Cart = () => {
                       to="/dishes"
                       className="inline-flex items-center justify-center rounded-lg border border-primary px-5 py-3 text-center text-sm font-medium text-primary shadow-sm transition-all duration-500 hover:bg-primary hover:text-white"
                     >
-                      Shop More
+                      {t("shopMore")}
                     </Link>
                   </div>
                 </div>
