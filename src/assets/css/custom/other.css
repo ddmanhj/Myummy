@@ -15,10 +15,38 @@
     color: white;
 }
 
-.ant-pagination .ant-pagination-item:not(.ant-pagination-item-active):hover {
+.custom-pagination .ant-pagination .ant-pagination-item:not(.ant-pagination-item-active):hover {
     background-color: #ccc;
 }
 
-.ant-pagination .ant-pagination-item-active a {
+.custom-pagination .ant-pagination .ant-pagination-item-active a {
     color: white;
+}
+
+.custom-pagination .ant-pagination .ant-pagination-disabled .ant-pagination-item-link {
+    color: #f58320d2;
+    cursor: not-allowed;
+}
+
+.custom-pagination .ant-pagination .ant-pagination-disabled .ant-pagination-item-link:hover {
+    color: #f58320ce;
+    cursor: not-allowed;
+}
+
+.custom-pagination .ant-pagination .ant-pagination-next .ant-pagination-item-link {
+    color: #f58220;
+}
+
+.custom-pagination .ant-pagination .ant-pagination-next .ant-pagination-item-link:hover {
+    color: #f58220;
+    background-color: #ccc;
+}
+
+.custom-pagination .ant-pagination .ant-pagination-prev .ant-pagination-item-link {
+    color: #f58220;
+}
+
+.custom-pagination .ant-pagination .ant-pagination-prev .ant-pagination-item-link:hover {
+    color: #f58220;
+    background-color: #ccc;
 }

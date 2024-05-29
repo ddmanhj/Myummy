@@ -15,7 +15,7 @@ const ProductsGrid = () => {
 
   return (
     <>
-      <Breadcrumb title="Dishes" subtitle="Dishes" />
+      <Breadcrumb title="Dishes" />
       <Suspense>
         <section className="py-6 lg:py-8">
           <div className="container">

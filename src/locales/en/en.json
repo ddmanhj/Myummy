@@ -7,7 +7,17 @@
   "menu": "Menu",
   "home": "Home",
   "about us": "About Us",
+  "moreDetail": "More Detail",
   "/*End MENU ITEMS*/": "",
+
+  "/*DETAIL FOOD*/": "",
+  "youMayAlsoLike": "You may also like",
+  "reviews": "Reviews",
+  "nutritionFacts": "Nutrition Facts",
+  "perServing": "Per serving",
+  "viewsWatching": "People are viewing this right now",
+  "consumerRatings": "Consumer Ratings",
+  "/*END DETAIL FOOD*/": "",
 
   "/*HOME PAGE*/": "",
   "specialFood": "Special Food",
@@ -37,6 +47,7 @@
   "addToCart": "Add to Cart",
   "goToHome": "Go to Home",
   "goToOrders": "Go to Orders",
+  "removeFromCart": "Remove from Cart",
   "/*END BUTTON*/": "",
 
   "/*CART*/": "",

@@ -37,7 +37,7 @@ const AddToCartButton = ({ dish, className }: PropsAddToCartButton) => {
       onClick={() => dispatch(deleteDish(dish?.id))}
     >
       <LuTrash size={18} className="me-2" />
-      <span className="line-clamp-1">Remove from Cart</span>
+      <span className="line-clamp-1">{t("removeFromCart")}</span>
     </button>
   ) : (
     <button

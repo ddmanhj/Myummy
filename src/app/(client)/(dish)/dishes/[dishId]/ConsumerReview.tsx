@@ -17,12 +17,14 @@ import { getCustomer } from "@/redux/customerSlice";
 import { useParams } from "react-router-dom";
 import { useGetReviewFood, usePostReview } from "@/services/services";
 import { ProductPagination } from "@/components";
+import { useTranslation } from "react-i18next";
 
 const { TextArea } = Input;
 const socket = openSocket(`${import.meta.env.VITE_DOMAIN_BACKEND}`);
 
-const ConsumerReview = () => {
+const ConsumerReview = ({ setReviewCount }: any) => {
   const { dishId } = useParams();
+  const { t } = useTranslation();
   const {
     control,
     handleSubmit,
@@ -51,14 +53,16 @@ const ConsumerReview = () => {
   useEffect(() => {
     const fetchData = async () => {
       await callAPIReviewConsumerFood();
+      setReviewCount(getReviewConsumerFood?.data?.count);
     };
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, dishId]);
 
   // Set state khi API gọi thành công
   useEffect(() => {
     if (doneReview) {
       setDataReview(getReviewConsumerFood?.data?.rows);
+      setReviewCount(getReviewConsumerFood?.data?.count);
     }
   }, [doneReview, getReviewConsumerFood]);
 
@@ -67,6 +71,7 @@ const ConsumerReview = () => {
     if (dataReview?.length > 20) {
       const fetchData = async () => {
         await callAPIReviewConsumerFood();
+        setReviewCount(getReviewConsumerFood?.data?.count);
       };
       fetchData();
     }
@@ -74,13 +79,15 @@ const ConsumerReview = () => {
 
   // Socket nhận bình luận mới
   useEffect(() => {
-    socket.on("posts", (data) => {
-      setDataReview((prev: any) => [data?.post, ...prev]);
-    });
+    const handleNewPost = (data: any) => {
+      setDataReview((prev) => [data?.post, ...prev]);
+    };
+
+    socket.on("posts", handleNewPost);
 
     // Cleanup khi component unmount
     return () => {
-      socket.disconnect();
+      socket.off("posts", handleNewPost);
     };
   }, [socket]);
 
@@ -107,7 +114,7 @@ const ConsumerReview = () => {
   return (
     <>
       <h4 className="text-base font-medium text-default-800">
-        Consumer Review
+        {t("consumerRatings")}
       </h4>
 
       <div className="my-5">
@@ -199,7 +206,7 @@ const ConsumerReview = () => {
                 </h4>
               </div>
               <div className="flex gap-1.5">
-                {Array.from(new Array(Math.floor(review.star))).map(
+                {Array.from(new Array(Math.floor(review?.star))).map(
                   (_val, idx) => (
                     <FaStar key={idx} className="text-base text-yellow-400" />
                   )
@@ -224,7 +231,7 @@ const ConsumerReview = () => {
         </div>
       ))}
 
-      <div>
+      <div className="custom-pagination">
         <ProductPagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
