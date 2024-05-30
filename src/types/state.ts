@@ -10,12 +10,12 @@ export type CartTypeTemplate = {
   quantity: number;
 };
 export type CartType = {
-  dishesName: string;
+  dishName: string;
   id: IdType;
   quantityCart: number;
   totalPrice: number;
   unitPrice: number;
-  urlImageDishes: string;
+  urlImageDish: string;
   quantity?: number;
 }
 

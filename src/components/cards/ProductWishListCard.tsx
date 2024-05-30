@@ -11,7 +11,7 @@ const ProductWishlistToggler = lazy(
 );
 
 const ProductWishListCard = ({ dish }: { dish: DishType }) => {
-  const { urlImageDishes, dishesName, price, reviewStars, saleDiscount } = dish;
+  const { urlImageDish, dishName, price, reviewStars, saleDiscount } = dish;
   const language = languageState();
 
   const discountedPrice = calculatedPrice(dish);
@@ -22,7 +22,7 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
         <div className="flex flex-col sm:flex-row sm:items-center">
           <img
             // src={images[0]}
-            src={urlImageDishes}
+            src={urlImageDish}
             width={112}
             height={112}
             className="me-2 h-28 w-28 place-self-end sm:place-self-start lg:me-4"
@@ -33,7 +33,7 @@ const ProductWishListCard = ({ dish }: { dish: DishType }) => {
               {restaurant?.name ?? ""}
             </p> */}
             <h4 className="mb-2 line-clamp-1 text-xl font-semibold text-default-800">
-              {dishesName}
+              {dishName}
             </h4>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5">

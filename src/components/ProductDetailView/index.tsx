@@ -25,7 +25,7 @@ const ProductDetailView = ({
   reviewCount?: number;
 }) => {
   const {
-    dishesName,
+    dishName,
     price,
     description,
     reviewStars,
@@ -70,12 +70,12 @@ const ProductDetailView = ({
       socket.emit("leave_item", dishId);
       socket.off("update_viewers", updateViewers);
     };
-  }, [dishId, stableSetWatchingView]); // Đảm bảo thêm stableSetWatchingView vào dependency array
+  }, [dishId, stableSetWatchingView]);
 
   return (
     <div>
       <div className="mb-5 flex flex-wrap items-end justify-between font-medium text-default-800 mobile:flex-col mobile:items-start">
-        <h4 className="text-4xl">{dishesName}</h4>
+        <h4 className="text-4xl">{dishName}</h4>
         <h3 className="text-3xl mobile: my-2">
           {readMoneyCurrency(price - saleDiscount, language)}
           {saleDiscount > 0 && (

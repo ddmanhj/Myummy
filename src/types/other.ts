@@ -126,9 +126,9 @@ export type OrderDetailType = {
   coupon: any;
   couponID: IdType;
   dish: {
-    dishesName: string;
+    dishName: string;
     price: number;
-    urlImageDishes: string;
+    urlImageDish: string;
   }
   dishID: IdType;
   id: IdType;

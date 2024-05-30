@@ -47,10 +47,10 @@ export type DishTypeTemplate = {
 
 export type DishType = {
   id: IdType | any;
-  dishesName: string;
+  dishName: string;
   price: number;
   description: string,
-  urlImageDishes: string;
+  urlImageDish: string;
   quantity: number;
   reviewStars: number;
   isPopular: boolean;
@@ -90,12 +90,12 @@ export type wishlistType = {
   id: IdType,
   wishList: {
     wishList:{
-      dishesID: DishType[]
+      dishID: DishType[]
     }
   }
 }
 
 export type DataWishListRequest = {
   customerID?: IdType,
-  dishesID?: number
+  dishID?: number
 }

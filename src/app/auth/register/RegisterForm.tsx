@@ -5,8 +5,10 @@ import { PasswordFormInput, TextFormInput } from "@/components";
 import { RegisterType } from "@/types/user";
 import { useRegisterCustomer } from "@/services/services";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const registerFormSchema = yup.object({
     customerName: yup.string().required("Please enter your name"),
@@ -72,6 +74,7 @@ const RegisterForm = () => {
 
       <PasswordFormInput
         name="password"
+        placeholder="Password"
         control={control}
         label="Password"
         containerClassName="mb-6"
@@ -82,7 +85,7 @@ const RegisterForm = () => {
         type="submit"
         className="w-full rounded-lg bg-primary px-6 py-3 text-base capitalize text-white transition-all hover:bg-primary-500"
       >
-        Register
+        {t("register")}
       </button>
     </form>
   );
