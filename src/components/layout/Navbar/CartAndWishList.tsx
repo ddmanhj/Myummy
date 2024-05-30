@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { getCart } from "@/redux/cartSlice";
 
 const CartAndWishList = () => {
-  const wishList = useSelector((state: any) => state?.wishList?.dishesID);
+  const wishList = useSelector((state: any) => state?.wishList?.dishID);
   const cart = useSelector(getCart);
   return (
     <>

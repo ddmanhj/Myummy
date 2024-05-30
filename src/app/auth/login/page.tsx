@@ -2,25 +2,30 @@ import { Link } from "react-router-dom";
 
 import LoginForm from "./LoginForm";
 import { AuthFormLayout, PageTitle } from "@/components";
+import { useTranslation } from "react-i18next";
 
-const BottomLink = () => (
-  <p className="mt-auto text-center text-default-950">
-    Don’t have an account ?{" "}
-    <Link to="/auth/register" className="ms-1 text-primary">
-      <span className="font-medium">Register</span>
-    </Link>
-  </p>
-);
+const BottomLink = () => {
+  const { t } = useTranslation();
+  return (
+    <p className="mt-auto text-center text-default-950">
+      {t("doNotHaveAnAccount")}{" "}
+      <Link to="/auth/register" className="ms-1 text-primary">
+        <span className="font-medium">{t("register")} </span>
+      </Link>
+    </p>
+  );
+};
 
 const Login = () => {
+  const { t } = useTranslation();
   return (
     <AuthFormLayout
-      authTitle="Login"
-      helpText="Enter your credentials to access Yum."
+      authTitle={`${t("login")}`}
+      helpText={`${t("descriptionLogin")}`}
       bottomLink={<BottomLink />}
       hasThirdPartyAuth
     >
-      <PageTitle title="Login" />
+      <PageTitle title={t("login")} />
       <LoginForm />
     </AuthFormLayout>
   );

@@ -2,8 +2,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { TextFormInput } from "@/components";
+import { useTranslation } from "react-i18next";
 
 const ForgotPasswordForm = () => {
+  const { t } = useTranslation();
   const registerFormSchema = yup.object({
     email: yup
       .string()
@@ -28,7 +30,7 @@ const ForgotPasswordForm = () => {
         fullWidth
       />
       <button className="w-full rounded-lg bg-primary px-6 py-3 text-base capitalize text-white transition-all hover:bg-primary-500">
-        Reset Password
+        {t("resetPassword")}
       </button>
     </form>
   );

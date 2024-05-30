@@ -64,6 +64,10 @@ export const useLoginCustomer = (dispatch: any, redirectAsRole: any) => {
         customerName: data?.data?.customerName,
         urlImageAvatar: data?.data?.urlImageAvatar,
         phone: data?.data?.phone,
+        address: data?.data?.address,
+        province: data?.data?.province,
+        district: data?.data?.district,
+        ward: data?.data?.ward,
         createdAt: data?.data?.createdAt,
         wishList: data?.data?.wishList
       }

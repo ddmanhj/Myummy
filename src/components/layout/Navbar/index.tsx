@@ -1,16 +1,8 @@
 import { lazy } from "react";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  LuHeart,
-  LuLogOut,
-  LuLogIn,
-  LuMenu,
-  LuSearch,
-  LuShoppingCart,
-  LuUser,
-} from "react-icons/lu";
-import { RiBillLine } from "react-icons/ri";
+import { LuLogOut, LuLogIn, LuMenu, LuSearch, LuUser } from "react-icons/lu";
+import { RiBillLine, RiAccountCircleFill } from "react-icons/ri";
 import SimplebarReactClient from "../../SimplebarReactClient";
 import TabNavigation from "./TabNavigation";
 import VerticalMenu from "./VerticalMenu";
@@ -122,28 +114,28 @@ const Navbar = () => {
                               className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
                               to="/auth/login"
                             >
-                              <LuLogIn size={16} />
-                              Đăng nhập
+                              <LuLogIn size={20} />
+                              {t("login")}
                             </Link>
                           </li>
                         )}
-                        {/* <li>
+                        <li>
                           <Link
                             className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
-                            to="/Profile"
+                            to="/profile"
                           >
-                            <LuHeart size={16} />
-                            Profile
+                            <RiAccountCircleFill size={20} />
+                            {t("profile")}
                           </Link>
-                        </li> */}
+                        </li>
                         {expirationTimeToken && (
                           <li>
                             <Link
                               className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
                               to="/orders"
                             >
-                              <RiBillLine size={16} />
-                              {t("orders")}
+                              <RiBillLine size={20} />
+                              {t("orderHistory")}
                             </Link>
                           </li>
                         )}
@@ -153,8 +145,8 @@ const Navbar = () => {
                               onClick={logOutHandle}
                               className="flex w-full items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700 cursor-pointer"
                             >
-                              <LuLogOut size={16} />
-                              Log Out
+                              <LuLogOut size={20} />
+                              {t("logOut")}
                             </span>
                           </li>
                         )}

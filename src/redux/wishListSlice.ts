@@ -2,7 +2,7 @@ import { wishlistType } from "@/types/food";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    dishesID: [],
+    dishID: [],
 };
 
 const wishListSlice = createSlice({
@@ -10,16 +10,16 @@ const wishListSlice = createSlice({
     initialState,
     reducers: {
       getWishListAPI: (state: any, action: any) => {
-        state.dishesID = action.payload;
+        state.dishID = action.payload;
         },
       addDishToWishList: (state: any, action: any) => {
-        state.dishesID = [...state.dishesID, action.payload];
+        state.dishID = [...state.dishID, action.payload];
       },
       deleteDishWishList: (state: any, action: any) => {
-        state.dishesID = state.dishesID.filter((dish: wishlistType) => dish.id !== action.payload.id);
+        state.dishID = state.dishID.filter((dish: wishlistType) => dish.id !== action.payload.id);
       },
       resetWishList: (state) => {
-        state.dishesID = initialState.dishesID;
+        state.dishID = initialState.dishID;
       }
     },
   });

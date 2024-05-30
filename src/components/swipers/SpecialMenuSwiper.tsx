@@ -40,7 +40,7 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
         <SwiperSlide key={dish.id}>
           <div className="relative cursor-pointer overflow-hidden rounded-lg">
             <img
-              src={dish.urlImageDishes}
+              src={dish.urlImageDish}
               className="w-full min-h-[500px] object-cover"
               alt="pizza"
               width={336.7}
@@ -50,7 +50,7 @@ const SpecialMenuSwiper = ({ dishes }: { dishes: DishType[] }) => {
               <div className="inline-flex h-full w-full items-end">
                 <div className="p-6">
                   <h5 className="mb-2 text-xl font-medium text-white">
-                    {dish.dishesName}
+                    {dish.dishName}
                   </h5>
                   <h5 className="mb-2 text-xl font-semibold text-white">
                     {/* <span className="text-base font-medium text-yellow-400">

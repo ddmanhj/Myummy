@@ -22,15 +22,15 @@ const OrderSummary = () => {
               <div key={dish?.id} className="mb-4 flex items-center">
                 <img
                   // src={dish.images[0]}
-                  src={dish.urlImageDishes}
+                  src={dish.urlImageDish}
                   height={80}
                   width={80}
                   className="me-2 h-20 w-20"
-                  alt={dish.dishesName}
+                  alt={dish.dishName}
                 />
                 <div>
                   <h4 className="mb-2 text-base font-semibold text-default-700">
-                    {dish.dishesName}
+                    {dish.dishName}
                   </h4>
                   <h4 className="text-sm text-default-600">
                     {dish.quantityCart} x{" "}

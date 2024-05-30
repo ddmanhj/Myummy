@@ -1,24 +1,29 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { AuthFormLayout, PageTitle } from "@/components";
 // import { useAuthContext } from "@/context";
 
-const BottomLink = () => (
-  <p className="mt-auto text-center text-default-950">
-    Please come back and
-    <Link to="/auth/login" className="ms-1 text-primary">
-      <span className="font-medium">Login</span>
-    </Link>
-  </p>
-);
+const BottomLink = () => {
+  const { t } = useTranslation();
+  return (
+    <p className="mt-auto text-center text-default-950">
+      {t("pleaseComeBackAnd")}
+      <Link to="/auth/login" className="ms-1 text-primary">
+        <span className="font-medium">{t("login")}</span>
+      </Link>
+    </p>
+  );
+};
 
 const Logout = () => {
+  const { t } = useTranslation();
   return (
     <AuthFormLayout
-      authTitle="Logout"
-      helpText="We are Sorry to see you go, please come back soon. 😢"
+      authTitle={`${t("logOut")}`}
+      helpText={`${t("descriptionLogout")}`}
       bottomLink={<BottomLink />}
     >
-      <PageTitle title="Logout" />
+      <PageTitle title={t("logOut")} />
       <div></div>
     </AuthFormLayout>
   );

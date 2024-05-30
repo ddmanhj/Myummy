@@ -25,3 +25,34 @@ export const billingFormSchema = yup.object({
       .required("Vui lòng nhập số điện thoại"),
     message: yup.string().optional(),
   });
+
+export const registerFormSchema = yup.object({
+    newPassword: yup
+      .string()
+      .notOneOf(
+        [yup.ref("oldPassword")],
+        "New password should not be same as current password"
+      )
+      .required("Please enter your new password"),
+    confirmNewPassword: yup
+      .string()
+      .oneOf(
+        [yup.ref("newPassword")],
+        "Confirm Password does not match the new Password"
+      )
+      .required("Please enter your new password again"),
+  });
+
+export const personalDetailsFormSchema = yup.object({
+    customerName: yup.string().required("Please enter your first name"),
+    lName: yup.string().required("Please enter your last Name"),
+    userName: yup.string().required("Please enter your user Name"),
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Please enter your email"),
+    phone: yup.string().required("Please enter your Phone"),
+    country: yup.string().required("Please select your Country"),
+    state: yup.string().required("Please select your State/Province"),
+    zipCode: yup.string().required("Please select your ZIP/Postal code"),
+  });

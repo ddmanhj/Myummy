@@ -21,6 +21,9 @@ const ResetPassword = lazy(() => import("../app/auth/reset-password/page"));
 const Logout = lazy(() => import("../app/auth/logout/page"));
 
 // client pages
+const ProfileCustomer = lazy(
+  () => import("../app/(client)/(protected)/profile/page")
+);
 const Dishes = lazy(() => import("../app/(client)/(dish)/dishes/page"));
 const DishDetails = lazy(
   () => import("../app/(client)/(dish)/dishes/[dishId]/page")
@@ -211,6 +214,11 @@ const clientRoutes: RoutesProps[] = [
 ];
 
 const clientAccountRoutes: RoutesProps[] = [
+  {
+    path: "/profile",
+    name: "Profile",
+    element: <ProfileCustomer />,
+  },
   {
     path: "/cart",
     name: "Cart",
