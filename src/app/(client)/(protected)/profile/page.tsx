@@ -10,7 +10,6 @@ import { Breadcrumb, SelectFormInput, TextFormInput } from "@/components";
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import { personalDetailsFormSchema } from "@/utils";
-import UploadAvatar from "./UploadAvatar";
 
 // Register the plugins
 registerPlugin(
