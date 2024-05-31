@@ -10,7 +10,6 @@ const CartTotal = () => {
   const currentCurrency = useSelector(totalCartPrice);
   const language = languageState();
   const cart = useSelector(getCart);
-  console.log("🚀 ~ CartTotal ~ cart:", cart);
 
   return (
     <div className="mb-5 rounded-lg border border-default-200 p-5">

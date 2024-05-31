@@ -231,13 +231,15 @@ const ConsumerReview = ({ setReviewCount }: any) => {
         </div>
       ))}
 
-      <div className="custom-pagination">
-        <ProductPagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalItem={getReviewConsumerFood?.data?.count ?? 0}
-        />
-      </div>
+      {dataReview?.length > 0 && (
+        <div className="custom-pagination">
+          <ProductPagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalItem={getReviewConsumerFood?.data?.count ?? 0}
+          />
+        </div>
+      )}
     </>
   );
 };

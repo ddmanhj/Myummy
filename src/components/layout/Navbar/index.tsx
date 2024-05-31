@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { LuLogOut, LuLogIn, LuMenu, LuSearch, LuUser } from "react-icons/lu";
 import { RiBillLine, RiAccountCircleFill } from "react-icons/ri";
+import { FaUserPlus } from "react-icons/fa";
 import SimplebarReactClient from "../../SimplebarReactClient";
 import TabNavigation from "./TabNavigation";
 import VerticalMenu from "./VerticalMenu";
@@ -119,15 +120,30 @@ const Navbar = () => {
                             </Link>
                           </li>
                         )}
-                        <li>
-                          <Link
-                            className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
-                            to="/profile"
-                          >
-                            <RiAccountCircleFill size={20} />
-                            {t("profile")}
-                          </Link>
-                        </li>
+                        {!expirationTimeToken && (
+                          <li>
+                            <Link
+                              className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                              to="/auth/register"
+                            >
+                              <FaUserPlus size={20} />
+                              {t("register")}
+                            </Link>
+                          </li>
+                        )}
+
+                        {/*Menu Auth Auth */}
+                        {expirationTimeToken && (
+                          <li>
+                            <Link
+                              className="flex items-center gap-3 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                              to="/profile"
+                            >
+                              <RiAccountCircleFill size={20} />
+                              {t("profile")}
+                            </Link>
+                          </li>
+                        )}
                         {expirationTimeToken && (
                           <li>
                             <Link
