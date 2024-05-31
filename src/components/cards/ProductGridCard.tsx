@@ -30,8 +30,8 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
             height={380}
             // Khi ghép API sẽ là một mảng ảnh
             // src={images[0]}
-            src={dish.urlImageDishes}
-            alt={dish.dishesName}
+            src={dish.urlImageDish}
+            alt={dish.dishName}
             className="h-full w-full transition-all group-hover:scale-105"
           />
         </div>
@@ -41,7 +41,7 @@ const ProductGridCard = ({ dish }: { dish: DishType }) => {
               className="line-clamp-1 text-xl font-semibold text-default-800 after:absolute after:inset-0"
               to={`/dishes/${dish.id}`}
             >
-              {dish.dishesName}
+              {dish.dishName}
             </Link>
 
             <AddToFavouriteButton dish={dish} />

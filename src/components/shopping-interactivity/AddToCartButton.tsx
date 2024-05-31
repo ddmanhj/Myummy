@@ -19,8 +19,8 @@ const AddToCartButton = ({ dish, className }: PropsAddToCartButton) => {
   function handleAddToCard(dish: DishType): void {
     const newItem: any = {
       id: dish.id,
-      dishesName: dish.dishesName,
-      urlImageDishes: dish.urlImageDishes,
+      dishName: dish.dishName,
+      urlImageDish: dish.urlImageDish,
       quantityCart: 1,
       unitPrice: dish.price,
       totalPrice: dish.price * 1,

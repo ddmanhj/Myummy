@@ -8,6 +8,10 @@ const initialState = {
     phone: "",
     email: "",
     role: "",
+    address:"",
+    province: "",
+    district: "",
+    ward: "",
     createdAt: "",
     updatedAt: "",
   }

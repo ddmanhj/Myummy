@@ -26,7 +26,7 @@ export const getFilteredProducts = (
       (filter.minPrice && !(calculatedPrice(dish) >= filter.minPrice)) ||
       (filter.maxPrice && !(calculatedPrice(dish) <= filter.maxPrice)) ||
       (filter.search &&
-        !dish.dishesName.toLowerCase().includes(filter.search.toLowerCase())) ||
+        !dish.dishName.toLowerCase().includes(filter.search.toLowerCase())) ||
       (filter.rating && !(dish.reviewStars >= filter.rating))
     );
   });

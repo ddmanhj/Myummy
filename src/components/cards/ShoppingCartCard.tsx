@@ -11,8 +11,7 @@ const ProductQuantityToggler = lazy(
 );
 
 const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
-  const { id, dishesName, urlImageDishes, quantity, unitPrice, totalPrice } =
-    dish;
+  const { id, dishName, urlImageDish, quantity, unitPrice, totalPrice } = dish;
   const dispatch = useDispatch();
   const language = languageState();
 
@@ -31,7 +30,7 @@ const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
           </button>
           <img
             // src={images[0]}
-            src={urlImageDishes}
+            src={urlImageDish}
             width={72}
             height={72}
             className="h-18 w-18"
@@ -41,7 +40,7 @@ const ShoppingCartCard = ({ dish }: { dish: DishType }) => {
             to={`/dishes/${id}`}
             className="text-sm font-medium text-default-800"
           >
-            {dishesName}
+            {dishName}
           </Link>
         </div>
       </td>

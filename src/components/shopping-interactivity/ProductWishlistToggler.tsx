@@ -17,7 +17,7 @@ const ProductWishlistToggler = ({
   const getCustomerData = useSelector(
     (state: CustomerType) => state.customer.customer
   );
-  const wishList = useSelector((state: any) => state?.wishList?.dishesID);
+  const wishList = useSelector((state: any) => state?.wishList?.dishID);
 
   const mutationAddWishList = useAddWishList();
   const mutationDeleteWishList = useDeleteWishList();
@@ -33,13 +33,13 @@ const ProductWishlistToggler = ({
     if (isInWishlist(dish)) {
       await mutationDeleteWishList.mutate({
         customerID: getCustomerData?.id,
-        dishesID: dish?.id,
+        dishID: dish?.id,
       });
       dispatch(deleteDishWishList(dish));
     } else {
       await mutationAddWishList.mutate({
         customerID: getCustomerData?.id,
-        dishesID: dish?.id,
+        dishID: dish?.id,
       });
       dispatch(addDishToWishList(dish));
     }

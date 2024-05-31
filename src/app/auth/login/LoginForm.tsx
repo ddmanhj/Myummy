@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { LuCopy, LuLock, LuMail, LuShield, LuUser } from "react-icons/lu";
+// import { LuCopy, LuLock, LuMail, LuShield, LuUser } from "react-icons/lu";
 import useLogin from "./useLogin";
 import { PasswordFormInput, TextFormInput } from "@/components";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   // const { loading, login, control, changeUserRole } = useLogin();
   const { loading, login, control } = useLogin();
 
@@ -25,6 +27,7 @@ const LoginForm = () => {
           name="password"
           control={control}
           label="Password"
+          placeholder="Password"
           labelClassName="block text-sm font-medium text-default-900 mb-2"
           containerClassName="mb-1"
           fullWidth
@@ -34,7 +37,7 @@ const LoginForm = () => {
           to="/auth/forgot-password"
           className="float-right text-end text-sm text-default-600 underline"
         >
-          Forgot Password?
+          {t("forgotPassword")}
         </Link>
 
         <button
@@ -42,11 +45,11 @@ const LoginForm = () => {
           className="mt-5 w-full rounded-lg bg-primary px-6 py-3 text-base capitalize text-white transition-all hover:bg-primary-500"
           disabled={loading}
         >
-          Log In
+          {t("login")}
         </button>
       </form>
 
-      <div className="mt-6 flex flex-col justify-center gap-4">
+      {/* <div className="mt-6 flex flex-col justify-center gap-4">
         <div className="flex flex-col gap-2 rounded-lg border border-dashed border-primary">
           <div className="flex items-center justify-between gap-2 border-b border-dashed border-primary px-4 py-2">
             <div className="inline-flex items-center gap-2">
@@ -94,7 +97,7 @@ const LoginForm = () => {
             </span>
           </p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

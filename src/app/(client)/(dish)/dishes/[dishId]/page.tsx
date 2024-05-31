@@ -38,7 +38,7 @@ const ProductDetail = () => {
   return (
     dish && (
       <>
-        <Breadcrumb title={dish.dishesName} subtitle="Dishes" link="/dishes" />
+        <Breadcrumb title={dish.dishName} subtitle="Dishes" link="/dishes" />
 
         <section className="py-6 lg:py-10">
           <div className="container">
