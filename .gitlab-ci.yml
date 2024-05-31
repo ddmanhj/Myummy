@@ -8,6 +8,8 @@
 stages:
   - test
   - deploy
+  - .pre
+  - .post
 
 test_changes:
   stage: test
