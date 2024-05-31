@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { SpecialMenuSwiper } from "./swipers";
 import { useTranslation } from "react-i18next";
@@ -6,12 +7,22 @@ import { Image } from "antd";
 import { isEmpty } from "lodash";
 import { leafHomeImg, onionHomeImg } from "@/assets/data";
 import { imgEmptySpecialMenu } from "@/assets/data";
-import { cn } from "@/utils";
+import { cn, exChangeRate } from "@/utils";
 import type { CategoryTypeAPI, SpecialMenuType } from "@/types/food";
 import { useGetListFoodSpecialMenu, useMenu } from "@/services/services";
 
 const SpecialMenu = () => {
   const { t } = useTranslation();
+  const getExChangeRate = Cookies.get("exchange_rate");
+  useEffect(() => {
+    if (isEmpty(getExChangeRate)) {
+      const fetchData = async () => {
+        const response = await exChangeRate();
+        Cookies.set("exchange_rate", response, { expires: 1 });
+      };
+      fetchData();
+    }
+  }, []);
   const [selectIdSpecialMenu, setSelectIdSpecialMenu] = useState(1);
   const { data: queryMenu } = useMenu();
   const { data: listFoodSpecialMenu, refetch: callApiListFoodSpecialMenu } =

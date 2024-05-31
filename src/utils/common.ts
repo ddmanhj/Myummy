@@ -50,7 +50,52 @@ export const languageState = () => {
   return language ?? 'vi';
 }
 
+export const exChangeRate = async() =>  {
+  const getKeyAPI = await fetch(
+    "https://vapi.vnappmob.com/api/request_api_key?scope=exchange_rate"
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    return data?.results
+  })
+  .catch((error) => {
+    console.error("Lỗi khi gọi API:", error);
+  });
+  if (isEmpty(getKeyAPI)) return 25370;
+  const getCurrentRate = await fetch(
+    "https://vapi.vnappmob.com/api/v2/exchange_rate/vcb",
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${getKeyAPI}`,
+      },
+    }
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    return data?.results
+  })
+  .catch((error) => {
+    console.error("Lỗi khi gọi API:", error);
+  });
+  if (isEmpty(getCurrentRate))
+    return 25370;
+  const getRate = getCurrentRate.find(
+    (item: any) => item.currency === "USD"
+  );
+  return getRate?.sell;
+}
+
 export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
+  const getExChangeRate = Cookies.get("exchange_rate");
   if (language == "vi") {
     return Intl.NumberFormat("vi-VN", {
       style: "currency",
@@ -61,7 +106,7 @@ export const readMoneyCurrency = (amount: number, language: string = "vi" ) => {
       style: "currency",
       currency: "USD",
       currencyDisplay: 'narrowSymbol'
-    }).format(amount / 25370)
+    }).format(amount / (Number(getExChangeRate) ?? 0))
   }
 }
 

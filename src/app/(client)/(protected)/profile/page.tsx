@@ -1,15 +1,33 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FilePond, registerPlugin } from "react-filepond";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import { personalDetailsFormSchema } from "@/utils";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginImageCrop from "filepond-plugin-image-crop";
-import { Breadcrumb, SelectFormInput, TextFormInput } from "@/components";
+import {
+  useGetDistrictList,
+  useGetProvinceList,
+  useGetWardList,
+} from "@/services/services";
+import {
+  Breadcrumb,
+  SelectFormInput,
+  TextAreaFormInput,
+  TextFormInput,
+} from "@/components";
 
 // styles
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import { personalDetailsFormSchema } from "@/utils";
+import {
+  AddressDistrictType,
+  AddressProvinceType,
+  AddressWardType,
+} from "@/types/other";
+import { useTranslation } from "react-i18next";
+import { isEmpty } from "lodash";
 
 // Register the plugins
 registerPlugin(
@@ -19,9 +37,33 @@ registerPlugin(
 );
 
 const ProfileCustomer = () => {
-  const { control, handleSubmit } = useForm({
+  const { t } = useTranslation();
+  const { control, handleSubmit, watch } = useForm({
     resolver: yupResolver(personalDetailsFormSchema),
   });
+
+  const mutationProvinceList = useGetProvinceList();
+  const mutationDistrictList = useGetDistrictList();
+  const mutationWardList = useGetWardList();
+  useEffect(() => {
+    mutationProvinceList.mutate();
+  }, []);
+
+  useEffect(() => {
+    if (!isEmpty(watch("province"))) {
+      const provinceId = (watch("province") as unknown as { value: string })
+        ?.value;
+      mutationDistrictList.mutate(provinceId);
+    }
+  }, [watch("province")]);
+
+  useEffect(() => {
+    if (!isEmpty(watch("district"))) {
+      const districtId = (watch("district") as unknown as { value: string })
+        ?.value;
+      mutationWardList.mutate(districtId);
+    }
+  }, [watch("district")]);
 
   return (
     <>
@@ -49,103 +91,93 @@ const ProfileCustomer = () => {
             <div className="xl:col-span-4">
               <form
                 onSubmit={handleSubmit(() => {})}
-                className="grid gap-6 lg:grid-cols-2"
+                className="grid gap-6 lg:grid-cols-4"
               >
-                <div className="col-span-2">
+                <div className="col-span-4">
                   <TextFormInput
                     name="customerName"
-                    label="Full Name"
+                    label={t("fullName")}
                     type="text"
                     placeholder="Enter Your First Name"
                     control={control}
-                    className="w-[49%]"
+                    className="w-[32%]"
                   />
                 </div>
-                <TextFormInput
-                  name="phone"
-                  label="Phone"
-                  type="text"
-                  placeholder="Enter Your User Phone"
-                  control={control}
-                  className="w-full"
-                />
-                <TextFormInput
-                  name="email"
-                  label="Email"
-                  type="email"
-                  placeholder="demoexample@mail.com"
-                  control={control}
-                  className="w-full"
-                />
-                <TextFormInput
-                  name="email"
-                  label="Phone Number"
-                  type="text"
-                  placeholder="+1-123-XXX-4567"
-                  control={control}
-                  fullWidth
-                />
+
+                <div className="col-span-2">
+                  <TextFormInput
+                    name="phone"
+                    label={t("phone")}
+                    type="text"
+                    placeholder="Enter Your User Phone"
+                    control={control}
+                    fullWidth
+                  />
+                </div>
+                <div className="col-span-2">
+                  <TextFormInput
+                    name="email"
+                    label={t("email")}
+                    type="email"
+                    placeholder="demoexample@mail.com"
+                    control={control}
+                    fullWidth
+                  />
+                </div>
+                <div className="col-span-4">
+                  <TextAreaFormInput
+                    name="address"
+                    label={t("address")}
+                    placeholder="Your Address Here..."
+                    control={control}
+                    fullWidth
+                  />
+                </div>
                 <SelectFormInput
-                  name="country"
-                  label="Country"
+                  name="province"
+                  label={t("province")}
                   control={control}
-                  id="billing-country2"
-                  instanceId="billing-country"
-                  options={[
-                    { value: "United States", label: "United States" },
-                    { value: "Canada", label: "Canada" },
-                    { value: "Australia", label: "Australia" },
-                    { value: "Germany", label: "Germany" },
-                    { value: "Bangladesh", label: "Bangladesh" },
-                    { value: "China", label: "China" },
-                    { value: "Argentina", label: "Argentina" },
-                    { value: "Bharat", label: "Bharat" },
-                    { value: "Afghanistan", label: "Afghanistan" },
-                    { value: "France", label: "France" },
-                    { value: "Brazil", label: "Brazil" },
-                    { value: "Belgium", label: "Belgium" },
-                    { value: "Colombia", label: "Colombia" },
-                    { value: "Albania", label: "Albania" },
-                  ]}
+                  id="billing-province"
+                  instanceId="billing-province"
+                  options={mutationProvinceList?.data?.map(
+                    (item: AddressProvinceType) => {
+                      return {
+                        value: item.province_id,
+                        label: item.province_name,
+                      };
+                    }
+                  )}
+                  fullWidth
                 />
 
                 <SelectFormInput
-                  name="state"
-                  label="State/Province"
+                  name="district"
+                  label={t("district")}
                   control={control}
-                  id="billing-state-province2"
-                  instanceId="billing-state-province"
-                  options={[
-                    { value: "Alabama", label: "Alabama" },
-                    { value: "Alaska", label: "Alaska" },
-                    { value: "Arizona", label: "Arizona" },
-                    { value: "Arkansas", label: "Arkansas" },
-                    { value: "California", label: "California" },
-                    { value: "Colorado", label: "Colorado" },
-                    { value: "Connecticut", label: "Connecticut" },
-                    { value: "Delaware", label: "Delaware" },
-                    { value: "Florida", label: "Florida" },
-                    { value: "Gujarat", label: "Gujarat" },
-                    { value: "Iowa", label: "Iowa" },
-                    { value: "Kansas", label: "Kansas" },
-                    { value: "Kentucky", label: "Kentucky" },
-                  ]}
+                  id="billing-district"
+                  instanceId="billing-district"
+                  options={mutationDistrictList?.data?.map(
+                    (item: AddressDistrictType) => {
+                      return {
+                        value: item.district_id,
+                        label: item.district_name,
+                      };
+                    }
+                  )}
                 />
                 <SelectFormInput
-                  name="zipCode"
-                  label="ZIP/Postal Code"
+                  name="ward"
+                  label={t("ward")}
                   control={control}
-                  id="billing-zip-code2"
-                  instanceId="billing-zip-code"
-                  options={[
-                    { value: 356123, label: "356123" },
-                    { value: 350115, label: "350115" },
-                    { value: 350125, label: "350125" },
-                    { value: 350135, label: "350135" },
-                    { value: 350145, label: "350145" },
-                  ]}
+                  id="billing-ward"
+                  instanceId="billing-ward"
+                  options={mutationWardList?.data?.map(
+                    (item: AddressWardType) => {
+                      return { value: item.ward_id, label: item.ward_name };
+                    }
+                  )}
                 />
-                <div>
+                <div className="col-span-4 place-self-center">
                   <button
                     type="submit"
                     className="flex items-center justify-center gap-2 rounded-lg border border-primary bg-primary px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-500"
