@@ -8,6 +8,8 @@
   "goToHome": "Về trang chủ",
   "goToOrders": "Đi đến đơn hàng",
   "removeFromCart": "Xóa khỏi giỏ hàng",
+  "resetFilter": "Xóa bộ lọc",
+  "orderNow": "Đặt hàng ngay",
   "/*END BUTTON*/": "",
 
   "/*MENU ITEMS*/": "",
@@ -19,6 +21,11 @@
   "home": "Trang chủ",
   "about us": "Về chúng tôi",
   "moreDetail": "Xem chi tiết",
+  "resultsFound": "Kết quả được tìm thấy",
+  "priceRange": "Khoảng giá",
+  "PopularDishes": "Món ăn phổ biến",
+  "availableAt": "Giá hiện tại",
+  "category": "Danh mục",
   "/*End MENU ITEMS*/": "",
 
   "/*NAV BAR + AUTH*/": "",

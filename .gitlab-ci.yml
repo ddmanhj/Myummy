@@ -16,11 +16,13 @@ test_changes:
   only:
     - staging
 
-merge_to_main:
-  stage: deploy
+merge_staging_to_main:
+  stage: merge
   script:
+    - git config --global user.email "ddmanhj@gmail.com"
+    - git config --global user.name "Manhj"
     - git checkout main
-    - git merge staging
+    - git merge --no-ff staging
     - git push origin main
   only:
     - staging

@@ -5,8 +5,10 @@ import PriceFilter from "./PriceFilter";
 import RatingFilter from "./RatingFilter";
 import PopularDishOfferCard from "./PopularDishOfferCard";
 import { ProductPaginationProps } from "@/types/other";
+import { useTranslation } from "react-i18next";
 
 const MegaProductFilter = ({ setCurrentPage }: ProductPaginationProps) => {
+  const { t } = useTranslation();
   return (
     <div
       className="hs-overlay fixed start-0 top-0 z-[45] hidden h-full w-full max-w-xs -translate-x-full transform bg-white transition-all hs-overlay-open:translate-x-0 dark:bg-default-50 lg:static lg:start-auto lg:z-auto lg:block lg:w-1/4 lg:max-w-full lg:translate-x-0"
@@ -36,7 +38,7 @@ const MegaProductFilter = ({ setCurrentPage }: ProductPaginationProps) => {
               id="hs-basic-collapse"
               type="button"
             >
-              Category
+              {t("category")}
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
             <div
@@ -56,7 +58,7 @@ const MegaProductFilter = ({ setCurrentPage }: ProductPaginationProps) => {
               id="hs-basic-collapse"
               type="button"
             >
-              Popular Dishes
+              {t("PopularDishes")}
               <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />
             </button>
             <div

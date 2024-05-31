@@ -8,6 +8,8 @@
   "goToHome": "Go to Home",
   "goToOrders": "Go to Orders",
   "removeFromCart": "Remove from Cart",
+  "resetFilter": "Reset filter",
+  "orderNow": "Order Now",
   "/*END BUTTON*/": "",
 
   "/*MENU ITEMS*/": "",
@@ -19,6 +21,11 @@
   "home": "Home",
   "about us": "About Us",
   "moreDetail": "More Detail",
+  "resultsFound": " Results Found",
+  "priceRange": "Price Range",
+  "PopularDishes": "Popular Dishes",
+  "availableAt": "Available at",
+  "category": "Danh mục",
   "/*End MENU ITEMS*/": "",
 
   "/*NAV BAR + AUTH*/": "",
