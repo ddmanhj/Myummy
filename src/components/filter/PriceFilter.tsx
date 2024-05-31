@@ -1,5 +1,6 @@
 import ReactSlider from "react-slider";
 import { LuChevronDown } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 import {
   priceRangeFilter,
   updatePriceRange,
@@ -8,6 +9,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 const PriceFilter = () => {
+  const { t } = useTranslation();
   const priceRange = useSelector(priceRangeFilter);
   const dispatch = useDispatch();
 
@@ -25,7 +27,7 @@ const PriceFilter = () => {
         type="button"
       >
         <p>
-          Price Range{" "}
+          {t("priceRange")}{" "}
           <span className="text-sm font-normal text-default-700">{`(${priceRange[0]} - ${priceRange[1]})`}</span>
         </p>
         <LuChevronDown className="transition-transform duration-300 hs-collapse-open:rotate-180" />

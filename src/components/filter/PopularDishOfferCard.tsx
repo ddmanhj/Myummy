@@ -1,8 +1,10 @@
 import { LuMoveRight } from "react-icons/lu";
 import { currentCurrency } from "@/common";
 import { filterOfferDishOtherImg, offerBgOtherImg } from "@/assets/data";
+import { useTranslation } from "react-i18next";
 
 const PopularDishOfferCard = () => {
+  const { t } = useTranslation();
   return (
     <div className="py-6">
       <div
@@ -23,13 +25,13 @@ const PopularDishOfferCard = () => {
             </p>
           </div>
           <div className="mb-6 flex w-full items-center justify-center gap-2 font-medium text-default-950">
-            Available at : {currentCurrency}59
+            {t("availableAt")} : {currentCurrency}59
           </div>
           <button
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-white transition-all hover:bg-primary-500"
             type="button"
           >
-            Order Now <LuMoveRight size={20} />
+            {t("orderNow")} <LuMoveRight size={20} />
           </button>
         </div>
       </div>
