@@ -28,6 +28,7 @@ export type FormInputProps<
   noValidate?: boolean;
   fullWidth?: boolean;
   phone?: Number;
+  defaultValue?: string;
 };
 
 type ExtendedFormInputProps = {
@@ -50,12 +51,13 @@ const TextFormInput = <
   fullWidth,
   startInnerIcon,
   endButtonIcon,
+  defaultValue,
   ...other
 }: FormInputProps<TFieldValues> & BaseInputProps & ExtendedFormInputProps) => {
   return (
     <Controller<TFieldValues, TName>
       control={control}
-      defaultValue={"" as PathValue<TFieldValues, TName>}
+      defaultValue={(defaultValue as any) ?? ""}
       render={({ field, fieldState }) => (
         <div
           className={cn(containerClassName, "relative", {

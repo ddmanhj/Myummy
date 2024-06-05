@@ -34,6 +34,12 @@ export type PostCommentReviewType = {
   }
 }
 
+export interface IntrinsicAttributes {
+  imageUrl: any;
+  setImageUrl: React.Dispatch<any>;
+}
+
+
 export type StarRatingProps = {
   maxRating?: number;
   defaultRating?: number;

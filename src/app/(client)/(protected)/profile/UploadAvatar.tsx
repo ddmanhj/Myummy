@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Upload, Avatar, message } from "antd";
-import { UserOutlined, UploadOutlined } from "@ant-design/icons";
-import ImgCrop from "antd-img-crop";
-import type { RcFile, UploadChangeParam } from "antd/es/upload";
+import { useState } from "react";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { message, Upload } from "antd";
+import type { UploadProps } from "antd";
+import type { RcFile } from "antd/es/upload/interface";
+import { IntrinsicAttributes } from "@/types/other";
 
 const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
@@ -11,47 +12,78 @@ const getBase64 = (img: RcFile, callback: (url: string) => void) => {
 };
 
 const beforeUpload = (file: RcFile) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  const isJpgOrPng =
+    file.type === "image/jpeg" ||
+    file.type === "image/png" ||
+    file.type === "image/jpeg";
   if (!isJpgOrPng) {
     message.error("You can only upload JPG/PNG file!");
+    return false;
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
     message.error("Image must smaller than 2MB!");
+    return false;
   }
-  return isJpgOrPng && isLt2M;
+  return true;
 };
 
-const UploadAvatar: React.FC = () => {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+const UploadAvatar = ({ imageUrl, setImageUrl }: IntrinsicAttributes) => {
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (info: UploadChangeParam) => {
-    if (info.file.status === "done") {
-      getBase64(info.file.originFileObj as RcFile, (url) => setImageUrl(url));
+  const handleChange: UploadProps["onChange"] = async (info) => {
+    if (info.file.status === "uploading") {
+      setLoading(true);
+      return;
+    }
+    if (
+      info.file.status === "done" ||
+      info.file.status === ("success" as string)
+    ) {
+      await getBase64(info.file.originFileObj as RcFile, async (url) => {
+        setLoading(false);
+        setImageUrl({ url, info: info.file });
+      });
     }
   };
 
+  const uploadButton = (
+    <button style={{ border: 0, background: "none" }} type="button">
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </button>
+  );
+
   return (
-    <ImgCrop rotationSlider>
+    <div className="upload_config">
       <Upload
         name="avatar"
-        listType="picture-card"
+        listType="picture-circle"
         className="avatar-uploader"
         showUploadList={false}
-        action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
         beforeUpload={beforeUpload}
+        customRequest={({ file, onSuccess }) => {
+          onSuccess?.("ok");
+          handleChange({ file, fileList: [file] } as any);
+        }}
         onChange={handleChange}
       >
-        {imageUrl ? (
-          <Avatar src={imageUrl} size={100} />
+        {imageUrl?.url ? (
+          <img
+            src={imageUrl?.url}
+            alt="avatar"
+            style={{
+              width: "100%",
+              height: "100%",
+              borderRadius: "50%",
+              objectFit: "cover",
+            }}
+          />
         ) : (
-          <Avatar size={100} icon={<UserOutlined />} />
+          uploadButton
         )}
-        <div>
-          <UploadOutlined /> Upload
-        </div>
       </Upload>
-    </ImgCrop>
+    </div>
   );
 };
 
