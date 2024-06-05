@@ -4,11 +4,12 @@ import { NavigateFunction } from "react-router-dom";
 import { getRequest, notify, postRequest } from "../utils/common";
 import { LoginType, RegisterType } from "@/types/user";
 import { getWishListAPI } from "@/redux/wishListSlice";
-import { getInfoCustomer } from "@/redux/customerSlice";
+import { getInfoCustomer, upDateCustomer } from "@/redux/customerSlice";
 import Cookies from "js-cookie";
 import { DataWishListRequest } from "@/types/food";
 import { PostCommentReviewType } from "@/types/other";
 import { isEmpty } from "lodash";
+import { AxiosRequestConfig } from "axios";
 
 // Menu
 export const useMenu = () => {
@@ -306,6 +307,36 @@ export const useGetOrderDetail = (id: number) => {
   });
 }
 // END Orders
+const configApiUpload: AxiosRequestConfig = {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+    // Các headers khác bạn muốn thêm
+  },
+};
+
+export const useEditProfile = (dispatch: any) => {
+  return useMutation({
+    mutationKey: ['editProfile'],
+    retry: 1,
+    onSuccess: (data) => {
+      dispatch(upDateCustomer(data.data));
+      notify("update success", "success");
+    },
+    onError: (err: any) => {
+      notify(err, 'error');
+    },
+    mutationFn: (data: any) =>
+      postRequest(
+        `/edit_profile`,
+        data,
+        configApiUpload
+      )
+  });
+}
+// Profile
+
+
+// END profile
 
 // CALL API TỈNh THÀNH VIỆT NAM
 export const useGetProvinceList = () => {

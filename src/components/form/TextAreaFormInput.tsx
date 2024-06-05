@@ -22,12 +22,13 @@ const TextAreaFormInput = <
   noValidate,
   fullWidth,
   rows,
+  defaultValue,
   ...other
 }: FormInputProps<TFieldValues> & BaseInputProps) => {
   return (
     <Controller<TFieldValues, TName>
       control={control}
-      defaultValue={"" as PathValue<TFieldValues, TName>}
+      defaultValue={(defaultValue as any) ?? ""}
       render={({ field, fieldState }) => (
         <div
           className={cn(containerClassName, "relative", fullWidth && "w-full")}
@@ -36,7 +37,7 @@ const TextAreaFormInput = <
             <label
               className={cn(
                 "mb-2 block text-sm font-medium text-default-900",
-                labelClassName,
+                labelClassName
               )}
               htmlFor={name}
             >
@@ -55,7 +56,7 @@ const TextAreaFormInput = <
                 {
                   "border-red-500 focus:border-red-500":
                     !noValidate && fieldState.error?.message,
-                },
+                }
               )}
             />
             {!noValidate && fieldState.error?.message && (
