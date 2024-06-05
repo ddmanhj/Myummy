@@ -12,8 +12,6 @@ i18n
       vi: {translation: vi},
       en: {translation: en}
     },
-    lng: 'en', // ngôn ngữ mặc định
-    fallbackLng: 'vi', // ngôn ngữ dự phòng
     interpolation: {
       escapeValue: false
     }

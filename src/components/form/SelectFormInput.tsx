@@ -16,6 +16,7 @@ const SelectFormInput = <
   labelClassName,
   containerClassName,
   noValidate,
+  defaultValue,
   fullWidth,
   ...other
 }: FormInputProps<TFieldValues> & Props) => {
@@ -23,6 +24,7 @@ const SelectFormInput = <
     <Controller<TFieldValues, TName>
       control={control}
       name={name as TName}
+      defaultValue={(defaultValue as any) ?? ""}
       render={({ field, fieldState }) => (
         <div className={containerClassName}>
           {label && (
@@ -30,7 +32,7 @@ const SelectFormInput = <
               htmlFor={id ?? name}
               className={cn(
                 "mb-2 block text-sm font-medium text-default-900",
-                labelClassName,
+                labelClassName
               )}
             >
               {label}
@@ -50,7 +52,7 @@ const SelectFormInput = <
                 {
                   "border-red-500 focus:border-red-500":
                     !noValidate && fieldState.error?.message,
-                },
+                }
               )}
             />
             {!noValidate && fieldState.error?.message && (

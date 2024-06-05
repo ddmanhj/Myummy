@@ -10,6 +10,9 @@
   "removeFromCart": "Remove from Cart",
   "resetFilter": "Reset filter",
   "orderNow": "Order Now",
+  "updateProfile": "Update Profile",
+  "cancel": "Cancel",
+  "save": "Save",
   "/*END BUTTON*/": "",
 
   "/*MENU ITEMS*/": "",
@@ -114,5 +117,9 @@
   "processingPayment": "Waiting for payment...",
   "isSuccessOrder": "Payment success!",
   "isFailOrder": "Payment fail!",
-  "/*END ORDER*/": ""
+  "/*END ORDER*/": "",
+
+  "/*CUSOMTER*/": "",
+  "personalDetails": "Personal Details",
+  "/END *CUSOMTER*/": ""
 }

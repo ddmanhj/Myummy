@@ -10,6 +10,9 @@
   "removeFromCart": "Xóa khỏi giỏ hàng",
   "resetFilter": "Xóa bộ lọc",
   "orderNow": "Đặt hàng ngay",
+  "updateProfile": "Cập nhật thông tin cá nhân",
+  "cancel": "Hủy",
+  "save": "Lưu",
   "/*END BUTTON*/": "",
 
   "/*MENU ITEMS*/": "",
@@ -116,5 +119,9 @@
   "processingPayment": "Đang xử lý thanh toán...",
   "isSuccessOrder": "Thanh toán thành công!",
   "isFailOrder": "Thanh toán thất bại!",
-  "/*END ORDER*/": ""
+  "/*END ORDER*/": "",
+
+  "/*CUSOMTER*/": "",
+  "personalDetails": "Thông tin cá nhân",
+  "/END *CUSOMTER*/": ""
 }

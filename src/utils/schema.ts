@@ -44,11 +44,14 @@ export const registerFormSchema = yup.object({
   });
 
 export const personalDetailsFormSchema = yup.object({
-    customerName: yup.string().required("Please enter your first name"),
-    address: yup.string().required("Please enter your last Name"),
-    district: yup.string().required("Please select your State/Province"),
-    province: yup.string().required("Please select your Country"),
-    ward: yup.string().required("Please enter your user Name"),
+    customerName: yup.string().required("Please enter your name"),
+    address: yup.string().required("Please enter your address"),
+    // district: yup.string().required("Please select your State/Province"),
+    // province: yup.string()..required("Please select your Country"),
+    // ward: yup.string().required("Please enter your user Name"),
+    district: yup.string().optional(),
+    province: yup.string().optional(),
+    ward: yup.string().optional(),
     email: yup
       .string()
       .email("Please enter a valid email")
