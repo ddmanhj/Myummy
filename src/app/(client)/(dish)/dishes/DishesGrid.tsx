@@ -56,6 +56,16 @@ const DishesGrid = ({
     if (currentPage.page !== 1) {
       callApiGetListFood();
     }
+    if (
+      currentPage.page == 1 &&
+      isEmpty(search) &&
+      isEmpty(categories) &&
+      priceRange[0] == 0 &&
+      priceRange[1] == 85000 &&
+      isEmpty(rating)
+    ) {
+      CallApiGetListFoodWait();
+    }
   }, [currentPage]);
 
   useEffect(() => {
