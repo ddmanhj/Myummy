@@ -54,15 +54,20 @@ const EditProfile = ({
   }, []);
 
   useEffect(() => {
-    if (!isEmpty(watch("province"))) {
-      const provinceId = (watch("province") as unknown as { value: string })
-        ?.value;
+    if (
+      !isEmpty(watch("province")) &&
+      (watch("province") as { value: string } | undefined)?.value !== "province"
+    ) {
+      const provinceId = (watch("province") as { value: string })?.value;
       mutationDistrictList.mutate(provinceId);
     }
   }, [watch("province")]);
 
   useEffect(() => {
-    if (!isEmpty(watch("district"))) {
+    if (
+      !isEmpty(watch("district")) &&
+      (watch("district") as { value: string } | undefined)?.value !== "district"
+    ) {
       const districtId = (watch("district") as unknown as { value: string })
         ?.value;
       mutationWardList.mutate(districtId);
@@ -76,11 +81,13 @@ const EditProfile = ({
     formData.append("customerName", customerData?.customerName);
     formData.append("phone", values.phone);
     formData.append("address", values.address);
-    formData.append("province", values.province);
-    formData.append("district", values.district);
-    formData.append("ward", values.ward);
+    formData.append("province", values.province?.label);
+    formData.append("district", values.district?.label);
+    formData.append("ward", values.ward?.label);
     formData.append("defaultUrlImage", customerData?.urlImageAvatar);
     mutationEditProfile.mutate(formData);
+
+    setIsChangeProfile(false);
   };
 
   return (
@@ -147,7 +154,10 @@ const EditProfile = ({
                   />
                 </div>
                 <SelectFormInput
-                  defaultValue={customerData?.province}
+                  defaultValue={{
+                    value: "province",
+                    label: customerData?.province,
+                  }}
                   name="province"
                   label={t("province")}
                   control={control}
@@ -157,7 +167,7 @@ const EditProfile = ({
                     (item: AddressProvinceType) => {
                       return {
                         value: item.province_id,
-                        label: customerData?.province ?? item.province_name,
+                        label: item.province_name,
                       };
                     }
                   )}
@@ -165,7 +175,10 @@ const EditProfile = ({
                 />
 
                 <SelectFormInput
-                  defaultValue={customerData?.district}
+                  defaultValue={{
+                    value: "district",
+                    label: customerData?.district,
+                  }}
                   name="district"
                   label={t("district")}
                   control={control}
@@ -181,7 +194,7 @@ const EditProfile = ({
                   )}
                 />
                 <SelectFormInput
-                  defaultValue={customerData?.ward}
+                  defaultValue={{ value: "ward", label: customerData?.ward }}
                   name="ward"
                   label={t("ward")}
                   control={control}

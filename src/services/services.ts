@@ -347,9 +347,15 @@ export const useGetProvinceList = () => {
     },
     onError: (err: any) => {
       notify(err, 'error');
-    },
-    mutationFn: async() =>
-      await fetch("https://vapi.vnappmob.com/api/province")
+        },
+        mutationFn: async() =>
+      await fetch("https://vapi.vnappmob.com/api/province", {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET',
+        },
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -375,7 +381,13 @@ export const useGetDistrictList = () => {
       notify(err, 'error');
     },
     mutationFn: async(province_id: string) =>
-      await fetch(`https://vapi.vnappmob.com/api/province/district/${province_id}`)
+      await fetch(`https://vapi.vnappmob.com/api/province/district/${province_id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET',
+        },
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -401,7 +413,13 @@ export const useGetWardList = () => {
       notify(err, 'error');
     },
     mutationFn: async(district_id: string) =>
-      await fetch(`https://vapi.vnappmob.com/api/province/ward/${district_id}`)
+      await fetch(`https://vapi.vnappmob.com/api/province/ward/${district_id}`,{
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET',
+        },
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
