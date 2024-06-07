@@ -46,12 +46,9 @@ export const registerFormSchema = yup.object({
 export const personalDetailsFormSchema = yup.object({
     customerName: yup.string().required("Please enter your name"),
     address: yup.string().required("Please enter your address"),
-    // district: yup.string().required("Please select your State/Province"),
-    // province: yup.string()..required("Please select your Country"),
-    // ward: yup.string().required("Please enter your user Name"),
-    district: yup.string().optional(),
-    province: yup.string().optional(),
-    ward: yup.string().optional(),
+    district: yup.object().nullable().required("Please select your district"),
+    ward: yup.object().nullable().required("Please select your State/Province"),
+    province: yup.object().nullable().required("Please select your Province"),
     email: yup
       .string()
       .email("Please enter a valid email")

@@ -28,7 +28,7 @@ export type FormInputProps<
   noValidate?: boolean;
   fullWidth?: boolean;
   phone?: Number;
-  defaultValue?: string;
+  defaultValue?: { value: string; label: string } | string | number;
 };
 
 type ExtendedFormInputProps = {
