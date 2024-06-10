@@ -348,12 +348,18 @@ export const useGetProvinceList = () => {
     },
     onError: (error, variables, context: any) => {
       console.error('Error:', error);
+      console.log(dataProvince)
       context.setData({ default: dataProvince });
     },
     mutationFn: async() =>
       await fetch("https://vapi.vnappmob.com/api/province", {
               method: 'GET',
-              redirect: 'follow'
+              redirect: 'follow',
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+              },
             })
             .then((response) => {
               if (!response.ok) {
@@ -366,6 +372,7 @@ export const useGetProvinceList = () => {
             })
             .catch((error) => {
               console.error("Lỗi khi gọi API:", error);
+              return dataProvince?.results;
             })
   });
 }

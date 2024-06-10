@@ -33,7 +33,7 @@ const EditProfile = ({
   setIsChangeProfile: React.Dispatch<boolean>;
 }) => {
   const { t } = useTranslation();
-  const { control, handleSubmit, watch } = useForm({
+  const { control, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(personalDetailsFormSchema),
   });
   const customerData = useSelector(customerState);
@@ -60,6 +60,15 @@ const EditProfile = ({
     ) {
       const provinceId = (watch("province") as { value: string })?.value;
       mutationDistrictList.mutate(provinceId);
+    }
+  }, [watch("province")]);
+
+  useEffect(() => {
+    if (
+      (watch("province") as { value: string } | undefined)?.value !== "province"
+    ) {
+      setValue("district", { value: "93124", label: "" });
+      setValue("ward", { value: "12349", label: "" });
     }
   }, [watch("province")]);
 
