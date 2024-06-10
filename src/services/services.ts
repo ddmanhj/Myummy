@@ -347,27 +347,24 @@ export const useGetProvinceList = () => {
     },
     onError: (err: any) => {
       notify(err, 'error');
-        },
-        mutationFn: async() =>
+    },
+    mutationFn: async() =>
       await fetch("https://vapi.vnappmob.com/api/province", {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET',
-        },
-      })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        return data?.results
-      })
-      .catch((error) => {
-        console.error("Lỗi khi gọi API:", error);
-      })
+              method: 'GET',
+              redirect: 'follow'
+            })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              return data?.results
+            })
+            .catch((error) => {
+              console.error("Lỗi khi gọi API:", error);
+            })
   });
 }
 
