@@ -6,12 +6,9 @@ import { store, persistor } from "@/redux/store";
 import { Toaster } from "sonner";
 import { AppProvidersWrapper, BackToTop } from "./components";
 import AllRoutes from "./routes/Routes";
-import { configureFakeBackend } from "@/common";
 
 // styles
 import "@/assets/css/style.css";
-
-configureFakeBackend();
 
 // Create a client
 const queryClient = new QueryClient();

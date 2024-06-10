@@ -137,7 +137,7 @@ import wrapsBanner3Img from "../images/home/banner/wraps-3.png";
 import wrapsBanner4Img from "../images/home/banner/wraps-4.png";
 
 // home
-import aboutUsHomeImg from "../images/home/about-us.png";
+import aboutUsHomeImg from "../images/home/about-us.webp";
 import arrowHomeImg from "../images/home/arrow.png";
 import circleLineHomeImg from "../images/home/circle-line.png";
 import heroHomeImg from "../images/home/hero.png";

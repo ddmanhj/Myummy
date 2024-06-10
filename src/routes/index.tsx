@@ -10,8 +10,6 @@ const NotFound = lazy(() => import("../app/not-found"));
 const NotFoundAlt = lazy(
   () => import("../app/admin/extra-pages/not-found-alt/page")
 );
-const Maintenance = lazy(() => import("../app/(plain)/maintenance/page"));
-const ComingSoon = lazy(() => import("../app/(plain)/coming-soon/page"));
 
 // auth pages
 const Login = lazy(() => import("../app/auth/login/page"));
@@ -549,16 +547,6 @@ const otherRoutes: RoutesProps[] = [
     path: "/not-found",
     name: "Page Not Found",
     element: <NotFound />,
-  },
-  {
-    path: "/maintenance",
-    name: "Maintenance",
-    element: <Maintenance />,
-  },
-  {
-    path: "/coming-soon",
-    name: "Coming Soon",
-    element: <ComingSoon />,
   },
   {
     path: "*",

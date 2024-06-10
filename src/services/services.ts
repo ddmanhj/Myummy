@@ -349,19 +349,22 @@ export const useGetProvinceList = () => {
       notify(err, 'error');
     },
     mutationFn: async() =>
-      await fetch("https://vapi.vnappmob.com/api/province")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        return data?.results
-      })
-      .catch((error) => {
-        console.error("Lỗi khi gọi API:", error);
-      })
+      await fetch("https://vapi.vnappmob.com/api/province", {
+              method: 'GET',
+              redirect: 'follow'
+            })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              return data?.results
+            })
+            .catch((error) => {
+              console.error("Lỗi khi gọi API:", error);
+            })
   });
 }
 
@@ -375,7 +378,13 @@ export const useGetDistrictList = () => {
       notify(err, 'error');
     },
     mutationFn: async(province_id: string) =>
-      await fetch(`https://vapi.vnappmob.com/api/province/district/${province_id}`)
+      await fetch(`https://vapi.vnappmob.com/api/province/district/${province_id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET',
+        },
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -401,7 +410,13 @@ export const useGetWardList = () => {
       notify(err, 'error');
     },
     mutationFn: async(district_id: string) =>
-      await fetch(`https://vapi.vnappmob.com/api/province/ward/${district_id}`)
+      await fetch(`https://vapi.vnappmob.com/api/province/ward/${district_id}`,{
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET',
+        },
+      })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
