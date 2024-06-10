@@ -10,6 +10,7 @@ import { DataWishListRequest } from "@/types/food";
 import { PostCommentReviewType } from "@/types/other";
 import { isEmpty } from "lodash";
 import { AxiosRequestConfig } from "axios";
+import dataProvince from "@/assets/data";
 
 // Menu
 export const useMenu = () => {
@@ -345,8 +346,9 @@ export const useGetProvinceList = () => {
     onSuccess: (data) => {
       return data;
     },
-    onError: (err: any) => {
-      notify(err, 'error');
+    onError: (error, variables, context: any) => {
+      console.error('Error:', error);
+      context.setData({ default: dataProvince });
     },
     mutationFn: async() =>
       await fetch("https://vapi.vnappmob.com/api/province", {
