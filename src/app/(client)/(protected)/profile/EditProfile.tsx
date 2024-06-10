@@ -67,8 +67,8 @@ const EditProfile = ({
     if (
       (watch("province") as { value: string } | undefined)?.value !== "province"
     ) {
-      setValue("district", { value: "93124", label: "" });
-      setValue("ward", { value: "12349", label: "" });
+      setValue("district", { value: "district", label: "" });
+      setValue("ward", { value: "ward", label: "" });
     }
   }, [watch("province")]);
 
